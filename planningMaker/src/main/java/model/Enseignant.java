@@ -2,7 +2,7 @@ package model;
 
 import java.sql.Date;
 
-public class Etudiant {
+public class Enseignant {
 	
 	private String nom;
 	private String prenom;
@@ -10,12 +10,10 @@ public class Etudiant {
 	private String mdp;
 	private Date dateNaissance;
 	private String specialite;
-	private String promotion;
-	private Float moy;
-	private Float taux;
+	private String grade;
 	
-	public Etudiant(String nom, String prenom, String email, String mdp, Date dateNaissance, String specialite,
-			String promotion, Float moy, Float taux) {
+	public Enseignant(String nom, String prenom, String email, String mdp, Date dateNaissance, String specialite,
+			String grade) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -23,9 +21,7 @@ public class Etudiant {
 		this.mdp = mdp;
 		this.dateNaissance = dateNaissance;
 		this.specialite = specialite;
-		this.promotion = promotion;
-		this.moy = moy;
-		this.taux = taux;
+		this.grade = grade;
 	}
 	public String getNom() {
 		return nom;
@@ -63,23 +59,11 @@ public class Etudiant {
 	public void setSpecialite(String specialite) {
 		this.specialite = specialite;
 	}
-	public String getPromotion() {
-		return promotion;
+	public String getGrade() {
+		return grade;
 	}
-	public void setPromotion(String promotion) {
-		this.promotion = promotion;
-	}
-	public Float getMoy() {
-		return moy;
-	}
-	public void setMoy(Float moy) {
-		this.moy = moy;
-	}
-	public Float getTaux() {
-		return taux;
-	}
-	public void setTaux(Float taux) {
-		this.taux = taux;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 
 }
