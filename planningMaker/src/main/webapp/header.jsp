@@ -181,7 +181,17 @@
                                         </li>
 
                                     </ul>
-                                    <ul class="pcoded-submenu">
+                                    
+                                </li>
+                            
+
+                                <li class="pcoded-hasmenu active pcoded-trigger">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Ajouter</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                   <ul class="pcoded-submenu">
                                         <li class="">
                                             <a href="ajouter_etudiant.jsp">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -191,9 +201,17 @@
                                         </li>
 
                                     </ul>
-                                </li>
-                            </ul>
+                                    <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="ajouter_enseignant.jsp">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.form-validation">Ajouter enseignant</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
 
-                                
+                                    </ul>
+                                  </li>
+                                  </ul>
                         </div>
                     </nav>
