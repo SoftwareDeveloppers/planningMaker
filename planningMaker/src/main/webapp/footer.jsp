@@ -1,9 +1,10 @@
 <!-- Warning Section Starts -->
-    <!-- Older IE warning message -->
-    <!--[if lt IE 10]>
+<!-- Older IE warning message -->
+<!--[if lt IE 10]>
 <div class="ie-warning">
     <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers
+        to access this website.</p>
     <div class="iew-container">
         <ul class="iew-download">
             <li>
@@ -41,34 +42,42 @@
     <p>Sorry for the inconvenience!</p>
 </div>
 <![endif]-->
-    <!-- Warning Section Ends -->
-    <!-- Required Jquery -->
-    <script type="text/javascript" src="bower_components/jquery/js/jquery.min.js"></script>
-    <script type="text/javascript" src="bower_components/jquery-ui/js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="bower_components/popper.js/js/popper.min.js"></script>
-    <script type="text/javascript" src="bower_components/bootstrap/js/bootstrap.min.js"></script>
-    <!-- jquery slimscroll js -->
-    <script type="text/javascript" src="bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
-    <!-- modernizr js -->
-    <script type="text/javascript" src="bower_components/modernizr/js/modernizr.js"></script>
-    <script type="text/javascript" src="bower_components/modernizr/js/css-scrollbars.js"></script>
+<!-- Warning Section Ends -->
+<!-- Required Jquery -->
+<script type="text/javascript" src="bower_components/jquery/js/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/jquery-ui/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="bower_components/popper.js/js/popper.min.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="bower_components/modernizr/js/modernizr.js"></script>
+<script type="text/javascript" src="bower_components/modernizr/js/css-scrollbars.js"></script>
 
-    <!-- Validation js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-    <script type="text/javascript" src="assets/pages/form-validation/validate.js"></script>
-    <!-- i18next.min.js -->
-    <script type="text/javascript" src="bower_components/i18next/js/i18next.min.js"></script>
-    <script type="text/javascript" src="bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
-    <script type="text/javascript" src="bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
-    <script type="text/javascript" src="bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
-    <!-- Custom js -->
-    <script type="text/javascript" src="assets/pages/form-validation/form-validation.js"></script>
+<!-- data-table js -->
+<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="assets/pages/data-table/js/jszip.min.js"></script>
+<script src="assets/pages/data-table/js/pdfmake.min.js"></script>
+<script src="assets/pages/data-table/js/vfs_fonts.js"></script>
+<script src="bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+<!-- i18next.min.js -->
+<script type="text/javascript" src="bower_components/i18next/js/i18next.min.js"></script>
+<script type="text/javascript" src="bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
+<script type="text/javascript"
+        src="bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
+<script type="text/javascript" src="bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
+<!-- Custom js -->
+<script src="assets/pages/data-table/js/data-table-custom.js"></script>
 
-    <script src="assets/js/pcoded.min.js"></script>
-    <script src="assets/js/demo-12.js"></script>
-    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
+<script src="assets/js/demo-12.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 
 </html>

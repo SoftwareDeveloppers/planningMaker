@@ -1,3 +1,5 @@
+ 		<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
  		<jsp:include page="header.jsp"></jsp:include>
                     <div class="pcoded-content">
                         <div class="pcoded-inner-content">
@@ -67,7 +69,7 @@
                															   <th>Lieu</th>
                															   <th>Encadrant</th>
                															   <th>Jurys</th>
-                 														   <th>Président</th>
+                 														   <th>PrÃ©sident</th>
                															   <th>Date</th>
                															   <th>Salle</th>
             															 </tr>

@@ -6,15 +6,16 @@
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="description" content="#">
-    <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="keywords"
+          content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -27,9 +28,16 @@
     <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
     <!-- flag icon framework css -->
     <link rel="stylesheet" type="text/css" href="assets/pages/flag-icon/flag-icon.min.css">
+    <!-- Menu-Search css -->
+    <link rel="stylesheet" type="text/css" href="assets/pages/menu-search/css/component.css">
+    <!-- Data Table Css -->
+    <link rel="stylesheet" type="text/css"
+          href="bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/pages/data-table/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
 </head>
 
@@ -181,9 +189,37 @@
                                         </li>
 
                                     </ul>
+                                    
                                 </li>
-                            </ul>
+                            
 
-                                
+                                <li class="pcoded-hasmenu active pcoded-trigger">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Ajouter</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                   <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="ajouter_etudiant.jsp">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.form-validation">Ajouter etudiant</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                    <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="ajouter_enseignant.jsp">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.form-validation">Ajouter enseignant</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                  </li>
+                                  </ul>
                         </div>
                     </nav>
