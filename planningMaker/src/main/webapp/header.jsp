@@ -163,6 +163,14 @@
                            
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms</div>
                             <ul class="pcoded-item pcoded-left-item">
+                            	<li class="">
+                                    <a href="proposer_sujet.jsp">
+                                        <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>N</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.navigate.main">Proposer sujet</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                            
                                 <li class="pcoded-hasmenu active pcoded-trigger">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>

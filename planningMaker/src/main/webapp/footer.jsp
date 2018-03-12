@@ -78,6 +78,15 @@
 <script src="assets/js/demo-12.js"></script>
 <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>
+
+<!-- Autosize js -->
+    <script type="text/javascript" src="bower_components/autosize/js/autosize.min.js"></script>
+    <!-- store js -->
+    <script type="text/javascript" src="assets/pages/store-js/store.min.js"></script>
+    <script type="text/javascript" src="bower_components/moment/js/moment.js"></script>
+    <script type="text/javascript" src="assets/pages/store-js/note.js"></script>
+
+
 </body>
 
 </html>
