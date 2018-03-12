@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class Etudiant {
 	
+	private int id ;
 	private String nom;
 	private String prenom;
 	private String email;
@@ -14,9 +15,11 @@ public class Etudiant {
 	private Float moy;
 	private Float taux;
 	
-	public Etudiant(String nom, String prenom, String email, String mdp, Date dateNaissance, String specialite,
-			String promotion, Float moy, Float taux) {
+
+	public Etudiant(int id, String nom, String prenom, String email, String mdp, Date dateNaissance,
+			String specialite, String promotion, Float moy, Float taux) {
 		super();
+		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
@@ -26,6 +29,13 @@ public class Etudiant {
 		this.promotion = promotion;
 		this.moy = moy;
 		this.taux = taux;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getNom() {
 		return nom;

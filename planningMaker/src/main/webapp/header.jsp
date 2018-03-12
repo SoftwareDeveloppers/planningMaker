@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <head>
     <title>GURU Able - Premium Admin Template </title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->

@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class Enseignant {
 	
+	private int id ;
 	private String nom;
 	private String prenom;
 	private String email;
@@ -12,9 +13,12 @@ public class Enseignant {
 	private String specialite;
 	private String grade;
 	
-	public Enseignant(String nom, String prenom, String email, String mdp, Date dateNaissance, String specialite,
-			String grade) {
+	
+	
+	public Enseignant(int id, String nom, String prenom, String email, String mdp, Date dateNaissance,
+			String specialite, String grade) {
 		super();
+		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
@@ -22,6 +26,13 @@ public class Enseignant {
 		this.dateNaissance = dateNaissance;
 		this.specialite = specialite;
 		this.grade = grade;
+	}
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getNom() {
 		return nom;
