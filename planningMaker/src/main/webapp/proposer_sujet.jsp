@@ -1,3 +1,5 @@
+		<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 	<jsp:include page="header.jsp"></jsp:include>
                     <div class="pcoded-content">
                         <div class="pcoded-inner-content">
@@ -58,10 +60,10 @@
                                                     
                                                     <form>
                                                         <div class="form-group">
-                                                            <label for="exampleInputEmail1">Specialité*:</label>
+                                                            <label for="exampleInputEmail1">SpecialitÃ©*:</label>
                                                             
                                                                 <select name="select" class="form-control" required>
-                                                                    <option value="opt1">Selectioner spécialitée</option>
+                                                                    <option value="opt1">Selectioner spÃ©cialitÃ©e</option>
                                                                     <option value="opt2">GL</option>
                                                                     <option value="opt3">RSD</option>
                                                                     <option value="opt4">SIC</option>

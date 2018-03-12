@@ -1,5 +1,3 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 	<jsp:include page="header.jsp"></jsp:include>
 	 <div class="pcoded-content">
                         <div class="pcoded-inner-content">
@@ -14,7 +12,7 @@
                                                 <div class="page-header-title">
                                                     <i class="icofont icofont-file-code bg-c-blue"></i>
                                                     <div class="d-inline">
-                                                        <h4>Ajouter enseignantt</h4>
+                                                        <h4>Ajouter Agent Administratif</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -28,7 +26,7 @@
                                                         </li>
                                                         <li class="breadcrumb-item"><a href="#!">Ajouter</a>
                                                         </li>
-                                                        <li class="breadcrumb-item"><a href="#!">Ajouter enseignant</a>
+                                                        <li class="breadcrumb-item"><a href="#!">Ajouter Agent Administratif</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -93,25 +91,12 @@
                         </select>
                     </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">spécialité</label>
-                        <div class="controls">
-                         <select name="specialite" class="form-control">
-                            <option>GL</option>
-                            <option>Rsd</option>
-                            <option>Sic</option>
-                            <option>Mid</option>
-                         </select>
-                    </div>                   
-                     </div>
+                    
                     <div class="form-group">
                         <label for="exampleInputPassword1">telephone</label>
                         <input type="text" name="telephone" class="form-control"  pattern="[0][6|7|5][0-9]{8}" placeholder="telephone">
                     </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Grade</label>
-                        <input type="text" name="email" class="form-control"  placeholder="grade">
-                    </div>
+                      
                      <div class="form-group">
                         <label for="exampleInputPassword1">Email</label>
                         <input type="text" name="email" class="form-control"  placeholder="ex : nom@gmail.com">

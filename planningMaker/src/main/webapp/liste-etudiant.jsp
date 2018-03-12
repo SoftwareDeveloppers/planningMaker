@@ -1,3 +1,5 @@
+  <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
   <jsp:include page="header.jsp"></jsp:include>
 <div class="pcoded-content">
                     <div class="pcoded-inner-content">
@@ -54,10 +56,10 @@
                                                             <tr>
                                                                 <th>Nom et prenom</th>
                                                                 <th>specialité</th>
-                                                                <th>Office</th>
-                                                                <th>Age</th>
-                                                                <th>Start date</th>
-                                                                <th>Salary</th>
+                                                                <th>promotion</th>
+                                                                <th>moyenne</th>
+                                                                <th>date de naissance</th>
+                                                                <th>taux</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
@@ -222,16 +224,6 @@
                                                                     <td>$217,500</td>
                                                                 </tr>
                                                             </tbody>
-                                                            <tfoot>
-                                                            <tr>
-                                                                <th>Name</th>
-                                                                <th>Position</th>
-                                                                <th>Office</th>
-                                                                <th>Age</th>
-                                                                <th>Start date</th>
-                                                                <th>Salary</th>
-                                                            </tr>
-                                                            </tfoot>
                                                         </table>
                                                     </div>
                                                 </div>
