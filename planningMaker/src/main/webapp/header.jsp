@@ -216,7 +216,6 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-
                                     </ul>
                                     <ul class="pcoded-submenu">
                                         <li class="">
@@ -226,7 +225,15 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-
+                                    </ul>
+                                    <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="ajouter_agentAdmin.jsp">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.form-validation">Ajouter agent admin</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
                                     </ul>
                                   </li>
                                   </ul>

@@ -24,7 +24,7 @@
                                                                 <i class="icofont icofont-home"></i>
                                                             </a>
                                                         </li>
-                                                        <li class="breadcrumb-item"><a href="#!">Consultez</a>
+                                                        <li class="breadcrumb-item"><a href="#!">Ajouter</a>
                                                         </li>
                                                         <li class="breadcrumb-item"><a href="#!">Ajouter enseignant</a>
                                                         </li>
@@ -85,7 +85,7 @@
                        <div class="form-group">
                         <label for="exampleInputEmail1">sexe</label>
                         <div class="controls">
-                         <select name="sexe">
+                         <select name="sexe" class="form-control">
                             <option>homme</option>
                             <option>femme</option>
                         </select>
@@ -94,7 +94,7 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">spécialité</label>
                         <div class="controls">
-                         <select name="specialite">
+                         <select name="specialite" class="form-control">
                             <option>GL</option>
                             <option>Rsd</option>
                             <option>Sic</option>
