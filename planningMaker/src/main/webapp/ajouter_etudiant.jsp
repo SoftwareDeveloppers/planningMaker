@@ -1,3 +1,5 @@
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 	<jsp:include page="header.jsp"></jsp:include>
 	 <div class="pcoded-content">
                         <div class="pcoded-inner-content">
@@ -12,7 +14,7 @@
                                                 <div class="page-header-title">
                                                     <i class="icofont icofont-file-code bg-c-blue"></i>
                                                     <div class="d-inline">
-                                                        <h4>Ajouter étudiant</h4>
+                                                        <h4>Ajouter Ã©tudiant</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -26,7 +28,7 @@
                                                         </li>
                                                         <li class="breadcrumb-item"><a href="#!">Consultez</a>
                                                         </li>
-                                                        <li class="breadcrumb-item"><a href="#!">Ajouter étudiant</a>
+                                                        <li class="breadcrumb-item"><a href="#!">Ajouter Ã©tudiant</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -85,16 +87,16 @@
                        <div class="form-group">
                         <label for="exampleInputEmail1">sexe</label>
                         <div class="controls">
-                         <select name="sexe">
+                         <select name="sexe" class="form-control">
                             <option>homme</option>
                             <option>femme</option>
                         </select>
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">spécialité</label>
+                        <label for="exampleInputPassword1">spï¿½cialitï¿½</label>
                         <div class="controls">
-                         <select name="specialite">
+                         <select name="specialite" class="form-control">
                             <option>GL</option>
                             <option>Rsd</option>
                             <option>Sic</option>
