@@ -60,10 +60,10 @@
                                                     <h4 class="sub-title">Basic Inputs</h4>
                                                     <form>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">SpecialitÃ©e: </label>
+                                                            <label class="col-sm-2 col-form-label">Specialitée: </label>
                                                             <div class="col-sm-10">
                                                                 <select name="select" class="form-control">
-                                                                    <option value="opt1">selectioner spÃ©cialitÃ©e</option>
+                                                                    <option value="opt1">selectioner spécialitée</option>
                                                                     <option value="opt2">Type 2</option>
                                                                     <option value="opt3">Type 3</option>
                                                                     <option value="opt4">Type 4</option>

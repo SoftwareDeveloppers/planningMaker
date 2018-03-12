@@ -1,5 +1,3 @@
-  <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
   <jsp:include page="header.jsp"></jsp:include>
 <div class="pcoded-content">
                     <div class="pcoded-inner-content">
@@ -14,8 +12,8 @@
                                             <div class="page-header-title">
                                                 <i class="icofont icofont-table bg-c-blue"></i>
                                                 <div class="d-inline">
-                                                    <h4>Liste des etudiants</h4>
-                                                    <span>trouver dans cette page la liste des etudiant inscrit </span>
+                                                    <h4>Liste des encadreurs</h4>
+                                                    <span>trouver dans cette page la liste des encadreurs disponible </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -29,7 +27,7 @@
                                                     </li>
                                                     <li class="breadcrumb-item"><a href="#!">Consulter</a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Liste etudaint</a>
+                                                    <li class="breadcrumb-item"><a href="#!">Liste enseignant</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -56,10 +54,10 @@
                                                             <tr>
                                                                 <th>Nom et prenom</th>
                                                                 <th>specialité</th>
-                                                                <th>promotion</th>
-                                                                <th>moyenne</th>
-                                                                <th>date de naissance</th>
-                                                                <th>taux</th>
+                                                                <th>grade</th>
+                                                                <th>Age</th>
+                                                                <th>email</th>
+                                                               
                                                             </tr>
                                                             </thead>
                                                             <tbody>
@@ -69,7 +67,7 @@
                                                                     <td>Edinburgh</td>
                                                                     <td>61</td>
                                                                     <td>2011/04/25</td>
-                                                                    <td>$320,800</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Garrett Winters</td>
@@ -77,7 +75,7 @@
                                                                     <td>Tokyo</td>
                                                                     <td>63</td>
                                                                     <td>2011/07/25</td>
-                                                                    <td>$170,750</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Ashton Cox</td>
@@ -85,7 +83,7 @@
                                                                     <td>San Francisco</td>
                                                                     <td>66</td>
                                                                     <td>2009/01/12</td>
-                                                                    <td>$86,000</td>
+                                                                    
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Cedric Kelly</td>
@@ -93,7 +91,7 @@
                                                                     <td>Edinburgh</td>
                                                                     <td>22</td>
                                                                     <td>2012/03/29</td>
-                                                                    <td>$433,060</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Airi Satou</td>
@@ -101,7 +99,7 @@
                                                                     <td>Tokyo</td>
                                                                     <td>33</td>
                                                                     <td>2008/11/28</td>
-                                                                    <td>$162,700</td>
+                                                                    
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Brielle Williamson</td>
@@ -109,7 +107,7 @@
                                                                     <td>New York</td>
                                                                     <td>61</td>
                                                                     <td>2012/12/02</td>
-                                                                    <td>$372,000</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Herrod Chandler</td>
@@ -117,7 +115,7 @@
                                                                     <td>San Francisco</td>
                                                                     <td>59</td>
                                                                     <td>2012/08/06</td>
-                                                                    <td>$137,500</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Rhona Davidson</td>
@@ -125,7 +123,7 @@
                                                                     <td>Tokyo</td>
                                                                     <td>55</td>
                                                                     <td>2010/10/14</td>
-                                                                    <td>$327,900</td>
+                                                                    
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Colleen Hurst</td>
@@ -133,7 +131,7 @@
                                                                     <td>San Francisco</td>
                                                                     <td>39</td>
                                                                     <td>2009/09/15</td>
-                                                                    <td>$205,500</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Sonya Frost</td>
@@ -141,7 +139,7 @@
                                                                     <td>Edinburgh</td>
                                                                     <td>23</td>
                                                                     <td>2008/12/13</td>
-                                                                    <td>$103,600</td>
+                                                                    
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Jena Gaines</td>
@@ -149,7 +147,7 @@
                                                                     <td>London</td>
                                                                     <td>30</td>
                                                                     <td>2008/12/19</td>
-                                                                    <td>$90,560</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Quinn Flynn</td>
@@ -157,7 +155,7 @@
                                                                     <td>Edinburgh</td>
                                                                     <td>22</td>
                                                                     <td>2013/03/03</td>
-                                                                    <td>$342,000</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Charde Marshall</td>
@@ -165,7 +163,7 @@
                                                                     <td>San Francisco</td>
                                                                     <td>36</td>
                                                                     <td>2008/10/16</td>
-                                                                    <td>$470,600</td>
+                                                                    
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Haley Kennedy</td>
@@ -173,7 +171,7 @@
                                                                     <td>London</td>
                                                                     <td>43</td>
                                                                     <td>2012/12/18</td>
-                                                                    <td>$313,500</td>
+                                                                    
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Tatyana Fitzpatrick</td>
@@ -181,7 +179,7 @@
                                                                     <td>London</td>
                                                                     <td>19</td>
                                                                     <td>2010/03/17</td>
-                                                                    <td>$385,750</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Michael Silva</td>
@@ -189,7 +187,7 @@
                                                                     <td>London</td>
                                                                     <td>66</td>
                                                                     <td>2012/11/27</td>
-                                                                    <td>$198,500</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Paul Byrd</td>
@@ -197,7 +195,7 @@
                                                                     <td>New York</td>
                                                                     <td>64</td>
                                                                     <td>2010/06/09</td>
-                                                                    <td>$725,000</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Gloria Little</td>
@@ -205,7 +203,7 @@
                                                                     <td>New York</td>
                                                                     <td>59</td>
                                                                     <td>2009/04/10</td>
-                                                                    <td>$237,500</td>
+                                                                   
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Bradley Greer</td>
@@ -213,7 +211,7 @@
                                                                     <td>London</td>
                                                                     <td>41</td>
                                                                     <td>2012/10/13</td>
-                                                                    <td>$132,000</td>
+                                                                    
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Dai Rios</td>
@@ -221,9 +219,12 @@
                                                                     <td>Edinburgh</td>
                                                                     <td>35</td>
                                                                     <td>2012/09/26</td>
-                                                                    <td>$217,500</td>
+  
                                                                 </tr>
                                                             </tbody>
+                                                            <tfoot>
+                                                           
+                                                            </tfoot>
                                                         </table>
                                                     </div>
                                                 </div>
