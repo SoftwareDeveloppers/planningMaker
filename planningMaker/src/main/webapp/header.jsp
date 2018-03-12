@@ -3,7 +3,7 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <head>
-    <title>GURU Able - Premium Admin Template </title>
+    <title>Planning Maker</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -19,7 +19,7 @@
           content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
     <!-- Google font--><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/css/bootstrap.min.css">
@@ -146,7 +146,7 @@
                                     <img class="img-40 img-radius" src="assets/images/avatar-4.jpg" alt="User-Profile-Image">
                                     <div class="user-details">
                                         <span>mekhezzem Reda</span>
-                                        <span id="more-details">UX Designer<i class="ti-angle-down"></i></span>
+                                        <span id="more-details">Etudiant<i class="ti-angle-down"></i></span>
                                     </div>
                                 </div>
 
@@ -188,6 +188,15 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
+                                    </ul>
+                                     <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="affectation_sujet.jsp">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.form-validation">Affectation des sujets</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
 
                                     </ul>
                                     
@@ -208,7 +217,6 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-
                                     </ul>
                                     <ul class="pcoded-submenu">
                                         <li class="">
@@ -218,7 +226,15 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-
+                                    </ul>
+                                    <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="ajouter_agentAdmin.jsp">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.form-validation">Ajouter agent admin</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
                                     </ul>
                                   </li>
                                   </ul>
