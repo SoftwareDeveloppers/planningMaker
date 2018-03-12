@@ -1,3 +1,5 @@
+  <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
   <jsp:include page="header.jsp"></jsp:include>
 <div class="pcoded-content">
                     <div class="pcoded-inner-content">
@@ -12,8 +14,8 @@
                                             <div class="page-header-title">
                                                 <i class="icofont icofont-table bg-c-blue"></i>
                                                 <div class="d-inline">
-                                                    <h4>Basic Table Sizes</h4>
-                                                    <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                                    <h4>Liste des etudiants</h4>
+                                                    <span>trouver dans cette page la liste des etudiant inscrit </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -25,9 +27,9 @@
                                                             <i class="icofont icofont-home"></i>
                                                         </a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Bootstrap Table</a>
+                                                    <li class="breadcrumb-item"><a href="#!">Consulter</a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Basic Initialization</a>
+                                                    <li class="breadcrumb-item"><a href="#!">Liste etudaint</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -43,8 +45,6 @@
                                             <!-- Zero config.table start -->
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h5>Zero Configuration</h5>
-                                                    <span>DataTables has most features enabled by default, so all you need to do to use it with your own ables is to call the construction function: $().DataTable();.</span>
                                                     <div class="card-header-right"><i
                                                             class="icofont icofont-spinner-alt-5"></i></div>
                                                 </div>
@@ -55,11 +55,11 @@
                                                             <thead>
                                                             <tr>
                                                                 <th>Nom et prenom</th>
-                                                                <th>specialité</th>
-                                                                <th>Office</th>
-                                                                <th>Age</th>
-                                                                <th>Start date</th>
-                                                                <th>Salary</th>
+                                                                <th>specialitÃ©</th>
+                                                                <th>promotion</th>
+                                                                <th>moyenne</th>
+                                                                <th>date de naissance</th>
+                                                                <th>taux</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
@@ -224,16 +224,6 @@
                                                                     <td>$217,500</td>
                                                                 </tr>
                                                             </tbody>
-                                                            <tfoot>
-                                                            <tr>
-                                                                <th>Name</th>
-                                                                <th>Position</th>
-                                                                <th>Office</th>
-                                                                <th>Age</th>
-                                                                <th>Start date</th>
-                                                                <th>Salary</th>
-                                                            </tr>
-                                                            </tfoot>
                                                         </table>
                                                     </div>
                                                 </div>
