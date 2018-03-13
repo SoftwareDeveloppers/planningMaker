@@ -3,18 +3,25 @@ package model;
 import java.sql.Date;
 
 public class Sujet {
-	
+	private int id;
 	private String titre;
 	private String contenu;
 	private String specialite;
 	private Date dateCreation;
 	
-	public Sujet(String titre, String contenu, String specialite, Date dateCreation) {
+	public Sujet(int id, String titre, String contenu, String specialite, Date dateCreation) {
 		super();
+		this.id = id;
 		this.titre = titre;
 		this.contenu = contenu;
 		this.specialite = specialite;
 		this.dateCreation = dateCreation;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getTitre() {
 		return titre;
