@@ -31,8 +31,7 @@ public class DbConnect {
 	
 	
 	/*public static void main(String[] args) {
-		ProduitDaoImp p = new ProduitDaoImp();
-		System.out.println(p.nbrElement());
+		System.out.println(DbConnect.connect());
 	}*/
 	
 	

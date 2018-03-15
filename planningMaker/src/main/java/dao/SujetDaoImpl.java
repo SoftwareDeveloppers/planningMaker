@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.mysql.jdbc.PreparedStatement;
 
-import model.Enseignant;
 import model.Sujet;
 
 public class SujetDaoImpl implements SujetDao{
@@ -136,6 +135,40 @@ public class SujetDaoImpl implements SujetDao{
 	
 	return sujets;
 
+	}
+	public List<Sujet> findBySpecialite(Sujet s) {
+		
+		String sql = "Select * FROM sujet WHERE specialite=?";
+		PreparedStatement ps;
+		ResultSet rs = null ;
+		List<Sujet> sujets= new ArrayList<Sujet>();
+		Sujet sujet = null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, sujet.getSpecialite());
+			rs=ps.executeQuery();
+			
+			while (rs.next()){
+				sujet = new Sujet(
+						rs.getInt(1),
+						rs.getString(2), 
+						rs.getString(3), 
+						rs.getString(4), 
+						rs.getDate(5)
+						);
+				
+				sujets.add(sujet);
+			}	
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return sujets;
 	}
 
 }
