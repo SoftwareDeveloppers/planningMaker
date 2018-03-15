@@ -1,5 +1,7 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %> 
 	<jsp:include page="header.jsp"></jsp:include>
                     <div class="pcoded-content">
                         <div class="pcoded-inner-content">
@@ -63,14 +65,9 @@
                                                             <label class="col-sm-2 col-form-label">Specialitée: </label>
                                                             <div class="col-sm-10">
                                                                 <select name="select" class="form-control">
-                                                                    <option value="opt1">selectioner spécialitée</option>
-                                                                    <option value="opt2">Type 2</option>
-                                                                    <option value="opt3">Type 3</option>
-                                                                    <option value="opt4">Type 4</option>
-                                                                    <option value="opt5">Type 5</option>
-                                                                    <option value="opt6">Type 6</option>
-                                                                    <option value="opt7">Type 7</option>
-                                                                    <option value="opt8">Type 8</option>
+                                 								  <c:forEach var="spec" items="${specialite}">
+                                  									  <option value="${spec}">${spec}</option>
+                                             						  </c:forEach>    
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -83,7 +80,6 @@
                                                                     <option value="opt3">Rsd</option>
                                                                     <option value="opt4">Sic</option>
                                                                     <option value="opt5">Mid</option>
-                                                                   
                                                                 </select>
                                                             </div>
                                                         </div>
