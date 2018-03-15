@@ -161,4 +161,29 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	return etudiants;
 	}
 
+	public List<String> findSpecialite() {
+		String sql = "Select DISTINCT specialite FROM etudiant";
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		List<String> specialites= new ArrayList<String>();
+		
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			
+			rs=ps.executeQuery();
+			while (rs.next()){
+				
+				specialites.add(rs.getString("specialite"));
+				
+			}	
+			conn.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+		
+	}
+	
+	return specialites;
+	}
+
 }
