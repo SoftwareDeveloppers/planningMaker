@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.EtudiantDaoImpl;
 import dao.FicheDeVoeuxDao;
+import dao.FicheDeVoeuxDaoImpl;
 import model.Etudiant;
 import model.FicheDeVoeux;
 
@@ -33,7 +34,18 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<FicheDeVoeux> fiches = new ArrayList<FicheDeVoeux>();
+		int idSujet = Integer.parseInt(request.getParameter("sujet")) ;
+		FicheDeVoeux fiche =  new FicheDeVoeux();
+		
+		//bilama madernach les session ! 
+		fiche.setId(1);
+		fiche.setIdSujet(idSujet);
+		
+		FicheDeVoeuxDaoImpl ficheDao = new FicheDeVoeuxDaoImpl();
+		ficheDao.create(fiche);
+		
+		this.doGet(request, response);
+
 	}
 
 }

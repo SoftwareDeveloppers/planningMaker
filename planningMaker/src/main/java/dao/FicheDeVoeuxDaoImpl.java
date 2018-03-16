@@ -12,13 +12,13 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 	Connection conn=DbConnect.connect();
 	
 	public boolean create(FicheDeVoeux fiche) {
-		String sql = "INSERT INTO fichedevoeux (id, specialite, id_Etudian) "
-				+ "VALUES (NULL, ?, ?)";
+		String sql = "INSERT INTO fichedevoeux (id, id_Sujet) "
+				+ "VALUES (?, ?)";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setString(1, fiche.getSpecialite());
-			ps.setInt(2, fiche.getIdEtudiant());
+			ps.setInt(1, fiche.getId());
+			ps.setInt(2, fiche.getIdSujet());
 			ps.execute();
 			conn.close();
 			
@@ -52,13 +52,12 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 
 	public boolean update(FicheDeVoeux fiche) {
 		
-		String sql = "UPDATE fichedevoeux SET specialite=?, id_Etudian=?)  "
+		String sql = "UPDATE fichedevoeux SET  id_Sujet=?)  "
 				+ "WHERE id=?";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setString(1, fiche.getSpecialite());
-			ps.setInt(2, fiche.getIdEtudiant());
+			ps.setInt(2, fiche.getIdSujet());
 			ps.setInt(2, fiche.getId());
 			ps.execute();
 			conn.close();

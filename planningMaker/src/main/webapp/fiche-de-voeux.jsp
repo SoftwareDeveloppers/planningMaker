@@ -94,8 +94,7 @@
 										<div class="form-group row">
 											<label class="col-sm-2 col-form-label">Sujet: </label>
 											<div class="ajax col-sm-10">
-												<select name="select" class="form-control">
-												<option value="opt1">selctioné une sepcialité pour afficher les sujets</option>
+												<select name="sujet" class="form-control">
 												</select>
 											</div>
 										</div>

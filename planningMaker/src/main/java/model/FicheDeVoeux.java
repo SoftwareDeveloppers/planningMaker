@@ -5,22 +5,25 @@ import java.sql.Date;
 public class FicheDeVoeux {
 	
 	private int id ;
-	private String specialite;
-	private int idEtudiant ;
+	private int idSujet ;
 	
-	public FicheDeVoeux(int id, String specialite, int idEtudiant) {
+	public FicheDeVoeux(int id, int idSujet) {
 		super();
 		this.id = id;
-		this.specialite = specialite;
-		this.idEtudiant = idEtudiant;
+		this.idSujet = idSujet;
 	}
 
-	public int getIdEtudiant() {
-		return idEtudiant;
+	public FicheDeVoeux() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setIdEtudiant(int idEtudiant) {
-		this.idEtudiant = idEtudiant;
+	
+	public int getIdSujet() {
+		return idSujet;
+	}
+
+	public void setIdSujet(int idSujet) {
+		this.idSujet = idSujet;
 	}
 
 	public int getId() {
@@ -31,11 +34,5 @@ public class FicheDeVoeux {
 		this.id = id;
 	}
 	
-	public String getSpecialite() {
-		return specialite;
-	}
-	public void setSpecialite(String specialite) {
-		this.specialite = specialite;
-	}
 
 }
