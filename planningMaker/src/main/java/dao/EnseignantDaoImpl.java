@@ -16,8 +16,8 @@ public class EnseignantDaoImpl implements EnseignantDao {
 		
 	public boolean create(Enseignant enseignant) {
 		
-	String sql = "INSERT INTO enseignant (nom, prenom, grade, specialite, email, mdp, id_Etudiant, id_Sujet, id_Soutenance)"
-				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	String sql = "INSERT INTO enseignant (nom, prenom, grade, specialite, email, mdp)"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
