@@ -11,10 +11,20 @@
   	<description></description>
   	<servlet-class>Controller.AjouterFicheDeVoeux</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>GetSujet</servlet-name>
+  	<display-name>GetSujet</display-name>
+  	<description></description>
+  	<servlet-class>Controller.GetSujet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>AjouterFicheDeVoeux</servlet-name>
   	<url-pattern>/AjouterFicheDeVoeux</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetSujet</servlet-name>
+  	<url-pattern>/GetSujet</url-pattern>
   </servlet-mapping>
   
   <error-page>  

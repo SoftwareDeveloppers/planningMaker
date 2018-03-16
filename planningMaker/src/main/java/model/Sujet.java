@@ -8,14 +8,29 @@ public class Sujet {
 	private String contenu;
 	private String specialite;
 	private Date dateCreation;
+	private int id_enseignant ;
 	
-	public Sujet(int id, String titre, String contenu, String specialite, Date dateCreation) {
+
+	public Sujet(int id, String titre, String contenu, String specialite, Date dateCreation, int id_enseignant) {
 		super();
 		this.id = id;
 		this.titre = titre;
 		this.contenu = contenu;
 		this.specialite = specialite;
 		this.dateCreation = dateCreation;
+		this.id_enseignant = id_enseignant;
+	}
+	
+	public Sujet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getId_enseignant() {
+		return id_enseignant;
+	}
+	public void setId_enseignant(int id_enseignant) {
+		this.id_enseignant = id_enseignant;
 	}
 	public int getId() {
 		return id;
