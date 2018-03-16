@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.mysql.jdbc.PreparedStatement;
 
-import model.Enseignant;
 import model.Sujet;
 
 public class SujetDaoImpl implements SujetDao{
@@ -92,7 +91,8 @@ public class SujetDaoImpl implements SujetDao{
 						rs.getString(2), 
 						rs.getString(3), 
 						rs.getString(4), 
-						rs.getDate(5)
+						rs.getDate(5),
+						rs.getInt(6)
 						);
 			}	
 			conn.close();
@@ -123,7 +123,8 @@ public class SujetDaoImpl implements SujetDao{
 						rs.getString(2), 
 						rs.getString(3), 
 						rs.getString(4),
-						rs.getDate(5)
+						rs.getDate(5),
+						rs.getInt(6)
 						);
 				
 				sujets.add(sujet);
@@ -147,16 +148,17 @@ public class SujetDaoImpl implements SujetDao{
 		
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setString(1, sujet.getSpecialite());
+			ps.setString(1, s.getSpecialite());
 			rs=ps.executeQuery();
 			
 			while (rs.next()){
 				sujet = new Sujet(
 						rs.getInt(1),
 						rs.getString(2), 
-						rs.getString(3), 
+						rs.getString(5), 
 						rs.getString(4), 
-						rs.getDate(5)
+						rs.getDate(3),
+						rs.getInt(6)
 						);
 				
 				sujets.add(sujet);
