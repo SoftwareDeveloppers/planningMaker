@@ -13,6 +13,7 @@ public interface EtudiantDao {
 	public Etudiant findById(int id);
 	public List<String> findSpecialite();
 	public List<Etudiant > findAll();	
+	boolean check(String user, String mdp);
 	
 	
 }

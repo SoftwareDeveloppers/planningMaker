@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.mysql.jdbc.PreparedStatement;
 
-import model.Enseignant;
 import model.Etudiant;
 
 public class EtudiantDaoImpl implements EtudiantDao {
@@ -186,4 +185,35 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	return specialites;
 	}
 
-}
+	public boolean check(String user, String mdp) {
+		String sql = "SELECT * FROM etudiant WHERE email=?";
+		boolean result =false ;
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1 , user);
+			rs=ps.executeQuery();
+			if (rs.next()){
+				if (mdp.equals(rs.getString("mdp")))
+					
+					result=true ;
+			
+				
+			}
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		
+		return result;
+	}
+	
+	}
+
+
