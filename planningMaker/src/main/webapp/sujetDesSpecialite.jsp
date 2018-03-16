@@ -2,7 +2,7 @@
 <%@ page isELIgnored="false"%>
 <select name="select" class="form-control">
 <c:forEach items="${ sujets }" var="sujet">
-	 <option value="${ sujet.id }">${ sujet.titre }loooooooool</option>
+	 <option value="${ sujet.id }">${ sujet.titre }</option>
 </c:forEach>
 	
 </select>

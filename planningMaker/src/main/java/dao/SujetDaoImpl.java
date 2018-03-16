@@ -87,12 +87,12 @@ public class SujetDaoImpl implements SujetDao{
 			rs=ps.executeQuery();
 			if (rs.next()){
 				sujet = new Sujet(
-						rs.getInt(1),
-						rs.getString(2), 
-						rs.getString(3), 
-						rs.getString(4), 
-						rs.getDate(5),
-						rs.getInt(6)
+						rs.getInt("id"),
+						rs.getString("titre"), 
+						rs.getString("contenu"), 
+						rs.getString("specialite"), 
+						rs.getDate("date_creation"),
+						rs.getInt("id_Enseignant")
 						);
 			}	
 			conn.close();
@@ -119,12 +119,12 @@ public class SujetDaoImpl implements SujetDao{
 			rs=ps.executeQuery();
 			while (rs.next()){
 				sujet = new Sujet(
-						rs.getInt(1),
-						rs.getString(2), 
-						rs.getString(3), 
-						rs.getString(4),
-						rs.getDate(5),
-						rs.getInt(6)
+						rs.getInt("id"),
+						rs.getString("titre"), 
+						rs.getString("contenu"), 
+						rs.getString("specialite"), 
+						rs.getDate("date_creation"),
+						rs.getInt("id_Enseignant")
 						);
 				
 				sujets.add(sujet);
@@ -153,12 +153,12 @@ public class SujetDaoImpl implements SujetDao{
 			
 			while (rs.next()){
 				sujet = new Sujet(
-						rs.getInt(1),
-						rs.getString(2), 
-						rs.getString(5), 
-						rs.getString(4), 
-						rs.getDate(3),
-						rs.getInt(6)
+						rs.getInt("id"),
+						rs.getString("titre"), 
+						rs.getString("contenu"), 
+						rs.getString("specialite"), 
+						rs.getDate("date_creation"),
+						rs.getInt("id_Enseignant")
 						);
 				
 				sujets.add(sujet);
