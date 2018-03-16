@@ -35,10 +35,12 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int idSujet = Integer.parseInt(request.getParameter("sujet")) ;
+		int idEtudiant = Integer.parseInt(request.getParameter("idEtud")) ;
+
 		FicheDeVoeux fiche =  new FicheDeVoeux();
 		
 		//bilama madernach les session ! 
-		fiche.setId(1);
+		fiche.setId(idEtudiant);
 		fiche.setIdSujet(idSujet);
 		
 		FicheDeVoeuxDaoImpl ficheDao = new FicheDeVoeuxDaoImpl();

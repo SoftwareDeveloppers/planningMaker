@@ -185,9 +185,9 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	return specialites;
 	}
 
-	public boolean check(String user, String mdp) {
+	public int check(String user, String mdp) {
 		String sql = "SELECT * FROM etudiant WHERE email=?";
-		boolean result =false ;
+		int result =0 ;
 		PreparedStatement ps;
 		ResultSet rs =null ;
 		
@@ -198,8 +198,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 			if (rs.next()){
 				if (mdp.equals(rs.getString("mdp")))
 					
-					result=true ;
-			
+					
+					result = rs.getInt("id");
 				
 			}
 			conn.close();

@@ -22,11 +22,11 @@ public class Login extends HttpServlet {
 		String pw = request.getParameter("pw");
 		
 		EtudiantDaoImpl etudiandao = new EtudiantDaoImpl();
-		
-		if (etudiandao.check(user, pw)){
+		int idEtudiant = etudiandao.check(user, pw) ;
+		if ( idEtudiant != 0){
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
+			session.setAttribute("idEtudiant", idEtudiant);
 			
 			response.sendRedirect("./AjouterFicheDeVoeux");
 		}else

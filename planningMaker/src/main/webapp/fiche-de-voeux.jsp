@@ -33,7 +33,7 @@
 							<div class="page-header-title">
 								<i class="icofont icofont-file-code bg-c-blue"></i>
 								<div class="d-inline">
-									<h4>Fiche De Voeux</h4>
+									<h4>Fiche De Voeux </h4>
 									<span>faites un choix <code>5</code> ou 3
 									</span>
 								</div>
@@ -104,6 +104,7 @@
 												<button type="submit" class="btn btn-primary m-b-0">Validez</button>
 											</div>
 										</div>
+										<input type="hidden" value="${sessionScope.idEtudiant}" name="idEtud">
 									</form>
 								</div>
 							</div>
