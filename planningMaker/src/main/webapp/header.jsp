@@ -202,7 +202,7 @@
                                         <li class="">
                                             <a href="liste_agentAdmin.jsp">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.form-components.form-validation">Liste des agents administratif </span>
+                                                <span class="pcoded-mtext" data-i18n="nav.form-components.form-validation">Liste des agents admins </span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
@@ -274,15 +274,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                    <ul class="pcoded-submenu">
-                                        <li class="">
-                                            <a href="proposer_sujet.jsp">
-                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.form-components.form-validation">Proposer sujet</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                   
                                   </li>
                                   </ul>
                         </div>
