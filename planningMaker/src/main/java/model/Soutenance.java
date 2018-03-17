@@ -4,29 +4,38 @@ import java.sql.Date;
 
 public class Soutenance {
 	
-	private Date dateDebut;
-	private Date dateFin;
+	private int id;
+	private Date date;
+	private int id_salle;
 	
-	public Soutenance(Date dateDebut, Date dateFin) {
+	public Soutenance(int id, Date date, int id_salle) {
 		super();
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
+		this.id = id;
+		this.date = date;
+		this.id_salle = id_salle;
 	}
 
-	public Date getDateDebut() {
-		return dateDebut;
+	public int getId() {
+		return id;
 	}
 
-	public void setDateDebut(Date dateDebut) {
-		this.dateDebut = dateDebut;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public Date getDateFin() {
-		return dateFin;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setDateFin(Date dateFin) {
-		this.dateFin = dateFin;
+	public void setDate(Date date) {
+		this.date = date;
 	}
-	
+
+	public int getId_salle() {
+		return id_salle;
+	}
+
+	public void setId_salle(int id_salle) {
+		this.id_salle = id_salle;
+	}
 }

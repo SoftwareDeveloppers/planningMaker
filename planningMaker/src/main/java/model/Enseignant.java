@@ -9,13 +9,12 @@ public class Enseignant {
 	private String prenom;
 	private String email;
 	private String mdp;
-	private Date dateNaissance;
 	private String specialite;
 	private String grade;
 	
 	
 	
-	public Enseignant(int id, String nom, String prenom, String email, String mdp, Date dateNaissance,
+	public Enseignant(int id, String nom, String prenom, String email, String mdp,
 			String specialite, String grade) {
 		super();
 		this.id = id;
@@ -23,7 +22,6 @@ public class Enseignant {
 		this.prenom = prenom;
 		this.email = email;
 		this.mdp = mdp;
-		this.dateNaissance = dateNaissance;
 		this.specialite = specialite;
 		this.grade = grade;
 	}
@@ -57,12 +55,6 @@ public class Enseignant {
 	}
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
-	}
-	public Date getDateNaissance() {
-		return dateNaissance;
-	}
-	public void setDateNaissance(Date dateNaissance) {
-		this.dateNaissance = dateNaissance;
 	}
 	public String getSpecialite() {
 		return specialite;
