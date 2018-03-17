@@ -16,17 +16,19 @@ public class EnseignantDaoImpl implements EnseignantDao {
 		
 	public boolean create(Enseignant enseignant) {
 		
-	String sql = "INSERT INTO enseignant (nom, prenom, grade, specialite, email, mdp)"
+	String sql = "INSERT INTO enseignant (nom, prenom, email, mdp, specialite, grade)"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, enseignant.getNom());
 			ps.setString(2, enseignant.getPrenom());
-			ps.setString(3, enseignant.getGrade());
-			ps.setString(4, enseignant.getSpecialite());
-			ps.setString(5, enseignant.getEmail());
-			ps.setString(6, enseignant.getMdp());
+			ps.setString(3, enseignant.getEmail());
+			ps.setString(4, enseignant.getMdp());
+			ps.setString(5, enseignant.getSpecialite());
+			ps.setString(6, enseignant.getGrade());
+			
+			
 			//ps.setInt(7, enseignant.geti);
 			ps.execute();
 			conn.close();
@@ -60,17 +62,17 @@ public class EnseignantDaoImpl implements EnseignantDao {
 	}
 
 	public boolean update(Enseignant enseignant) {
-		String sql="UPDATE enseignant SET nom = '?', prenom = '?', grade = '?', specialite = '?', email = '?', mdp = '?'"
+		String sql="UPDATE enseignant SET nom = '?', prenom = '?', email = '?', mdp = '?', specialite = '?', grade = '?'"
 				+ " WHERE id = ?;";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, enseignant.getNom());
 			ps.setString(2, enseignant.getPrenom());
-			ps.setString(3, enseignant.getGrade());
-			ps.setString(4, enseignant.getSpecialite());
-			ps.setString(5, enseignant.getEmail());
-			ps.setString(6, enseignant.getMdp());
+			ps.setString(3, enseignant.getEmail());
+			ps.setString(4, enseignant.getMdp());
+			ps.setString(5, enseignant.getSpecialite());
+			ps.setString(6, enseignant.getGrade());
 			ps.setInt(7, enseignant.getId());
 			ps.execute();
 			conn.close();
@@ -99,10 +101,9 @@ public class EnseignantDaoImpl implements EnseignantDao {
 						rs.getString(2), 
 						rs.getString(3), 
 						rs.getString(4), 
-						rs.getString(5), 
-						rs.getDate(6), 
-						rs.getString(7), 
-						rs.getString(8)
+						rs.getString(5),  
+						rs.getString(6), 
+						rs.getString(7)
 						);
 			}	
 			conn.close();
@@ -133,10 +134,9 @@ public class EnseignantDaoImpl implements EnseignantDao {
 						rs.getString(2), 
 						rs.getString(3), 
 						rs.getString(4), 
-						rs.getString(5), 
-						rs.getDate(6), 
-						rs.getString(7), 
-						rs.getString(8)
+						rs.getString(5),  
+						rs.getString(6), 
+						rs.getString(7)
 						);
 				
 				enseignants.add(enseignant);

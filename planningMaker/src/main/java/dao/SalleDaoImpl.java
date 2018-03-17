@@ -51,13 +51,12 @@ public class SalleDaoImpl implements SalleDao{
 	}
 
 	public boolean update(Salle salle) {
-		String sql="UPDATE salle SET etat = '?', id_Soutenance = '?'"
+		String sql="UPDATE salle SET etat = '?'"
 				+ " WHERE id = ?;";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setBoolean(1, salle.getEtat());
-			ps.setInt(2, salle.getId_Soutenance());
 			ps.execute();
 			conn.close();
 			
@@ -82,8 +81,7 @@ public class SalleDaoImpl implements SalleDao{
 			if (rs.next()){
 				salle = new Salle(
 						rs.getInt(1),
-						rs.getBoolean(2), 
-						rs.getInt(3)
+						rs.getBoolean(2)
 						);
 			}	
 			conn.close();
@@ -110,8 +108,7 @@ public class SalleDaoImpl implements SalleDao{
 			while (rs.next()){
 				salle = new Salle(
 						rs.getInt(1),
-						rs.getBoolean(2), 
-						rs.getInt(3)
+						rs.getBoolean(2)
 						);
 				
 				salles.add(salle);

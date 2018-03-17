@@ -15,15 +15,16 @@ public class SujetDaoImpl implements SujetDao{
 	
 	public boolean create(Sujet sujet) {
 		
-	String sql = "INSERT INTO sujet (contenu, creation, titre , specialite)"
+	String sql = "INSERT INTO sujet (titre , contenu, specialite, date_creation, id_Enseignant)"
 				+ " VALUES (?, ?, ?, ?, ?);";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setString(1, sujet.getContenu());
-			ps.setDate(2, sujet.getDateCreation());
-			ps.setString(3, sujet.getTitre());
-			ps.setString(4, sujet.getSpecialite());
+			ps.setString(1, sujet.getTitre());
+			ps.setString(2, sujet.getContenu());
+			ps.setString(3, sujet.getSpecialite());
+			ps.setDate(4, sujet.getDateCreation());
+			ps.setInt(5, sujet.getId_enseignant());
 			ps.execute();
 			conn.close();
 			
@@ -54,16 +55,16 @@ public class SujetDaoImpl implements SujetDao{
 	}
 
 	public boolean update(Sujet sujet) {
-		String sql="UPDATE sujet SET contenu = '?', creation = '?', titre = '?', specialite = '?'"
+		String sql="UPDATE sujet SET titre = '?', contenu = '?', specialite = '?', creation = '?', Id_Enseignant = '?'"
 				+ " WHERE id = ?;";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setString(1, sujet.getContenu());
-			ps.setDate(2, sujet.getDateCreation());
-			ps.setString(3, sujet.getTitre());
-			ps.setString(4, sujet.getSpecialite());
-			ps.setInt(5, sujet.getId());
+			ps.setString(1, sujet.getTitre());
+			ps.setString(2, sujet.getContenu());
+			ps.setString(3, sujet.getSpecialite());
+			ps.setDate(4, sujet.getDateCreation());
+			ps.setInt(5, sujet.getId_enseignant());
 			ps.execute();
 			conn.close();
 			

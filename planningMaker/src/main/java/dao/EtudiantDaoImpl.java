@@ -15,19 +15,19 @@ public class EtudiantDaoImpl implements EtudiantDao {
 
 	public boolean create(Etudiant etudiant) {
 		
-		String sql = "INSERT INTO etudiant (email, mdp, nom, prenom, dateNaissance, specialite, moyenne, promotion, taux)"
+		String sql = "INSERT INTO etudiant (nom, prenom, email, mdp, dateNaissance, specialite, promotion, moyenne)"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, '0');";
 			PreparedStatement ps;
 			try {
 				ps = (PreparedStatement) conn.prepareStatement(sql);
-				ps.setString(1, etudiant.getEmail());
-				ps.setString(2, etudiant.getMdp());
-				ps.setString(3, etudiant.getNom());
-				ps.setString(4, etudiant.getPrenom());
+				ps.setString(1, etudiant.getNom());
+				ps.setString(2, etudiant.getPrenom());
+				ps.setString(3, etudiant.getEmail());
+				ps.setString(4, etudiant.getMdp());
 				ps.setDate(5, etudiant.getDateNaissance());
 				ps.setString(6, etudiant.getSpecialite());
-				ps.setFloat(7, etudiant.getMoy());
-				ps.setString(8, etudiant.getPromotion());
+				ps.setString(7, etudiant.getPromotion());
+				ps.setFloat(8, etudiant.getMoy());
 				ps.execute();
 				conn.close();
 				
@@ -62,19 +62,19 @@ public class EtudiantDaoImpl implements EtudiantDao {
 
 	public boolean update(Etudiant etudiant) {
 		
-		String sql="UPDATE enseignant SET email='?', mdp = '?', nom='?', prenom = '?', dateNaissance = '?', specialite = '?', moyenne = '?',"
-				+ " promotion = '?', taux='?' WHERE id = ?;";
+		String sql="UPDATE enseignant SET nom='?', prenom = '?', email='?', mdp = '?', dateNaissance = '?', specialite = '?',"
+				+ " promotion = '?', moyenne = '?', taux='?' WHERE id = ?;";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setString(1, etudiant.getEmail());
-			ps.setString(2, etudiant.getMdp());
-			ps.setString(3, etudiant.getNom());
-			ps.setString(4, etudiant.getPrenom());
+			ps.setString(1, etudiant.getNom());
+			ps.setString(2, etudiant.getPrenom());
+			ps.setString(3, etudiant.getEmail());
+			ps.setString(4, etudiant.getMdp());
 			ps.setDate(5, etudiant.getDateNaissance());
 			ps.setString(6, etudiant.getSpecialite());
-			ps.setFloat(7, etudiant.getMoy());
-			ps.setString(8, etudiant.getPromotion());
+			ps.setString(7, etudiant.getPromotion());
+			ps.setFloat(8, etudiant.getMoy());
 			ps.setFloat(9, etudiant.getTaux());
 			ps.execute();
 			conn.close();
