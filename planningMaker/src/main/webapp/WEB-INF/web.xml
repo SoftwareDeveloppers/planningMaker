@@ -23,6 +23,12 @@
   	<description></description>
   	<servlet-class>Controller.Login</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>GetSujetC</servlet-name>
+  	<display-name>GetSujetC</display-name>
+  	<description></description>
+  	<servlet-class>Controller.GetSujetC</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>AjouterFicheDeVoeux</servlet-name>
@@ -35,6 +41,10 @@
   <servlet-mapping>
   	<servlet-name>Login</servlet-name>
   	<url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetSujetC</servlet-name>
+  	<url-pattern>/GetSujetC</url-pattern>
   </servlet-mapping>
   
   <error-page>  

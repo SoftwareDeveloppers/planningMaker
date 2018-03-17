@@ -19,6 +19,21 @@
      }
      });
      }
+  
+  function sujets1(value)
+  {
+      var val=value;
+     
+      $.ajax({
+        type: "POST",
+        url: "GetSujetC",
+        data:{ suj: val } ,
+        success: function(data) {	
+     	   
+    	 $('.ajax').append(data);
+  }
+  });
+  }
   </script>
 <div class="pcoded-content">
 	<div class="pcoded-inner-content">
@@ -82,7 +97,7 @@
 											<label class="col-sm-2 col-form-label">Specialitée: </label>
 											<div class="col-sm-10">
 												<select name="specialite" class="form-control" onchange="sujets(value);">
-											<option value="opt1">selctioné une sepcialité</option>
+												<option value="">Veuillez selectionné votre sepcialité</option>
 											
 													<c:forEach var="spec" items="${specialite}">
 														<option value="${spec}">${spec}</option>
@@ -97,7 +112,9 @@
 												<select name="sujet" class="form-control">
 												</select>
 											</div>
+											
 										</div>
+										
 										<div class="form-group row">
 											<label class="col-sm-2"></label>
 											<div class="col-sm-10">
