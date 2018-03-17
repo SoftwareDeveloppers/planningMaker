@@ -50,7 +50,7 @@
                                                 <!-- Bootstrap slider card end -->
                                                 </div>
                                          <!-- Client Map Start -->
-                                            <div class="col-md-12 col-xl-8 ">
+                                            <div class="col-md-12 col-xl-7">
                                                 <div class="card">
                                                     <div class="card-block user-detail-card">
                                                         <div class="row">
@@ -121,10 +121,23 @@
                                                 </div>
                                                </div>
                                                     <!-- Client Map end -->
+                                                    <!-- Calendar start-->
+                                                <div class="col-md-12 col-xl-5">
+                                                <div class="card">
+                                                    <div class="card-block user-detail-card">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                    <div id="calendar"></div>
+                                                    </div></div></div>
+                                                 </div> 
+                                                 </div>
                                                    
+                                                
                                             </div>
                                         </div>
                                     
+                                    
+
                                     <!-- Page body end -->
                     
                      </div>

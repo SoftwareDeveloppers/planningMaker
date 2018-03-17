@@ -40,6 +40,8 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/calendar.css">
+    
 </head>
 
 <body>
