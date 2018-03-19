@@ -23,6 +23,24 @@
   	<description></description>
   	<servlet-class>Controller.Login</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>GetSujetC</servlet-name>
+  	<display-name>GetSujetC</display-name>
+  	<description></description>
+  	<servlet-class>Controller.GetSujetC</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ListeSujet</servlet-name>
+  	<display-name>ListeSujet</display-name>
+  	<description></description>
+  	<servlet-class>Controller.ListeSujet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ProposerSujet</servlet-name>
+  	<display-name>ProposerSujet</display-name>
+  	<description></description>
+  	<servlet-class>Controller.ProposerSujet</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>AjouterFicheDeVoeux</servlet-name>
@@ -35,6 +53,14 @@
   <servlet-mapping>
   	<servlet-name>Login</servlet-name>
   	<url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListeSujet</servlet-name>
+  	<url-pattern>/ListeSujet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProposerSujet</servlet-name>
+  	<url-pattern>/ProposerSujet</url-pattern>
   </servlet-mapping>
   
   <error-page>  

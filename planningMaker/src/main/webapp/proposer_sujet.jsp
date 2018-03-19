@@ -58,37 +58,35 @@
                                                 </div>
                                                 <div class="card-block">
                                                     
-                                                    <form>
+                                                    <form method="POST" action="ProposerSujet">
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Specialité*:</label>
                                                             
                                                                 <select name="select" class="form-control" required>
                                                                     <option value="opt1">Selectioner spécialitée</option>
-                                                                    <option value="opt2">GL</option>
-                                                                    <option value="opt3">RSD</option>
-                                                                    <option value="opt4">SIC</option>
-                                                                    <option value="opt5">MID</option>
-                                                                    <option value="opt6">Type 6</option>
-                                                                    <option value="opt7">Type 7</option>
-                                                                    <option value="opt8">Type 8</option>
+                                                                    <option value="GL">GL</option>
+                                                                    <option value="RSD">RSD</option>
+                                                                    <option value="SIC">SIC</option>
+                                                                    <option value="MID">MID</option>
                                                                 </select>
                                                             
-                                                        </div>
-                                                        
+                                                        </div> 
+                                                       
                                                         <div class="form-group">
 									                        <label for="exampleInputEmail1">Titre*:</label>
-									                        <input type="text" name="nom" class="form-control"  placeholder="Titre" required>
+									                        <input type="text" name="titre" class="form-control"  placeholder="Titre" required>
 									                    </div>
 									                    
 									                    <div class="form-group">
 									                        <label for="exampleTextarea">Description*:</label>
-									                        <textarea class="form-control" id="exampleTextarea" rows="3" required></textarea>
+									                        <textarea class="form-control" name="desc" id="exampleTextarea" rows="10" required></textarea>
 									                    </div>
                                                         
                                                         <div class="form-group row">
                                                                 <label class="col-sm-2"></label>
-                                                                <div class="col-sm-10">
+                                                                <div class="col-sm-8">
                                                                     <button type="submit" class="btn btn-primary m-b-0">Ajouter</button>
+                                                                    <button class="btn btn-primary waves-effect" data-type="inverse" data-animation-in="animated bounceInRight" data-animation-out="animated bounceOutRight">Annuler</button>
                                                                 </div>
                                                             </div>
                                                     </form>

@@ -150,5 +150,34 @@ public class EnseignantDaoImpl implements EnseignantDao {
 	return enseignants;
 
 	}
+	public int check(String user, String mdp) {
+		String sql = "SELECT * FROM enseignant WHERE email=?";
+		int result =0 ;
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1 , user);
+			rs=ps.executeQuery();
+			if (rs.next()){
+				if (mdp.equals(rs.getString("mdp")))
+					
+					
+					result = rs.getInt("id");
+				
+			}
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		
+		return result;
+	}
 
+	
 }

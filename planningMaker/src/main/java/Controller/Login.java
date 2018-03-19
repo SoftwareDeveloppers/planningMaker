@@ -1,6 +1,7 @@
 package Controller;
 
 import java.awt.SecondaryLoop;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
 
 /**
@@ -29,9 +31,22 @@ public class Login extends HttpServlet {
 			session.setAttribute("idEtudiant", idEtudiant);
 			
 			response.sendRedirect("./AjouterFicheDeVoeux");
-		}else
+		}
+		else
+		{
+			EnseignantDaoImpl enseignantdao =new EnseignantDaoImpl();
+			int idEnseignant = enseignantdao.check(user, pw);
+			if ( idEnseignant != 0){
+				
+				HttpSession session = request.getSession();
+				session.setAttribute("idEnseignant", idEnseignant);
+				response.sendRedirect("./acceuil_enseignant.jsp");
+			}
 			
-		this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+			
+		}
+			
+		//this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 	}
 	
 }
