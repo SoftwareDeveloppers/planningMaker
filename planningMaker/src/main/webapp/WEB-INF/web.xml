@@ -41,6 +41,12 @@
   	<description></description>
   	<servlet-class>Controller.ProposerSujet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ko</servlet-name>
+  	<display-name>ko</display-name>
+  	<description></description>
+  	<servlet-class>Controller.ko</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>AjouterFicheDeVoeux</servlet-name>
@@ -61,6 +67,10 @@
   <servlet-mapping>
   	<servlet-name>ProposerSujet</servlet-name>
   	<url-pattern>/ProposerSujet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ko</servlet-name>
+  	<url-pattern>/ko</url-pattern>
   </servlet-mapping>
   
   <error-page>  

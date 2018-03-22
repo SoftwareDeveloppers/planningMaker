@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 
 import javax.servlet.ServletException;
@@ -17,26 +18,31 @@ import model.Sujet;
 
 public class ProposerSujet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	Integer id= 0;
+	int nombre_de_sujet =-1;
        
    
     public ProposerSujet() {
-        super();
-       
+        super();   
     }
    
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession session = request.getSession();
+		id =  (Integer) session.getAttribute("idEnseignant");
+		SujetDaoImpl sujetdao = new SujetDaoImpl();
+		nombre_de_sujet = sujetdao.nombreDeSujet(id);
+		request.setAttribute("nombre_de_sujet", nombre_de_sujet);
+		this.getServletContext().getRequestDispatcher("/proposer_sujet.jsp").forward(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		response.setContentType("text/plain");
+		PrintWriter out = response.getWriter();
 		
-		HttpSession session = request.getSession();
-		Integer id=  (Integer) session.getAttribute("idEnseignant");
-
 		//Récupérer les données du formulaire.
-		
 		String select  = request.getParameter("select");
 		String titre = request.getParameter("titre");
 		String desc = request.getParameter("desc");
@@ -47,24 +53,22 @@ public class ProposerSujet extends HttpServlet {
 		 //System.out.println(DateTimeFormatter.ofPattern("yyy/MM/dd").format(localDate));
 		
 		Sujet sujet = new Sujet(0,titre, desc, select,date,id);
-		
-		
-		SujetDaoImpl sujetdao = new SujetDaoImpl();
+
 		SujetDaoImpl sujetdao2 = new SujetDaoImpl();
 		
-		if(sujetdao.nombreDeSujet(id) < 5) 
+		if( nombre_de_sujet < 5) 
 		{
 			boolean create = sujetdao2.create(sujet);
 			System.out.println(create);
 			if (create) {
-				this.getServletContext().getRequestDispatcher("/proposer_sujet.jsp").forward(request, response);
+				
+				out.print("ok");
 			}
 			else 
-				System.out.println("erreur");
-				
+				out.print("err");		
 		}
 		else 
-			System.out.println("err < 5");	
+			out.print("pasok");	
 		
 		
 	}
