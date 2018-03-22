@@ -23,44 +23,49 @@ public class ProposerSujet extends HttpServlet {
         super();
        
     }
+   
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		//récupérer les var de session ( normalement f doget ? mmais 3maltha hna psk la méthode doPst -> formulaire ! reste a confirmé !!!)
-		HttpSession session = request.getSession();
-		Integer id =  (Integer) session.getAttribute("idEnseignant");
 		
+		HttpSession session = request.getSession();
+		Integer id=  (Integer) session.getAttribute("idEnseignant");
+
 		//Récupérer les données du formulaire.
 		
 		String select  = request.getParameter("select");
 		String titre = request.getParameter("titre");
 		String desc = request.getParameter("desc");
 		
-		
-		
 		//Récupérer la date. 
 		LocalDate localDate = LocalDate.now();
 		Date date = Date.valueOf(localDate);
 		 //System.out.println(DateTimeFormatter.ofPattern("yyy/MM/dd").format(localDate));
 		
-		//ici spécialité et id_enseignant var de session...
 		Sujet sujet = new Sujet(0,titre, desc, select,date,id);
 		
-		SujetDaoImpl sujetdao = new SujetDaoImpl();
 		
-		boolean create = sujetdao.create(sujet);
-		if (create) {
-			this.getServletContext().getRequestDispatcher("/proposer_sujet.jsp").forward(request, response);
-
+		SujetDaoImpl sujetdao = new SujetDaoImpl();
+		SujetDaoImpl sujetdao2 = new SujetDaoImpl();
+		
+		if(sujetdao.nombreDeSujet(id) < 5) 
+		{
+			boolean create = sujetdao2.create(sujet);
+			System.out.println(create);
+			if (create) {
+				this.getServletContext().getRequestDispatcher("/proposer_sujet.jsp").forward(request, response);
+			}
+			else 
+				System.out.println("erreur");
+				
 		}
-		else
-			System.out.println("err");
+		else 
+			System.out.println("err < 5");	
+		
 		
 	}
 
