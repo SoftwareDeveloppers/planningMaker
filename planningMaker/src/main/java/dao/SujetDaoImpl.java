@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import com.mysql.jdbc.PreparedStatement;
 import model.Sujet;
 
 public class SujetDaoImpl implements SujetDao{
+	
 	Connection conn=DbConnect.connect();
 	
 	public boolean create(Sujet sujet) {
@@ -31,7 +33,6 @@ public class SujetDaoImpl implements SujetDao{
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			
 			return false;
 		}
 	}
@@ -173,6 +174,27 @@ public class SujetDaoImpl implements SujetDao{
 		}
 		
 		return sujets;
+	}
+	
+	public int nombreDeSujet(int idEnseignant) {
+		String sql = "Select count(id) FROM sujet WHERE id_Enseignant=?";
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		int nombreDeSujet = 0;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, idEnseignant);
+			rs=ps.executeQuery();
+			if (rs.next()) {
+				nombreDeSujet = rs.getInt("count(id)");	
+			}
+			conn.close();
+	
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
+		}
+		return nombreDeSujet;	
 	}
 
 }
