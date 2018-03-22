@@ -1,7 +1,9 @@
 package dao;
 
+
 import java.util.List;
 import model.FicheDeVoeux;
+import model.Sujet;
 
 public interface FicheDeVoeuxDao {
 	
@@ -11,6 +13,7 @@ public interface FicheDeVoeuxDao {
 	public FicheDeVoeux findById(int id);
 	public List<FicheDeVoeux > findAll();	
 	public int nbrSujeuts(int id);
+	public List<Sujet> listSujets(int idficheDevoeux);
 	
 
 }

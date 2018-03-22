@@ -12,6 +12,7 @@ $(function() {
 				&& idSujet2 != idSujet3 && idSujet2 != idSujet4 && idSujet2 != idSujet5 && idSujet3 != idSujet4
 				&& idSujet3 != idSujet5 && idSujet4 != idSujet5 ) {
 			
+			return true ; 
 		}else
 		{
 			alert ("Vous devez choisir des sujets different!!");

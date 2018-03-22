@@ -39,9 +39,11 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/fiche-de-voeux.jsp").forward(request, response);
 
 		} else {
-
+			FicheDeVoeuxDaoImpl fichedao= new FicheDeVoeuxDaoImpl();
+			
 			remplie = true;
 			request.setAttribute("remplie", remplie);
+			request.setAttribute("sujetsChoisi", fichedao.listSujets(idEtudiant));
 			this.getServletContext().getRequestDispatcher("/fiche-de-voeux.jsp").forward(request, response);
 
 		}
