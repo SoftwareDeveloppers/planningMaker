@@ -18,6 +18,10 @@ import dao.EtudiantDaoImpl;
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String user = request.getParameter("user");
@@ -40,13 +44,13 @@ public class Login extends HttpServlet {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("idEnseignant", idEnseignant);
-				response.sendRedirect("./acceuil_enseignant.jsp");
+				response.sendRedirect("./acceuil_enseignant.jsp");			
 			}
-			
-			
+			else
+				this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+				
 		}
-			
-		//this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		
 	}
 	
 }
