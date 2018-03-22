@@ -88,24 +88,24 @@
                                                                class="table table-striped table-bordered nowrap">
                                                             <thead>
                                                             <tr>
-                                                                <th>Nom et prenom</th>
-                                                                <th>specialitÃ©</th>
-                                                                <th>grade</th>
-                                                                <th>Age</th>
-                                                                <th>email</th>
+                                                                <th>titre</th>
+                                                                <th>specialité</th>
+                                                                <th>date de création</th>
+                                                                <th>id_enseignant</th>
                                                                
                                                             </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>Brielle Williamson</td>
-                                                                    <td>Integration Specialist</td>
-                                                                    <td>New York</td>
-                                                                    <td>61</td>
-                                                                    <td>2012/12/02</td>
+                                            <c:forEach items="${sujetsChoisi}" var="sujet">
+                                            <tr>
+                                                                    <td>${sujet.titre}</td>
+                                                                    <td>${sujet.specialite}</td>
+                                                                    <td>${sujet.dateCreation}</td>
+                                                                    <td>${sujet.id_enseignant}</td>
                                                                    
                                                                 </tr>
-                                                               
+                                            </c:forEach>                
+                                                              
                                                             </tbody>
                                                             <tfoot>
                                                            

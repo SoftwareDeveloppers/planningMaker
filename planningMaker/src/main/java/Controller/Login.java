@@ -1,7 +1,5 @@
 package Controller;
 
-import java.awt.SecondaryLoop;
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,42 +15,39 @@ import dao.EtudiantDaoImpl;
  */
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String user = request.getParameter("user");
 		String pw = request.getParameter("pw");
-		
+
 		EtudiantDaoImpl etudiandao = new EtudiantDaoImpl();
-		int idEtudiant = etudiandao.check(user, pw) ;
-		if ( idEtudiant != 0){
-			
+		int idEtudiant = etudiandao.check(user, pw);
+		if (idEtudiant != 0) {
+
 			HttpSession session = request.getSession();
 			session.setAttribute("idEtudiant", idEtudiant);
-			
+
 			response.sendRedirect("./AjouterFicheDeVoeux");
-		}
-		else
-		{
-			EnseignantDaoImpl enseignantdao =new EnseignantDaoImpl();
+		} else {
+			EnseignantDaoImpl enseignantdao = new EnseignantDaoImpl();
 			int idEnseignant = enseignantdao.check(user, pw);
-			if ( idEnseignant != 0){
-				
+			if (idEnseignant != 0) {
+
 				HttpSession session = request.getSession();
 				session.setAttribute("idEnseignant", idEnseignant);
-				response.sendRedirect("./acceuil_enseignant.jsp");			
-			}
-			else
+				response.sendRedirect("./acceuil_enseignant.jsp");
+			} else
 				this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
-				
+
 		}
-		
+
 	}
-	
+
 }
-
-
