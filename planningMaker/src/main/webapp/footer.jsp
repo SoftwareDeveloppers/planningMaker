@@ -75,6 +75,7 @@
 <script src="assets/pages/data-table/js/data-table-custom.js"></script>
 
 <script src="assets/js/pcoded.min.js"></script>
+<script src="assets/form.js"></script>
 <script src="assets/js/demo-12.js"></script>
 <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>
