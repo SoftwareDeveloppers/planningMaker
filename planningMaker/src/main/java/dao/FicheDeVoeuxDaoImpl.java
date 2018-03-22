@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -79,5 +80,36 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public int nbrSujeuts(int id) {
+		String sql = "SELECT COUNT(id) FROM fichedevoeux WHERE id=?";
+		int result =0 ;
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1 , id);
+			rs=ps.executeQuery();
+			if (rs.next()){
+				
+					result = rs.getInt(1);
+				
+			}
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		
+		return result;
+	}
+		
+		
+	
+	
 
 }

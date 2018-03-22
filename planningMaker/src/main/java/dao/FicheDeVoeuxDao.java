@@ -10,6 +10,7 @@ public interface FicheDeVoeuxDao {
 	public boolean update(FicheDeVoeux e);
 	public FicheDeVoeux findById(int id);
 	public List<FicheDeVoeux > findAll();	
+	public int nbrSujeuts(int id);
 	
 
 }
