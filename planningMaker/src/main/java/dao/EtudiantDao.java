@@ -14,6 +14,7 @@ public interface EtudiantDao {
 	public List<String> findSpecialite();
 	public List<Etudiant > findAll();	
 	public int check(String user, String mdp);
+	public boolean checkEmail(String email);
 	
 	
 }

@@ -3,101 +3,91 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  
-  <servlet>
-  	<servlet-name>AjouterFicheDeVoeux</servlet-name>
-  	<display-name>AjouterFicheDeVoeux</display-name>
-  	<description></description>
-  	<servlet-class>Controller.AjouterFicheDeVoeux</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>GetSujet</servlet-name>
-  	<display-name>GetSujet</display-name>
-  	<description></description>
-  	<servlet-class>Controller.GetSujet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>Login</servlet-name>
-  	<display-name>Login</display-name>
-  	<description></description>
-  	<servlet-class>Controller.Login</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>GetSujetC</servlet-name>
-  	<display-name>GetSujetC</display-name>
-  	<description></description>
-  	<servlet-class>Controller.GetSujetC</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>ListeSujet</servlet-name>
-  	<display-name>ListeSujet</display-name>
-  	<description></description>
-  	<servlet-class>Controller.ListeSujet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>ProposerSujet</servlet-name>
-  	<display-name>ProposerSujet</display-name>
-  	<description></description>
-  	<servlet-class>Controller.ProposerSujet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>Etudiant</servlet-name>
-  	<display-name>Etudiant</display-name>
-  	<description></description>
-  	<servlet-class>Controller.EtudiantController</servlet-class>
-  </servlet>
- <servlet>
-  	<servlet-name>ListeEnseignant</servlet-name>
-  	<display-name>ListeEnseignant</display-name>
-  	<description></description>
-  	<servlet-class>Controller.ListeEnseignant</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>ListeEnseignant</servlet-name>
-  	<display-name>ListeEnseignant</display-name>
-  	<description></description>
-  	<servlet-class>Controller.ListeEnseignant</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>AjouterFicheDeVoeux</servlet-name>
-  	<url-pattern>/AjouterFicheDeVoeux</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>GetSujet</servlet-name>
-  	<url-pattern>/GetSujet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>Login</servlet-name>
-  	<url-pattern>/Login</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>ListeSujet</servlet-name>
-  	<url-pattern>/ListeSujet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>ProposerSujet</servlet-name>
-  	<url-pattern>/ProposerSujet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>Etudiant</servlet-name>
-  	<url-pattern>/EtudiantController</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>ListeEnseignant</servlet-name>
-  	<url-pattern>/ListeEnseignant</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>ListeEnseignant</servlet-name>
-  	<url-pattern>/ListeEnseignant</url-pattern>
-  </servlet-mapping>
-  
-  <error-page>  
-   <error-code>404</error-code>  
-   <location>/404.html</location>  
-</error-page>
+	<display-name>Archetype Created Web Application</display-name>
 
-	
- 
+	<servlet>
+		<servlet-name>AjouterFicheDeVoeux</servlet-name>
+		<display-name>AjouterFicheDeVoeux</display-name>
+		<description></description>
+		<servlet-class>Controller.AjouterFicheDeVoeux</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetSujet</servlet-name>
+		<display-name>GetSujet</display-name>
+		<description></description>
+		<servlet-class>Controller.GetSujet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<display-name>Login</display-name>
+		<description></description>
+		<servlet-class>Controller.Login</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>GetSujetC</servlet-name>
+		<display-name>GetSujetC</display-name>
+		<description></description>
+		<servlet-class>Controller.GetSujetC</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ListeSujet</servlet-name>
+		<display-name>ListeSujet</display-name>
+		<description></description>
+		<servlet-class>Controller.ListeSujet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ProposerSujet</servlet-name>
+		<display-name>ProposerSujet</display-name>
+		<description></description>
+		<servlet-class>Controller.ProposerSujet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Etudiant</servlet-name>
+		<display-name>Etudiant</display-name>
+		<description></description>
+		<servlet-class>Controller.EtudiantController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ListeEnseignant</servlet-name>
+		<display-name>ListeEnseignant</display-name>
+		<description></description>
+		<servlet-class>Controller.ListeEnseignant</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AjouterFicheDeVoeux</servlet-name>
+		<url-pattern>/AjouterFicheDeVoeux</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetSujet</servlet-name>
+		<url-pattern>/GetSujet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ListeSujet</servlet-name>
+		<url-pattern>/ListeSujet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProposerSujet</servlet-name>
+		<url-pattern>/ProposerSujet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Etudiant</servlet-name>
+		<url-pattern>/EtudiantController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ListeEnseignant</servlet-name>
+		<url-pattern>/ListeEnseignant</url-pattern>
+	</servlet-mapping>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.html</location>
+	</error-page>
+
+
+
 </web-app>
