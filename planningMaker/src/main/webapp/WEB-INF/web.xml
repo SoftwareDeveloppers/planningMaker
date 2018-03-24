@@ -53,6 +53,12 @@
   	<description></description>
   	<servlet-class>Controller.ListeEnseignant</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ListeEnseignant</servlet-name>
+  	<display-name>ListeEnseignant</display-name>
+  	<description></description>
+  	<servlet-class>Controller.ListeEnseignant</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>AjouterFicheDeVoeux</servlet-name>
@@ -77,6 +83,10 @@
   <servlet-mapping>
   	<servlet-name>Etudiant</servlet-name>
   	<url-pattern>/EtudiantController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListeEnseignant</servlet-name>
+  	<url-pattern>/ListeEnseignant</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ListeEnseignant</servlet-name>

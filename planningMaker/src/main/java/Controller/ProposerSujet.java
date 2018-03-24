@@ -55,6 +55,8 @@ public class ProposerSujet extends HttpServlet {
 		Sujet sujet = new Sujet(0,titre, desc, select,date,id);
 
 		SujetDaoImpl sujetdao2 = new SujetDaoImpl();
+		SujetDaoImpl sujetdao = new SujetDaoImpl();
+		nombre_de_sujet = sujetdao.nombreDeSujet(id);
 		
 		if( nombre_de_sujet < 5) 
 		{
