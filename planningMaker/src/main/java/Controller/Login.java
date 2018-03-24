@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
 
 			HttpSession session = request.getSession();
 			session.setAttribute("idEtudiant", idEtudiant);
-			out.print("./AjouterFicheDeVoeux");
+			out.print("./EtudiantController");
 		} else {
 			EnseignantDaoImpl enseignantdao = new EnseignantDaoImpl();
 			int idEnseignant = enseignantdao.check(user, pw);

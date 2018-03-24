@@ -86,17 +86,10 @@
     <script type="text/javascript" src="assets/pages/store-js/store.min.js"></script>
     <script type="text/javascript" src="bower_components/moment/js/moment.js"></script>
     <script type="text/javascript" src="assets/pages/store-js/note.js"></script>
-<<<<<<< HEAD
         <script type="text/javascript" src="assets/js/calendar.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
-=======
       <!-- notification js -->
  <script type="text/javascript" src="assets/js/bootstrap-growl.min.js"></script>
-    
-
-
->>>>>>> branch 'master' of https://github.com/SoftwareDeveloppers/planningMaker.git
-
 </body>
 
 </html>
