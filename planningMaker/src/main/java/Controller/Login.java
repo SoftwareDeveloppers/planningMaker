@@ -1,6 +1,8 @@
 package Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,28 +25,30 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String user = request.getParameter("user");
-		String pw = request.getParameter("pw");
-
+		
+		response.setContentType("text/plain");
+		PrintWriter out = response.getWriter();
+		
+		//Récupérer les données.
+		String user  = request.getParameter("user");
+		String pw = request.getParameter("mdp");
+		
 		EtudiantDaoImpl etudiandao = new EtudiantDaoImpl();
 		int idEtudiant = etudiandao.check(user, pw);
 		if (idEtudiant != 0) {
 
 			HttpSession session = request.getSession();
 			session.setAttribute("idEtudiant", idEtudiant);
-
-			response.sendRedirect("./AjouterFicheDeVoeux");
+			out.print("./AjouterFicheDeVoeux");
 		} else {
 			EnseignantDaoImpl enseignantdao = new EnseignantDaoImpl();
 			int idEnseignant = enseignantdao.check(user, pw);
 			if (idEnseignant != 0) {
-
 				HttpSession session = request.getSession();
 				session.setAttribute("idEnseignant", idEnseignant);
-				response.sendRedirect("./acceuil_enseignant.jsp");
+				out.print("./acceuil_enseignant.jsp");	
 			} else
-				this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+				out.print("erreur");
 
 		}
 
