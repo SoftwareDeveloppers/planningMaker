@@ -41,6 +41,24 @@
   	<description></description>
   	<servlet-class>Controller.ProposerSujet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Etudiant</servlet-name>
+  	<display-name>Etudiant</display-name>
+  	<description></description>
+  	<servlet-class>Controller.EtudiantController</servlet-class>
+  </servlet>
+ <servlet>
+  	<servlet-name>ListeEnseignant</servlet-name>
+  	<display-name>ListeEnseignant</display-name>
+  	<description></description>
+  	<servlet-class>Controller.ListeEnseignant</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ListeEnseignant</servlet-name>
+  	<display-name>ListeEnseignant</display-name>
+  	<description></description>
+  	<servlet-class>Controller.ListeEnseignant</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>AjouterFicheDeVoeux</servlet-name>
@@ -61,6 +79,18 @@
   <servlet-mapping>
   	<servlet-name>ProposerSujet</servlet-name>
   	<url-pattern>/ProposerSujet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Etudiant</servlet-name>
+  	<url-pattern>/EtudiantController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListeEnseignant</servlet-name>
+  	<url-pattern>/ListeEnseignant</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListeEnseignant</servlet-name>
+  	<url-pattern>/ListeEnseignant</url-pattern>
   </servlet-mapping>
   
   <error-page>  

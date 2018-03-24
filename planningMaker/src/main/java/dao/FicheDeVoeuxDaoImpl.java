@@ -1,12 +1,16 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.mysql.jdbc.PreparedStatement;
 
+import model.Enseignant;
 import model.FicheDeVoeux;
+import model.Sujet;
 
 public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 	Connection conn=DbConnect.connect();
@@ -79,5 +83,74 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public int nbrSujeuts(int id) {
+		String sql = "SELECT COUNT(id) FROM fichedevoeux WHERE id=?";
+		int result =0 ;
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1 , id);
+			rs=ps.executeQuery();
+			if (rs.next()){
+				
+					result = rs.getInt(1);
+				
+			}
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		
+		return result;
+	}
+
+	public List<Sujet> listSujets(int idficheDevoeux) {
+
+		
+		String sql = "Select * FROM fichedevoeux,sujet WHERE fichedevoeux.id=? and fichedevoeux.id_Sujet=sujet.id ";
+		PreparedStatement ps;
+		ResultSet rs = null ;
+		List<Sujet> sujets= new ArrayList<Sujet>();
+		Sujet sujet = null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, idficheDevoeux);
+			rs=ps.executeQuery();
+			
+			while (rs.next()){
+				sujet = new Sujet(
+						rs.getInt("id"),
+						rs.getString("titre"), 
+						rs.getString("contenu"), 
+						rs.getString("specialite"), 
+						rs.getDate("date_creation"),
+						rs.getInt("id_Enseignant")
+						);
+				
+				sujets.add(sujet);
+			}	
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return sujets;
+	}
+
+		
+		
+	
+	
 
 }

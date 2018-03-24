@@ -41,8 +41,10 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
         <link rel="stylesheet" type="text/css" href="assets/css/calendar.css">
-    
-</head>
+     <!-- Notification.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/notification.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" type="text/css" href="bower_components/animate.css/css/animate.css">
 
 <body>
     <!-- Pre-loader start -->
@@ -167,7 +169,7 @@
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms</div>
                             <ul class="pcoded-item pcoded-left-item">
                             	<li class="">
-                                    <a href="proposer_sujet.jsp">
+                                    <a href="ProposerSujet">
                                         <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>N</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.navigate.main">Proposer sujet</span>
                                         <span class="pcoded-mcaret"></span>

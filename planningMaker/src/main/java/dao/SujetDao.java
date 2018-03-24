@@ -12,5 +12,6 @@ public interface SujetDao {
 	public Sujet findById(int id);
 	public List<Sujet> findBySpecialite(Sujet s);
 	public List<Sujet> findAll();	
+	public int nombreDeSujet(int id);
 	
 }

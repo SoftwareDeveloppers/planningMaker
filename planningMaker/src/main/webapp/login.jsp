@@ -4,7 +4,7 @@
 <head>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<title>GURU Able - Premium Admin Template</title>
+<title>Planning Maker</title>
 <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 10]>
@@ -22,7 +22,8 @@
 <meta name="author" content="#">
 <!-- Favicon icon -->
 
-<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+<link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
 <!-- Google font-->
 <link
 	href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800"
@@ -33,9 +34,14 @@
 
 <!-- Style.css -->
 <link rel="stylesheet" type="text/css" href="login/style.css">
+<!-- Notification.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/notification.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" type="text/css" href="bower_components/animate.css/css/animate.css">
 
 
 </head>
+
 
 <body class="fix-menu">
 	<!-- Pre-loader start -->
@@ -85,7 +91,7 @@
 				<div class="col-sm-12">
 					<!-- Authentication card start -->
 					<div class="login-card card-block auth-body mr-auto ml-auto">
-						<form class="md-float-material" method="post" action="Login">
+						<form class="md-float-material">
 							<div class="text-center">
 								<img src="login/img/logo.png" alt="logo.png">
 							</div>
@@ -98,19 +104,19 @@
 								<hr />
 								<div class="input-group">
 									<input type="email" class="form-control"
-										placeholder="Votre adresse email" name="user"> <span
+										placeholder="Votre adresse email" name="user" id="idUser"> <span
 										class="md-line"></span>
 								</div>
 								<div class="input-group">
 									<input type="password" class="form-control"
-										placeholder="Mot de passe" name="pw"> <span
+										placeholder="Mot de passe" name="pw" id="idPw"> <span
 										class="md-line"></span>
 								</div>
 
 								<div class="row m-t-30">
 									<div class="col-md-12">
 										<button type="submit"
-											class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">
+											id="ok"class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">
 											Connecté</button>
 									</div>
 								</div>
@@ -142,4 +148,80 @@
 		</div>
 		<!-- end of container-fluid -->
 	</section>
-	<jsp:include page="footer.jsp"></jsp:include>
+	<script type="text/javascript" src="bower_components/jquery/js/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/jquery-ui/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="bower_components/popper.js/js/popper.min.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="assets/js/script.js"></script>
+
+      <!-- notification js -->
+ <script type="text/javascript" src="assets/js/bootstrap-growl.min.js"></script>
+ <script type="text/javascript">
+ $('#ok').click(function(){
+		
+		var user = $('#idUser').val();
+		var mdp = $('#idPw').val();
+		$.ajax({
+			type:'POST',
+			data: {
+				user : user,
+				mdp : mdp
+			},
+			url:'Login',
+			success: function(resultat){
+				if (resultat == "erreur") {  
+					 $.growl({
+				            icon: '',
+				            title: 'Erreur ',
+				            message: 'email ou mot de passe incorrect',
+				            url: ''
+				        },{
+				            element: 'body',
+				            type: 'danger',
+				            allow_dismiss: true,
+				            placement: {
+				                from: 'top',
+				                align: 'right'
+				            },
+				            offset: {
+				                x: 30,
+				                y: 30
+				            },
+				            spacing: 10,
+				            z_index: 999999,
+				            delay: 3500,
+				            timer: 1000,
+				            url_target: '_blank',
+				            mouse_over: false,
+				            animate: {
+				                enter: 'animated fadeInRight',
+				                exit: 'animated fadeOutRight'
+				            },
+				            icon_type: 'class',
+				            template: '<div data-growl="container" class="alert" role="alert">' +
+				            '<button type="button" class="close" data-growl="dismiss">' +
+				            '<span aria-hidden="true">&times;</span>' +
+				            '<span class="sr-only">Close</span>' +
+				            '</button>' +
+				            '<span data-growl="icon"></span>' +
+				            '<span data-growl="title"></span>' +
+				            '<span data-growl="message"></span>' +
+				            '<a href="#" data-growl="url"></a>' +
+				            '</div>'
+				        });
+				}
+				else{
+					document.location.href=resultat
+				}
+			}
+		});
+		return false;
+	});
+
+ 
+ 
+ </script>
+
+</body>
+</html>
