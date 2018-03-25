@@ -226,7 +226,7 @@
 
 									</ul>
 									<ul class="pcoded-submenu">
-										<li class=""><a href="liste_agentAdmin.jsp"> <span
+										<li class=""><a href="AgentController?Liste=132za&ze"> <span
 												class="pcoded-micon"><i class="ti-angle-right"></i></span> <span
 												class="pcoded-mtext"
 												data-i18n="nav.form-components.form-validation">Liste
