@@ -1,0 +1,164 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mysql.jdbc.PreparedStatement;
+
+import model.AgentAdmin;
+import model.Enseignant;
+
+public class AgentDaoImpl implements AgentDao {
+	Connection conn=DbConnect.connect();
+	
+	public boolean create(AgentAdmin a) {
+		String sql = "INSERT INTO agentadmin (nom, prenom, mdp)"
+				+ " VALUES (?, ?, ?)";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, a.getNom());
+			ps.setString(2, a.getPrenom());
+			ps.setString(3, a.getMdp());
+			ps.execute();
+			conn.close();
+			
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return false;
+		}
+	}
+
+	public boolean delete(AgentAdmin a) {
+		boolean verif = false ;
+		String sql = "DELETE FROM agentadmin WHERE id=?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, a.getId());
+			
+			verif=ps.execute();
+			conn.close();
+			
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();	
+		}
+		
+		return verif ;
+	}
+
+	public boolean update(AgentAdmin a) {
+		String sql="UPDATE agentadmin SET nom = '?', prenom = '?', mdp = '?'"
+				+ " WHERE id = ?;";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, a.getNom());
+			ps.setString(2, a.getPrenom());
+			ps.setString(3, a.getMdp());
+			ps.setInt(4, a.getId());
+			ps.execute();
+			conn.close();
+			
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return false;
+		}
+	}
+
+	public AgentAdmin findById(int id) {
+		String sql = "Select * FROM agentadmin WHERE id=?";
+		PreparedStatement ps;
+		ResultSet rs = null ;
+		AgentAdmin agent = null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			rs=ps.executeQuery();
+			if (rs.next()){
+				agent = new AgentAdmin(
+						rs.getInt(1),
+						rs.getString(2), 
+						rs.getString(3), 
+						rs.getString(4)
+						);
+			}	
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return agent;
+	}
+
+	public List<AgentAdmin> findAll() {
+		String sql = "Select * FROM agentadmin";
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		List<AgentAdmin> agents= new ArrayList<AgentAdmin>();
+		AgentAdmin agent=null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			
+			rs=ps.executeQuery();
+			while (rs.next()){
+				agent = new AgentAdmin(
+						rs.getInt(1),
+						rs.getString(2), 
+						rs.getString(3), 
+						rs.getString(4)
+						);
+				
+				agents.add(agent);
+			}	
+			conn.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+		
+	}
+	
+	return agents;
+
+	}
+
+	public int check(String user, String mdp) {
+		String sql = "SELECT * FROM agentadmin WHERE nom=?";
+		int result =0 ;
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1 , user);
+			rs=ps.executeQuery();
+			if (rs.next()){
+				if (mdp.equals(rs.getString("mdp")))
+
+					result = rs.getInt("id");
+				
+			}
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return result;
+	}
+	
+}
