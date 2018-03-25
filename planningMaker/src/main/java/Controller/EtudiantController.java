@@ -3,6 +3,7 @@ package Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.sql.Date;
 
 import javax.servlet.ServletException;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
+import model.Enseignant;
 import model.Etudiant;
 
 /**
@@ -22,17 +25,29 @@ public class EtudiantController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		if (session.getAttribute("idEtudiant") == null) {
-
-			response.sendRedirect("Login");
-
+		if (request.getParameter("Liste") != null) {
+			
+			EtudiantDaoImpl etudiant = new EtudiantDaoImpl();
+			ArrayList<Etudiant> etudiants = new ArrayList<Etudiant>();
+			etudiants = (ArrayList<Etudiant>) etudiant.findAll();
+			request.setAttribute("etudiants", etudiants);
+			this.getServletContext().getRequestDispatcher("/liste-etudiant.jsp").forward(request, response);
+			
+			
 		} else {
-			int idEtudiant = (Integer) session.getAttribute("idEtudiant");
-			EtudiantDaoImpl e = new EtudiantDaoImpl();
-			request.setAttribute("etudiant", e.findById(idEtudiant));
-			this.getServletContext().getRequestDispatcher("/accueil_etudiant.jsp").forward(request, response);
 
+			HttpSession session = request.getSession();
+			if (session.getAttribute("idEtudiant") == null) {
+
+				response.sendRedirect("Login");
+
+			} else {
+				int idEtudiant = (Integer) session.getAttribute("idEtudiant");
+				EtudiantDaoImpl e = new EtudiantDaoImpl();
+				request.setAttribute("etudiant", e.findById(idEtudiant));
+				this.getServletContext().getRequestDispatcher("/accueil_etudiant.jsp").forward(request, response);
+
+			}
 		}
 	}
 
@@ -67,17 +82,16 @@ public class EtudiantController extends HttpServlet {
 			 * telephone=request.getParameter("telephone"); String
 			 * idcarteEtudiant = request.getParameter("id");
 			 */
-			
-				EtudiantDaoImpl etudiantDao = new EtudiantDaoImpl();
-				Etudiant etudaint = new Etudiant(0, nom, prenom, email, mdp, dateN, specialite, promotion, moy, null);
 
-				if (etudiantDao.create(etudaint)) {
-					out.print("./liste-etudiant.jsp");
+			EtudiantDaoImpl etudiantDao = new EtudiantDaoImpl();
+			Etudiant etudaint = new Etudiant(0, nom, prenom, email, mdp, dateN, specialite, promotion, moy, null);
 
-				} else
-					out.print("./ajouter_etudiant.jsp");
+			if (etudiantDao.create(etudaint)) {
+				out.print("./liste-etudiant.jsp");
 
-			
+			} else
+				out.print("./ajouter_etudiant.jsp");
+
 		}
 	}
 
