@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.AgentDaoImpl;
 import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
 
@@ -47,8 +48,17 @@ public class Login extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("idEnseignant", idEnseignant);
 				out.print("./acceuil_enseignant.jsp");	
-			} else
-				out.print("erreur");
+			} else{
+				AgentDaoImpl agentdao = new AgentDaoImpl();
+				int idAgent = agentdao.check(user, pw);
+				if (idAgent != 0) {
+					HttpSession session = request.getSession();
+					session.setAttribute("idAgent", idAgent);
+					out.print("./accueil_agentAdmin.jsp");	
+				} else
+					out.print("erreur");
+
+			}
 
 		}
 

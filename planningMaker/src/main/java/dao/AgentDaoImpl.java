@@ -15,14 +15,15 @@ public class AgentDaoImpl implements AgentDao {
 	Connection conn=DbConnect.connect();
 	
 	public boolean create(AgentAdmin a) {
-		String sql = "INSERT INTO agentadmin (nom, prenom, mdp)"
+		String sql = "INSERT INTO agentadmin (nom, prenom, email, mdp)"
 				+ " VALUES (?, ?, ?)";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, a.getNom());
 			ps.setString(2, a.getPrenom());
-			ps.setString(3, a.getMdp());
+			ps.setString(3, a.getEmail());
+			ps.setString(4, a.getMdp());
 			ps.execute();
 			conn.close();
 			
@@ -54,15 +55,16 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	public boolean update(AgentAdmin a) {
-		String sql="UPDATE agentadmin SET nom = '?', prenom = '?', mdp = '?'"
+		String sql="UPDATE agentadmin SET nom = '?', prenom = '?', email = '?', mdp = '?'"
 				+ " WHERE id = ?;";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, a.getNom());
 			ps.setString(2, a.getPrenom());
-			ps.setString(3, a.getMdp());
-			ps.setInt(4, a.getId());
+			ps.setString(3, a.getEmail());
+			ps.setString(4, a.getMdp());
+			ps.setInt(5, a.getId());
 			ps.execute();
 			conn.close();
 			
@@ -88,8 +90,9 @@ public class AgentDaoImpl implements AgentDao {
 				agent = new AgentAdmin(
 						rs.getInt(1),
 						rs.getString(2), 
-						rs.getString(3), 
-						rs.getString(4)
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5)
 						);
 			}	
 			conn.close();
@@ -119,7 +122,8 @@ public class AgentDaoImpl implements AgentDao {
 						rs.getInt(1),
 						rs.getString(2), 
 						rs.getString(3), 
-						rs.getString(4)
+						rs.getString(4),
+						rs.getString(5)
 						);
 				
 				agents.add(agent);
@@ -135,7 +139,7 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	public int check(String user, String mdp) {
-		String sql = "SELECT * FROM agentadmin WHERE nom=?";
+		String sql = "SELECT * FROM agentadmin WHERE email=?";
 		int result =0 ;
 		PreparedStatement ps;
 		ResultSet rs =null ;

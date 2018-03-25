@@ -7,12 +7,14 @@ public class AgentAdmin {
 	private int id;
 	private String nom;
 	private String prenom;
+	private String email;
 	private String mdp;
-	public AgentAdmin(int id, String nom, String prenom, String mdp) {
+	public AgentAdmin(int id, String nom, String prenom, String email, String mdp) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
+		this.email = email;
 		this.mdp = mdp;
 	}
 	public int getId() {
@@ -32,6 +34,12 @@ public class AgentAdmin {
 	}
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getMdp() {
 		return mdp;
