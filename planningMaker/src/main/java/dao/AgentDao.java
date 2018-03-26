@@ -12,4 +12,6 @@ public interface AgentDao {
 	public AgentAdmin findById(int id);
 	public List<AgentAdmin> findAll();
 	public int check(String user, String mdp);
+	public boolean checkEmail(String email);
+	
 }

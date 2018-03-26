@@ -58,6 +58,7 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		EtudiantDaoImpl addFiche = new EtudiantDaoImpl();
 		HttpSession session = request.getSession();
 		int idEtudiant = (Integer) session.getAttribute("idEtudiant");
 
@@ -85,6 +86,8 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 		ficheDao4.create(fiche4);
 		ficheDao5.create(fiche5);
 
+		addFiche.addFicheDeVoeux(idEtudiant, idEtudiant); //comme ca si id fiche de voeux seras generer avec random par ex nehtajou 2 param 									
+		
 		this.doGet(request, response);
 
 	}

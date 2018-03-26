@@ -15,6 +15,6 @@ public interface EtudiantDao {
 	public List<Etudiant > findAll();	
 	public int check(String user, String mdp);
 	public boolean checkEmail(String email);
-	
+	public boolean addFicheDeVoeux(int id, int idF);
 	
 }

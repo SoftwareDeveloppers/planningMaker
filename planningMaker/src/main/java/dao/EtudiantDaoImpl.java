@@ -75,6 +75,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 			ps.setString(7, etudiant.getPromotion());
 			ps.setFloat(8, etudiant.getMoy());
 			ps.setFloat(9, etudiant.getTaux());
+			ps.setInt(10, etudiant.getId());
 			ps.execute();
 			conn.close();
 
@@ -212,6 +213,26 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		}
 
 		return result;
+
+	}
+	
+	public boolean addFicheDeVoeux(int id, int idF) {
+
+		String sql = "UPDATE etudiant SET id_FicheDeVoeux=? WHERE id = ?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, idF);
+			ps.setInt(2, id);
+			ps.execute();
+			conn.close();
+
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+			return false;
+		}
 
 	}
 }

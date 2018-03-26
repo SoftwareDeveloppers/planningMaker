@@ -12,11 +12,10 @@ import model.AgentAdmin;
 import model.Enseignant;
 
 public class AgentDaoImpl implements AgentDao {
-	Connection conn=DbConnect.connect();
-	
+	Connection conn = DbConnect.connect();
+
 	public boolean create(AgentAdmin a) {
-		String sql = "INSERT INTO agentadmin (nom, prenom, email, mdp)"
-				+ " VALUES (?, ?, ?)";
+		String sql = "INSERT INTO agentadmin (nom, prenom, email, mdp)" + " VALUES (?, ?, ?, ?)";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
@@ -26,37 +25,35 @@ public class AgentDaoImpl implements AgentDao {
 			ps.setString(4, a.getMdp());
 			ps.execute();
 			conn.close();
-			
+
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			
+
 			return false;
 		}
 	}
 
 	public boolean delete(AgentAdmin a) {
-		boolean verif = false ;
+		boolean verif = false;
 		String sql = "DELETE FROM agentadmin WHERE id=?";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setInt(1, a.getId());
-			
-			verif=ps.execute();
+
+			verif = ps.execute();
 			conn.close();
-			
-			
+
 		} catch (SQLException ex) {
-			ex.printStackTrace();	
+			ex.printStackTrace();
 		}
-		
-		return verif ;
+
+		return verif;
 	}
 
 	public boolean update(AgentAdmin a) {
-		String sql="UPDATE agentadmin SET nom = '?', prenom = '?', email = '?', mdp = '?'"
-				+ " WHERE id = ?;";
+		String sql = "UPDATE agentadmin SET nom = '?', prenom = '?', email = '?', mdp = '?'" + " WHERE id = ?;";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
@@ -67,11 +64,11 @@ public class AgentDaoImpl implements AgentDao {
 			ps.setInt(5, a.getId());
 			ps.execute();
 			conn.close();
-			
+
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			
+
 			return false;
 		}
 	}
@@ -79,90 +76,102 @@ public class AgentDaoImpl implements AgentDao {
 	public AgentAdmin findById(int id) {
 		String sql = "Select * FROM agentadmin WHERE id=?";
 		PreparedStatement ps;
-		ResultSet rs = null ;
-		AgentAdmin agent = null ;
-		
+		ResultSet rs = null;
+		AgentAdmin agent = null;
+
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setInt(1, id);
-			rs=ps.executeQuery();
-			if (rs.next()){
-				agent = new AgentAdmin(
-						rs.getInt(1),
-						rs.getString(2), 
-						rs.getString(3),
-						rs.getString(4),
-						rs.getString(5)
-						);
-			}	
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				agent = new AgentAdmin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5));
+			}
 			conn.close();
-			
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-			
+
 		}
-		
+
 		return agent;
 	}
 
 	public List<AgentAdmin> findAll() {
 		String sql = "Select * FROM agentadmin";
 		PreparedStatement ps;
-		ResultSet rs =null ;
-		List<AgentAdmin> agents= new ArrayList<AgentAdmin>();
-		AgentAdmin agent=null ;
-		
+		ResultSet rs = null;
+		List<AgentAdmin> agents = new ArrayList<AgentAdmin>();
+		AgentAdmin agent = null;
+
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			
-			rs=ps.executeQuery();
-			while (rs.next()){
-				agent = new AgentAdmin(
-						rs.getInt(1),
-						rs.getString(2), 
-						rs.getString(3), 
-						rs.getString(4),
-						rs.getString(5)
-						);
-				
+
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				agent = new AgentAdmin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5));
+
 				agents.add(agent);
-			}	
+			}
 			conn.close();
-	} catch (SQLException e) {
-		e.printStackTrace();
-		
-	}
-	
-	return agents;
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+
+		return agents;
 
 	}
 
 	public int check(String user, String mdp) {
 		String sql = "SELECT * FROM agentadmin WHERE email=?";
-		int result =0 ;
+		int result = 0;
 		PreparedStatement ps;
-		ResultSet rs =null ;
-		
+		ResultSet rs = null;
+
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setString(1 , user);
-			rs=ps.executeQuery();
-			if (rs.next()){
+			ps.setString(1, user);
+			rs = ps.executeQuery();
+			if (rs.next()) {
 				if (mdp.equals(rs.getString("mdp")))
 
 					result = rs.getInt("id");
-				
+
 			}
 			conn.close();
-			
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-			
+
 		}
-		
+
 		return result;
 	}
-	
+
+	public boolean checkEmail(String email) {
+		String sql = "SELECT * FROM agentadmin WHERE email=?";
+		boolean result = false;
+		PreparedStatement ps;
+		ResultSet rs = null;
+
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				result = true;
+
+			}
+			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+
+		return result;
+	}
+
 }
