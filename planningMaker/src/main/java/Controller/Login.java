@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import dao.AgentDaoImpl;
 import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
+import model.Etudiant;
 
 /**
  * Servlet implementation class Login
@@ -35,11 +36,20 @@ public class Login extends HttpServlet {
 		String pw = request.getParameter("mdp");
 		
 		EtudiantDaoImpl etudiandao = new EtudiantDaoImpl();
-		int idEtudiant = etudiandao.check(user, pw);
-		if (idEtudiant != 0) {
+		Etudiant etudiant = etudiandao.check(user, pw);
+		if (etudiant != null) {
 
 			HttpSession session = request.getSession();
-			session.setAttribute("idEtudiant", idEtudiant);
+			session.setAttribute("idEtudiant", etudiant.getId());
+			session.setAttribute("nomEtudiant", etudiant.getNom());
+			session.setAttribute("prenomEtudiant", etudiant.getPrenom());
+			session.setAttribute("dateEtudiant", etudiant.getDateNaissance());
+			session.setAttribute("emailEtudiant", etudiant.getEmail());
+			session.setAttribute("moyEtudiant", etudiant.getMoy());
+			session.setAttribute("specEtudiant", etudiant.getSpecialite());
+			session.setAttribute("promEtudiant", etudiant.getPromotion());
+			session.setAttribute("tauxEtudiant", etudiant.getTaux());
+			
 			out.print("./EtudiantController");
 		} else {
 			EnseignantDaoImpl enseignantdao = new EnseignantDaoImpl();

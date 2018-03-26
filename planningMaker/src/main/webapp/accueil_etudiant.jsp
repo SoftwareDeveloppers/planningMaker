@@ -119,7 +119,7 @@
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<h6 class="m-b-30">${etudiant.specialite }</h6>
+											<h6 class="m-b-30">${sessionScope.specEtudiant }</h6>
 										</div>
 									</div>
 									<div class="row">

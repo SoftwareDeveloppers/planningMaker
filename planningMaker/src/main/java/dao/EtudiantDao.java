@@ -13,7 +13,7 @@ public interface EtudiantDao {
 	public Etudiant findById(int id);
 	public List<String> findSpecialite();
 	public List<Etudiant > findAll();	
-	public int check(String user, String mdp);
+	public Etudiant check(String user, String mdp);
 	public boolean checkEmail(String email);
 	public boolean addFicheDeVoeux(int id, int idF);
 	

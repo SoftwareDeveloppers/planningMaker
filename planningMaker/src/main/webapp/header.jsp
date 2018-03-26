@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
 <head>
-    <title>GURU Able - Premium Admin Template </title>
+    <title>Planning Maker </title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -96,7 +98,7 @@
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                    <span>mekhezzem Reda</span>
+                                    <span>${sessionScope.nomEtudiant } ${sessionScope.prenomEtudiant }</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
