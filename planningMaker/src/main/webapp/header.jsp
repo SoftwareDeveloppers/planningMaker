@@ -186,18 +186,20 @@
 							<div class="pcoded-navigatio-lavel"
 								data-i18n="nav.category.forms">Forms</div>
 							<ul class="pcoded-item pcoded-left-item">
+							
 								<li class=""><a href="ProposerSujet"> <span
 										class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>N</b></span>
 										<span class="pcoded-mtext" data-i18n="nav.navigate.main">Proposer
 											sujet</span> <span class="pcoded-mcaret"></span>
 								</a></li>
-
+						   
 								<li class="pcoded-hasmenu active pcoded-trigger"><a
 									href="javascript:void(0)"> <span class="pcoded-micon"><i
 											class="ti-layers"></i><b>FC</b></span> <span class="pcoded-mtext"
 										data-i18n="nav.form-components.main">Consultez</span> <span
 										class="pcoded-mcaret"></span>
 								</a>
+								
 									<ul class="pcoded-submenu">
 										<li class=""><a href="AjouterFicheDeVoeux"> <span
 												class="pcoded-micon"><i class="ti-angle-right"></i></span> <span
@@ -216,6 +218,7 @@
 										</a></li>
 
 									</ul>
+								
 									<ul class="pcoded-submenu">
 										<li class=""><a href="EtudiantController?Liste=132za&ze"> <span
 												class="pcoded-micon"><i class="ti-angle-right"></i></span> <span
@@ -243,6 +246,7 @@
 										</a></li>
 
 									</ul>
+							
 									<ul class="pcoded-submenu">
 										<li class=""><a
 											href="liste_plannification_soutenance.jsp"> <span
@@ -261,7 +265,7 @@
 										</a></li>
 
 									</ul></li>
-
+							
 
 								<li class="pcoded-hasmenu active pcoded-trigger"><a
 									href="javascript:void(0)"> <span class="pcoded-micon"><i
@@ -292,7 +296,8 @@
 												data-i18n="nav.form-components.form-validation">Ajouter
 													agent admin</span> <span class="pcoded-mcaret"></span>
 										</a></li>
-									</ul></li>
+									</ul>
+								</li>
 							</ul>
 						</div>
 					</nav>

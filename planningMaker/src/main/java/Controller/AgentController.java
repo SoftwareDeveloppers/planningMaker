@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.AgentDaoImpl;
+import dao.EtudiantDaoImpl;
 import model.AgentAdmin;
+import model.Etudiant;
 
 public class AgentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -31,7 +33,7 @@ public class AgentController extends HttpServlet {
 			agents = (ArrayList<AgentAdmin>) agentDao.findAll();
 			request.setAttribute("agents", agents);
 			this.getServletContext().getRequestDispatcher("/liste_agentAdmin.jsp").forward(request, response);
-			
+
 		} else {
 
 			HttpSession session = request.getSession();
