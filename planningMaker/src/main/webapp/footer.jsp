@@ -69,6 +69,8 @@
     <script src="assets/js/menu/menu-hori-fixed.js"></script>
     <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
+     <!-- notification js -->
+ <script type="text/javascript" src="assets/js/bootstrap-growl.min.js"></script>
 </body>
 
 </html>
