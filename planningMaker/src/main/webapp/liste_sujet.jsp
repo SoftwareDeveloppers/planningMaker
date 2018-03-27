@@ -26,6 +26,7 @@
 		<!-- Main-body start -->
 		<div class="main-body">
 			<div class="page-wrapper">
+			<div class="page-body m-t-40">
 				<!-- Page body start -->
 				<div class="page-body">
 				
@@ -65,6 +66,7 @@
                                             </div>
 						</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>

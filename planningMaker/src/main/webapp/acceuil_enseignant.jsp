@@ -13,6 +13,8 @@
 	<div class="pcoded-inner-content">
 		<!-- Page body start -->
 		<div class="page-body">
+			
+		<div class="page-body m-t-40">
 			<div class="row">
 				<div class="col-sm-12">
 					<!-- Bootstrap slider card start -->
@@ -161,6 +163,7 @@
 				</div>
 				<!-- Client Map end -->
 
+			</div>
 			</div>
 		</div>
 

@@ -13,6 +13,7 @@
 	<div class="pcoded-inner-content">
 		<!-- Page body start -->
 		<div class="page-body">
+		<div class="page-body m-t-40">
 			<div class="row">
 				<div class="col-sm-12">
 					<!-- Bootstrap slider card start -->
@@ -167,6 +168,8 @@
 		<!-- Page body end -->
 
 	</div>
+	</div>
+</div>
 </div>
 
 <jsp:include page="footer.jsp"></jsp:include>

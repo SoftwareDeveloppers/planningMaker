@@ -19,7 +19,7 @@
     <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
@@ -36,10 +36,13 @@
     <link rel="stylesheet" type="text/css" href="assets/pages/prism/prism.css">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" type="text/css" href="assets/css/pcoded-horizontal.min.css">
+    <!-- Notification.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/notification.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" type="text/css" href="bower_components/animate.css/css/animate.css">
+    
 </head>
 
 <body>
