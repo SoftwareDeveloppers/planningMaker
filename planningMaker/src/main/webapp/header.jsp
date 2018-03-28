@@ -150,6 +150,8 @@
                        <div class="pcoded-inner-navbar">
                        
                             <ul class="pcoded-item pcoded-left-item">
+                            
+							<c:if test="${ !empty(sessionScope.idEnseignant)}">
                             <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>P</b></span>
@@ -166,6 +168,8 @@
                                     </li>
                                  </ul>
                               </li>
+                              	</c:if>
+								
                                <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>N</b></span>
@@ -173,6 +177,7 @@
                                     <span class="pcoded-mcaret"></span>
                                 </a>
                                 <ul class="pcoded-submenu">
+                                <c:if test="${ !empty(sessionScope.idEtudiant)}">
                                     <li class="">
                                         <a href="AjouterFicheDeVoeux">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -188,7 +193,9 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
+                               </c:if>
                                
+                                <c:if test="${ !empty(sessionScope.idAgent)}">
                                     <li class="">
                                         <a href="EtudiantController?Liste=132za&ze">
                                             <span class="pcoded-micon"><i class=class="ti-angle-right"></i></span>
@@ -204,7 +211,8 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                               
+                               </c:if>
+                                <c:if test="${ !empty(sessionScope.idAgent)&& sessionScope.idAgent == 1 }">
                                     <li class="">
                                         <a href="AgentController?Liste=132za&ze">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -212,7 +220,7 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                
+                                </c:if>
                                     <li class="">
                                         <a href="liste_plannification_soutenance.jsp">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -230,6 +238,7 @@
                                     </li>
                                  </ul>
                               </li>
+                              <c:if test="${ !empty(sessionScope.idAgent)}">
                               <ul class="pcoded-item pcoded-left-item">
                             <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)">
@@ -253,26 +262,19 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                            
+                            	<c:if test="${ !empty(sessionScope.idAgent)&& sessionScope.idAgent == 1 }">
                                     <li class="">
                                         <a href="ajouter_agentAdmin.jsp">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Agouter agent admin</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Ajouter agent admin</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
+                                 </c:if>   
                                  </ul>
                             </li>
                         </ul>
+                        </c:if>
          </ul>
      </div>
  </nav>
-
-
-
-
-
-
-
-       
-    

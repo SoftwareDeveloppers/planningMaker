@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
 <c:choose>
-	<c:when test="${ empty sessionScope.idEtudiant}">
+	<c:when test="${ empty sessionScope.idEnseignant}">
 		<c:redirect url="Login"></c:redirect>
 	</c:when>
 	<c:otherwise>
