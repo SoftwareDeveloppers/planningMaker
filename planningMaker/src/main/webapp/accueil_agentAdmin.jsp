@@ -1,9 +1,11 @@
 <jsp:include page="header.jsp"></jsp:include>
-
+ 
 									 <div class="pcoded-content">
                         <div class="pcoded-inner-content">     
-                    
+                        <div class="page-body m-t-40">
+            
                     <div class="row">
+                    
                     <!-- user card start -->
                                            <div class="col-sm-4">
                                                 <div class="card bg-c-green text-white widget-visitor-card">
@@ -81,7 +83,9 @@
                                     <!-- Page body end -->
                     
                      </div>
-                  </div>   
+                     
+                  </div>  
+                  </div> 
 
 
 <jsp:include page="footer.jsp"></jsp:include>

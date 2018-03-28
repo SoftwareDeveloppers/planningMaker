@@ -150,11 +150,12 @@ public class EnseignantDaoImpl implements EnseignantDao {
 	return enseignants;
 
 	}
-	public int check(String user, String mdp) {
+	public Enseignant check(String user, String mdp) {
 		String sql = "SELECT * FROM enseignant WHERE email=?";
 		int result =0 ;
 		PreparedStatement ps;
 		ResultSet rs =null ;
+		Enseignant enseignant=null ;
 		
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
@@ -162,10 +163,8 @@ public class EnseignantDaoImpl implements EnseignantDao {
 			rs=ps.executeQuery();
 			if (rs.next()){
 				if (mdp.equals(rs.getString("mdp")))
-					
-					
-					result = rs.getInt("id");
-				
+					enseignant = new Enseignant(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), 
+							rs.getString(5),  rs.getString(6), rs.getString(7));
 			}
 			conn.close();
 			
@@ -176,7 +175,7 @@ public class EnseignantDaoImpl implements EnseignantDao {
 		}
 		
 		
-		return result;
+		return enseignant;
 	}
 
 	

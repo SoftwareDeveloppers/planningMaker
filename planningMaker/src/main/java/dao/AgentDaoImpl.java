@@ -124,11 +124,12 @@ public class AgentDaoImpl implements AgentDao {
 
 	}
 
-	public int check(String user, String mdp) {
+	public AgentAdmin check(String user, String mdp) {
 		String sql = "SELECT * FROM agentadmin WHERE email=?";
 		int result = 0;
 		PreparedStatement ps;
 		ResultSet rs = null;
+		AgentAdmin agent = null;
 
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
@@ -136,9 +137,8 @@ public class AgentDaoImpl implements AgentDao {
 			rs = ps.executeQuery();
 			if (rs.next()) {
 				if (mdp.equals(rs.getString("mdp")))
-
-					result = rs.getInt("id");
-
+					agent = new AgentAdmin(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+							rs.getString(5));
 			}
 			conn.close();
 
@@ -147,7 +147,7 @@ public class AgentDaoImpl implements AgentDao {
 
 		}
 
-		return result;
+		return agent;
 	}
 
 	public boolean checkEmail(String email) {

@@ -6,6 +6,7 @@
 		<!-- Main-body start -->
 		<div class="main-body">
 			<div class="page-wrapper">
+			<div class="page-body m-t-40">
 				<!-- Page-header start -->
 				<div class="page-header card">
 					<div class="row align-items-end">
@@ -133,6 +134,11 @@
 					</div>
 					<!-- Main-body end -->
 					<div id="styleSelector"></div>
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
 				</div>
 
 				<jsp:include page="footer.jsp"></jsp:include>

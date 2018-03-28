@@ -165,11 +165,12 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		return specialites;
 	}
 
-	public int check(String user, String mdp) {
+	public Etudiant check(String user, String mdp) {
 		String sql = "SELECT * FROM etudiant WHERE email=?";
 		int result = 0;
 		PreparedStatement ps;
 		ResultSet rs = null;
+		Etudiant etudiant = null;
 
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
@@ -177,8 +178,9 @@ public class EtudiantDaoImpl implements EtudiantDao {
 			rs = ps.executeQuery();
 			if (rs.next()) {
 				if (mdp.equals(rs.getString("mdp")))
-
-					result = rs.getInt("id");
+					etudiant = new Etudiant(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+							rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getFloat(9),
+							rs.getFloat(10));
 
 			}
 			conn.close();
@@ -188,7 +190,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 
 		}
 
-		return result;
+		return etudiant;
 	}
 
 	public boolean checkEmail(String email) {

@@ -12,6 +12,9 @@ import javax.servlet.http.HttpSession;
 import dao.AgentDaoImpl;
 import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
+import model.AgentAdmin;
+import model.Enseignant;
+import model.Etudiant;
 
 /**
  * Servlet implementation class Login
@@ -35,26 +38,48 @@ public class Login extends HttpServlet {
 		String pw = request.getParameter("mdp");
 		
 		EtudiantDaoImpl etudiandao = new EtudiantDaoImpl();
-		int idEtudiant = etudiandao.check(user, pw);
-		if (idEtudiant != 0) {
+		Etudiant etudiant = etudiandao.check(user, pw);
+		if (etudiant != null) {
 
 			HttpSession session = request.getSession();
-			session.setAttribute("idEtudiant", idEtudiant);
+			session.setAttribute("idEtudiant", etudiant.getId());
+			session.setAttribute("nom", etudiant.getNom());
+			session.setAttribute("prenom", etudiant.getPrenom());
+			session.setAttribute("dateEtudiant", etudiant.getDateNaissance());
+			session.setAttribute("emailEtudiant", etudiant.getEmail());
+			session.setAttribute("moyEtudiant", etudiant.getMoy());
+			session.setAttribute("specEtudiant", etudiant.getSpecialite());
+			session.setAttribute("promEtudiant", etudiant.getPromotion());
+			session.setAttribute("tauxEtudiant", etudiant.getTaux());
+			
 			out.print("./EtudiantController");
+			
 		} else {
 			EnseignantDaoImpl enseignantdao = new EnseignantDaoImpl();
-			int idEnseignant = enseignantdao.check(user, pw);
-			if (idEnseignant != 0) {
+			Enseignant enseignant = enseignantdao.check(user, pw);
+			if (enseignant != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("idEnseignant", idEnseignant);
+				session.setAttribute("idEnseignant", enseignant.getId());
+				session.setAttribute("nom", enseignant.getNom());
+				session.setAttribute("prenom", enseignant.getPrenom());
+				session.setAttribute("emailEnseignant", enseignant.getEmail());
+				session.setAttribute("gradeEnseignant", enseignant.getGrade());
+				session.setAttribute("specEnseignant", enseignant.getSpecialite());
+				
 				out.print("./acceuil_enseignant.jsp");	
+				
 			} else{
 				AgentDaoImpl agentdao = new AgentDaoImpl();
-				int idAgent = agentdao.check(user, pw);
-				if (idAgent != 0) {
+				AgentAdmin agent = agentdao.check(user, pw);
+				if (agent != null) {
 					HttpSession session = request.getSession();
-					session.setAttribute("idAgent", idAgent);
+					session.setAttribute("idAgent", agent.getId());
+					session.setAttribute("nom", agent.getNom());
+					session.setAttribute("prenom", agent.getPrenom());
+					session.setAttribute("emailAgent", agent.getEmail());
+					
 					out.print("./accueil_agentAdmin.jsp");	
+					
 				} else
 					out.print("erreur");
 

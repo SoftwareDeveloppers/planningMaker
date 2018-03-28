@@ -12,6 +12,6 @@ public interface EnseignantDao {
 	public boolean update(Enseignant e);
 	public Enseignant findById(int id);
 	public List<Enseignant> findAll();
-	public int check(String user, String mdp);
+	public Enseignant check(String user, String mdp);
 
 }

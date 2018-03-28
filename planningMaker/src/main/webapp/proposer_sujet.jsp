@@ -3,6 +3,7 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
 	<jsp:include page="header.jsp"></jsp:include>
+
 	<script type="text/javascript" src="assets/js/jquery-1.6.min.js>"></script>
 	
                     <div class="pcoded-content">
@@ -11,6 +12,7 @@
                             <!-- Main-body start -->
                             <div class="main-body">
                                 <div class="page-wrapper">
+                                 <div class="page-body m-t-40">
                                 <!-- Page-header start -->
                                     <div class="page-header card">
                                         <div class="row align-items-end">
@@ -106,6 +108,7 @@
                                     <!-- Page body end -->
                                     <!--/*********************************************************************************************-->
                                 </div>
+                                </div>
                             </div>
                             <!-- Main-body end -->
                             <div id="styleSelector">
@@ -117,6 +120,7 @@
             </div>
         </div>
     </div>
+
     
   
 <jsp:include page="footer.jsp"></jsp:include>
