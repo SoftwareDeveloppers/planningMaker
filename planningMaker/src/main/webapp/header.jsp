@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
 <head>
-    <title>GURU Able - Premium Admin Template </title>
+    <title>Planning Maker </title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -17,7 +19,7 @@
     <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
@@ -34,10 +36,19 @@
     <link rel="stylesheet" type="text/css" href="assets/pages/prism/prism.css">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" type="text/css" href="assets/css/pcoded-horizontal.min.css">
+    <!-- Notification.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/notification.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" type="text/css" href="bower_components/animate.css/css/animate.css">
+        <!-- Data Table Css -->
+    <link rel="stylesheet" type="text/css"
+          href="bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/pages/data-table/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+    
 </head>
 
 <body>
@@ -96,33 +107,19 @@
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                    <span>mekhezzem Reda</span>
+                                    <span>${sessionScope.nom } ${sessionScope.prenom }</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
-                                    <li>
-                                        <a href="#!">
-                                            <i class="ti-settings"></i> Settings
-                                        </a>
-                                    </li>
+                                  
                                     <li>
                                         <a href="user-profile.html">
                                             <i class="ti-user"></i> Profile
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="email-inbox.html">
-                                            <i class="ti-email"></i> My Messages
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="auth-lock-screen.html">
-                                            <i class="ti-lock"></i> Lock Screen
-                                        </a>
-                                    </li>
-                                    <li>
-                                    <a href="auth-normal-sign-in.html">
-                                        <i class="ti-layout-sidebar-left"></i> Logout
+                                    <a href="./Deconnexion">
+                                        <i class="ti-layout-sidebar-left"></i> Déconnecté
                                     </a>
                                 </li>
                                 </ul>
@@ -139,6 +136,8 @@
                        <div class="pcoded-inner-navbar">
                        
                             <ul class="pcoded-item pcoded-left-item">
+                            
+							<c:if test="${ !empty(sessionScope.idEnseignant)}">
                             <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>P</b></span>
@@ -155,6 +154,8 @@
                                     </li>
                                  </ul>
                               </li>
+                              	</c:if>
+								
                                <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>N</b></span>
@@ -162,6 +163,7 @@
                                     <span class="pcoded-mcaret"></span>
                                 </a>
                                 <ul class="pcoded-submenu">
+                                <c:if test="${ !empty(sessionScope.idEtudiant)}">
                                     <li class="">
                                         <a href="AjouterFicheDeVoeux">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -177,7 +179,9 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
+                               </c:if>
                                
+                                <c:if test="${ !empty(sessionScope.idAgent)}">
                                     <li class="">
                                         <a href="EtudiantController?Liste=132za&ze">
                                             <span class="pcoded-micon"><i class=class="ti-angle-right"></i></span>
@@ -193,7 +197,8 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                               
+                               </c:if>
+                                <c:if test="${ !empty(sessionScope.idAgent)&& sessionScope.idAgent == 1 }">
                                     <li class="">
                                         <a href="AgentController?Liste=132za&ze">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -201,7 +206,7 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                
+                                </c:if>
                                     <li class="">
                                         <a href="liste_plannification_soutenance.jsp">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -219,6 +224,7 @@
                                     </li>
                                  </ul>
                               </li>
+                              <c:if test="${ !empty(sessionScope.idAgent)}">
                               <ul class="pcoded-item pcoded-left-item">
                             <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)">
@@ -242,26 +248,19 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                            
+                            	<c:if test="${ !empty(sessionScope.idAgent)&& sessionScope.idAgent == 1 }">
                                     <li class="">
                                         <a href="ajouter_agentAdmin.jsp">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Agouter agent admin</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Ajouter agent admin</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
+                                 </c:if>   
                                  </ul>
                             </li>
                         </ul>
+                        </c:if>
          </ul>
      </div>
  </nav>
-
-
-
-
-
-
-
-       
-    
