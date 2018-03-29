@@ -101,13 +101,16 @@
                                     <i class="ti-fullscreen"></i>
                                 </a>
                             </li>
+                           
                             
                         </ul>
                         <ul class="nav-right">
+                      
                             <li class="user-profile header-notification">
                                 <a href="#!">
                                     <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
                                     <span>${sessionScope.nom } ${sessionScope.prenom }</span>
+                                   
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">

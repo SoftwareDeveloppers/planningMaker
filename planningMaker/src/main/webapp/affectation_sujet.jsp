@@ -44,6 +44,10 @@
                                 <div class="page-body">
                                     <div class="row">
                                         <div class="col-sm-12">
+                         
+                                       <button class="btn hor-grd btn-grd-inverse" onclick="action();">affectation des sujets </button>
+                                 
+                                       </br>    </br>  
                                             <!-- Zero config.table start -->
                                             <div class="card">
                                                 <div class="card-header">
@@ -98,12 +102,7 @@
                                                                     <td>33</td>
                                                                     <td>2008/11/28</td>
                                                                   
-                                                                </tr>
-                                                        
-                                                            
-                                                            
-                                                            
-                                                             
+                                                                </tr>       
                                                             </tbody>
                                                             <tfoot>
                                                             
@@ -120,5 +119,24 @@
                 </div>
         </div>
   </div>
+  <script type="text/javascript">
+
+  
+  function action()
+  {
+	  $.ajax({
+			type:'POST',
+			
+			url:'AffectationSujet',
+			success: function(resultat){
+			}
+		});
+	  
+  }
+  
+  
+  
+  
+  </script>
 
    <jsp:include page="footer.jsp"></jsp:include>
