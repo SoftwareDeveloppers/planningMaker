@@ -54,15 +54,16 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 		return verif ;
 	}
 
-	public boolean update(FicheDeVoeux fiche) {
+	public boolean update(FicheDeVoeux fiche , int idSujetAncien) {
 		
-		String sql = "UPDATE fichedevoeux SET  id_Sujet=?)  "
-				+ "WHERE id=?";
+		String sql = "UPDATE fichedevoeux SET id_Sujet=? WHERE id=? AND id_Sujet=? ";
+				
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setInt(2, fiche.getIdSujet());
+			ps.setInt(1, fiche.getIdSujet());
 			ps.setInt(2, fiche.getId());
+			ps.setInt(3, idSujetAncien);
 			ps.execute();
 			conn.close();
 			
@@ -127,7 +128,7 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 			
 			while (rs.next()){
 				sujet = new Sujet(
-						rs.getInt("id"),
+						rs.getInt("id_Sujet"),
 						rs.getString("titre"), 
 						rs.getString("contenu"), 
 						rs.getString("specialite"), 

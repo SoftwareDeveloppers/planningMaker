@@ -65,6 +65,18 @@
 		<description></description>
 		<servlet-class>Controller.Deconnexion</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>ModifierFiche</servlet-name>
+		<display-name>ModifierFiche</display-name>
+		<description></description>
+		<servlet-class>Controller.ModifierFiche</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EnseignantConttroler</servlet-name>
+		<display-name>EnseignantConttroler</display-name>
+		<description></description>
+		<servlet-class>Controller.EnseignantConttroler</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>AjouterFicheDeVoeux</servlet-name>
@@ -101,6 +113,14 @@
 	<servlet-mapping>
 		<servlet-name>Deconnexion</servlet-name>
 		<url-pattern>/Deconnexion</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModifierFiche</servlet-name>
+		<url-pattern>/ModifierFiche</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EnseignantConttroler</servlet-name>
+		<url-pattern>/EnseignantConttroler</url-pattern>
 	</servlet-mapping>
 
 	<error-page>

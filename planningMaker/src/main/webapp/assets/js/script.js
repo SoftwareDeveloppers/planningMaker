@@ -8,7 +8,14 @@ $(document).ready(function() {
     var bodyClass = getBody[0].className;
     $(".main-menu").attr('id', bodyClass);
     //add id to main menu for mobile menu end
-
+   
+        //themes, change CSS with JS
+        //default theme(CSS) is cerulean, change it if needed
+        $(document).on("click", '.btn-modifier', function(e) {
+            e.preventDefault();
+            $('#myModal').modal('show');
+            });
+        
     // card js start
     $(".card-header-right .close-card").on('click', function() {
         var $this = $(this);
