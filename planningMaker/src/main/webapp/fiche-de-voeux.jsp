@@ -221,7 +221,7 @@
 											</div>
 											<div class="card-block">
 												<h4 class="sub-title">Basic Inputs</h4>
-												<form>
+												<form method="POST" action="AjouterFicheDeVoeux">
 													<div class="form-group row">
 														<label class="col-sm-2 col-form-label">Specialitée:
 														</label>

@@ -1,3 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
+<c:choose>
+	<c:when test="${ empty sessionScope.idAgent}">
+		<c:redirect url="Login"></c:redirect>
+	</c:when>
+	<c:otherwise>
 <jsp:include page="header.jsp"></jsp:include>
  
 									 <div class="pcoded-content">
@@ -11,7 +20,7 @@
                                                 <div class="card bg-c-green text-white widget-visitor-card">
                                                     <div class="card-block-small text-center">
                                                         <h2>150</h2>
-                                                        <h6>Nombre des étudiants </h6>
+                                                        <h6>Nombre des Ã©tudiants </h6>
                                                         <i class="ti-user"></i>
                                                     </div>
                                                 </div>
@@ -89,3 +98,5 @@
 
 
 <jsp:include page="footer.jsp"></jsp:include>
+</c:otherwise>
+</c:choose>

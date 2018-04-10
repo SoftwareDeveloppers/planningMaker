@@ -7,23 +7,62 @@ public class Enseignant {
 	private int id ;
 	private String nom;
 	private String prenom;
+	private Date dateN;
+	private String sexe;
+	private String adresse;
+	private String specialite;
+	private float telephone;
+	private String grade;
 	private String email;
 	private String mdp;
-	private String specialite;
-	private String grade;
 	
 	
 	
-	public Enseignant(int id, String nom, String prenom, String email, String mdp,
-			String specialite, String grade) {
+	public Enseignant(int id, String nom, String prenom,Date dateN, String adresse , String specialite, String grade ,float telephone,String sexe,String email, String mdp) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.email = email;
-		this.mdp = mdp;
+		this.dateN = dateN;
 		this.specialite = specialite;
 		this.grade = grade;
+		this.adresse = adresse;
+		this.telephone = telephone;
+		this.sexe = sexe;
+		this.email = email;
+		this.mdp = mdp;
+	}
+
+	public float getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(float telephone) {
+		this.telephone = telephone;
+	}
+
+	public Date getDateN() {
+		return dateN;
+	}
+
+	public void setDateN(Date dateN) {
+		this.dateN = dateN;
+	}
+
+	public String getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
 	}
 
 	public int getId() {

@@ -89,7 +89,7 @@
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<h6 class="m-b-30"> ${etudiant.nom } ${etudiant.prenom }</h6>
+											<h6 class="m-b-30"> ${enseignant.nom } ${enseignant.prenom }</h6>
 										</div>
 									</div>
 									<div class="row">
@@ -99,7 +99,7 @@
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<h6 class="m-b-30">${etudiant.dateNaissance}</h6>
+											<h6 class="m-b-30">${enseignant.dateN}</h6>
 										</div>
 									</div>
 									<div class="row">
@@ -110,7 +110,7 @@
 										</div>
 										<div class="col-sm-7">
 											<h6 class="m-b-30">
-												<a href="mailto:dummy@example.com">${etudiant.email }</a>
+												<a href="mailto:dummy@example.com">${enseignant.email }</a>
 											</h6>
 										</div>
 									</div>
@@ -121,39 +121,39 @@
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<h6 class="m-b-30">${etudiant.specialite }</h6>
+											<h6 class="m-b-30">${enseignant.specialite }</h6>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-5">
 											<h6 class="f-w-400 m-b-30">
-												<i class="icofont icofont-ui-touch-phone"></i>Promotion :
+												<i class="icofont icofont-ui-touch-phone"></i>grade :
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<h6 class="m-b-30">${etudiant.promotion }</h6>
+											<h6 class="m-b-30">${enseignant.grade }</h6>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-5">
 											<h6 class="f-w-400 m-b-30">
-												<i class="icofont icofont-web"></i>Website :
+												<i class="icofont icofont-web"></i>telephone :
 											</h6>
 										</div>
 										<div class="col-sm-7">
 											<h6 class="m-b-30">
-												<a href="#!">http://www.demotheme.com</a>
+												<a  class="m-b-30">${enseignant.telephone}</a>
 											</h6>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-5">
 											<h6 class="f-w-400 m-b-30">
-												<i class="icofont icofont-fax"></i>Moyenne :
+												<i class="icofont icofont-fax"></i>sexe :
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<h6 class="m-b-30">${etudiant.moy }</h6>
+											<h6 class="m-b-30">${enseignant.sexe }</h6>
 										</div>
 									</div>
 								</div>
