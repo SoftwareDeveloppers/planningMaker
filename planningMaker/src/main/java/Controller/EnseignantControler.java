@@ -83,17 +83,16 @@ public class EnseignantControler extends HttpServlet {
 			String specialite = request.getParameter("specialite");
 			String grade = request.getParameter("grade");
 			String sexe = request.getParameter("sexe");
-			float telephone = Float.parseFloat(request.getParameter("telphone"));
+			String telephone = request.getParameter("telephone");
 			String mdp = request.getParameter("mdp");
 			
 			EnseignantDaoImpl enseignantDao = new EnseignantDaoImpl();
-			Enseignant enseignant = new Enseignant(0, nom, prenom, dateN, adresse, specialite, grade, telephone,sexe, email, mdp);
-
+			Enseignant enseignant = new Enseignant(0, nom, prenom, dateN, adresse, email, mdp, specialite, grade, telephone, sexe);
 			if (enseignantDao.create(enseignant)) {
 				out.print("./liste_enseignant.jsp");
 
 			} else
-				out.print("./liste_enseignant.jsp");
+				out.print("./ajouter_enseignant.jsp");
 
 		}
 	

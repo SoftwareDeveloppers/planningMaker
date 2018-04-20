@@ -72,10 +72,10 @@
 		<servlet-class>Controller.ModifierFiche</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>EnseignantConttroler</servlet-name>
-		<display-name>EnseignantConttroler</display-name>
+		<servlet-name>EnseignantControler</servlet-name>
+		<display-name>EnseignantControler</display-name>
 		<description></description>
-		<servlet-class>Controller.EnseignantConttroler</servlet-class>
+		<servlet-class>Controller.EnseignantControler</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
@@ -119,8 +119,8 @@
 		<url-pattern>/ModifierFiche</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>EnseignantConttroler</servlet-name>
-		<url-pattern>/EnseignantConttroler</url-pattern>
+		<servlet-name>EnseignantControler</servlet-name>
+		<url-pattern>/EnseignantControler</url-pattern>
 	</servlet-mapping>
 
 	<error-page>

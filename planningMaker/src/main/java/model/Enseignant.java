@@ -8,36 +8,42 @@ public class Enseignant {
 	private String nom;
 	private String prenom;
 	private Date dateN;
-	private String sexe;
 	private String adresse;
-	private String specialite;
-	private float telephone;
-	private String grade;
 	private String email;
 	private String mdp;
+	private String specialite;
+	private String grade;
+	private String telephone;
+	private String sexe;
+
 	
 	
 	
-	public Enseignant(int id, String nom, String prenom,Date dateN, String adresse , String specialite, String grade ,float telephone,String sexe,String email, String mdp) {
+	
+	
+
+
+	public Enseignant(int id, String nom, String prenom, Date dateN, String adresse, String email, String mdp,
+			String specialite, String grade, String telephone, String sexe) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateN = dateN;
-		this.specialite = specialite;
-		this.grade = grade;
 		this.adresse = adresse;
-		this.telephone = telephone;
-		this.sexe = sexe;
 		this.email = email;
 		this.mdp = mdp;
+		this.specialite = specialite;
+		this.grade = grade;
+		this.telephone = telephone;
+		this.sexe = sexe;
 	}
 
-	public float getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
 
-	public void setTelephone(float telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 

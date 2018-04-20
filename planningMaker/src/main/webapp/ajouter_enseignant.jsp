@@ -78,8 +78,8 @@
                         <input type="date" name="dateN" id="dateN" class="form-control">
                     </div>
                         <div class="form-group">
-                        <label for="exampleInputEmail1">Address </label>
-                        <input type="text" name="adresse" id="adresse"  class="form-control" id="exampleInputEmail1" placeholder="Adresse">
+                        <label for="exampleInputEmail1">Adresse </label>
+                        <input type="text" name="adresse" id="adresse"  class="form-control"placeholder="Adresse">
                     </div>
                        <div class="form-group">
                         <label for="exampleInputEmail1">sexe</label>
@@ -144,140 +144,141 @@
                         </div>
                         </div>
                         </div>
-                        <<script type="text/javascript">
+                       
+	<jsp:include page="footer.jsp"></jsp:include>
+	 <script type="text/javascript">
 
 
 
-                        $('.valider')
-				.click(
-						function() {
+                        
+                		$('.valide')
+        				.click(
+        						function() {
 
-							var nom = $('#nom').val();
-							var prenom = $('#prenom').val();
-							var dateN = $('#dateN').val();
-							var adresse = $('#adresse').val();
-							var sexe = $('#sexe').val();
-							var specialite = $('#specialite').val();
-							var telephone = $('#telephone').val();
-							var grade = $('#grade').val();
-							var email = $('#email').val();
-							var mdp = $('#mdp').val();
-				
-							if( nom =="" || prenom ==""||email =="" || mdp =="" || dateN =="" ||
-									specialite=="" || grade=="" || telephone=="" || adresse=="" ||sexe=="" ){
-								$
-								.growl(
-										{
-											icon : '',
-											title : 'Veuillez bien remplire tous les champs ',
-											message : '',
-											url : ''
-										},
-										{
-											element : 'body',
-											type : 'danger',
-											allow_dismiss : true,
-											placement : {
-												from : 'top',
-												align : 'right'
-											},
-											offset : {
-												x : 30,
-												y : 30
-											},
-											spacing : 10,
-											z_index : 999999,
-											delay : 3500,
-											timer : 1000,
-											url_target : '_blank',
-											mouse_over : false,
-											animate : {
-												enter : 'animated fadeInRight',
-												exit : 'animated fadeOutRight'
-											},
-											icon_type : 'class',
-											template : '<div data-growl="container" class="alert" role="alert">'
-													+ '<button type="button" class="close" data-growl="dismiss">'
-													+ '<span aria-hidden="true">&times;</span>'
-													+ '<span class="sr-only">Close</span>'
-													+ '</button>'
-													+ '<span data-growl="icon"></span>'
-													+ '<span data-growl="title"></span>'
-													+ '<span data-growl="message"></span>'
-													+ '<a href="#" data-growl="url"></a>'
-													+ '</div>'
-										});
-								return false ;
-							}else{
-								
-							$.ajax({
-										type : 'POST',
-										data : {
-											nom : nom,
-											prenom : prenom,
-											dateN : dateN,
-											specialite : specialite,
-											adresse : adresse,
-											grade : grade,
-											sexe : sexe,
-											telephone : telephone,
-											email : email,
-											mdp : mdp
-											
-										},
-										url : 'EnseignantControler',
-										success : function(resultat) {
-											if (resultat == "mailExiste") {
-												$
-														.growl(
-																{
-																	icon : '',
-																	title : 'Email ',
-																	message : 'existe deja!',
-																	url : ''
-																},
-																{
-																	element : 'body',
-																	type : 'danger',
-																	allow_dismiss : true,
-																	placement : {
-																		from : 'top',
-																		align : 'right'
-																	},
-																	offset : {
-																		x : 30,
-																		y : 30
-																	},
-																	spacing : 10,
-																	z_index : 999999,
-																	delay : 3500,
-																	timer : 1000,
-																	url_target : '_blank',
-																	mouse_over : false,
-																	animate : {
-																		enter : 'animated fadeInRight',
-																		exit : 'animated fadeOutRight'
-																	},
-																	icon_type : 'class',
-																	template : '<div data-growl="container" class="alert" role="alert">'
-																			+ '<button type="button" class="close" data-growl="dismiss">'
-																			+ '<span aria-hidden="true">&times;</span>'
-																			+ '<span class="sr-only">Close</span>'
-																			+ '</button>'
-																			+ '<span data-growl="icon"></span>'
-																			+ '<span data-growl="title"></span>'
-																			+ '<span data-growl="message"></span>'
-																			+ '<a href="#" data-growl="url"></a>'
-																			+ '</div>'
-																});
+        				
+        							var nom = $('#nom').val();
+        							var prenom = $('#prenom').val();
+        							var dateN = $('#dateN').val();
+        							var adresse = $('#adresse').val();
+        							var sexe = $('#sexe').val();
+        							var specialite = $('#specialite').val();
+        							var telephone = $('#telephone').val();
+        							var grade = $('#grade').val();
+        							var email = $('#email').val();
+        							var mdp = $('#mdp').val();
+        							if( nom =="" || prenom ==""||email =="" || mdp =="" || dateN =="" ||
+        									specialite=="" || grade=="" || telephone=="" || adresse=="" ||sexe=="" ){
+        								$
+        								.growl(
+        										{
+        											icon : '',
+        											title : 'Veuillez bien remplire tous les champs ',
+        											message : '',
+        											url : ''
+        										},
+        										{
+        											element : 'body',
+        											type : 'danger',
+        											allow_dismiss : true,
+        											placement : {
+        												from : 'top',
+        												align : 'right'
+        											},
+        											offset : {
+        												x : 30,
+        												y : 30
+        											},
+        											spacing : 10,
+        											z_index : 999999,
+        											delay : 3500,
+        											timer : 1000,
+        											url_target : '_blank',
+        											mouse_over : false,
+        											animate : {
+        												enter : 'animated fadeInRight',
+        												exit : 'animated fadeOutRight'
+        											},
+        											icon_type : 'class',
+        											template : '<div data-growl="container" class="alert" role="alert">'
+        													+ '<button type="button" class="close" data-growl="dismiss">'
+        													+ '<span aria-hidden="true">&times;</span>'
+        													+ '<span class="sr-only">Close</span>'
+        													+ '</button>'
+        													+ '<span data-growl="icon"></span>'
+        													+ '<span data-growl="title"></span>'
+        													+ '<span data-growl="message"></span>'
+        													+ '<a href="#" data-growl="url"></a>'
+        													+ '</div>'
+        										});
+        								return false ;
+        							}else{
+        								
+        							$.ajax({
+        										type : 'POST',
+        										data : {
+        											nom : nom,
+        											prenom : prenom,
+        											dateN : dateN,
+        											specialite : specialite,
+        											adresse : adresse,
+        											grade : grade,
+        											sexe : sexe,
+        											telephone : telephone,
+        											email : email,
+        											mdp : mdp
+        										},
+        										url : 'EnseignantControler',
+        										success : function(resultat) {
+        											if (resultat == "mailExiste") {
+        												$
+        														.growl(
+        																{
+        																	icon : '',
+        																	title : 'Email ',
+        																	message : 'existe deja!',
+        																	url : ''
+        																},
+        																{
+        																	element : 'body',
+        																	type : 'danger',
+        																	allow_dismiss : true,
+        																	placement : {
+        																		from : 'top',
+        																		align : 'right'
+        																	},
+        																	offset : {
+        																		x : 30,
+        																		y : 30
+        																	},
+        																	spacing : 10,
+        																	z_index : 999999,
+        																	delay : 3500,
+        																	timer : 1000,
+        																	url_target : '_blank',
+        																	mouse_over : false,
+        																	animate : {
+        																		enter : 'animated fadeInRight',
+        																		exit : 'animated fadeOutRight'
+        																	},
+        																	icon_type : 'class',
+        																	template : '<div data-growl="container" class="alert" role="alert">'
+        																			+ '<button type="button" class="close" data-growl="dismiss">'
+        																			+ '<span aria-hidden="true">&times;</span>'
+        																			+ '<span class="sr-only">Close</span>'
+        																			+ '</button>'
+        																			+ '<span data-growl="icon"></span>'
+        																			+ '<span data-growl="title"></span>'
+        																			+ '<span data-growl="message"></span>'
+        																			+ '<a href="#" data-growl="url"></a>'
+        																			+ '</div>'
+        																});
 
-											}  else {
-												document.location.href = resultat
-											}
-										}
-									});
-							return false;
-						}});
+        											}  else {
+        												document.location.href = resultat
+        											}
+        										}
+        									});
+        							return false;
+        						}});
 
 </script>
-	<jsp:include page="footer.jsp"></jsp:include>

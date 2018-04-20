@@ -29,7 +29,7 @@ public class EnseignantDaoImpl implements EnseignantDao {
 			ps.setString(6, enseignant.getMdp());
 			ps.setString(7, enseignant.getSpecialite());
 			ps.setString(8, enseignant.getGrade());
-			ps.setFloat(9, enseignant.getTelephone());
+			ps.setString(9, enseignant.getTelephone());
 			ps.setString(10, enseignant.getSexe());
 			
 			//ps.setInt(7, enseignant.geti);
@@ -78,7 +78,7 @@ public class EnseignantDaoImpl implements EnseignantDao {
 			ps.setString(6, enseignant.getMdp());
 			ps.setString(7, enseignant.getSpecialite());
 			ps.setString(8, enseignant.getGrade());
-			ps.setFloat(9, enseignant.getTelephone());
+			ps.setString(9, enseignant.getTelephone());
 			ps.setString(10, enseignant.getSexe());
 			ps.setInt(11, enseignant.getId());
 			ps.execute();
@@ -111,7 +111,7 @@ public class EnseignantDaoImpl implements EnseignantDao {
 						rs.getString(5), 
 						rs.getString(6),
 						rs.getString(7),
-						rs.getFloat(8),
+						rs.getString(8),
 						rs.getString(9),
 						rs.getString(10),
 						rs.getString(11)
@@ -148,7 +148,7 @@ public class EnseignantDaoImpl implements EnseignantDao {
 						rs.getString(5), 
 						rs.getString(6),
 						rs.getString(7),
-						rs.getFloat(8),
+						rs.getString(8),
 						rs.getString(9),
 						rs.getString(10),
 						rs.getString(11)
@@ -179,7 +179,7 @@ public class EnseignantDaoImpl implements EnseignantDao {
 			if (rs.next()){
 				if (mdp.equals(rs.getString("mdp")))
 					enseignant = new Enseignant(rs.getInt(1),rs.getString(2), rs.getString(3) ,rs.getDate(4), rs.getString(5), 
-							rs.getString(6),  rs.getString(7), rs.getFloat(8), rs.getString(9),rs.getString(10),  rs.getString(11));
+							rs.getString(6),  rs.getString(7), rs.getString(8), rs.getString(9),rs.getString(10),  rs.getString(11));
 			}
 			conn.close();
 			
