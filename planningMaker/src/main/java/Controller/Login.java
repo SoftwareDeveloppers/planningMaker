@@ -62,9 +62,13 @@ public class Login extends HttpServlet {
 				session.setAttribute("idEnseignant", enseignant.getId());
 				session.setAttribute("nom", enseignant.getNom());
 				session.setAttribute("prenom", enseignant.getPrenom());
+				session.setAttribute("dateN", enseignant.getDateN());
+				session.setAttribute("sexe", enseignant.getSexe());
+				session.setAttribute("telephone", enseignant.getTelephone());
 				session.setAttribute("emailEnseignant", enseignant.getEmail());
 				session.setAttribute("gradeEnseignant", enseignant.getGrade());
 				session.setAttribute("specEnseignant", enseignant.getSpecialite());
+				
 				
 				out.print("./acceuil_enseignant.jsp");	
 				

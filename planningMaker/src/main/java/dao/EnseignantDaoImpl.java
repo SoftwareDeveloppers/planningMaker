@@ -16,18 +16,21 @@ public class EnseignantDaoImpl implements EnseignantDao {
 		
 	public boolean create(Enseignant enseignant) {
 		
-	String sql = "INSERT INTO enseignant (nom, prenom, email, mdp, specialite, grade)"
-				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	String sql = "INSERT INTO enseignant (nom , prenom , dateN , adresse ,email , mdp , specialite , grade , telephone , sexe )"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, enseignant.getNom());
 			ps.setString(2, enseignant.getPrenom());
-			ps.setString(3, enseignant.getEmail());
-			ps.setString(4, enseignant.getMdp());
-			ps.setString(5, enseignant.getSpecialite());
-			ps.setString(6, enseignant.getGrade());
-			
+			ps.setDate(3, enseignant.getDateN());
+			ps.setString(4, enseignant.getAdresse());
+			ps.setString(5, enseignant.getEmail());
+			ps.setString(6, enseignant.getMdp());
+			ps.setString(7, enseignant.getSpecialite());
+			ps.setString(8, enseignant.getGrade());
+			ps.setString(9, enseignant.getTelephone());
+			ps.setString(10, enseignant.getSexe());
 			
 			//ps.setInt(7, enseignant.geti);
 			ps.execute();
@@ -62,18 +65,22 @@ public class EnseignantDaoImpl implements EnseignantDao {
 	}
 
 	public boolean update(Enseignant enseignant) {
-		String sql="UPDATE enseignant SET nom = '?', prenom = '?', email = '?', mdp = '?', specialite = '?', grade = '?'"
+		String sql="UPDATE enseignant SET nom = '?', prenom = '?', dateN = '?', adresse = '?',email = '?', mdp = '?', specialite = '?', grade = '?', telephone = '?', sexe = '?'"
 				+ " WHERE id = ?;";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, enseignant.getNom());
 			ps.setString(2, enseignant.getPrenom());
-			ps.setString(3, enseignant.getEmail());
-			ps.setString(4, enseignant.getMdp());
-			ps.setString(5, enseignant.getSpecialite());
-			ps.setString(6, enseignant.getGrade());
-			ps.setInt(7, enseignant.getId());
+			ps.setDate(3, enseignant.getDateN());
+			ps.setString(4, enseignant.getAdresse());
+			ps.setString(5, enseignant.getEmail());
+			ps.setString(6, enseignant.getMdp());
+			ps.setString(7, enseignant.getSpecialite());
+			ps.setString(8, enseignant.getGrade());
+			ps.setString(9, enseignant.getTelephone());
+			ps.setString(10, enseignant.getSexe());
+			ps.setInt(11, enseignant.getId());
 			ps.execute();
 			conn.close();
 			
@@ -99,11 +106,15 @@ public class EnseignantDaoImpl implements EnseignantDao {
 				enseignant = new Enseignant(
 						rs.getInt(1),
 						rs.getString(2), 
-						rs.getString(3), 
-						rs.getString(4), 
-						rs.getString(5),  
-						rs.getString(6), 
-						rs.getString(7)
+						rs.getString(3) ,
+						rs.getDate(4),
+						rs.getString(5), 
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getString(9),
+						rs.getString(10),
+						rs.getString(11)
 						);
 			}	
 			conn.close();
@@ -132,11 +143,15 @@ public class EnseignantDaoImpl implements EnseignantDao {
 				enseignant = new Enseignant(
 						rs.getInt(1),
 						rs.getString(2), 
-						rs.getString(3), 
-						rs.getString(4), 
-						rs.getString(5),  
-						rs.getString(6), 
-						rs.getString(7)
+						rs.getString(3) ,
+						rs.getDate(4),
+						rs.getString(5), 
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getString(9),
+						rs.getString(10),
+						rs.getString(11)
 						);
 				
 				enseignants.add(enseignant);
@@ -163,8 +178,8 @@ public class EnseignantDaoImpl implements EnseignantDao {
 			rs=ps.executeQuery();
 			if (rs.next()){
 				if (mdp.equals(rs.getString("mdp")))
-					enseignant = new Enseignant(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), 
-							rs.getString(5),  rs.getString(6), rs.getString(7));
+					enseignant = new Enseignant(rs.getInt(1),rs.getString(2), rs.getString(3) ,rs.getDate(4), rs.getString(5), 
+							rs.getString(6),  rs.getString(7), rs.getString(8), rs.getString(9),rs.getString(10),  rs.getString(11));
 			}
 			conn.close();
 			
@@ -176,6 +191,31 @@ public class EnseignantDaoImpl implements EnseignantDao {
 		
 		
 		return enseignant;
+	}
+
+	public boolean checkEmail(String email) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM enseignant WHERE email=?";
+		boolean result = false;
+		PreparedStatement ps;
+		ResultSet rs = null;
+
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				result = true;
+
+			}
+			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+
+		return result;
 	}
 
 	

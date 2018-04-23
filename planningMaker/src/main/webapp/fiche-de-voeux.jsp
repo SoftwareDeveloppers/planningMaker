@@ -26,114 +26,140 @@
 				});
 			}
 
-			function sujets1(value) {
-				var val = value;
+	function fct(){
 
-				$.ajax({
-					type : "POST",
-					url : "GetSujetC",
-					data : {
-						suj : val
-					},
-					success : function(data) {
-
-						$('.ajax').append(data);
-					}
-				});
+		var id = $('button#modifier').val();
+		console.log("cliked");
+		$.ajax({
+			type:'get',
+			
+			url:'ModifierFiche',
+			success: function(data){
+			
+				$('#info').html(data);
 			}
+		});
+	}
+			
+						
+					
 		</script>
-		<c:if test="${ remplie }">
+		<c:if test="${ remplie}">
+		
 			<div class="pcoded-content">
 				<div class="pcoded-inner-content">
 
 					<!-- Main-body start -->
 					<div class="main-body">
 						<div class="page-wrapper">
-						<div class="page-body m-t-40">
-						
-							<!-- Page-header start -->
-							<div class="page-header card">
-								<div class="row align-items-end">
-									<div class="col-lg-8">
-										<div class="page-header-title">
-											<i class="icofont icofont-table bg-c-blue"></i>
-											<div class="d-inline">
-												<h4>Liste des encadreurs</h4>
-												<span>trouver dans cette page la liste des encadreurs
-													disponible </span>
+							<div class="page-body m-t-40">
+
+								<!-- Page-header start -->
+								<div class="page-header card">
+									<div class="row align-items-end">
+										<div class="col-lg-8">
+											<div class="page-header-title">
+												<i class="icofont icofont-table bg-c-blue"></i>
+												<div class="d-inline">
+													<h4>Liste des encadreurs</h4>
+													<span>trouver dans cette page la liste des
+														encadreurs disponible </span>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="col-lg-4">
-										<div class="page-header-breadcrumb">
-											<ul class="breadcrumb-title">
-												<li class="breadcrumb-item"><a href="index.html"> <i
-														class="icofont icofont-home"></i>
-												</a></li>
-												<li class="breadcrumb-item"><a href="#!">Consulter</a>
-												</li>
-												<li class="breadcrumb-item"><a href="#!">Liste
-														enseignant</a></li>
-											</ul>
+										<div class="col-lg-4">
+											<div class="page-header-breadcrumb">
+												<ul class="breadcrumb-title">
+													<li class="breadcrumb-item"><a href="index.html">
+															<i class="icofont icofont-home"></i>
+													</a></li>
+													<li class="breadcrumb-item"><a href="#!">Consulter</a>
+													</li>
+													<li class="breadcrumb-item"><a href="#!">Liste
+															enseignant</a></li>
+												</ul>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<!-- Page-header end -->
+								<!-- Page-header end -->
 
-							<!-- Page-body start -->
-							<div class="page-body">
-								<div class="row">
-									<div class="col-sm-12">
-										<!-- Zero config.table start -->
-										<div class="card">
-											<div class="card-header">
-												<div class="card-header-right">
-													<i class="icofont icofont-spinner-alt-5"></i>
+								<!-- Page-body start -->
+								<div class="page-body">
+									<div class="row">
+										<div class="col-sm-12">
+											<!-- Zero config.table start -->
+											<div class="card">
+												<div class="card-header">
+													<div class="card-header-right">
+														<i class="icofont icofont-spinner-alt-5"></i>
+													</div>
 												</div>
-											</div>
-											<div class="card-block">
-												<div class="dt-responsive table-responsive">
-													<table id="simpletable"
-														class="table table-striped table-bordered nowrap">
-														<thead>
-															<tr>
-																<th>titre</th>
-																<th>specialité</th>
-																<th>date de création</th>
-																<th>id_enseignant</th>
-
-															</tr>
-														</thead>
-														<tbody>
-															<c:forEach items="${sujetsChoisi}" var="sujet">
+												<div class="card-block">
+													<div class="dt-responsive table-responsive">
+														<table id="simpletable"
+															class="table table-striped table-bordered nowrap">
+															<thead>
 																<tr>
-																	<td>${sujet.titre}</td>
-																	<td>${sujet.specialite}</td>
-																	<td>${sujet.dateCreation}</td>
-																	<td>${sujet.id_enseignant}</td>
+																	<th>titre</th>
+																	<th>specialité</th>
+																	<th>date de création</th>
+																	<th>id_enseignant</th>
+																	
 
 																</tr>
-															</c:forEach>
+															</thead>
+															<tbody>
+																<c:forEach items="${sujetsChoisi}" var="sujet">
+																	<tr>
+																		<td>${sujet.titre}</td>
+																		<td>${sujet.specialite}</td>
+																		<td>${sujet.dateCreation}</td>
+																		<td>${sujet.id_enseignant}</td>
+																	
 
-														</tbody>
-														<tfoot>
-
-														</tfoot>
-													</table>
+																	</tr>
+																</c:forEach>
+																
+															</tbody>
+															<tfoot>
+																		<tr><td><button class="btn btn-info btn-modifier" onclick="fct();"
+																				id="modifier" value="${sessionScope.idEtudiant}">Modifier</button></td></tr>
+															</tfoot>
+														</table>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
 		</c:if>
+		<!--modal start -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<h3 style="color: blue">détaille</h3>
+
+					</div>
+					<div class="modal-body" id="info"></div>
+					<div class="modal-footer">
+						<a href="#" class="btn btn-default" data-dismiss="modal">Fermer</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--modal ends-->
 
 		<c:if test="${ !remplie }">
 
@@ -195,7 +221,7 @@
 											</div>
 											<div class="card-block">
 												<h4 class="sub-title">Basic Inputs</h4>
-												<form >
+												<form method="POST" action="AjouterFicheDeVoeux">
 													<div class="form-group row">
 														<label class="col-sm-2 col-form-label">Specialitée:
 														</label>
@@ -256,8 +282,8 @@
 				if (idSujet1 != idSujet2 && idSujet1 != idSujet3 && idSujet1 != idSujet4 && idSujet1 != idSujet5
 						&& idSujet2 != idSujet3 && idSujet2 != idSujet4 && idSujet2 != idSujet5 && idSujet3 != idSujet4
 						&& idSujet3 != idSujet5 && idSujet4 != idSujet5 ) {
-					alert("cccccccccccccccc");
-					return false;	
+					
+					return true;	
 				}else
 				{
 					$.growl({
@@ -300,7 +326,7 @@
 			            '</div>'
 			        });
 					return false;	
-					alert("suj 1"+idSujet1+"----------suj2"+idSujet1);
+				
 				}
 					
 				return false;	
