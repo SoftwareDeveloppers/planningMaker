@@ -237,4 +237,32 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		}
 
 	}
+	
+	public List<Etudiant> findBySpecialite(String specialite) {
+		String sql = "SELECT *  FROM etudiant WHERE specialite = ? ";
+		PreparedStatement ps;
+		ResultSet rs = null;
+		List<Etudiant> etudiants = new ArrayList<Etudiant>();
+		Etudiant etudiant = null;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, specialite);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				etudiant = new Etudiant(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getFloat(9),
+						rs.getFloat(10));
+
+				etudiants.add(etudiant);
+			}
+			
+			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+		
+		return etudiants;	
+	}
 }
