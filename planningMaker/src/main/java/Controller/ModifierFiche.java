@@ -70,15 +70,15 @@ public class ModifierFiche extends HttpServlet {
 		List<Sujet> sujets=new ArrayList<Sujet>();
 		sujets = fiche.listSujets(idEtud);
 		
-		FicheDeVoeux ficheModifiee1 = new FicheDeVoeux(idEtud,sujet1);
+		FicheDeVoeux ficheModifiee1 = new FicheDeVoeux(idEtud,sujet1,1);
 		fiche6.update(ficheModifiee1,sujets.get(0).getId());
-		FicheDeVoeux ficheModifiee2 = new FicheDeVoeux(idEtud,sujet2);
+		FicheDeVoeux ficheModifiee2 = new FicheDeVoeux(idEtud,sujet2,2);
 		fiche1.update(ficheModifiee2,sujets.get(1).getId());
-		FicheDeVoeux ficheModifiee3 = new FicheDeVoeux(idEtud,sujet3);
+		FicheDeVoeux ficheModifiee3 = new FicheDeVoeux(idEtud,sujet3,3);
 		fiche2.update(ficheModifiee3,sujets.get(2).getId());
-		FicheDeVoeux ficheModifiee4 = new FicheDeVoeux(idEtud,sujet4);
+		FicheDeVoeux ficheModifiee4 = new FicheDeVoeux(idEtud,sujet4,4);
 		fiche3.update(ficheModifiee4,sujets.get(3).getId());
-		FicheDeVoeux ficheModifiee5 = new FicheDeVoeux(idEtud,sujet5);
+		FicheDeVoeux ficheModifiee5 = new FicheDeVoeux(idEtud,sujet5,5);
 		fiche4.update(ficheModifiee5,sujets.get(4).getId());
 
 		request.setAttribute("sujetsChoisi", fiche5.listSujets(idEtud));

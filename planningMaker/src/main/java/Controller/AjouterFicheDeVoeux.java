@@ -68,11 +68,11 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 		int idSujet4 = Integer.parseInt(request.getParameter("sujet4"));
 		int idSujet5 = Integer.parseInt(request.getParameter("sujet5"));
 
-		FicheDeVoeux fiche1 = new FicheDeVoeux(idEtudiant, idSujet1);
-		FicheDeVoeux fiche2 = new FicheDeVoeux(idEtudiant, idSujet2);
-		FicheDeVoeux fiche3 = new FicheDeVoeux(idEtudiant, idSujet3);
-		FicheDeVoeux fiche4 = new FicheDeVoeux(idEtudiant, idSujet4);
-		FicheDeVoeux fiche5 = new FicheDeVoeux(idEtudiant, idSujet5);
+		FicheDeVoeux fiche1 = new FicheDeVoeux(idEtudiant, idSujet1,1);
+		FicheDeVoeux fiche2 = new FicheDeVoeux(idEtudiant, idSujet2,2);
+		FicheDeVoeux fiche3 = new FicheDeVoeux(idEtudiant, idSujet3,3);
+		FicheDeVoeux fiche4 = new FicheDeVoeux(idEtudiant, idSujet4,4);
+		FicheDeVoeux fiche5 = new FicheDeVoeux(idEtudiant, idSujet5,5);
 
 		FicheDeVoeuxDaoImpl ficheDao1 = new FicheDeVoeuxDaoImpl();
 		FicheDeVoeuxDaoImpl ficheDao2 = new FicheDeVoeuxDaoImpl();

@@ -29,7 +29,6 @@
 	function fct(){
 
 		var id = $('button#modifier').val();
-		console.log("cliked");
 		$.ajax({
 			type:'get',
 			
@@ -101,6 +100,7 @@
 															class="table table-striped table-bordered nowrap">
 															<thead>
 																<tr>
+																	<th>choix</th>
 																	<th>titre</th>
 																	<th>specialité</th>
 																	<th>date de création</th>
@@ -110,8 +110,9 @@
 																</tr>
 															</thead>
 															<tbody>
-																<c:forEach items="${sujetsChoisi}" var="sujet">
+																<c:forEach items="${sujetsChoisi}" var="sujet" varStatus="ch">
 																	<tr>
+																		<td>${ch.count } </td>
 																		<td>${sujet.titre}</td>
 																		<td>${sujet.specialite}</td>
 																		<td>${sujet.dateCreation}</td>
@@ -141,20 +142,18 @@
 
 		</c:if>
 		<!--modal start -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">×</button>
+         			 <button type="button" class="close" data-dismiss="modal" style="float: right;">&times;</button>
 						<h3 style="color: blue">détaille</h3>
 
 					</div>
 					<div class="modal-body" id="info"></div>
-					<div class="modal-footer">
-						<a href="#" class="btn btn-default" data-dismiss="modal">Fermer</a>
-					</div>
+					
 
 				</div>
 			</div>
@@ -219,7 +218,7 @@
 												</div>
 
 											</div>
-											<div class="card-block">
+											<div class="card-block" >
 												<h4 class="sub-title">Basic Inputs</h4>
 												<form method="POST" action="AjouterFicheDeVoeux">
 													<div class="form-group row">
@@ -335,6 +334,7 @@
 			return false;	
 		});
 		</script>
+		
 	</c:otherwise>
 </c:choose>
 
