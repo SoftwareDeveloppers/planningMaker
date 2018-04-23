@@ -107,6 +107,39 @@ public class SujetDaoImpl implements SujetDao{
 		
 		return sujet;
 	}
+	
+	public List<Sujet>  findByIdEnseignant(int id) {
+		String sql = "Select * FROM sujet WHERE id_Enseignant=?";
+		PreparedStatement ps;
+		ResultSet rs = null ;
+		List<Sujet> sujets= new ArrayList<Sujet>();
+		Sujet sujet=null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			rs=ps.executeQuery();
+			while (rs.next()){
+				sujet = new Sujet(
+						rs.getInt("id"),
+						rs.getString("titre"), 
+						rs.getString("contenu"), 
+						rs.getString("specialite"), 
+						rs.getDate("date_creation"),
+						rs.getInt("id_Enseignant")
+						);
+				sujets.add(sujet);
+			}	
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return sujets;
+	}
 
 	public List<Sujet> findAll() {
 		String sql = "Select * FROM sujet";

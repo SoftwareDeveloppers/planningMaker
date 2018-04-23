@@ -84,6 +84,11 @@
     <script type="text/javascript" src="assets/js/script.js"></script>
      <!-- notification js -->
  <script type="text/javascript" src="assets/js/bootstrap-growl.min.js"></script>
+  <!-- sweet alert modal.js intialize js -->
+    <!-- modalEffects js nifty modal window effects -->
+    <script type="text/javascript" src="assets/js/modalEffects.js"></script>
+    <script type="text/javascript" src="assets/js/classie.js"></script>
+ 
 </body>
 
 </html>

@@ -5,8 +5,10 @@
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<script type="text/javascript" src="assets/js/jquery-1.6.min.js>"></script>
+
 	
                     <div class="pcoded-content">
+                    <div class="pcoded-overlay-box"></div>
                         <div class="pcoded-inner-content">
 
                             <!-- Main-body start -->
@@ -52,10 +54,34 @@
                                                <!-- Basic Form Inputs card start -->
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h5>Veuillez proposer votre sujet :</h5>
+                                                    <h5>les sujets que vous proposez  </h5>
+                                                    <button type="button" class="btn btn-primary btn-outline-primary waves-effect md-trigger" data-modal="modal-2" id="btn_consulter">Consulter</button>
+                                                    <div class="md-modal md-effect-2" id="modal-2">
+                                                                <div class="md-content">
+                                                                    <h3>vos sujets proposer</h3>
+                                                                    <div>
+                                                      
+                                                                         <c:forEach items="${sujets}" var="sujet">
+																	
+																
+																<div class="col-md-12">
+                                                      
+                                                        <ul class="basic-list list-icons">
+                                                            <li>             
+                                                                <h6>${ sujet.titre}</h6>
+                                                            </li>
+                                                        </ul>
+                                                    </div>    
+                                                    </c:forEach>       
+                                                                        <button type="button" class="btn btn-primary waves-effect md-close">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    
                                                     
                                                     <div class="card-header-right"><i
                                                             class="icofont icofont-spinner-alt-5"></i></div>
+                                                            
 
                                                     <div class="card-header-right">
                                                         <i class="icofont icofont-spinner-alt-5"></i>
@@ -96,6 +122,9 @@
                                                                 </div>
                                                             </div>
                                                     </form>
+                                                    <!--animation modal  Dialogs ends -->
+                                                            <div class="md-overlay"></div>
+                                                    
                                                         
                                                 </div>
                                             </div>
@@ -110,6 +139,7 @@
                                 </div>
                                 </div>
                             </div>
+                            
                             <!-- Main-body end -->
                             <div id="styleSelector">
 
@@ -297,6 +327,10 @@ $('#btnAjouter').click(function(){
 		}
 	});
 	return false;
+});
+$('#btn_consulter').click(function(){
+	
+	
 });
 
     </script>
