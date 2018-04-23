@@ -35,7 +35,6 @@ public class GetSujet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String specialite = request.getParameter("spec");
-		System.out.println(specialite);
 		Sujet sujet = new Sujet() ;
 		sujet.setSpecialite(specialite);
 		c = 1;

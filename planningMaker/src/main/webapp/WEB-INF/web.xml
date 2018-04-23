@@ -77,7 +77,8 @@
 		<display-name>EnseignantControler</display-name>
 		<description></description>
 		<servlet-class>Controller.EnseignantControler</servlet-class>
-
+		</servlet>
+<servlet>
 		<servlet-name>AffectationSujet</servlet-name>
 		<display-name>AffectationSujet</display-name>
 		<description></description>
@@ -130,7 +131,7 @@
 		<servlet-name>EnseignantControler</servlet-name>
 		<url-pattern>/EnseignantControler</url-pattern>
 	</servlet-mapping>
-
+<servlet-mapping>
 		<servlet-name>AffectationSujet</servlet-name>
 		<url-pattern>/AffectationSujet</url-pattern>
 	</servlet-mapping>
