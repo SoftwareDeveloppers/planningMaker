@@ -64,31 +64,27 @@
         <div>
             
             <div class="box-content">
-                <form role="form" method="post" action="#">
+                <form role="form" method="post" action="EnseignantControler">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nom</label>
-                        <input type="text" name="nom" class="form-control"  placeholder="Nom">
+                        <input type="text" name="nom" id="nom" class="form-control"  placeholder="Nom">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Prenom</label>
-                        <input type="text" name="prenom" class="form-control" placeholder="Prenom">
+                        <input type="text" name="prenom" id="prenom" class="form-control" placeholder="Prenom">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Date de naissance</label>
-                        <input type="date" name="dateN" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">lieu de naissance</label>
-                        <input type="text" name="lieuN" class="form-control"placeholder="Lieu de naissance">
+                        <input type="date" name="dateN" id="dateN" class="form-control">
                     </div>
                         <div class="form-group">
-                        <label for="exampleInputEmail1">Address </label>
-                        <input type="text" name="adresse" class="form-control" id="exampleInputEmail1" placeholder="Adresse">
+                        <label for="exampleInputEmail1">Adresse </label>
+                        <input type="text" name="adresse" id="adresse"  class="form-control"placeholder="Adresse">
                     </div>
                        <div class="form-group">
                         <label for="exampleInputEmail1">sexe</label>
                         <div class="controls">
-                         <select name="sexe" class="form-control">
+                         <select name="sexe" id="sexe" class="form-control">
                             <option>homme</option>
                             <option>femme</option>
                         </select>
@@ -97,7 +93,7 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">spécialité</label>
                         <div class="controls">
-                         <select name="specialite" class="form-control">
+                         <select name="specialite" id="specialite" class="form-control">
                             <option>GL</option>
                             <option>Rsd</option>
                             <option>Sic</option>
@@ -107,24 +103,24 @@
                      </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">telephone</label>
-                        <input type="text" name="telephone" class="form-control"  pattern="[0][6|7|5][0-9]{8}" placeholder="telephone">
+                        <input type="text" name="telephone" id="telephone" class="form-control"  pattern="[0][6|7|5][0-9]{8}" placeholder="telephone">
                     </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Grade</label>
-                        <input type="text" name="email" class="form-control"  placeholder="grade">
+                        <input type="text" name="grade" id="grade" class="form-control"  placeholder="grade">
                     </div>
                      <div class="form-group">
                         <label for="exampleInputPassword1">Email</label>
-                        <input type="text" name="email" class="form-control"  placeholder="ex : nom@gmail.com">
+                        <input type="text" name="email" id="email" class="form-control"  placeholder="ex : nom@gmail.com">
                     </div>
                      <div class="form-group">
                         <label for="exampleInputPassword1">Mot de passe</label>
-                        <input type="password" name="mdp" class="form-control"placeholder="mot de passe" >
+                        <input type="password" name="mdp" id="mdp"  class="form-control"placeholder="mot de passe" >
                     </div>
  						<div class="form-group row">
                              <label class="col-sm-2"></label>
                                <div class="col-sm-10">
-                                   <button type="submit" class="btn btn-primary m-b-0">Validez</button>
+                                   <button type="submit" class="valide btn-primary m-b-0">Validez</button>
                                </div>
                          </div>              
                  </form>
@@ -148,5 +144,141 @@
                         </div>
                         </div>
                         </div>
-   
+                       
 	<jsp:include page="footer.jsp"></jsp:include>
+	 <script type="text/javascript">
+
+
+
+                        
+                		$('.valide')
+        				.click(
+        						function() {
+
+        				
+        							var nom = $('#nom').val();
+        							var prenom = $('#prenom').val();
+        							var dateN = $('#dateN').val();
+        							var adresse = $('#adresse').val();
+        							var sexe = $('#sexe').val();
+        							var specialite = $('#specialite').val();
+        							var telephone = $('#telephone').val();
+        							var grade = $('#grade').val();
+        							var email = $('#email').val();
+        							var mdp = $('#mdp').val();
+        							if( nom =="" || prenom ==""||email =="" || mdp =="" || dateN =="" ||
+        									specialite=="" || grade=="" || telephone=="" || adresse=="" ||sexe=="" ){
+        								$
+        								.growl(
+        										{
+        											icon : '',
+        											title : 'Veuillez bien remplire tous les champs ',
+        											message : '',
+        											url : ''
+        										},
+        										{
+        											element : 'body',
+        											type : 'danger',
+        											allow_dismiss : true,
+        											placement : {
+        												from : 'top',
+        												align : 'right'
+        											},
+        											offset : {
+        												x : 30,
+        												y : 30
+        											},
+        											spacing : 10,
+        											z_index : 999999,
+        											delay : 3500,
+        											timer : 1000,
+        											url_target : '_blank',
+        											mouse_over : false,
+        											animate : {
+        												enter : 'animated fadeInRight',
+        												exit : 'animated fadeOutRight'
+        											},
+        											icon_type : 'class',
+        											template : '<div data-growl="container" class="alert" role="alert">'
+        													+ '<button type="button" class="close" data-growl="dismiss">'
+        													+ '<span aria-hidden="true">&times;</span>'
+        													+ '<span class="sr-only">Close</span>'
+        													+ '</button>'
+        													+ '<span data-growl="icon"></span>'
+        													+ '<span data-growl="title"></span>'
+        													+ '<span data-growl="message"></span>'
+        													+ '<a href="#" data-growl="url"></a>'
+        													+ '</div>'
+        										});
+        								return false ;
+        							}else{
+        								
+        							$.ajax({
+        										type : 'POST',
+        										data : {
+        											nom : nom,
+        											prenom : prenom,
+        											dateN : dateN,
+        											specialite : specialite,
+        											adresse : adresse,
+        											grade : grade,
+        											sexe : sexe,
+        											telephone : telephone,
+        											email : email,
+        											mdp : mdp
+        										},
+        										url : 'EnseignantControler',
+        										success : function(resultat) {
+        											if (resultat == "mailExiste") {
+        												$
+        														.growl(
+        																{
+        																	icon : '',
+        																	title : 'Email ',
+        																	message : 'existe deja!',
+        																	url : ''
+        																},
+        																{
+        																	element : 'body',
+        																	type : 'danger',
+        																	allow_dismiss : true,
+        																	placement : {
+        																		from : 'top',
+        																		align : 'right'
+        																	},
+        																	offset : {
+        																		x : 30,
+        																		y : 30
+        																	},
+        																	spacing : 10,
+        																	z_index : 999999,
+        																	delay : 3500,
+        																	timer : 1000,
+        																	url_target : '_blank',
+        																	mouse_over : false,
+        																	animate : {
+        																		enter : 'animated fadeInRight',
+        																		exit : 'animated fadeOutRight'
+        																	},
+        																	icon_type : 'class',
+        																	template : '<div data-growl="container" class="alert" role="alert">'
+        																			+ '<button type="button" class="close" data-growl="dismiss">'
+        																			+ '<span aria-hidden="true">&times;</span>'
+        																			+ '<span class="sr-only">Close</span>'
+        																			+ '</button>'
+        																			+ '<span data-growl="icon"></span>'
+        																			+ '<span data-growl="title"></span>'
+        																			+ '<span data-growl="message"></span>'
+        																			+ '<a href="#" data-growl="url"></a>'
+        																			+ '</div>'
+        																});
+
+        											}  else {
+        												document.location.href = resultat
+        											}
+        										}
+        									});
+        							return false;
+        						}});
+
+</script>

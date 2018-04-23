@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Sam 17 Mars 2018 à 00:09
--- Version du serveur :  5.7.14
--- Version de PHP :  7.0.10
+-- Host: 127.0.0.1
+-- Generation Time: Apr 23, 2018 at 11:59 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `planning_maker`
+-- Database: `planning_maker`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `affectation`
+-- Table structure for table `affectation`
 --
 
 CREATE TABLE `affectation` (
@@ -35,7 +37,7 @@ CREATE TABLE `affectation` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `agentadmin`
+-- Table structure for table `agentadmin`
 --
 
 CREATE TABLE `agentadmin` (
@@ -46,7 +48,7 @@ CREATE TABLE `agentadmin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `agentadmin`
+-- Dumping data for table `agentadmin`
 --
 
 INSERT INTO `agentadmin` (`id`, `nom`, `prenom`, `mdp`) VALUES
@@ -58,7 +60,7 @@ INSERT INTO `agentadmin` (`id`, `nom`, `prenom`, `mdp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `assiste`
+-- Table structure for table `assiste`
 --
 
 CREATE TABLE `assiste` (
@@ -69,7 +71,7 @@ CREATE TABLE `assiste` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `enseignant`
+-- Table structure for table `enseignant`
 --
 
 CREATE TABLE `enseignant` (
@@ -83,7 +85,7 @@ CREATE TABLE `enseignant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `enseignant`
+-- Dumping data for table `enseignant`
 --
 
 INSERT INTO `enseignant` (`id`, `nom`, `prenom`, `email`, `mdp`, `specialite`, `grade`) VALUES
@@ -121,7 +123,7 @@ INSERT INTO `enseignant` (`id`, `nom`, `prenom`, `email`, `mdp`, `specialite`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `etudiant`
+-- Table structure for table `etudiant`
 --
 
 CREATE TABLE `etudiant` (
@@ -140,11 +142,11 @@ CREATE TABLE `etudiant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `etudiant`
+-- Dumping data for table `etudiant`
 --
 
 INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, `specialite`, `promotion`, `moyenne`, `taux`, `id_FicheDeVoeux`, `id_Enseignant`) VALUES
-(1, 'Benmansour', 'Hichem', 'cartwright.coleman@gmail.com', '123456', '1995-10-05', 'SIC', '2014', 13, 0, NULL, NULL),
+(1, 'Benmansour', 'Hichem', 'cartwright.coleman@gmail.com', '123456', '1995-10-05', 'SIC', '2014', 13, 0, 1, NULL),
 (2, 'Sour', 'Salim', 'hahn.jared@hotmail.com', '123456', '1996-02-08', 'RSD', '2013', 11, 0, NULL, NULL),
 (3, 'Azzouni', 'Hind', 'kristina03@hotmail.com', '123456', '1996-02-03', 'SIC', '2011', 16, 0, NULL, NULL),
 (4, 'Tabet Aoul', 'Mounia', 'gfay@hotmail.com', 'azerty13', '1994-12-22', 'RSD', '2011', 10, 0, NULL, NULL),
@@ -268,18 +270,30 @@ INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `fichedevoeux`
+-- Table structure for table `fichedevoeux`
 --
 
 CREATE TABLE `fichedevoeux` (
   `id` int(11) NOT NULL,
-  `id_Sujet` int(11) NOT NULL
+  `id_Sujet` int(11) NOT NULL,
+  `ordre` int(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fichedevoeux`
+--
+
+INSERT INTO `fichedevoeux` (`id`, `id_Sujet`, `ordre`) VALUES
+(1, 183, 2),
+(1, 184, 1),
+(1, 190, 4),
+(1, 199, 5),
+(1, 214, 3);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `salle`
+-- Table structure for table `salle`
 --
 
 CREATE TABLE `salle` (
@@ -288,7 +302,7 @@ CREATE TABLE `salle` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `salle`
+-- Dumping data for table `salle`
 --
 
 INSERT INTO `salle` (`id`, `etat`) VALUES
@@ -316,7 +330,7 @@ INSERT INTO `salle` (`id`, `etat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `soutenance`
+-- Table structure for table `soutenance`
 --
 
 CREATE TABLE `soutenance` (
@@ -328,7 +342,7 @@ CREATE TABLE `soutenance` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `sujet`
+-- Table structure for table `sujet`
 --
 
 CREATE TABLE `sujet` (
@@ -341,7 +355,7 @@ CREATE TABLE `sujet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `sujet`
+-- Dumping data for table `sujet`
 --
 
 INSERT INTO `sujet` (`id`, `titre`, `contenu`, `specialite`, `date_creation`, `id_Enseignant`) VALUES
@@ -358,7 +372,7 @@ INSERT INTO `sujet` (`id`, `titre`, `contenu`, `specialite`, `date_creation`, `i
 (191, 'Voluptas sequi.', 'Will you, won\'t you, will you, won\'t you, will you, won\'t you join the dance. Would not, could not.', 'SIC', '2017-11-12', 24),
 (192, 'Nihil maxime tempora qui ', 'Alice, as she could, for the Dormouse,\' thought Alice; \'I daresay it\'s a very curious sensation,.', 'RSD', '2017-04-12', 18),
 (193, 'Voluptates ipsum sit.', 'HERE.\' \'But then,\' thought Alice, \'or perhaps they won\'t walk the way out of the trees behind him..', 'GL', '2017-05-28', 18),
-(194, 'Molestias voluptas quia h', 'Normans--" How are you getting on now, my dear?\' it continued, turning to Alice with one eye; \'I.', 'SIC', '2017-11-23', 19),
+(194, 'Molestias voluptas quia h', 'Normans--\" How are you getting on now, my dear?\' it continued, turning to Alice with one eye; \'I.', 'SIC', '2017-11-23', 19),
 (195, 'Quia officia.', 'HIS time of life. The King\'s argument was, that she did not at all for any of them. However, on.', 'GL', '2017-06-05', 8),
 (196, 'Iure maiores repudiandae ', 'WHAT?\' thought Alice; \'I might as well as I used--and I don\'t like them!\' When the sands are all.', 'RSD', '2017-09-07', 26),
 (197, 'Eaque quam eos.', 'March Hare: she thought to herself what such an extraordinary ways of living would be like, \'--for.', 'GL', '2017-05-11', 4),
@@ -366,11 +380,11 @@ INSERT INTO `sujet` (`id`, `titre`, `contenu`, `specialite`, `date_creation`, `i
 (199, 'Facilis iusto ipsum.', 'King turned pale, and shut his note-book hastily. \'Consider your verdict,\' he said to herself, as.', 'SIC', '2017-06-24', 26),
 (200, 'Harum enim aut voluptate.', 'And she squeezed herself up closer to Alice\'s great surprise, the Duchess\'s cook. She carried the.', 'SIC', '2017-12-30', 17),
 (201, 'Non saepe fugiat eum quas', 'Alice went timidly up to her in such a tiny golden key, and when she looked down at her own mind.', 'GL', '2017-09-04', 24),
-(202, 'Dignissimos quia eveniet.', 'AND WASHING--extra."\' \'You couldn\'t have wanted it much,\' said Alice, surprised at her as she had.', 'RSD', '2017-06-02', 1),
+(202, 'Dignissimos quia eveniet.', 'AND WASHING--extra.\"\' \'You couldn\'t have wanted it much,\' said Alice, surprised at her as she had.', 'RSD', '2017-06-02', 1),
 (203, 'Sed vel voluptatem.', 'Alice again, in a loud, indignant voice, but she saw them, they set to work throwing everything.', 'RSD', '2017-10-08', 12),
 (204, 'Ducimus debitis ad.', 'I\'d only been the whiting,\' said the March Hare said in a very pretty dance,\' said Alice in a.', 'RSD', '2017-03-16', 5),
 (205, 'Itaque velit sed aut.', 'Miss, we\'re doing our best, afore she comes, to--\' At this moment the King, looking round the.', 'RSD', '2017-04-28', 26),
-(206, 'Rerum voluptate saepe.', 'GAVE HER ONE, THEY GAVE HIM TWO--" why, that must be the right size to do it! Oh dear! I\'d nearly.', 'RSD', '2017-08-20', 20),
+(206, 'Rerum voluptate saepe.', 'GAVE HER ONE, THEY GAVE HIM TWO--\" why, that must be the right size to do it! Oh dear! I\'d nearly.', 'RSD', '2017-08-20', 20),
 (207, 'Ea aut consequatur.', 'Dodo solemnly, rising to its feet, \'I move that the poor little thing grunted in reply (it had.', 'RSD', '2017-12-27', 5),
 (208, 'Neque aut illum.', 'And will talk in contemptuous tones of the evening, beautiful Soup! Soup of the singers in the.', 'SIC', '2017-12-01', 12),
 (209, 'Aliquam veritatis in nece', 'Five. \'I heard every word you fellows were saying.\' \'Tell us a story.\' \'I\'m afraid I can\'t see.', 'RSD', '2017-08-25', 5),
@@ -404,14 +418,16 @@ INSERT INTO `sujet` (`id`, `titre`, `contenu`, `specialite`, `date_creation`, `i
 (237, 'In officia est molestias.', 'Alice watched the White Rabbit, trotting slowly back again, and we won\'t talk about her and to.', 'RSD', '2017-05-03', 6),
 (238, 'Et quia molestiae.', 'Mouse. \'Of course,\' the Mock Turtle. So she sat still and said nothing. \'Perhaps it hasn\'t one,\'.', 'RSD', '2017-07-16', 3),
 (239, 'Rerum ratione corrupti.', 'I can guess that,\' she added in a great hurry. An enormous puppy was looking about for some time.', 'GL', '2017-06-02', 18),
-(240, 'Quam tempora officia.', 'Dodo, \'the best way to explain the mistake it had a pencil that squeaked. This of course, to begin.', 'SIC', '2017-09-29', 10);
+(240, 'Quam tempora officia.', 'Dodo, \'the best way to explain the mistake it had a pencil that squeaked. This of course, to begin.', 'SIC', '2017-09-29', 10),
+(241, 'reda', 'je c pas c \'est quoi ce sujets', 'RSD', '2018-04-10', 1),
+(242, 'titre1', 'description fff', 'RSD', '2018-04-10', 1);
 
 --
--- Index pour les tables exportées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `affectation`
+-- Indexes for table `affectation`
 --
 ALTER TABLE `affectation`
   ADD PRIMARY KEY (`id`,`id_Etudiant`,`id_Sujet`),
@@ -419,26 +435,26 @@ ALTER TABLE `affectation`
   ADD KEY `FK_affectation_id_Sujet` (`id_Sujet`);
 
 --
--- Index pour la table `agentadmin`
+-- Indexes for table `agentadmin`
 --
 ALTER TABLE `agentadmin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `assiste`
+-- Indexes for table `assiste`
 --
 ALTER TABLE `assiste`
   ADD PRIMARY KEY (`id`,`id_Enseignant`),
   ADD KEY `FK_assiste_id_Enseignant` (`id_Enseignant`);
 
 --
--- Index pour la table `enseignant`
+-- Indexes for table `enseignant`
 --
 ALTER TABLE `enseignant`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `etudiant`
+-- Indexes for table `etudiant`
 --
 ALTER TABLE `etudiant`
   ADD PRIMARY KEY (`id`),
@@ -446,77 +462,84 @@ ALTER TABLE `etudiant`
   ADD KEY `FK_Etudiant_id_Enseignant` (`id_Enseignant`);
 
 --
--- Index pour la table `fichedevoeux`
+-- Indexes for table `fichedevoeux`
 --
 ALTER TABLE `fichedevoeux`
-  ADD PRIMARY KEY (`id`,`id_Sujet`),
+  ADD PRIMARY KEY (`id`,`id_Sujet`,`ordre`) USING BTREE,
   ADD KEY `FK_FicheDeVoeux_id_Sujet` (`id_Sujet`);
 
 --
--- Index pour la table `salle`
+-- Indexes for table `salle`
 --
 ALTER TABLE `salle`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `soutenance`
+-- Indexes for table `soutenance`
 --
 ALTER TABLE `soutenance`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_Soutenance_id_Salle` (`id_Salle`);
 
 --
--- Index pour la table `sujet`
+-- Indexes for table `sujet`
 --
 ALTER TABLE `sujet`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_Sujet_id_Enseignant` (`id_Enseignant`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `agentadmin`
+-- AUTO_INCREMENT for table `agentadmin`
 --
 ALTER TABLE `agentadmin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
--- AUTO_INCREMENT pour la table `enseignant`
+-- AUTO_INCREMENT for table `enseignant`
 --
 ALTER TABLE `enseignant`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
 --
--- AUTO_INCREMENT pour la table `etudiant`
+-- AUTO_INCREMENT for table `etudiant`
 --
 ALTER TABLE `etudiant`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+
 --
--- AUTO_INCREMENT pour la table `fichedevoeux`
+-- AUTO_INCREMENT for table `fichedevoeux`
 --
 ALTER TABLE `fichedevoeux`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT pour la table `salle`
+-- AUTO_INCREMENT for table `salle`
 --
 ALTER TABLE `salle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
 --
--- AUTO_INCREMENT pour la table `soutenance`
+-- AUTO_INCREMENT for table `soutenance`
 --
 ALTER TABLE `soutenance`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT pour la table `sujet`
+-- AUTO_INCREMENT for table `sujet`
 --
 ALTER TABLE `sujet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=241;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+
 --
--- Contraintes pour les tables exportées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `affectation`
+-- Constraints for table `affectation`
 --
 ALTER TABLE `affectation`
   ADD CONSTRAINT `FK_affectation_id` FOREIGN KEY (`id`) REFERENCES `enseignant` (`id`),
@@ -524,36 +547,31 @@ ALTER TABLE `affectation`
   ADD CONSTRAINT `FK_affectation_id_Sujet` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`);
 
 --
--- Contraintes pour la table `assiste`
+-- Constraints for table `assiste`
 --
 ALTER TABLE `assiste`
   ADD CONSTRAINT `FK_assiste_id` FOREIGN KEY (`id`) REFERENCES `soutenance` (`id`),
   ADD CONSTRAINT `FK_assiste_id_Enseignant` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`);
 
 --
--- Contraintes pour la table `etudiant`
+-- Constraints for table `etudiant`
 --
 ALTER TABLE `etudiant`
   ADD CONSTRAINT `FK_Etudiant_id_Enseignant` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`),
-  ADD CONSTRAINT `FK_Etudiant_id_FicheDeVoeux` FOREIGN KEY (`id_FicheDeVoeux`) REFERENCES `fichedevoeux` (`id`);
+  ADD CONSTRAINT `FK_Etudiant_id_FicheDeVoeux` FOREIGN KEY (`id_FicheDeVoeux`) REFERENCES `fichedevoeux` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `fichedevoeux`
---
-ALTER TABLE `fichedevoeux`
-  ADD CONSTRAINT `FK_FicheDeVoeux_id_Sujet` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`);
-
---
--- Contraintes pour la table `soutenance`
+-- Constraints for table `soutenance`
 --
 ALTER TABLE `soutenance`
   ADD CONSTRAINT `FK_Soutenance_id_Salle` FOREIGN KEY (`id_Salle`) REFERENCES `salle` (`id`);
 
 --
--- Contraintes pour la table `sujet`
+-- Constraints for table `sujet`
 --
 ALTER TABLE `sujet`
   ADD CONSTRAINT `FK_Sujet_id_Enseignant` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

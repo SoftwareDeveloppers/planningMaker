@@ -16,13 +16,15 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 	Connection conn=DbConnect.connect();
 	
 	public boolean create(FicheDeVoeux fiche) {
-		String sql = "INSERT INTO fichedevoeux (id, id_Sujet) "
-				+ "VALUES (?, ?)";
+		String sql = "INSERT INTO fichedevoeux (id, id_Sujet,ordre) "
+				+ "VALUES (?, ?, ?)";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setInt(1, fiche.getId());
 			ps.setInt(2, fiche.getIdSujet());
+			ps.setInt(3, fiche.getOrdre());
+
 			ps.execute();
 			conn.close();
 			
@@ -54,15 +56,18 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 		return verif ;
 	}
 
-	public boolean update(FicheDeVoeux fiche) {
+	public boolean update(FicheDeVoeux fiche , int idSujetAncien) {
 		
-		String sql = "UPDATE fichedevoeux SET  id_Sujet=?)  "
-				+ "WHERE id=?";
+		String sql = "UPDATE fichedevoeux SET id_Sujet=? WHERE id=? AND id_Sujet=? AND ordre = ? ";
+				
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setInt(2, fiche.getIdSujet());
+			ps.setInt(1, fiche.getIdSujet());
 			ps.setInt(2, fiche.getId());
+			ps.setInt(3, idSujetAncien);
+			ps.setInt(4, fiche.getOrdre());
+
 			ps.execute();
 			conn.close();
 			
@@ -114,7 +119,7 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 	public List<Sujet> listSujets(int idficheDevoeux) {
 
 		
-		String sql = "Select * FROM fichedevoeux,sujet WHERE fichedevoeux.id=? and fichedevoeux.id_Sujet=sujet.id ";
+		String sql = "Select * FROM fichedevoeux,sujet WHERE fichedevoeux.id=? and fichedevoeux.id_Sujet=sujet.id order by ordre asc ";
 		PreparedStatement ps;
 		ResultSet rs = null ;
 		List<Sujet> sujets= new ArrayList<Sujet>();
@@ -127,7 +132,7 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 			
 			while (rs.next()){
 				sujet = new Sujet(
-						rs.getInt("id"),
+						rs.getInt("id_Sujet"),
 						rs.getString("titre"), 
 						rs.getString("contenu"), 
 						rs.getString("specialite"), 

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
   <jsp:include page="header.jsp"></jsp:include>
@@ -56,18 +58,28 @@
                                                             <thead>
                                                             <tr>
                                                                 <th>Nom et prenom</th>
-                                                                <th>specialité</th>
-                                                                <th>grade</th>
+                                                                <th>Date de naissance</th>
+                                                                <th>Adresse</th>
                                                                 <th>email</th>
+                                                                <th>specialitÃ©</th>
+                                                                <th>grade</th>
+                                                                <th>telephone</th>
+                                                                <th>sexe</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
                                                             <c:forEach items="${ enseignants }" var="enseignant">
                                                                 <tr>
                                                                     <td>${ enseignant.getNom()} ${ enseignant.getPrenom()}</td>
+                                                                     <td>${ enseignant.getDateN()}</td>
+                                                                     <td>${ enseignant.getAdresse()}</td>
+                                                                     <td>${ enseignant.getEmail()}</td>
                                                                     <td>${ enseignant.getSpecialite()}</td>
                                                                     <td>${ enseignant.getGrade()}</td>
-                                                                    <td>${ enseignant.getEmail()}</td>
+                                                                    <td>${ enseignant.getTelephone()}</td>
+                                                                    <td>${ enseignant.getSexe()}</td>
+                                                                    
+                                                                   
                                                                 </tr> 
                                                                 </c:forEach>
                                                             </tbody>
