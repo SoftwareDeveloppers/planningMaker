@@ -112,6 +112,8 @@ public class SujetDaoImpl implements SujetDao{
 	}
 	
 	public List<Sujet>  findByIdEnseignant(int id) {
+		Connection conn=DbConnect.connect();
+
 		String sql = "Select * FROM sujet WHERE id_Enseignant=?";
 		PreparedStatement ps;
 		ResultSet rs = null ;

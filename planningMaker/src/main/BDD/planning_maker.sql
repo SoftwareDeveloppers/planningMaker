@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 23, 2018 at 11:59 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Client :  127.0.0.1
+-- Généré le :  Mar 24 Avril 2018 à 12:18
+-- Version du serveur :  10.1.21-MariaDB
+-- Version de PHP :  5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `planning_maker`
+-- Base de données :  `planning_maker`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `affectation`
+-- Structure de la table `affectation`
 --
 
 CREATE TABLE `affectation` (
@@ -37,30 +35,31 @@ CREATE TABLE `affectation` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agentadmin`
+-- Structure de la table `agentadmin`
 --
 
 CREATE TABLE `agentadmin` (
   `id` int(11) NOT NULL,
   `nom` varchar(25) NOT NULL,
   `prenom` varchar(25) NOT NULL,
+  `email` varchar(40) NOT NULL,
   `mdp` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `agentadmin`
+-- Contenu de la table `agentadmin`
 --
 
-INSERT INTO `agentadmin` (`id`, `nom`, `prenom`, `mdp`) VALUES
-(1, 'Agent', 'Mallory', 'azerty13'),
-(2, 'Employer', 'Devante', 'abcd13'),
-(3, 'Admin', 'Gabe', 'azerty13'),
-(4, 'Admin', 'Waldo', 'azerty13');
+INSERT INTO `agentadmin` (`id`, `nom`, `prenom`, `email`, `mdp`) VALUES
+(1, 'Agent', 'Mallory', 'admin@gmail.com', 'azerty13'),
+(2, 'Employer', 'Devante', '', 'abcd13'),
+(3, 'Admin', 'Gabe', '', 'azerty13'),
+(4, 'Admin', 'Waldo', '', 'azerty13');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `assiste`
+-- Structure de la table `assiste`
 --
 
 CREATE TABLE `assiste` (
@@ -71,59 +70,68 @@ CREATE TABLE `assiste` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `enseignant`
+-- Structure de la table `enseignant`
 --
 
 CREATE TABLE `enseignant` (
   `id` int(11) NOT NULL,
   `nom` varchar(25) NOT NULL,
   `prenom` varchar(25) NOT NULL,
+  `dateN` date NOT NULL,
+  `adresse` varchar(40) NOT NULL DEFAULT 'email@gmail.com',
   `email` varchar(30) NOT NULL,
   `mdp` varchar(30) NOT NULL,
   `specialite` varchar(25) NOT NULL,
-  `grade` varchar(25) NOT NULL
+  `grade` varchar(25) NOT NULL,
+  `telephone` varchar(20) NOT NULL DEFAULT '0774586000',
+  `sexe` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `enseignant`
+-- Contenu de la table `enseignant`
 --
 
-INSERT INTO `enseignant` (`id`, `nom`, `prenom`, `email`, `mdp`, `specialite`, `grade`) VALUES
-(1, 'Cortez', 'Rice', 'bert.gaylord@hotmail.com', 'azerty', 'SIC', 'Maître Assistant A'),
-(2, 'Stephon', 'Metz', 'jerrold.wiegand@yahoo.com', 'azerty', 'SIC', 'Maître de conférences B'),
-(3, 'Khalid', 'Abbott', 'cassie.monahan@gmail.com', '123', 'MID', 'Professeur'),
-(4, 'Lance', 'Lowe', 'prosacco.luigi@hotmail.com', 'azerty', 'RSD', 'Maître de conférences A'),
-(5, 'Eliezer', 'Blanda', 'cheyanne04@gmail.com', '123', 'RSD', 'Maître de conférences B'),
-(6, 'Virginia', 'Armstrong', 'pfeffer.marjolaine@gmail.com', 'azerty', 'RSD', 'Professeur'),
-(7, 'Yasmin', 'Grimes', 'destiny.turner@hotmail.com', '123', 'GL', 'Professeur'),
-(8, 'Natalia', 'Dietrich', 'elody.ortiz@yahoo.com', '123', 'MID', 'Maître de conférences A'),
-(9, 'Forest', 'Keeling', 'pansy69@hotmail.com', '123', 'GL', 'Professeur'),
-(10, 'Jaycee', 'Kuvalis', 'hand.reilly@yahoo.com', 'azerty', 'MID', 'Professeur'),
-(11, 'Danyka', 'McGlynn', 'mstamm@yahoo.com', '123', 'RSD', 'Maître de conférences B'),
-(12, 'Brendan', 'Bergnaum', 'otto.borer@hotmail.com', '123', 'RSD', 'Maître de conférences A'),
-(13, 'Bennett', 'Purdy', 'nmarquardt@yahoo.com', '123', 'SIC', 'Maître de conférences A'),
-(14, 'Lawrence', 'Nitzsche', 'vivienne.prosacco@hotmail.com', 'azerty', 'SIC', 'Maître Assistant A'),
-(15, 'Dangelo', 'Padberg', 'jboehm@hotmail.com', '123', 'GL', 'Professeur'),
-(16, 'Schuyler', 'Yundt', 'arvid71@gmail.com', 'azerty', 'MID', 'Maître de conférences B'),
-(17, 'Matilde', 'Mraz', 'pbayer@gmail.com', 'azerty', 'RSD', 'Maître de conférences B'),
-(18, 'Raoul', 'Huels', 'candace.weissnat@yahoo.com', 'azerty', 'MID', 'Professeur'),
-(19, 'Sadye', 'Bins', 'kihn.kaci@gmail.com', 'azerty', 'GL', 'Professeur'),
-(20, 'Germaine', 'Turcotte', 'piper71@gmail.com', 'azerty', 'RSD', 'Maître de conférences B'),
-(21, 'Lurline', 'Collins', 'kihn.teresa@yahoo.com', '123', 'RSD', 'Maître de conférences B'),
-(22, 'Camren', 'Wuckert', 'letitia.marks@yahoo.com', 'azerty', 'SIC', 'Maître de conférences B'),
-(23, 'Junius', 'Will', 'uryan@hotmail.com', '123', 'SIC', 'Maître de conférences B'),
-(24, 'Charley', 'Larson', 'mara69@gmail.com', 'azerty', 'RSD', 'Maître Assistant B'),
-(25, 'Shanie', 'Murphy', 'kim.reilly@hotmail.com', '123', 'GL', 'Maître Assistant B'),
-(26, 'Jermaine', 'Murazik', 'pupton@yahoo.com', '123', 'MID', 'Maître Assistant A'),
-(27, 'Isac', 'Harber', 'bradly.ebert@gmail.com', '123', 'MID', 'Maître de conférences A'),
-(28, 'Norbert', 'Reynolds', 'crooks.claudie@gmail.com', '123', 'MID', 'Maître de conférences B'),
-(29, 'Chad', 'Gulgowski', 'madeline75@hotmail.com', '123', 'GL', 'Maître de conférences B'),
-(30, 'Zoey', 'Gusikowski', 'xgleason@gmail.com', '123', 'GL', 'Maître Assistant B');
+INSERT INTO `enseignant` (`id`, `nom`, `prenom`, `dateN`, `adresse`, `email`, `mdp`, `specialite`, `grade`, `telephone`, `sexe`) VALUES
+(1, 'Cortez', 'Rice', '2018-04-12', 'email@gmail.com', 'bert.gaylord@hotmail.com', 'azerty', 'SIC', 'Maître Assistant A', '774586000', 'homme'),
+(2, 'Stephon', 'Metz', '0000-00-00', 'email@gmail.com', 'jerrold.wiegand@yahoo.com', 'azerty', 'SIC', 'Maître de conférences B', '774586000', 'homme'),
+(3, 'Khalid', 'Abbott', '0000-00-00', 'email@gmail.com', 'cassie.monahan@gmail.com', '123', 'MID', 'Professeur', '774586000', 'homme'),
+(4, 'Lance', 'Lowe', '0000-00-00', 'email@gmail.com', 'prosacco.luigi@hotmail.com', 'azerty', 'RSD', 'Maître de conférences A', '774586000', 'homme'),
+(5, 'Eliezer', 'Blanda', '0000-00-00', 'email@gmail.com', 'cheyanne04@gmail.com', '123', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
+(6, 'Virginia', 'Armstrong', '0000-00-00', 'email@gmail.com', 'pfeffer.marjolaine@gmail.com', 'azerty', 'RSD', 'Professeur', '774586000', 'homme'),
+(7, 'Yasmin', 'Grimes', '0000-00-00', 'email@gmail.com', 'destiny.turner@hotmail.com', '123', 'GL', 'Professeur', '774586000', 'homme'),
+(8, 'Natalia', 'Dietrich', '0000-00-00', 'email@gmail.com', 'elody.ortiz@yahoo.com', '123', 'MID', 'Maître de conférences A', '774586000', 'homme'),
+(9, 'Forest', 'Keeling', '0000-00-00', 'email@gmail.com', 'pansy69@hotmail.com', '123', 'GL', 'Professeur', '774586000', 'homme'),
+(10, 'Jaycee', 'Kuvalis', '0000-00-00', 'email@gmail.com', 'hand.reilly@yahoo.com', 'azerty', 'MID', 'Professeur', '774586000', 'homme'),
+(11, 'Danyka', 'McGlynn', '0000-00-00', 'email@gmail.com', 'mstamm@yahoo.com', '123', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
+(12, 'Brendan', 'Bergnaum', '0000-00-00', 'email@gmail.com', 'otto.borer@hotmail.com', '123', 'RSD', 'Maître de conférences A', '774586000', 'homme'),
+(13, 'Bennett', 'Purdy', '0000-00-00', 'email@gmail.com', 'nmarquardt@yahoo.com', '123', 'SIC', 'Maître de conférences A', '774586000', 'homme'),
+(14, 'Lawrence', 'Nitzsche', '0000-00-00', 'email@gmail.com', 'vivienne.prosacco@hotmail.com', 'azerty', 'SIC', 'Maître Assistant A', '774586000', 'homme'),
+(15, 'Dangelo', 'Padberg', '0000-00-00', 'email@gmail.com', 'jboehm@hotmail.com', '123', 'GL', 'Professeur', '774586000', 'homme'),
+(16, 'Schuyler', 'Yundt', '0000-00-00', 'email@gmail.com', 'arvid71@gmail.com', 'azerty', 'MID', 'Maître de conférences B', '774586000', 'homme'),
+(17, 'Matilde', 'Mraz', '0000-00-00', 'email@gmail.com', 'pbayer@gmail.com', 'azerty', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
+(18, 'Raoul', 'Huels', '0000-00-00', 'email@gmail.com', 'candace.weissnat@yahoo.com', 'azerty', 'MID', 'Professeur', '774586000', 'homme'),
+(19, 'Sadye', 'Bins', '0000-00-00', 'email@gmail.com', 'kihn.kaci@gmail.com', 'azerty', 'GL', 'Professeur', '774586000', 'homme'),
+(20, 'Germaine', 'Turcotte', '0000-00-00', 'email@gmail.com', 'piper71@gmail.com', 'azerty', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
+(21, 'Lurline', 'Collins', '0000-00-00', 'email@gmail.com', 'kihn.teresa@yahoo.com', '123', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
+(22, 'Camren', 'Wuckert', '0000-00-00', 'email@gmail.com', 'letitia.marks@yahoo.com', 'azerty', 'SIC', 'Maître de conférences B', '774586000', 'homme'),
+(23, 'Junius', 'Will', '0000-00-00', 'email@gmail.com', 'uryan@hotmail.com', '123', 'SIC', 'Maître de conférences B', '774586000', 'homme'),
+(24, 'Charley', 'Larson', '0000-00-00', 'email@gmail.com', 'mara69@gmail.com', 'azerty', 'RSD', 'Maître Assistant B', '774586000', 'homme'),
+(25, 'Shanie', 'Murphy', '0000-00-00', 'email@gmail.com', 'kim.reilly@hotmail.com', '123', 'GL', 'Maître Assistant B', '774586000', 'homme'),
+(26, 'Jermaine', 'Murazik', '0000-00-00', 'email@gmail.com', 'pupton@yahoo.com', '123', 'MID', 'Maître Assistant A', '774586000', 'homme'),
+(27, 'Isac', 'Harber', '0000-00-00', 'email@gmail.com', 'bradly.ebert@gmail.com', '123', 'MID', 'Maître de conférences A', '774586000', 'homme'),
+(28, 'Norbert', 'Reynolds', '0000-00-00', 'email@gmail.com', 'crooks.claudie@gmail.com', '123', 'MID', 'Maître de conférences B', '774586000', 'homme'),
+(29, 'Chad', 'Gulgowski', '0000-00-00', 'email@gmail.com', 'madeline75@hotmail.com', '123', 'GL', 'Maître de conférences B', '774586000', 'homme'),
+(30, 'Zoey', 'Gusikowski', '0000-00-00', 'email@gmail.com', 'xgleason@gmail.com', '123', 'GL', 'Maître Assistant B', '774586000', 'homme'),
+(31, 'Messabihi', 'Mohammed', '1845-01-01', 'Imama', 'messabihi.mohammed@gmail.com', 'mes1', 'GL', 'professeur', '558963000', 'homme'),
+(32, 'ccccc', 'azeaze', '1885-03-19', 'vvvvvvvvv', 'adilos-rahmoun07@outlook.fr', 'cc1', 'GL', 'azezae', '775490000', 'homme'),
+(33, 'zzzzzz', 'zzz', '1551-01-01', 'Imama', 'zzz@gmail.com', 'zz1', 'GL', 'fds', '0558963214', 'homme'),
+(34, 'zzzzzz', 'zzz', '2018-03-31', 'aezzae', 'messabihi.1mohammed@gmail.com', '2', 'GL', 'azezae', '0558963214', 'homme'),
+(35, 'zzzzzz', 'zzz', '2018-03-31', 'aezzae', 'mess2abihi.1mohammed@gmail.com', '1', 'GL', 'azezae', '0558963214', 'homme');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `etudiant`
+-- Structure de la table `etudiant`
 --
 
 CREATE TABLE `etudiant` (
@@ -142,11 +150,11 @@ CREATE TABLE `etudiant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `etudiant`
+-- Contenu de la table `etudiant`
 --
 
 INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, `specialite`, `promotion`, `moyenne`, `taux`, `id_FicheDeVoeux`, `id_Enseignant`) VALUES
-(1, 'Benmansour', 'Hichem', 'cartwright.coleman@gmail.com', '123456', '1995-10-05', 'SIC', '2014', 13, 0, 1, NULL),
+(1, 'Benmansour', 'Hichem', 'cartwright.coleman@gmail.com', '123456', '1995-10-05', 'SIC', '2014', 13, 0, NULL, NULL),
 (2, 'Sour', 'Salim', 'hahn.jared@hotmail.com', '123456', '1996-02-08', 'RSD', '2013', 11, 0, NULL, NULL),
 (3, 'Azzouni', 'Hind', 'kristina03@hotmail.com', '123456', '1996-02-03', 'SIC', '2011', 16, 0, NULL, NULL),
 (4, 'Tabet Aoul', 'Mounia', 'gfay@hotmail.com', 'azerty13', '1994-12-22', 'RSD', '2011', 10, 0, NULL, NULL),
@@ -265,35 +273,25 @@ INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, 
 (117, 'Sekkal', 'Mounia', 'peggie21@yahoo.com', '123456', '1995-04-01', 'SIC', '2012', 15, 0, NULL, NULL),
 (118, 'Sari', 'Ines', 'isaias19@gmail.com', '123456', '1993-08-30', 'SIC', '2013', 14, 0, NULL, NULL),
 (119, 'Tabet', 'Hazar', 'luettgen.enos@hotmail.com', '123456', '1995-11-11', 'GL', '2013', 10, 0, NULL, NULL),
-(120, 'Belkhodja', 'Nesrine', 'lonnie.koepp@yahoo.com', 'azerty13', '1994-05-01', 'GL', '2014', 8, 0, NULL, NULL);
+(120, 'Belkhodja', 'Nesrine', 'lonnie.koepp@yahoo.com', 'azerty13', '1994-05-01', 'GL', '2014', 8, 0, NULL, NULL),
+(121, 'nnnnnnnn', 'zzz', 'nom2@gmail.com', '2', '2018-04-12', 'GL', 'ppppppp', 11, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fichedevoeux`
+-- Structure de la table `fichedevoeux`
 --
 
 CREATE TABLE `fichedevoeux` (
   `id` int(11) NOT NULL,
   `id_Sujet` int(11) NOT NULL,
-  `ordre` int(25) NOT NULL
+  `ordre` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `fichedevoeux`
---
-
-INSERT INTO `fichedevoeux` (`id`, `id_Sujet`, `ordre`) VALUES
-(1, 183, 2),
-(1, 184, 1),
-(1, 190, 4),
-(1, 199, 5),
-(1, 214, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `salle`
+-- Structure de la table `salle`
 --
 
 CREATE TABLE `salle` (
@@ -302,7 +300,7 @@ CREATE TABLE `salle` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `salle`
+-- Contenu de la table `salle`
 --
 
 INSERT INTO `salle` (`id`, `etat`) VALUES
@@ -330,7 +328,7 @@ INSERT INTO `salle` (`id`, `etat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `soutenance`
+-- Structure de la table `soutenance`
 --
 
 CREATE TABLE `soutenance` (
@@ -342,7 +340,7 @@ CREATE TABLE `soutenance` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sujet`
+-- Structure de la table `sujet`
 --
 
 CREATE TABLE `sujet` (
@@ -355,7 +353,7 @@ CREATE TABLE `sujet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `sujet`
+-- Contenu de la table `sujet`
 --
 
 INSERT INTO `sujet` (`id`, `titre`, `contenu`, `specialite`, `date_creation`, `id_Enseignant`) VALUES
@@ -419,15 +417,15 @@ INSERT INTO `sujet` (`id`, `titre`, `contenu`, `specialite`, `date_creation`, `i
 (238, 'Et quia molestiae.', 'Mouse. \'Of course,\' the Mock Turtle. So she sat still and said nothing. \'Perhaps it hasn\'t one,\'.', 'RSD', '2017-07-16', 3),
 (239, 'Rerum ratione corrupti.', 'I can guess that,\' she added in a great hurry. An enormous puppy was looking about for some time.', 'GL', '2017-06-02', 18),
 (240, 'Quam tempora officia.', 'Dodo, \'the best way to explain the mistake it had a pencil that squeaked. This of course, to begin.', 'SIC', '2017-09-29', 10),
-(241, 'reda', 'je c pas c \'est quoi ce sujets', 'RSD', '2018-04-10', 1),
-(242, 'titre1', 'description fff', 'RSD', '2018-04-10', 1);
+(241, 'nouveau sujet', 'hjgjhgjhghgggggggggggggggggggg858', 'GL', '2018-03-28', 1),
+(242, 'nouveau sujet', 'hjgjhgjhghgggggggggggggggggggg858', 'GL', '2018-03-28', 1);
 
 --
--- Indexes for dumped tables
+-- Index pour les tables exportées
 --
 
 --
--- Indexes for table `affectation`
+-- Index pour la table `affectation`
 --
 ALTER TABLE `affectation`
   ADD PRIMARY KEY (`id`,`id_Etudiant`,`id_Sujet`),
@@ -435,26 +433,26 @@ ALTER TABLE `affectation`
   ADD KEY `FK_affectation_id_Sujet` (`id_Sujet`);
 
 --
--- Indexes for table `agentadmin`
+-- Index pour la table `agentadmin`
 --
 ALTER TABLE `agentadmin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `assiste`
+-- Index pour la table `assiste`
 --
 ALTER TABLE `assiste`
   ADD PRIMARY KEY (`id`,`id_Enseignant`),
   ADD KEY `FK_assiste_id_Enseignant` (`id_Enseignant`);
 
 --
--- Indexes for table `enseignant`
+-- Index pour la table `enseignant`
 --
 ALTER TABLE `enseignant`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `etudiant`
+-- Index pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
   ADD PRIMARY KEY (`id`),
@@ -462,84 +460,77 @@ ALTER TABLE `etudiant`
   ADD KEY `FK_Etudiant_id_Enseignant` (`id_Enseignant`);
 
 --
--- Indexes for table `fichedevoeux`
+-- Index pour la table `fichedevoeux`
 --
 ALTER TABLE `fichedevoeux`
   ADD PRIMARY KEY (`id`,`id_Sujet`,`ordre`) USING BTREE,
   ADD KEY `FK_FicheDeVoeux_id_Sujet` (`id_Sujet`);
 
 --
--- Indexes for table `salle`
+-- Index pour la table `salle`
 --
 ALTER TABLE `salle`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `soutenance`
+-- Index pour la table `soutenance`
 --
 ALTER TABLE `soutenance`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_Soutenance_id_Salle` (`id_Salle`);
 
 --
--- Indexes for table `sujet`
+-- Index pour la table `sujet`
 --
 ALTER TABLE `sujet`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_Sujet_id_Enseignant` (`id_Enseignant`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
--- AUTO_INCREMENT for table `agentadmin`
+-- AUTO_INCREMENT pour la table `agentadmin`
 --
 ALTER TABLE `agentadmin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
--- AUTO_INCREMENT for table `enseignant`
+-- AUTO_INCREMENT pour la table `enseignant`
 --
 ALTER TABLE `enseignant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
--- AUTO_INCREMENT for table `etudiant`
+-- AUTO_INCREMENT pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 --
--- AUTO_INCREMENT for table `fichedevoeux`
+-- AUTO_INCREMENT pour la table `fichedevoeux`
 --
 ALTER TABLE `fichedevoeux`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `salle`
+-- AUTO_INCREMENT pour la table `salle`
 --
 ALTER TABLE `salle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
 --
--- AUTO_INCREMENT for table `soutenance`
+-- AUTO_INCREMENT pour la table `soutenance`
 --
 ALTER TABLE `soutenance`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT for table `sujet`
+-- AUTO_INCREMENT pour la table `sujet`
 --
 ALTER TABLE `sujet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+--
+-- Contraintes pour les tables exportées
+--
 
 --
--- Constraints for dumped tables
---
-
---
--- Constraints for table `affectation`
+-- Contraintes pour la table `affectation`
 --
 ALTER TABLE `affectation`
   ADD CONSTRAINT `FK_affectation_id` FOREIGN KEY (`id`) REFERENCES `enseignant` (`id`),
@@ -547,31 +538,36 @@ ALTER TABLE `affectation`
   ADD CONSTRAINT `FK_affectation_id_Sujet` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`);
 
 --
--- Constraints for table `assiste`
+-- Contraintes pour la table `assiste`
 --
 ALTER TABLE `assiste`
   ADD CONSTRAINT `FK_assiste_id` FOREIGN KEY (`id`) REFERENCES `soutenance` (`id`),
   ADD CONSTRAINT `FK_assiste_id_Enseignant` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`);
 
 --
--- Constraints for table `etudiant`
+-- Contraintes pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
   ADD CONSTRAINT `FK_Etudiant_id_Enseignant` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`),
-  ADD CONSTRAINT `FK_Etudiant_id_FicheDeVoeux` FOREIGN KEY (`id_FicheDeVoeux`) REFERENCES `fichedevoeux` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_Etudiant_id_FicheDeVoeux` FOREIGN KEY (`id_FicheDeVoeux`) REFERENCES `fichedevoeux` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
--- Constraints for table `soutenance`
+-- Contraintes pour la table `fichedevoeux`
+--
+ALTER TABLE `fichedevoeux`
+  ADD CONSTRAINT `FK_FicheDeVoeux_id_Sujet` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `soutenance`
 --
 ALTER TABLE `soutenance`
   ADD CONSTRAINT `FK_Soutenance_id_Salle` FOREIGN KEY (`id_Salle`) REFERENCES `salle` (`id`);
 
 --
--- Constraints for table `sujet`
+-- Contraintes pour la table `sujet`
 --
 ALTER TABLE `sujet`
   ADD CONSTRAINT `FK_Sujet_id_Enseignant` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
