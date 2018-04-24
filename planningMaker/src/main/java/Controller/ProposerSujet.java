@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 import dao.SujetDaoImpl;
 import model.Sujet;
@@ -31,6 +32,12 @@ public class ProposerSujet extends HttpServlet {
 		HttpSession session = request.getSession();
 		id =  (Integer) session.getAttribute("idEnseignant");
 		SujetDaoImpl sujetdao = new SujetDaoImpl();
+		SujetDaoImpl findSujet = new SujetDaoImpl();
+		
+		ArrayList<Sujet> sujets = new ArrayList<Sujet>();
+		sujets = (ArrayList<Sujet>) findSujet.findByIdEnseignant(id);
+
+		request.setAttribute("sujets", sujets);
 		nombre_de_sujet = sujetdao.nombreDeSujet(id);
 		request.setAttribute("nombre_de_sujet", nombre_de_sujet);
 		this.getServletContext().getRequestDispatcher("/proposer_sujet.jsp").forward(request, response);

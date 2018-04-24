@@ -14,7 +14,25 @@ public class Etudiant {
 	private String promotion;
 	private Float moy;
 	private Float taux;
+	private int id_FicheDeVoeux;
+	private int id_Enseignant;
 	
+
+	public int getId_FicheDeVoeux() {
+		return id_FicheDeVoeux;
+	}
+
+	public void setId_FicheDeVoeux(int id_FicheDeVoeux) {
+		this.id_FicheDeVoeux = id_FicheDeVoeux;
+	}
+
+	public int getId_Enseignant() {
+		return id_Enseignant;
+	}
+
+	public void setId_Enseignant(int id_Enseignant) {
+		this.id_Enseignant = id_Enseignant;
+	}
 
 	public Etudiant(int id, String nom, String prenom, String email, String mdp, Date dateNaissance,
 			String specialite, String promotion, Float moy, Float taux) {
