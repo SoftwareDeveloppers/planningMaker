@@ -15,7 +15,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import dao.SujetDaoImpl;
-import model.AgentAdmin;
 import model.Sujet;
 
 public class ProposerSujet extends HttpServlet {

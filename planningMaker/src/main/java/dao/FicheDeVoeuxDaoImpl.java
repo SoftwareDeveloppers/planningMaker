@@ -153,6 +153,11 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 		return sujets;
 	}
 
+	public FicheDeVoeux findByIdAndOrdre(int id, int ordre) {
+		
+		return null;
+	}
+
 		
 		
 	
