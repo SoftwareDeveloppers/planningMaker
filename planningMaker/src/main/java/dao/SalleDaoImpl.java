@@ -11,10 +11,9 @@ import com.mysql.jdbc.PreparedStatement;
 import model.Salle;
 
 public class SalleDaoImpl implements SalleDao{
-	Connection conn=DbConnect.connect();
 
 	public boolean create(Salle salle) {
-		
+		Connection conn=DbConnect.connect();
 	String sql = "INSERT INTO salle (etat)"
 				+ " VALUES (?);";
 		PreparedStatement ps;
@@ -33,7 +32,8 @@ public class SalleDaoImpl implements SalleDao{
 	}
 
 	public boolean delete(Salle salle) {
-		
+
+		Connection conn=DbConnect.connect();
 		boolean verif = false ;
 		String sql = "DELETE FROM salle WHERE id=?";
 		PreparedStatement ps;
@@ -51,6 +51,7 @@ public class SalleDaoImpl implements SalleDao{
 	}
 
 	public boolean update(Salle salle) {
+		Connection conn=DbConnect.connect();
 		String sql="UPDATE salle SET etat = '?'"
 				+ " WHERE id = ?;";
 		PreparedStatement ps;
@@ -69,6 +70,7 @@ public class SalleDaoImpl implements SalleDao{
 	}
 
 	public Salle findById(int id) {
+		Connection conn=DbConnect.connect();
 		String sql = "Select * FROM salle WHERE id=?";
 		PreparedStatement ps;
 		ResultSet rs = null ;
@@ -95,6 +97,7 @@ public class SalleDaoImpl implements SalleDao{
 	}
 
 	public List<Salle> findAll() {
+		Connection conn=DbConnect.connect();
 		String sql = "Select * FROM salle";
 		PreparedStatement ps;
 		ResultSet rs =null ;

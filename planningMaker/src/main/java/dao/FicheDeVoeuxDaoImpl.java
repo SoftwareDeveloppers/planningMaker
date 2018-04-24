@@ -13,9 +13,11 @@ import model.FicheDeVoeux;
 import model.Sujet;
 
 public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
-	Connection conn=DbConnect.connect();
+	
 	
 	public boolean create(FicheDeVoeux fiche) {
+		Connection conn=DbConnect.connect();
+
 		String sql = "INSERT INTO fichedevoeux (id, id_Sujet,ordre) "
 				+ "VALUES (?, ?, ?)";
 		PreparedStatement ps;
@@ -37,6 +39,7 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 	}
 
 	public boolean delete(FicheDeVoeux e) {
+		Connection conn=DbConnect.connect();
 		boolean verif = false ;
 		
 		String sql = "DELETE FROM fichedevoeux WHERE id=?";
@@ -57,7 +60,7 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 	}
 
 	public boolean update(FicheDeVoeux fiche , int idSujetAncien) {
-		
+		Connection conn=DbConnect.connect();
 		String sql = "UPDATE fichedevoeux SET id_Sujet=? WHERE id=? AND id_Sujet=? AND ordre = ? ";
 				
 		PreparedStatement ps;
@@ -89,7 +92,9 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 		return null;
 	}
 
+	
 	public int nbrSujeuts(int id) {
+		Connection conn=DbConnect.connect();
 		String sql = "SELECT COUNT(id) FROM fichedevoeux WHERE id=?";
 		int result =0 ;
 		PreparedStatement ps;
@@ -117,7 +122,7 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 	}
 
 	public List<Sujet> listSujets(int idficheDevoeux) {
-
+		Connection conn=DbConnect.connect();
 		
 		String sql = "Select * FROM fichedevoeux,sujet WHERE fichedevoeux.id=? and fichedevoeux.id_Sujet=sujet.id order by ordre asc ";
 		PreparedStatement ps;

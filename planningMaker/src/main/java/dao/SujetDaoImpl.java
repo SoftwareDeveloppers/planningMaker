@@ -13,9 +13,9 @@ import model.Sujet;
 
 public class SujetDaoImpl implements SujetDao{
 	
-	Connection conn=DbConnect.connect();
 	
 	public boolean create(Sujet sujet) {
+		Connection conn=DbConnect.connect();
 		
 	String sql = "INSERT INTO sujet (titre , contenu, specialite, date_creation, id_Enseignant)"
 				+ " VALUES (?, ?, ?, ?, ?);";
@@ -37,6 +37,7 @@ public class SujetDaoImpl implements SujetDao{
 		}
 	}
 	public boolean delete(Sujet sujet) {
+		Connection conn=DbConnect.connect();
 		
 		boolean verif = false ;
 		String sql = "DELETE FROM sujet WHERE id=?";
@@ -56,6 +57,7 @@ public class SujetDaoImpl implements SujetDao{
 	}
 
 	public boolean update(Sujet sujet) {
+		Connection conn=DbConnect.connect();
 		String sql="UPDATE sujet SET titre = '?', contenu = '?', specialite = '?', creation = '?', Id_Enseignant = '?'"
 				+ " WHERE id = ?;";
 		PreparedStatement ps;
@@ -78,6 +80,7 @@ public class SujetDaoImpl implements SujetDao{
 	}
 
 	public Sujet findById(int id) {
+		Connection conn=DbConnect.connect();
 		String sql = "Select * FROM sujet WHERE id=?";
 		PreparedStatement ps;
 		ResultSet rs = null ;
@@ -109,6 +112,7 @@ public class SujetDaoImpl implements SujetDao{
 	}
 
 	public List<Sujet> findAll() {
+		Connection conn=DbConnect.connect();
 		String sql = "Select * FROM sujet";
 		PreparedStatement ps;
 		ResultSet rs =null ;
@@ -141,7 +145,8 @@ public class SujetDaoImpl implements SujetDao{
 
 	}
 	public List<Sujet> findBySpecialite(Sujet s) {
-		
+
+		Connection conn=DbConnect.connect();
 		String sql = "Select * FROM sujet WHERE specialite=?";
 		PreparedStatement ps;
 		ResultSet rs = null ;
@@ -177,6 +182,7 @@ public class SujetDaoImpl implements SujetDao{
 	}
 	
 	public int nombreDeSujet(int idEnseignant) {
+		Connection conn=DbConnect.connect();
 		String sql = "Select count(id) FROM sujet WHERE id_Enseignant=?";
 		PreparedStatement ps;
 		ResultSet rs =null ;

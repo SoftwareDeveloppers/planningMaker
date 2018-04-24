@@ -12,10 +12,10 @@ import model.Enseignant;
 
 
 public class EnseignantDaoImpl implements EnseignantDao {
-		Connection conn=DbConnect.connect();
 		
 	public boolean create(Enseignant enseignant) {
-		
+		Connection conn=DbConnect.connect();
+
 	String sql = "INSERT INTO enseignant (nom , prenom , dateN , adresse ,email , mdp , specialite , grade , telephone , sexe )"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps;
@@ -45,7 +45,8 @@ public class EnseignantDaoImpl implements EnseignantDao {
 	}
 
 	public boolean delete(Enseignant e) {
-		
+		Connection conn=DbConnect.connect();
+
 		boolean verif = false ;
 		String sql = "DELETE FROM enseignant WHERE id=?";
 		PreparedStatement ps;
@@ -65,6 +66,8 @@ public class EnseignantDaoImpl implements EnseignantDao {
 	}
 
 	public boolean update(Enseignant enseignant) {
+		Connection conn=DbConnect.connect();
+
 		String sql="UPDATE enseignant SET nom = '?', prenom = '?', dateN = '?', adresse = '?',email = '?', mdp = '?', specialite = '?', grade = '?', telephone = '?', sexe = '?'"
 				+ " WHERE id = ?;";
 		PreparedStatement ps;
@@ -93,6 +96,8 @@ public class EnseignantDaoImpl implements EnseignantDao {
 	}
 
 	public Enseignant findById(int id) {
+		Connection conn=DbConnect.connect();
+
 		String sql = "Select * FROM enseignant WHERE id=?";
 		PreparedStatement ps;
 		ResultSet rs =null ;
@@ -134,7 +139,8 @@ public class EnseignantDaoImpl implements EnseignantDao {
 		ResultSet rs =null ;
 		List<Enseignant> enseignants= new ArrayList<Enseignant>();
 		Enseignant enseignant=null ;
-		
+		Connection conn=DbConnect.connect();
+
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			
@@ -166,6 +172,8 @@ public class EnseignantDaoImpl implements EnseignantDao {
 
 	}
 	public Enseignant check(String user, String mdp) {
+		Connection conn=DbConnect.connect();
+
 		String sql = "SELECT * FROM enseignant WHERE email=?";
 		int result =0 ;
 		PreparedStatement ps;
@@ -193,7 +201,8 @@ public class EnseignantDaoImpl implements EnseignantDao {
 		return enseignant;
 	}
 
-	public boolean checkEmail(String email) {
+	public boolean checkEmail(String email) {		
+		Connection conn=DbConnect.connect();
 		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM enseignant WHERE email=?";
 		boolean result = false;

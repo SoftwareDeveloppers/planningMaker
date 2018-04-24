@@ -12,9 +12,10 @@ import model.AgentAdmin;
 import model.Enseignant;
 
 public class AgentDaoImpl implements AgentDao {
-	Connection conn = DbConnect.connect();
 
 	public boolean create(AgentAdmin a) {
+		Connection conn = DbConnect.connect();
+
 		String sql = "INSERT INTO agentadmin (nom, prenom, email, mdp)" + " VALUES (?, ?, ?, ?)";
 		PreparedStatement ps;
 		try {
@@ -35,6 +36,8 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	public boolean delete(AgentAdmin a) {
+		Connection conn = DbConnect.connect();
+
 		boolean verif = false;
 		String sql = "DELETE FROM agentadmin WHERE id=?";
 		PreparedStatement ps;
@@ -53,6 +56,8 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	public boolean update(AgentAdmin a) {
+		Connection conn = DbConnect.connect();
+
 		String sql = "UPDATE agentadmin SET nom = '?', prenom = '?', email = '?', mdp = '?'" + " WHERE id = ?;";
 		PreparedStatement ps;
 		try {
@@ -74,6 +79,8 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	public AgentAdmin findById(int id) {
+		Connection conn = DbConnect.connect();
+
 		String sql = "Select * FROM agentadmin WHERE id=?";
 		PreparedStatement ps;
 		ResultSet rs = null;
@@ -98,6 +105,8 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	public List<AgentAdmin> findAll() {
+		Connection conn = DbConnect.connect();
+
 		String sql = "Select * FROM agentadmin";
 		PreparedStatement ps;
 		ResultSet rs = null;
@@ -125,6 +134,8 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	public AgentAdmin check(String user, String mdp) {
+		Connection conn = DbConnect.connect();
+
 		String sql = "SELECT * FROM agentadmin WHERE email=?";
 		int result = 0;
 		PreparedStatement ps;
@@ -151,6 +162,8 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	public boolean checkEmail(String email) {
+		Connection conn = DbConnect.connect();
+
 		String sql = "SELECT * FROM agentadmin WHERE email=?";
 		boolean result = false;
 		PreparedStatement ps;

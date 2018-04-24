@@ -75,16 +75,13 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 		FicheDeVoeux fiche5 = new FicheDeVoeux(idEtudiant, idSujet5,5);
 
 		FicheDeVoeuxDaoImpl ficheDao1 = new FicheDeVoeuxDaoImpl();
-		FicheDeVoeuxDaoImpl ficheDao2 = new FicheDeVoeuxDaoImpl();
-		FicheDeVoeuxDaoImpl ficheDao3 = new FicheDeVoeuxDaoImpl();
-		FicheDeVoeuxDaoImpl ficheDao4 = new FicheDeVoeuxDaoImpl();
-		FicheDeVoeuxDaoImpl ficheDao5 = new FicheDeVoeuxDaoImpl();
+	
 
 		ficheDao1.create(fiche1);
-		ficheDao2.create(fiche2);
-		ficheDao3.create(fiche3);
-		ficheDao4.create(fiche4);
-		ficheDao5.create(fiche5);
+		ficheDao1.create(fiche2);
+		ficheDao1.create(fiche3);
+		ficheDao1.create(fiche4);
+		ficheDao1.create(fiche5);
 
 		addFiche.addFicheDeVoeux(idEtudiant, idEtudiant); //comme ca si id fiche de voeux seras generer avec random par ex nehtajou 2 param 									
 		

@@ -11,9 +11,9 @@ import com.mysql.jdbc.PreparedStatement;
 import model.Etudiant;
 
 public class EtudiantDaoImpl implements EtudiantDao {
-	Connection conn = DbConnect.connect();
 
 	public boolean create(Etudiant etudiant) {
+		Connection conn=DbConnect.connect();
 
 		String sql = "INSERT INTO etudiant (nom, prenom, email, mdp, dateNaissance, specialite, promotion, moyenne, taux)"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, '0');";
@@ -40,6 +40,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	}
 
 	public boolean delete(Etudiant e) {
+		Connection conn=DbConnect.connect();
 
 		boolean verif = false;
 		String sql = "DELETE FROM etudiant WHERE id=?";
@@ -60,6 +61,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	}
 
 	public boolean update(Etudiant etudiant) {
+		Connection conn=DbConnect.connect();
 
 		String sql = "UPDATE etudiant SET nom='?', prenom = '?', email='?', mdp = '?', dateNaissance = '?', specialite = '?',"
 				+ " promotion = '?', moyenne = '?', taux='?' WHERE id = ?;";
@@ -89,6 +91,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	}
 
 	public Etudiant findById(int id) {
+		Connection conn=DbConnect.connect();
+
 		String sql = "Select * FROM etudiant WHERE id=?";
 		PreparedStatement ps;
 		ResultSet rs = null;
@@ -115,6 +119,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	}
 
 	public List<Etudiant> findAll() {
+		Connection conn=DbConnect.connect();
+
 		String sql = "Select * FROM etudiant";
 		PreparedStatement ps;
 		ResultSet rs = null;
@@ -142,6 +148,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	}
 
 	public List<String> findSpecialite() {
+		Connection conn=DbConnect.connect();
+
 		String sql = "Select DISTINCT specialite FROM etudiant";
 		PreparedStatement ps;
 		ResultSet rs = null;
@@ -166,6 +174,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	}
 
 	public Etudiant check(String user, String mdp) {
+		Connection conn=DbConnect.connect();
+
 		String sql = "SELECT * FROM etudiant WHERE email=?";
 		int result = 0;
 		PreparedStatement ps;
@@ -194,6 +204,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	}
 
 	public boolean checkEmail(String email) {
+		Connection conn=DbConnect.connect();
+
 		String sql = "SELECT * FROM etudiant WHERE email=?";
 		boolean result = false;
 		PreparedStatement ps;
@@ -219,6 +231,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	}
 	
 	public boolean addFicheDeVoeux(int id, int idF) {
+		Connection conn=DbConnect.connect();
 
 		String sql = "UPDATE etudiant SET id_FicheDeVoeux=? WHERE id = ?";
 		PreparedStatement ps;
@@ -239,6 +252,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	}
 	
 	public List<Etudiant> findBySpecialite(String specialite) {
+		Connection conn=DbConnect.connect();
+
 		String sql = "SELECT *  FROM etudiant WHERE specialite = ? ";
 		PreparedStatement ps;
 		ResultSet rs = null;
