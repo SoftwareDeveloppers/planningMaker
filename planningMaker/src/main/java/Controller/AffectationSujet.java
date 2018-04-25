@@ -22,72 +22,65 @@ import model.Sujet;
 
 public class AffectationSujet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
-    public AffectationSujet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//System.out.println("iciiii");
+	public AffectationSujet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//System.out.println("je suis la!!");
-		
-		//importe tt les sujets
-		ArrayList <Sujet> sujets = new ArrayList<Sujet>();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// importe tt les sujets
+		ArrayList<Sujet> sujets = new ArrayList<Sujet>();
 		SujetDaoImpl sujet = new SujetDaoImpl();
 		sujets = (ArrayList<Sujet>) sujet.findAll();
-		
-		ArrayList <Etudiant> etudiants = new ArrayList<Etudiant>();
+
+		ArrayList<Etudiant> etudiants = new ArrayList<Etudiant>();
 		EtudiantDaoImpl etudiant = new EtudiantDaoImpl();
 		etudiants = (ArrayList<Etudiant>) etudiant.findBySpecialite("GL");
-		
-		//sort array list using Collections class
+
+		// sort array list using Collections class
 		Collections.sort(etudiants, new Comparator<Etudiant>() {
 			public int compare(Etudiant e1, Etudiant e2) {
-				return e2.getMoy().compareTo(e1.getMoy());	
+				return e2.getMoy().compareTo(e1.getMoy());
 			}
 		});
-			//afficher tri etudiant
-			/*for (int i = 0; i < etudiants.size(); i++) {
-				System.out.println(etudiants.get(i).getMoy());	
-			}
-			System.out.println(etudiants.size());
-			System.out.println("fin boucle! apres tri");*/
+		
 		FicheDeVoeuxDaoImpl ficheDeVoeux = new FicheDeVoeuxDaoImpl();
 		FicheDeVoeux ff = new FicheDeVoeux();
 		int ordre;
 		boolean trouve;
 		
-		for (int i=0; i< etudiants.size();i++) {
+
+		for (int i = 0; i < etudiants.size(); i++) {
 			ordre = 1;
-			trouve =false;
-			do{
-			 ff = ficheDeVoeux.findByIdAndOrdre(etudiants.get(i).getId_FicheDeVoeux(), ordre);
-				 for (int j=0; j < sujets.size();j++) {
-					 if (sujets.get(j).getId() == ff.getIdSujet()) {
-						 AffectationDaoImpl aff = new AffectationDaoImpl();
-						 Affectation e =new Affectation(0, etudiants.get(i).getId(), sujets.get(j).getId());
-						 trouve=true;
-						 aff.create(e);
-						 sujets.remove(j);
-						 break;
-					}	
+			trouve = false;
+			do {
+				ff = ficheDeVoeux.findByIdAndOrdre(etudiants.get(i).getId_FicheDeVoeux(), ordre);
+				for (int j = 0; j < sujets.size(); j++) {
+
+					if(sujets.get(j).getId() == ff.getIdSujet()) {
+						AffectationDaoImpl aff = new AffectationDaoImpl();
+						Affectation e = new Affectation(sujets.get(i).getId_enseignant(), etudiants.get(i).getId(), sujets.get(j).getId());
+						trouve = true;
+						aff.create(e);
+						sujets.remove(j);
+						break;
+					}
 				}
-				 if(!trouve)
-					 ordre++;
-			}while(ordre <=5 && !trouve);
+				if (!trouve)
+					ordre++;
+			} while (ordre <= 5 && !trouve);
 			if (!trouve) {
 				System.out.println("pas de chance tout les sujets sont pris");
 			}
 		}
-		
-		
-		
-		
 
 	}
 

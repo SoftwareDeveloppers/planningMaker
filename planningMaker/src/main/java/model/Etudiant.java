@@ -35,7 +35,7 @@ public class Etudiant {
 	}
 
 	public Etudiant(int id, String nom, String prenom, String email, String mdp, Date dateNaissance,
-			String specialite, String promotion, Float moy, Float taux) {
+			String specialite, String promotion, Float moy, Float taux, int id_FicheDeVoeux, int id_Enseignant ) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -47,6 +47,8 @@ public class Etudiant {
 		this.promotion = promotion;
 		this.moy = moy;
 		this.taux = taux;
+		this.id_FicheDeVoeux = id_FicheDeVoeux;
+		this.id_Enseignant = id_Enseignant;
 	}
 	
 	public int getId() {
@@ -108,6 +110,14 @@ public class Etudiant {
 	}
 	public void setTaux(Float taux) {
 		this.taux = taux;
+	}
+
+	@Override
+	public String toString() {
+		return "Etudiant [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", mdp=" + mdp
+				+ ", dateNaissance=" + dateNaissance + ", specialite=" + specialite + ", promotion=" + promotion
+				+ ", moy=" + moy + ", taux=" + taux + ", id_FicheDeVoeux=" + id_FicheDeVoeux + ", id_Enseignant="
+				+ id_Enseignant + "]";
 	}
 
 }

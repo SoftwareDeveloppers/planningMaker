@@ -159,8 +159,35 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 	}
 
 	public FicheDeVoeux findByIdAndOrdre(int id, int ordre) {
+		Connection conn=DbConnect.connect();
 		
-		return null;
+		String sql = "Select * FROM fichedevoeux WHERE id=? and ordre=?";
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		FicheDeVoeux fiche_de_voeux=null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.setInt(2, ordre);
+			rs=ps.executeQuery();
+			if (rs.next()){
+				fiche_de_voeux = new FicheDeVoeux(
+						rs.getInt("id"),
+						rs.getInt("id_Sujet"),
+						rs.getInt("ordre")
+						);
+			}	
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return fiche_de_voeux;
+		
 	}
 
 		

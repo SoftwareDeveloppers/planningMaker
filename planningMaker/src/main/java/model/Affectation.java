@@ -1,6 +1,7 @@
 package model;
 
 public class Affectation {
+	
 	private int id;
 	private int id_Etudiant;
 	private int id_Sujet;
@@ -31,6 +32,10 @@ public class Affectation {
 	}
 	public void setId_Sujet(int id_Sujet) {
 		this.id_Sujet = id_Sujet;
+	}
+	@Override
+	public String toString() {
+		return "Affectation [id=" + id + ", id_Etudiant=" + id_Etudiant + ", id_Sujet=" + id_Sujet + "]";
 	}
 
 }

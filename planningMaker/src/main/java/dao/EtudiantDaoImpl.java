@@ -105,7 +105,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 			if (rs.next()) {
 				etudiant = new Etudiant(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getFloat(9),
-						rs.getFloat(10));
+						rs.getFloat(10),rs.getInt(11),rs.getInt(12));
 
 			}
 			conn.close();
@@ -134,7 +134,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 			while (rs.next()) {
 				etudiant = new Etudiant(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getFloat(9),
-						rs.getFloat(10));
+						rs.getFloat(10),rs.getInt(11),rs.getInt(12));
 
 				etudiants.add(etudiant);
 			}
@@ -190,7 +190,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 				if (mdp.equals(rs.getString("mdp")))
 					etudiant = new Etudiant(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 							rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getFloat(9),
-							rs.getFloat(10));
+							rs.getFloat(10),rs.getInt(11),rs.getInt(12));
 
 			}
 			conn.close();
@@ -267,7 +267,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 			while (rs.next()) {
 				etudiant = new Etudiant(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getFloat(9),
-						rs.getFloat(10));
+						rs.getFloat(10),rs.getInt(11),rs.getInt(12));
 
 				etudiants.add(etudiant);
 			}

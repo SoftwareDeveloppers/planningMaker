@@ -84,7 +84,7 @@ public class EtudiantController extends HttpServlet {
 			 */
 
 			EtudiantDaoImpl etudiantDao = new EtudiantDaoImpl();
-			Etudiant etudaint = new Etudiant(0, nom, prenom, email, mdp, dateN, specialite, promotion, moy, null);
+			Etudiant etudaint = new Etudiant(0, nom, prenom, email, mdp, dateN, specialite, promotion, moy, null, 0, 0);
 
 			if (etudiantDao.create(etudaint)) {
 				out.print("./liste-etudiant.jsp");
