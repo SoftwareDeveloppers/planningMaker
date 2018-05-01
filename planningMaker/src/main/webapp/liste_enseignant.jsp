@@ -59,12 +59,11 @@
                                                             <tr>
                                                                 <th>Nom et prenom</th>
                                                                 <th>Date de naissance</th>
-                                                                <th>Adresse</th>
                                                                 <th>email</th>
                                                                 <th>specialité</th>
                                                                 <th>grade</th>
                                                                 <th>telephone</th>
-                                                                <th>sexe</th>
+                                                                <th>Action</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
@@ -72,13 +71,19 @@
                                                                 <tr>
                                                                     <td>${ enseignant.getNom()} ${ enseignant.getPrenom()}</td>
                                                                      <td>${ enseignant.getDateN()}</td>
-                                                                     <td>${ enseignant.getAdresse()}</td>
                                                                      <td>${ enseignant.getEmail()}</td>
                                                                     <td>${ enseignant.getSpecialite()}</td>
                                                                     <td>${ enseignant.getGrade()}</td>
                                                                     <td>${ enseignant.getTelephone()}</td>
-                                                                    <td>${ enseignant.getSexe()}</td>
-                                                                    
+                                                                    <td><button class="btn btn-info btn-modifier"
+																			onclick="fct1();" id="aj"
+																			value="${sessionScope.idEtudiant}">Ajouter</button>
+																			<button class="btn btn-warning btn-modifier"
+																			onclick="fct2();" id="mod"
+																			value="${sessionScope.idEtudiant}">Modifier</button>
+																			<button class="btn btn-danger btn-modifier"
+																			onclick="fct3();" id="sup"
+																			value="${sessionScope.idEtudiant}">Supprimer</button></td>
                                                                    
                                                                 </tr> 
                                                                 </c:forEach>

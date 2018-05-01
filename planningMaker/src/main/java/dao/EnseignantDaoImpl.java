@@ -134,7 +134,7 @@ public class EnseignantDaoImpl implements EnseignantDao {
 	}
 
 	public List<Enseignant> findAll() {
-		String sql = "Select * FROM enseignant";
+		String sql = "SELECT * FROM enseignant ";
 		PreparedStatement ps;
 		ResultSet rs =null ;
 		List<Enseignant> enseignants= new ArrayList<Enseignant>();
