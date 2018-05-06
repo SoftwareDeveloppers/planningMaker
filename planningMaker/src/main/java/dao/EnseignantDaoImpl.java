@@ -44,19 +44,20 @@ public class EnseignantDaoImpl implements EnseignantDao {
 		}
 	}
 
-	public boolean delete(Enseignant e) {
+	public boolean delete(int id) {
 		Connection conn=DbConnect.connect();
-
+		System.out.println("fct deletee");
 		boolean verif = false ;
-		String sql = "DELETE FROM enseignant WHERE id=?";
+		String sql = "DELETE FROM enseignant WHERE id = ?";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setInt(1, e.getId());
-			
-			verif=ps.execute();
+			ps.setInt(1, id);
+			System.out.println("id delete"+id);
+			verif = ps.execute();
+			System.out.println("conn closse");
 			conn.close();
-			
+			System.out.println("verif"+verif);
 			
 		} catch (SQLException ex) {
 			ex.printStackTrace();	
@@ -67,11 +68,13 @@ public class EnseignantDaoImpl implements EnseignantDao {
 
 	public boolean update(Enseignant enseignant) {
 		Connection conn=DbConnect.connect();
-
-		String sql="UPDATE enseignant SET nom = '?', prenom = '?', dateN = '?', adresse = '?',email = '?', mdp = '?', specialite = '?', grade = '?', telephone = '?', sexe = '?'"
+		System.out.println("fct update");
+		String sql="UPDATE enseignant SET nom = ?, prenom = ?, dateN = ?, adresse = ?,email = ?, mdp = ?, specialite = ?, grade = ?, telephone = ?, sexe = ?"
 				+ " WHERE id = ?;";
+		System.out.println("string sql done");
 		PreparedStatement ps;
 		try {
+			System.out.println("try recup donne");
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, enseignant.getNom());
 			ps.setString(2, enseignant.getPrenom());
@@ -84,7 +87,9 @@ public class EnseignantDaoImpl implements EnseignantDao {
 			ps.setString(9, enseignant.getTelephone());
 			ps.setString(10, enseignant.getSexe());
 			ps.setInt(11, enseignant.getId());
+			System.out.println("donne recup");
 			ps.execute();
+			System.out.println("execute");
 			conn.close();
 			
 			return true;
