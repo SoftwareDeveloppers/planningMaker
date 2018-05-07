@@ -68,13 +68,10 @@ public class EnseignantDaoImpl implements EnseignantDao {
 
 	public boolean update(Enseignant enseignant) {
 		Connection conn=DbConnect.connect();
-		System.out.println("fct update");
 		String sql="UPDATE enseignant SET nom = ?, prenom = ?, dateN = ?, adresse = ?,email = ?, mdp = ?, specialite = ?, grade = ?, telephone = ?, sexe = ?"
 				+ " WHERE id = ?;";
-		System.out.println("string sql done");
 		PreparedStatement ps;
 		try {
-			System.out.println("try recup donne");
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, enseignant.getNom());
 			ps.setString(2, enseignant.getPrenom());
@@ -87,9 +84,7 @@ public class EnseignantDaoImpl implements EnseignantDao {
 			ps.setString(9, enseignant.getTelephone());
 			ps.setString(10, enseignant.getSexe());
 			ps.setInt(11, enseignant.getId());
-			System.out.println("donne recup");
 			ps.execute();
-			System.out.println("execute");
 			conn.close();
 			
 			return true;

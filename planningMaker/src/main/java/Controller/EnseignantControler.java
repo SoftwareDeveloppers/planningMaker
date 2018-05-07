@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,8 +35,8 @@ public class EnseignantControler extends HttpServlet {
 		if (request.getParameter("Liste") != null) {
 			
 			EnseignantDaoImpl enseignant = new EnseignantDaoImpl();
-			ArrayList<Enseignant> enseignants = new ArrayList<Enseignant>();
-			enseignants = (ArrayList<Enseignant>) enseignant.findAll();
+			List<Enseignant> enseignants = new ArrayList<Enseignant>();
+			enseignants = enseignant.findAll();
 			request.setAttribute("enseignants", enseignants);
 			this.getServletContext().getRequestDispatcher("/liste_enseignant.jsp").forward(request, response);
 			

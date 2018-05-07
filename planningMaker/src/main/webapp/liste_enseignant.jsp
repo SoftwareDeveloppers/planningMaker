@@ -81,7 +81,7 @@
 																			
 																			<button type="button" class="btn btn-danger waves-effect" 
 																			data-toggle="modal" data-target="#supp-Modal${enseignant.getId()}">Supprimer</button>
-																			</td>
+																	</td>
                                                                    <div class="modal fade" id="supp-Modal${enseignant.getId()}" tabindex="-1" role="dialog">
                                                                     <div class="modal-dialog" role="document">
                                                                         <div class="modal-content">
