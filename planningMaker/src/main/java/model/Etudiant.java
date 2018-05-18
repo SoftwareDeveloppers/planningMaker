@@ -51,6 +51,12 @@ public class Etudiant {
 		this.id_Enseignant = id_Enseignant;
 	}
 	
+	
+	public Etudiant() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -119,5 +125,7 @@ public class Etudiant {
 				+ ", moy=" + moy + ", taux=" + taux + ", id_FicheDeVoeux=" + id_FicheDeVoeux + ", id_Enseignant="
 				+ id_Enseignant + "]";
 	}
+	
+	
 
 }

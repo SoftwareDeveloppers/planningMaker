@@ -197,7 +197,7 @@
                                     </li>
                             
                                     <li class="">
-                                        <a href="liste_enseignant.jsp">
+                                        <a href="EnseignantControler?Liste=132za&ze">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">liste des enseignants</span>
                                             <span class="pcoded-mcaret"></span>

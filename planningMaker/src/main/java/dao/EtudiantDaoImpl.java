@@ -39,7 +39,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		}
 	}
 
-	public boolean delete(Etudiant e) {
+	public boolean delete(int id) {
 		Connection conn=DbConnect.connect();
 
 		boolean verif = false;
@@ -47,7 +47,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setInt(1, e.getId());
+			ps.setInt(1, id);
 
 			verif = ps.execute();
 			conn.close();
@@ -62,11 +62,12 @@ public class EtudiantDaoImpl implements EtudiantDao {
 
 	public boolean update(Etudiant etudiant) {
 		Connection conn=DbConnect.connect();
-
-		String sql = "UPDATE etudiant SET nom='?', prenom = '?', email='?', mdp = '?', dateNaissance = '?', specialite = '?',"
-				+ " promotion = '?', moyenne = '?', taux='?' WHERE id = ?;";
+		
+		String sql = "UPDATE etudiant SET nom= ? , prenom = ?, email= ?, mdp = ?, dateNaissance = ?, specialite = ?, promotion = ?, moyenne = ?, taux= ? WHERE id = ?;";
+		
 		PreparedStatement ps;
 		try {
+			
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, etudiant.getNom());
 			ps.setString(2, etudiant.getPrenom());
