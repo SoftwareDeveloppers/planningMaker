@@ -160,6 +160,13 @@
                                     </li>
                                  </ul>
                               </li>
+                              <li class="">
+                                        <a href="AffectationSujet?etudiantEncadrer=132za&ze">
+                                            <span class="pcoded-micon"><i class=class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Etudiant Encadrer</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
                               	</c:if>
 								
                                <li class="pcoded-hasmenu">
@@ -212,6 +219,13 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
+                                    <li class="">
+                                        <a href="AffectationSujet">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">affectation des sujets</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
                                 </c:if>
                                     <li class="">
                                         <a href="liste_plannification_soutenance.jsp">
@@ -221,13 +235,7 @@
                                         </a>
                                     </li>
                              
-                                    <li class="">
-                                        <a href="AffectationSujet">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">affectation des sujets</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
+                                    
                                  </ul>
                               </li>
                               <c:if test="${ !empty(sessionScope.idAgent)}">
