@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,21 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mysql.jdbc.interceptors.SessionAssociationInterceptor;
-
 import dao.AffectationDaoImpl;
-import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
 import dao.FicheDeVoeuxDaoImpl;
 import dao.SujetDaoImpl;
 import model.Affectation;
-import model.Enseignant;
 import model.Etudiant;
 import model.FicheDeVoeux;
 import model.Sujet;
+import model.affectationJoin;
 
 public class AffectationSujet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	boolean remplie = false;
 
 	public AffectationSujet() {
 		super();
@@ -36,40 +33,33 @@ public class AffectationSujet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("idAgent") == null) {
 
-			if (request.getParameter("etudiantEncadrer") != null) {
-			HttpSession session = request.getSession();
-			int idEns = (Integer) session.getAttribute("idEnseignant");
-			System.out.println("id ens = "+idEns);
-			
-			SujetDaoImpl sujetDao = new SujetDaoImpl();
-			List<Sujet> sujets = new ArrayList<Sujet>();
-			sujets = sujetDao.findByIdEnseignant(idEns);
-			
+			response.sendRedirect("Deconnexion");
+
+		} else {
+			ArrayList<Affectation> affectations = new ArrayList<Affectation>();
 			AffectationDaoImpl affectation = new AffectationDaoImpl();
-			List<Affectation> affectations = new ArrayList<Affectation>();
-			EtudiantDaoImpl etudDao = new EtudiantDaoImpl();
-			List<Etudiant> etud = new ArrayList<Etudiant>();
-			
-			for(int i=0; i<sujets.size();i++)
-			{
-				Affectation af = affectation.findBySujet(sujets.get(i).getId());
-				affectations.add(af);
-				System.out.println("afff suj"+affectations.get(i).getId_Etudiant());
-				System.out.println("afff "+af.getId_Etudiant());
-				Etudiant etu = etudDao.findById(af.getId_Etudiant());
-				etud.add(etu);
-				System.out.println(etu.getNom());
-				
+			affectations = (ArrayList<Affectation>) affectation.findAll();
+			if (affectations.isEmpty()) {
+				remplie = false;
+				request.setAttribute("remplie", remplie);
+				this.getServletContext().getRequestDispatcher("/affectation_sujet.jsp").forward(request, response);
+			} else {
+				remplie = true;
+				request.setAttribute("remplie", remplie);
+				request.setAttribute("affectations", affectations);
+				ArrayList<affectationJoin> e = affectation.jointureAffectaction();
+				request.setAttribute("ListAffectation",e );
+				for (affectationJoin affectationJoin : e) {
+					System.out.println(affectationJoin);
+				}
+				this.getServletContext().getRequestDispatcher("/affectation_sujet.jsp").forward(request, response);
 			}
-			
-			request.setAttribute("sujets", sujets);
-			request.setAttribute("etudiants", etud);
-			request.setAttribute("affectations", affectations);
-			this.getServletContext().getRequestDispatcher("/EtudiantEncadrer.jsp").forward(request, response);
-		
-			}
+		}
 	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -88,29 +78,36 @@ public class AffectationSujet extends HttpServlet {
 				return e2.getMoy().compareTo(e1.getMoy());
 			}
 		});
-		
+
 		FicheDeVoeuxDaoImpl ficheDeVoeux = new FicheDeVoeuxDaoImpl();
 		FicheDeVoeux ff = new FicheDeVoeux();
 		int ordre;
 		boolean trouve;
-		
 
 		for (int i = 0; i < etudiants.size(); i++) {
 			ordre = 1;
 			trouve = false;
 			do {
 				ff = ficheDeVoeux.findByIdAndOrdre(etudiants.get(i).getId_FicheDeVoeux(), ordre);
-				for (int j = 0; j < sujets.size(); j++) {
+				if (ff == null) {
+					System.out.println("cc");
+					trouve =true;
+					break;
+				} else {
+					for (int j = 0; j < sujets.size(); j++) {
 
-					if(sujets.get(j).getId() == ff.getIdSujet()) {
-						AffectationDaoImpl aff = new AffectationDaoImpl();
-						Affectation e = new Affectation(sujets.get(i).getId_enseignant(), etudiants.get(i).getId(), sujets.get(j).getId());
-						trouve = true;
-						aff.create(e);
-						sujets.remove(j);
-						break;
+						if (sujets.get(j).getId() == ff.getIdSujet()) {
+							AffectationDaoImpl aff = new AffectationDaoImpl();
+							Affectation e = new Affectation(sujets.get(i).getId_enseignant(), etudiants.get(i).getId(),
+									sujets.get(j).getId());
+							trouve = true;
+							aff.create(e);
+							sujets.remove(j);
+							break;
+						}
 					}
 				}
+
 				if (!trouve)
 					ordre++;
 			} while (ordre <= 5 && !trouve);
@@ -118,6 +115,7 @@ public class AffectationSujet extends HttpServlet {
 				System.out.println("pas de chance tout les sujets sont pris");
 			}
 		}
+		this.doGet(request, response);
 
 	}
 

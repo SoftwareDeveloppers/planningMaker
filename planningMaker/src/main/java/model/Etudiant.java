@@ -17,37 +17,6 @@ public class Etudiant {
 	private int id_FicheDeVoeux;
 	private int id_Enseignant;
 	
-	public Etudiant(int id, String nom, String prenom, String email, String mdp, Date dateNaissance,
-			String specialite, String promotion, Float moy, Float taux, int id_FicheDeVoeux, int id_Enseignant ) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.mdp = mdp;
-		this.dateNaissance = dateNaissance;
-		this.specialite = specialite;
-		this.promotion = promotion;
-		this.moy = moy;
-		this.taux = taux;
-		this.id_FicheDeVoeux = id_FicheDeVoeux;
-		this.id_Enseignant = id_Enseignant;
-	}
-	public Etudiant(int id, String nom, String prenom, String email, String mdp, Date dateNaissance,
-			String specialite, String promotion, Float moy, Float taux ) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.mdp = mdp;
-		this.dateNaissance = dateNaissance;
-		this.specialite = specialite;
-		this.promotion = promotion;
-		this.moy = moy;
-		this.taux = taux;
-
-	}
 
 	public int getId_FicheDeVoeux() {
 		return id_FicheDeVoeux;
@@ -65,7 +34,22 @@ public class Etudiant {
 		this.id_Enseignant = id_Enseignant;
 	}
 
-	
+	public Etudiant(int id, String nom, String prenom, String email, String mdp, Date dateNaissance,
+			String specialite, String promotion, Float moy, Float taux, int id_FicheDeVoeux, int id_Enseignant ) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.mdp = mdp;
+		this.dateNaissance = dateNaissance;
+		this.specialite = specialite;
+		this.promotion = promotion;
+		this.moy = moy;
+		this.taux = taux;
+		this.id_FicheDeVoeux = id_FicheDeVoeux;
+		this.id_Enseignant = id_Enseignant;
+	}
 	
 	public int getId() {
 		return id;

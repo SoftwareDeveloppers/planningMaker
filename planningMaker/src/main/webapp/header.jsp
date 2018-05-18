@@ -160,13 +160,6 @@
                                     </li>
                                  </ul>
                               </li>
-                              <li class="">
-                                        <a href="AffectationSujet?etudiantEncadrer=132za&ze">
-                                            <span class="pcoded-micon"><i class=class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Etudiant Encadrer</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
                               	</c:if>
 								
                                <li class="pcoded-hasmenu">
@@ -204,7 +197,7 @@
                                     </li>
                             
                                     <li class="">
-                                        <a href="EnseignantControler?Liste=sdjhhfsdkjfhsdhfvhfnkjfvb jhm">
+                                        <a href="liste_enseignant.jsp">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">liste des enseignants</span>
                                             <span class="pcoded-mcaret"></span>
@@ -229,7 +222,7 @@
                                     </li>
                              
                                     <li class="">
-                                        <a href="affectation_sujet.jsp">
+                                        <a href="AffectationSujet">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">affectation des sujets</span>
                                             <span class="pcoded-mcaret"></span>

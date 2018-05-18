@@ -1,7 +1,6 @@
 package Controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,9 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.EtudiantDaoImpl;
 import dao.FicheDeVoeuxDaoImpl;
-import dao.SujetDaoImpl;
 import model.FicheDeVoeux;
-import model.Sujet;
 
 /**
  * Servlet implementation class AjouterFicheDeVoeux
@@ -29,26 +26,20 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("idEtudiant") == null) {
 
-			response.sendRedirect("Login");
+			response.sendRedirect("Deconnexion");
 			
 		} else {
 			int idEtudiant = (Integer) session.getAttribute("idEtudiant");
+
 			FicheDeVoeuxDaoImpl ficheDao = new FicheDeVoeuxDaoImpl();
 
 			if (ficheDao.nbrSujeuts(idEtudiant) != 5) {
 
-				
-				List<Sujet> sujets = new ArrayList<Sujet>();
+				EtudiantDaoImpl etudiant = new EtudiantDaoImpl();
+				List<String> Specilaite = etudiant.findSpecialite();
+				request.setAttribute("specialite", Specilaite);
 
 				remplie = false;
-				String specialite =(String) session.getAttribute("specEtudiant");
-				Sujet sujet = new Sujet() ;
-				sujet.setSpecialite(specialite);
-				
-				SujetDaoImpl sujetdao = new SujetDaoImpl();
-				sujets = sujetdao.findBySpecialite(sujet);
-				
-				request.setAttribute("sujets", sujets);
 				request.setAttribute("remplie", remplie);
 				this.getServletContext().getRequestDispatcher("/fiche-de-voeux.jsp").forward(request, response);
 
