@@ -60,7 +60,6 @@
                                                             	<th>Etudiant</th>
                                                                 <th>Sujet</th>
                                                                 <th>Taux</th>
-                                                               
                                                             </tr>
                                                             </thead>
                                                             <tbody>
@@ -72,7 +71,14 @@
 															<tr>
 																<td>${ etud.nom} ${ etud.prenom}</td>								
 																<td>${suj.titre}</td>
-																<td>${etud.taux}</td>	
+																<td>
+														<div class="progress-box">
+                                                            
+                                                            <div class="progress d-inline-block" style="width:100%">
+                                                                <div class="progress-bar bg-c-green" style="width:${etud.taux}%"><label>${etud.taux}%</label></div>
+                                                            </div>
+                                                        </div>
+																</td>	
 															</tr>
 															</c:if>
 															</c:if>
