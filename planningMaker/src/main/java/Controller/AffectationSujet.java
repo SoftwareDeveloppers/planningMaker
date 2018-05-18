@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +35,41 @@ public class AffectationSujet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		
+		if (request.getParameter("etudiantEncadrer") != null) {
+			HttpSession session1 = request.getSession();
+			int idEns = (Integer) session1.getAttribute("idEnseignant");
+			System.out.println("id ens = "+idEns);
+			
+			SujetDaoImpl sujetDao = new SujetDaoImpl();
+			List<Sujet> sujets = new ArrayList<Sujet>();
+			sujets = sujetDao.findByIdEnseignant(idEns);
+			
+			AffectationDaoImpl affectation = new AffectationDaoImpl();
+			List<Affectation> affectations = new ArrayList<Affectation>();
+			EtudiantDaoImpl etudDao = new EtudiantDaoImpl();
+			List<Etudiant> etud = new ArrayList<Etudiant>();
+			
+			for(int i=0; i<sujets.size();i++)
+			{
+				Affectation af = affectation.findBySujet(sujets.get(i).getId());
+				affectations.add(af);
+				System.out.println("afff suj"+affectations.get(i).getId_Etudiant());
+				System.out.println("afff "+af.getId_Etudiant());
+				Etudiant etu = etudDao.findById(af.getId_Etudiant());
+				etud.add(etu);
+				System.out.println(etu.getNom());
+				
+			}
+			
+			request.setAttribute("sujets", sujets);
+			request.setAttribute("etudiants", etud);
+			request.setAttribute("affectations", affectations);
+			this.getServletContext().getRequestDispatcher("/EtudiantEncadrer.jsp").forward(request, response);
+		
+			}
+		
+		
 		if (session.getAttribute("idAgent") == null) {
 
 			response.sendRedirect("Deconnexion");
