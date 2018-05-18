@@ -69,7 +69,7 @@ public class EnseignantDaoImpl implements EnseignantDao {
 		Connection conn=DbConnect.connect();
 
 		String sql="UPDATE enseignant SET nom = '?', prenom = '?', dateN = '?', adresse = '?',email = '?', mdp = '?', specialite = '?', grade = '?', telephone = '?', sexe = '?'"
-				+ " WHERE id = ?;";
+				+ " WHERE id = ?";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
@@ -226,6 +226,34 @@ public class EnseignantDaoImpl implements EnseignantDao {
 
 		return result;
 	}
-
 	
+	public boolean updateProfil(Enseignant enseignant) {
+		Connection conn=DbConnect.connect();
+
+		String sql="UPDATE enseignant SET nom = ?, prenom = ?,dateN = ? , adresse = ? ,email = ? ,specialite =  ? , grade = ?, telephone = ?, sexe = ? WHERE id = ?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			
+			ps.setString(1, enseignant.getNom());
+			ps.setString(2, enseignant.getPrenom());
+			ps.setDate(3, enseignant.getDateN());
+			ps.setString(4, enseignant.getAdresse());
+			ps.setString(5, enseignant.getEmail());
+			ps.setString(6, enseignant.getSpecialite());
+			ps.setString(7, enseignant.getGrade());
+			ps.setString(8, enseignant.getTelephone());
+			ps.setString(9, enseignant.getSexe());
+			ps.setInt(10, enseignant.getId());
+			ps.execute();
+			conn.close();
+			
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return false;
+	}
+
+	}
 }

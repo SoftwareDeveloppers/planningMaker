@@ -10,6 +10,7 @@ public interface EnseignantDao {
 	public boolean create(Enseignant e);
 	public boolean delete(Enseignant e);
 	public boolean update(Enseignant e);
+	public boolean updateProfil(Enseignant e);
 	public Enseignant findById(int id);
 	public List<Enseignant> findAll();
 	public Enseignant check(String user, String mdp);
