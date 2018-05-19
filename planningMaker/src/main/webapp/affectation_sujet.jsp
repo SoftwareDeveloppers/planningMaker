@@ -121,7 +121,6 @@
   </div>
   <script type="text/javascript">
 
-  
   function action()
   {
 	  $.ajax({
@@ -133,9 +132,6 @@
 		});
 	  
   }
-  
-  
-  
   
   </script>
 

@@ -75,16 +75,121 @@
                                                                     <td>${ enseignant.getSpecialite()}</td>
                                                                     <td>${ enseignant.getGrade()}</td>
                                                                     <td>${ enseignant.getTelephone()}</td>
-                                                                    <td><button class="btn btn-info btn-modifier"
-																			onclick="fct1();" id="aj"
-																			value="${sessionScope.idEtudiant}">Ajouter</button>
-																			<button class="btn btn-warning btn-modifier"
-																			onclick="fct2();" id="mod"
-																			value="${sessionScope.idEtudiant}">Modifier</button>
-																			<button class="btn btn-danger btn-modifier"
-																			onclick="fct3();" id="sup"
-																			value="${sessionScope.idEtudiant}">Supprimer</button></td>
-                                                                   
+                                                                    <td>
+																			<button type="button" class="btn btn-warning btn-modifier waves-effect" 
+																			data-toggle="modal" data-target="#modif-Modal${enseignant.getId()}">Modifier</button>
+																			
+																			<button type="button" class="btn btn-danger waves-effect" 
+																			data-toggle="modal" data-target="#supp-Modal${enseignant.getId()}">Supprimer</button>
+																	</td>
+                                                                   <div class="modal fade" id="supp-Modal${enseignant.getId()}" tabindex="-1" role="dialog">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h4 class="modal-title">Confirmer</h4>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            			<span aria-hidden="true">&times;</span>
+                                                       					 </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                
+                                                                                <p><h6>Vous etes sur de vouloir supprimer ${ enseignant.getNom()} ${ enseignant.getPrenom()}?</h6></p>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+                                                                                <form role="form" method="post" action="EnseignantControler">
+                                                                                <input type="hidden" name="ensSupp" value="${enseignant.getId()}">
+                                                                                <button type="submit"
+                                                                                class="btn btn-primary waves-effect waves-light ">Oui, Supprimer</button>
+                                                                                </form>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                
+                                                                <div class="modal fade" id="modif-Modal${enseignant.getId()}" tabindex="-1" role="dialog">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h4 class="modal-title">Modifier</h4>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            			<span aria-hidden="true">&times;</span>
+                                                       					 </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                
+            <form role="form" method="post" action="EnseignantControler">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nom</label>
+                        <input type="text" name="nom" id="nom" class="form-control"  value="${enseignant.getNom()}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Prenom</label>
+                        <input type="text" name="prenom" id="prenom" class="form-control" value="${enseignant.getPrenom()}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Date de naissance</label>
+                        <input type="date" name="dateN" id="dateN" class="form-control" value="${enseignant.getDateN()}">
+                    </div>
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">Adresse </label>
+                        <input type="text" name="adresse" id="adresse"  class="form-control" value="${enseignant.getAdresse()}">
+                    </div>
+                       <div class="form-group">
+                        <label for="exampleInputEmail1">sexe</label>
+                        <div class="controls">
+                         <select name="sexe" id="sexe" class="form-control">
+                            <option>homme</option>
+                            <option>femme</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">spécialité</label>
+                        <div class="controls">
+                         <select name="specialite" id="specialite" class="form-control">
+                            <option>GL</option>
+                            <option>Rsd</option>
+                            <option>Sic</option>
+                            <option>Mid</option>
+                         </select>
+                    </div>                   
+                     </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">telephone</label>
+                        <input type="text" name="telephone" id="telephone" class="form-control"  pattern="[0][6|7|5][0-9]{8}" value="${enseignant.getTelephone()}">
+                    </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Grade</label>
+                        <input type="text" name="grade" id="grade" class="form-control" value="${enseignant.getGrade()}">
+                    </div>
+                     <div class="form-group">
+                        <label for="exampleInputPassword1">Email</label>
+                        <input type="text" name="email" id="email" class="form-control"  value="${enseignant.getEmail()}">
+                    </div>
+                     <div class="form-group">
+                        <label for="exampleInputPassword1">Mot de passe</label>
+                        <input type="password" name="mdp" id="mdp"  class="form-control" placeholder="mot de passe" >
+                        <input type="hidden" name="ensModif" value="${enseignant.getId()}">
+                    </div>             
+                                                                                
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+                                                                                
+                                                                                
+                                                                                <button type="submit"
+                                                                                class="btn btn-primary waves-effect waves-light ">Sauvegarder</button>
+                                                                                </form>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                
                                                                 </tr> 
                                                                 </c:forEach>
                                                             </tbody>

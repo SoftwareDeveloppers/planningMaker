@@ -5,17 +5,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.jdbc.interceptors.SessionAssociationInterceptor;
 
 import dao.AffectationDaoImpl;
+import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
 import dao.FicheDeVoeuxDaoImpl;
 import dao.SujetDaoImpl;
 import model.Affectation;
+import model.Enseignant;
 import model.Etudiant;
 import model.FicheDeVoeux;
 import model.Sujet;
@@ -31,8 +37,39 @@ public class AffectationSujet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+			if (request.getParameter("etudiantEncadrer") != null) {
+			HttpSession session = request.getSession();
+			int idEns = (Integer) session.getAttribute("idEnseignant");
+			System.out.println("id ens = "+idEns);
+			
+			SujetDaoImpl sujetDao = new SujetDaoImpl();
+			List<Sujet> sujets = new ArrayList<Sujet>();
+			sujets = sujetDao.findByIdEnseignant(idEns);
+			
+			AffectationDaoImpl affectation = new AffectationDaoImpl();
+			List<Affectation> affectations = new ArrayList<Affectation>();
+			EtudiantDaoImpl etudDao = new EtudiantDaoImpl();
+			List<Etudiant> etud = new ArrayList<Etudiant>();
+			
+			for(int i=0; i<sujets.size();i++)
+			{
+				Affectation af = affectation.findBySujet(sujets.get(i).getId());
+				affectations.add(af);
+				System.out.println("afff suj"+affectations.get(i).getId_Etudiant());
+				System.out.println("afff "+af.getId_Etudiant());
+				Etudiant etu = etudDao.findById(af.getId_Etudiant());
+				etud.add(etu);
+				System.out.println(etu.getNom());
+				
+			}
+			
+			request.setAttribute("sujets", sujets);
+			request.setAttribute("etudiants", etud);
+			request.setAttribute("affectations", affectations);
+			this.getServletContext().getRequestDispatcher("/EtudiantEncadrer.jsp").forward(request, response);
+		
+			}
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 

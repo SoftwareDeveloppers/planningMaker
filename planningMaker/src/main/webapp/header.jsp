@@ -160,6 +160,13 @@
                                     </li>
                                  </ul>
                               </li>
+                              <li class="">
+                                        <a href="AffectationSujet?etudiantEncadrer=132za&ze">
+                                            <span class="pcoded-micon"><i class=class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Etudiant Encadrer</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
                               	</c:if>
 								
                                <li class="pcoded-hasmenu">

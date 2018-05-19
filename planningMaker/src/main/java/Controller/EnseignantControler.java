@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,8 +35,8 @@ public class EnseignantControler extends HttpServlet {
 		if (request.getParameter("Liste") != null) {
 			
 			EnseignantDaoImpl enseignant = new EnseignantDaoImpl();
-			ArrayList<Enseignant> enseignants = new ArrayList<Enseignant>();
-			enseignants = (ArrayList<Enseignant>) enseignant.findAll();
+			List<Enseignant> enseignants = new ArrayList<Enseignant>();
+			enseignants = enseignant.findAll();
 			request.setAttribute("enseignants", enseignants);
 			this.getServletContext().getRequestDispatcher("/liste_enseignant.jsp").forward(request, response);
 			
@@ -71,8 +72,38 @@ public class EnseignantControler extends HttpServlet {
 		String email = request.getParameter("email");
 		System.out.println(email);
 		EnseignantDaoImpl enseignantchekEmail = new EnseignantDaoImpl();
+		
+		String idEnseignant = request.getParameter("ensSupp");
+		String idEnsModif = request.getParameter("ensModif");
+		
+		if(idEnseignant != null) {
+			EnseignantDaoImpl enseignantdelete = new EnseignantDaoImpl();
+			int idEns = Integer.parseInt(idEnseignant);
+			enseignantdelete.delete(idEns);
+		}
+		
+		else if(idEnsModif != null) {
+			int idEnsMod = Integer.parseInt(idEnsModif);
+			System.out.println("ens modif int" + idEnsMod);
+			String nom = request.getParameter("nom");
+			String prenom = request.getParameter("prenom");
+			Date dateN = Date.valueOf(request.getParameter("dateN"));
+			String adresse = request.getParameter("adresse");
+			String specialite = request.getParameter("specialite");
+			String grade = request.getParameter("grade");
+			String sexe = request.getParameter("sexe");
+			String telephone = request.getParameter("telephone");
+			String mdp = request.getParameter("mdp");
+			
+			EnseignantDaoImpl enseignantModifDao = new EnseignantDaoImpl();
+			Enseignant enseignant = new Enseignant(idEnsMod, nom, prenom, dateN, adresse, email, mdp, specialite, grade, telephone, sexe);
+			if (enseignantModifDao.update(enseignant)) {
+				out.print("./liste_enseignant.jsp");
 
-		if (enseignantchekEmail.checkEmail(email)) {
+			}
+		}
+		
+		else if (enseignantchekEmail.checkEmail(email)) {
 			out.print("mailExiste");
 		} else {
 

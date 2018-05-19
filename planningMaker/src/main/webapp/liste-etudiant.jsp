@@ -62,19 +62,154 @@
 													<th>moyenne</th>
 													<th>date de naissance</th>
 													<th>taux</th>
+													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
-												<c:forEach items="${ etudiants }" var="enseignant">
+												<c:forEach items="${ etudiants }" var="etudiant">
 													<tr>
-														<td>${ enseignant.nom}${ enseignant.prenom}</td>
-														<td>${ enseignant.specialite}</td>
-														<td>${ enseignant.promotion}</td>
-														<td>${ enseignant.moy}</td>
-														<td>${ enseignant.dateNaissance}</td>
-														<td>${ enseignant.taux}</td>
-													</tr>
-												</c:forEach>
+														<td>${ etudiant.nom} ${ etudiant.prenom}</td>
+														<td>${ etudiant.specialite}</td>
+														<td>${ etudiant.promotion}</td>
+														<td>${ etudiant.moy}</td>
+														<td>${ etudiant.dateNaissance}</td>
+														<td>${ etudiant.taux}</td>
+														<td>
+																			<button type="button" class="btn btn-warning btn-modifier waves-effect" 
+																			data-toggle="modal" data-target="#modif-Modal${etudiant.id}">Modifier</button>
+																			
+																			<button type="button" class="btn btn-danger waves-effect" 
+																			data-toggle="modal" data-target="#supp-Modal${ etudiant.id}">Supprimer</button>
+																	</td>
+                                                                   <div class="modal fade" id="supp-Modal${etudiant.id}" tabindex="-1" role="dialog">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h4 class="modal-title">Confirmer</h4>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            			<span aria-hidden="true">&times;</span>
+                                                       					 </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                
+                                                                                <p><h6>Vous etes sur de vouloir supprimer ${ etudiant.nom} ${ etudiant.prenom}?</h6></p>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+                                                                                <form role="form" method="post" action="EtudiantController">
+                                                                                <input type="hidden" name="etudSupp" value="${etudiant.id}">
+                                                                                <button type="submit"
+                                                                                class="btn btn-primary waves-effect waves-light ">Oui, Supprimer</button>
+                                                                                </form>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                
+                                                                <div class="modal fade" id="modif-Modal${etudiant.id}" tabindex="-1" role="dialog">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h4 class="modal-title">Modifier</h4>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            			<span aria-hidden="true">&times;</span>
+                                                       					 </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                
+									            <form role="form" method="post" action="EtudiantController">
+									                   		<div class="form-group">
+																<label for="nom">Nom</label> <input type="text"
+																	name="nom" class="form-control" value="${etudiant.nom}" required="required">
+															</div>
+															<div class="form-group">
+																<label for="prenom">Prenom</label> <input type="text"
+																	name="prenom" id="prenom" class="form-control"
+																	value="${etudiant.prenom}" required="required">
+															</div>
+															<div class="form-group">
+																<label for="dateN">Date de naissance</label> <input
+																	type="date" name="dateN" id="dateN" value="${etudiant.dateNaissance}"
+																	class="form-control">
+															</div>
+															<div class="form-group">
+																<label for="lieuN">lieu de naissance</label> <input
+																	type="text" name="lieuN" class="form-control"
+																	placeholder="Lieu de naissance">
+															</div>
+															<div class="form-group">
+																<label for="adresse">Address </label> <input type="text"
+																	name="adresse" class="form-control"
+																	placeholder="Adresse">
+															</div>
+															<div class="form-group">
+																<label for="sexe">sexe</label>
+																<div class="controls">
+																	<select name="sexe" class="form-control">
+																		<option>homme</option>
+																		<option>femme</option>
+																	</select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label for="specialite">spécialité</label>
+																<div class="controls">
+																	<select name="specialite" id="specialite"
+																		class="form-control" required="required">
+																		<option>GL</option>
+																		<option>RSD</option>
+																		<option>SIC</option>
+																		<option>MID</option>
+																	</select>
+																</div>
+															</div>
+													
+													<div class="form-group">
+														<label for="promotion">Promotion </label> <input
+															type="text" name="promotion" id="promotion"
+															class="form-control" placeholder="Promotion">
+													</div>
+												
+												<div class="form-group">
+													<label for="mou">Moyenne </label> <input type="text"
+														name="moy" id="moy" class="form-control"
+														placeholder="Moyenne" required="required">
+												</div>
+											
+											<div class="form-group">
+												<label for="id">id</label> <input type="text" name="id"
+													class="form-control"
+													placeholder="identifiant de la carte d'etudiant">
+											</div>
+											<div class="form-group">
+												<label for="Email">Email</label> <input type="text"
+													name="email" class="form-control" id="email"
+													placeholder="ex : nom@gmail.com" required="required">
+											</div>
+											<div class="form-group">
+												<label for="mdp">Mot de passe</label> 
+												<input type="password" name="mdp" id="mdp" class="form-control"
+													placeholder="mot de passe" required="required">
+												<input type="hidden" name="etudModif" value="${etudiant.id}">
+											</div>            
+                                                                                
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+                                                                                <button type="submit"
+                                                                                class="btn btn-primary waves-effect waves-light ">Sauvegarder</button>
+                                                                                </form>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                
+                                                                </tr> 
+                                                                </c:forEach>
 											</tbody>
 										</table>
 									</div>

@@ -8,7 +8,7 @@ import model.Enseignant;
 public interface EnseignantDao {
 	
 	public boolean create(Enseignant e);
-	public boolean delete(Enseignant e);
+	public boolean delete(int e);
 	public boolean update(Enseignant e);
 	public boolean updateProfil(Enseignant e);
 	public Enseignant findById(int id);
