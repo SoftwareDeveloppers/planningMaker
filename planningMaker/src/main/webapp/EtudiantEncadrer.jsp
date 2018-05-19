@@ -94,8 +94,8 @@
                                                             <tr>
                                                             	<th>Etudiant</th>
                                                                 <th>Sujet</th>
-                                                                <th>Taux</th>
-                                                                <th>edit</th>
+                                                                <th>Taux d'avancement</th>
+                                                                <th>Edit</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
@@ -118,7 +118,7 @@
 																</td>	
 																	<td>
 																			<button type="button" class="btn btn-warning btn-modifier waves-effect" 
-																			data-toggle="modal" data-target="#Modal${etud.id}">Action</button>
+																			data-toggle="modal" data-target="#Modal${etud.id}" onclick="taux('${etud.id}')">Action</button>
 																	</td>
                                                                    <div class="modal fade" id="Modal${etud.id}" tabindex="-1" role="dialog">
                                                                     <div class="modal-dialog" role="document">
@@ -130,16 +130,17 @@
                                                        					 </button>
                                                                             </div>
                                                                             <div class="modal-body">
+                                                                            ${ etud.nom} ${ etud.prenom}
                                                                                 <div class="slidecontainer">
-  																				<input type="range" min="0" max="100" value="${etud.taux}" class="slider" id="myRange">
-  																				<p>Value: <span id="demo"></span></p>
+  																				<input type="range" min="0" max="100" value="${etud.taux}" class="slider" id="myRange${etud.id}">
+  																				<p>Taux d'avancement: <span id="demo${etud.id}"></span>%</p>
 																				</div>
                                                                                 
                                                                             </div>
                                                                             <div class="modal-footer">
                                                                                 <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
                                                                                 <form role="form" method="post" action="AffectationSujet">
-                                                                                <input type="hidden" id="updateTaux" name="updateTaux">
+                                                                                <input type="hidden" id="updateTaux${etud.id}" name="updateTaux">
                                                                                 <input type="hidden" name="tauxEtud" value="${etud.id}">
                                                                                 <button type="submit"
                                                                                 class="btn btn-primary waves-effect waves-light ">Mettre a jour</button>
@@ -148,6 +149,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                   
                                                                 </div>
 															</tr>
 															</c:if>
@@ -173,15 +175,16 @@
                 </div>
         </div>
   </div>
-<script>
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-var taux = document.getElementById("updateTaux");
-output.innerHTML = slider.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-  taux.value = this.value;
-}
-</script>
+ <script>
+                                                                    function taux(v){
+																	var slider = document.getElementById("myRange"+v);
+																	var output = document.getElementById("demo"+v);
+																	var taux = document.getElementById("updateTaux"+v);
+																	output.innerHTML = slider.value;
+																	
+																	slider.oninput = function() {
+																	  output.innerHTML = this.value;
+																	  taux.value = this.value;
+																	}}
+																	</script>
   <jsp:include page="footer.jsp"></jsp:include>
