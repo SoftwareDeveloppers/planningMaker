@@ -306,4 +306,33 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		}
 
 	}
+	public boolean updateProfil(Etudiant etudiant) {
+		Connection conn=DbConnect.connect();
+		
+		String sql = "UPDATE etudiant SET nom= ? , prenom = ?, email= ?, dateNaissance = ?, specialite = ?, promotion = ?, moyenne = ?, taux= ? WHERE id = ?;";
+		
+		PreparedStatement ps;
+		try {
+			
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, etudiant.getNom());
+			ps.setString(2, etudiant.getPrenom());
+			ps.setString(3, etudiant.getEmail());
+			ps.setDate(4, etudiant.getDateNaissance());
+			ps.setString(5, etudiant.getSpecialite());
+			ps.setString(6, etudiant.getPromotion());
+			ps.setFloat(7, etudiant.getMoy());
+			ps.setFloat(8, etudiant.getTaux());
+			ps.setInt(9, etudiant.getId());
+			ps.execute();
+			conn.close();
+
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+			return false;
+		}
+
+	}
 }

@@ -28,7 +28,14 @@ public class Profil extends HttpServlet {
 		// Recupere la session
 				HttpSession session = request.getSession(true); 
 				//faire une redirection vers la page profil ...
+				if(session.getAttribute("idEnseignant")!=null){
 				this.getServletContext().getRequestDispatcher("/profil.jsp").forward(request, response);
+				}else if(session.getAttribute("idEtudiant")!=null){
+				this.getServletContext().getRequestDispatcher("/profilEtudiant.jsp").forward(request, response);
+
+				}else
+					this.getServletContext().getRequestDispatcher("/profilAgent.jsp").forward(request, response);
+	
 	}
 
 

@@ -186,5 +186,26 @@ public class AgentDaoImpl implements AgentDao {
 
 		return result;
 	}
+	public boolean updateProfil(AgentAdmin a) {
+		Connection conn=DbConnect.connect();
+		String sql = "UPDATE agentadmin SET nom = ?, prenom = ?, email = ?  WHERE id = ?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, a.getNom());
+			ps.setString(2, a.getPrenom());
+			ps.setString(3, a.getEmail());
+			ps.setInt(4, a.getId());
+			ps.execute();
+			conn.close();
+
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+			return false;
+		}
+
+	}
 
 }
