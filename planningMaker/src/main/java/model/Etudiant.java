@@ -125,7 +125,90 @@ public class Etudiant {
 				+ ", moy=" + moy + ", taux=" + taux + ", id_FicheDeVoeux=" + id_FicheDeVoeux + ", id_Enseignant="
 				+ id_Enseignant + "]";
 	}
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dateNaissance == null) ? 0 : dateNaissance.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + id;
+		result = prime * result + id_Enseignant;
+		result = prime * result + id_FicheDeVoeux;
+		result = prime * result + ((mdp == null) ? 0 : mdp.hashCode());
+		result = prime * result + ((moy == null) ? 0 : moy.hashCode());
+		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
+		result = prime * result + ((promotion == null) ? 0 : promotion.hashCode());
+		result = prime * result + ((specialite == null) ? 0 : specialite.hashCode());
+		result = prime * result + ((taux == null) ? 0 : taux.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Etudiant other = (Etudiant) obj;
+		if (dateNaissance == null) {
+			if (other.dateNaissance != null)
+				return false;
+		} else if (!dateNaissance.equals(other.dateNaissance))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (id != other.id)
+			return false;
+		if (id_Enseignant != other.id_Enseignant)
+			return false;
+		if (id_FicheDeVoeux != other.id_FicheDeVoeux)
+			return false;
+		if (mdp == null) {
+			if (other.mdp != null)
+				return false;
+		} else if (!mdp.equals(other.mdp))
+			return false;
+		if (moy == null) {
+			if (other.moy != null)
+				return false;
+		} else if (!moy.equals(other.moy))
+			return false;
+		if (nom == null) {
+			if (other.nom != null)
+				return false;
+		} else if (!nom.equals(other.nom))
+			return false;
+		if (prenom == null) {
+			if (other.prenom != null)
+				return false;
+		} else if (!prenom.equals(other.prenom))
+			return false;
+		if (promotion == null) {
+			if (other.promotion != null)
+				return false;
+		} else if (!promotion.equals(other.promotion))
+			return false;
+		if (specialite == null) {
+			if (other.specialite != null)
+				return false;
+		} else if (!specialite.equals(other.specialite))
+			return false;
+		if (taux == null) {
+			if (other.taux != null)
+				return false;
+		} else if (!taux.equals(other.taux))
+			return false;
+		return true;
+	}
+
+
 	
 
 }

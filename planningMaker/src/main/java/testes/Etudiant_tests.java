@@ -2,27 +2,44 @@ package testes;
 
 import static org.junit.Assert.*;
 
+import java.sql.Date;
+
 import org.junit.Test;
 
-import com.mysql.fabric.xmlrpc.base.Data;
-
-import dao.DbConnect;
 import dao.EtudiantDaoImpl;
 import model.Etudiant;
 
 public class Etudiant_tests {
-
 	
-	
-
 	@Test
-	public void findbyidTest() {
+	public void FindTest(){
 		EtudiantDaoImpl eimpl = new EtudiantDaoImpl();
-		assertNotNull(DbConnect.connect());
-		Etudiant r = new Etudiant(700, "redq", "Redq", "inteex@gmqil", "56352", new java.sql.Date(1995,1,1), "rr", "www", 14f, 25f, 0, 0);
+		Date dateN = Date.valueOf("1995-10-05");
+		Etudiant expected = new Etudiant(1, "Benmansour", "Hichem", "cartwright.coleman@gmail.com", "123456", dateN, "SIC", "2014", 13f, 0f, 1, 0);
+		Etudiant result = eimpl.findById(1);
 		
-		assertEquals(true, 	eimpl.create(r));
-		assertEquals(r.getSpecialite(), 	eimpl.findBySpecialite("rr"));
+		//Remaraue : il faut redifinir la methodes equals de Etudiant
+		assertEquals(expected, 	result);
 
+		
 	}
+	
+	@Test
+	public void loginTest() {
+		
+		EtudiantDaoImpl eimpl = new EtudiantDaoImpl();
+		
+		
+		
+		String motdepasse = "123456";
+		String email ="cartwright.coleman@gmail.com";
+		 
+		Etudiant result = eimpl.check(email, motdepasse);
+		Etudiant  expected = eimpl.findById(1) ;
+		
+		assertEquals(expected, result);
+		
+		
+	}
+	
 }
