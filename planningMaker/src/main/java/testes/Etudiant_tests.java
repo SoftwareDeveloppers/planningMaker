@@ -3,6 +3,7 @@ package testes;
 import static org.junit.Assert.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
@@ -43,6 +44,23 @@ public class Etudiant_tests {
 		assertEquals(expected, result);
 		
 		
+	}
+	
+	@Test
+	public void chekmailTest() {
+		EtudiantDaoImpl eimpl = new EtudiantDaoImpl();
+		
+		ArrayList<String> emails = new ArrayList<String>() ; 
+		emails.add("cartwright.coleman@gmail.com");
+		emails.add("jaiden02@yahoo.com");
+		emails.add("umurphy@yahoo.com");
+		emails.add("gfay@hotmail.com");
+		emails.add("kristina03@hotmail.com");
+		emails.add("mayra05@gmail.com");
+
+		for (String value : emails) {
+			assertEquals(true, eimpl.checkEmail(value));
+		}
 	}
 	
 
