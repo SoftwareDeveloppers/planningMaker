@@ -281,4 +281,29 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		
 		return etudiants;	
 	}
+
+
+	public boolean updateTaux(int id, int taux) {
+		Connection conn=DbConnect.connect();
+		
+		String sql = "UPDATE etudiant SET taux= ? WHERE id = ?;";
+		
+		PreparedStatement ps;
+		try {
+			
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, taux);
+			ps.setInt(2, id);
+		
+			ps.execute();
+			conn.close();
+
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+			return false;
+		}
+
+	}
 }
