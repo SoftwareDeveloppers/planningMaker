@@ -26,7 +26,8 @@ import model.affectationJoin;
 public class AffectationSujet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	boolean remplie = false;
-
+	String param = null;
+	
 	public AffectationSujet() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -35,12 +36,12 @@ public class AffectationSujet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		
-		if (request.getParameter("etudiantEncadrer") != null) {
+		if(param == null)
+		{param = request.getParameter("etudiantEncadrer");}
+		if ( param != null) {
 			HttpSession session1 = request.getSession();
 			int idEns = (Integer) session1.getAttribute("idEnseignant");
-			System.out.println("id ens = "+idEns);
-			
+			System.out.println("doget etu encadrer");
 			SujetDaoImpl sujetDao = new SujetDaoImpl();
 			List<Sujet> sujets = new ArrayList<Sujet>();
 			sujets = sujetDao.findByIdEnseignant(idEns);
@@ -61,7 +62,7 @@ public class AffectationSujet extends HttpServlet {
 				}
 				
 			}
-			
+			param = null;
 			request.setAttribute("sujets", sujets);
 			request.setAttribute("etudiants", etud);
 			request.setAttribute("affectations", affectations);
@@ -70,7 +71,7 @@ public class AffectationSujet extends HttpServlet {
 			}
 		
 		
-		else if (session.getAttribute("idAgent") == null) {
+		if (session.getAttribute("idAgent") == null) {
 
 			response.sendRedirect("Deconnexion");
 
@@ -105,8 +106,9 @@ public class AffectationSujet extends HttpServlet {
 			int idEtud = Integer.parseInt(request.getParameter("tauxEtud"));
 			EtudiantDaoImpl etudDao = new EtudiantDaoImpl();
 			etudDao.updateTaux(idEtud, updateTaux);
-			request.setAttribute("etudiantEncadrer", "12654abc");
-			//this.doGet(request, response);
+			//String att = "132za&ze";
+			param = "132za&ze";
+			this.doGet(request, response);
 		}
 		
 		// importe tt les sujets
