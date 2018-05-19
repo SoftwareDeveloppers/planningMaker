@@ -78,7 +78,7 @@
 																<td>${ affectation.getSpecialiteEtudaint()}</td>
 																<td>${ affectation.getTitreSjet()}</td>
 																<td>${ affectation.getNomEnseignant()}</td>
-																<td>${ affectation.getPrenomEtudiant()}</td>
+																<td>${ affectation.getPrenomEnseignant()}</td>
 															</tr>
 														</c:forEach>
 													</tbody>

@@ -88,10 +88,9 @@ public class AffectationSujet extends HttpServlet {
 				request.setAttribute("remplie", remplie);
 				request.setAttribute("affectations", affectations);
 				ArrayList<affectationJoin> e = affectation.jointureAffectaction();
+
 				request.setAttribute("ListAffectation",e );
-				for (affectationJoin affectationJoin : e) {
-					System.out.println(affectationJoin);
-				}
+				
 				this.getServletContext().getRequestDispatcher("/affectation_sujet.jsp").forward(request, response);
 			}
 		}
