@@ -4,6 +4,12 @@ import java.sql.Date;
 
 public class Enseignant {
 	
+	@Override
+	public String toString() {
+		return "Enseignant [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateN=" + dateN + ", adresse="
+				+ adresse + ", email=" + email + ", mdp=" + mdp + ", specialite=" + specialite + ", grade=" + grade
+				+ ", telephone=" + telephone + ", sexe=" + sexe + "]";
+	}
 	private int id ;
 	private String nom;
 	private String prenom;

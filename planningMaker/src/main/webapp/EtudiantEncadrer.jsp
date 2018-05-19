@@ -130,11 +130,12 @@
                                                        					 </button>
                                                                             </div>
                                                                             <div class="modal-body">
+                                                                            ${ etud.nom} ${ etud.prenom}
                                                                                 <div class="slidecontainer">
   																				<input type="range" min="0" max="100" value="${etud.taux}" class="slider" id="myRange${etud.id}">
   																				<p>Taux d'avancement: <span id="demo${etud.id}"></span>%</p>
 																				</div>
-                                                                                ${ etud.nom} ${ etud.prenom}
+                                                                                
                                                                             </div>
                                                                             <div class="modal-footer">
                                                                                 <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>

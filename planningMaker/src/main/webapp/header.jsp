@@ -119,7 +119,7 @@
                                 <ul class="show-notification profile-notification">
                                   
                                     <li>
-                                        <a href="user-profile.html">
+                                        <a href="./Profil">
                                             <i class="ti-user"></i> Profile
                                         </a>
                                     </li>

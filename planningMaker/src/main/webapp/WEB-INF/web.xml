@@ -85,6 +85,18 @@
 		<servlet-class>Controller.AffectationSujet</servlet-class>
 
 	</servlet>
+<servlet>
+	<servlet-name>Profil</servlet-name>
+	<display-name>Profil</display-name>
+	<description></description>
+	<servlet-class>Controller.Profil</servlet-class>
+</servlet>
+<servlet>
+	<servlet-name>ModifierProfil</servlet-name>
+	<display-name>ModifierProfil</display-name>
+	<description></description>
+	<servlet-class>Controller.ModifierProfil</servlet-class>
+</servlet>
 
 	<servlet-mapping>
 		<servlet-name>AjouterFicheDeVoeux</servlet-name>
@@ -135,6 +147,14 @@
 		<servlet-name>AffectationSujet</servlet-name>
 		<url-pattern>/AffectationSujet</url-pattern>
 	</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>Profil</servlet-name>
+	<url-pattern>/Profil</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>ModifierProfil</servlet-name>
+	<url-pattern>/ModifierProfil</url-pattern>
+</servlet-mapping>
 
 
 
