@@ -51,7 +51,7 @@
           <!-- animation nifty modal window effects css -->
     <link rel="stylesheet" type="text/css" href="assets/css/component.css">
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
-    
+
 </head>
 
 <body>
@@ -204,7 +204,7 @@
                                     </li>
                             
                                     <li class="">
-                                        <a href="EnseignantControler?Liste=sdjhhfsdkjfhsdhfvhfnkjfvb jhm">
+                                        <a href="EnseignantControler?Liste=132za&ze">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">liste des enseignants</span>
                                             <span class="pcoded-mcaret"></span>
@@ -219,6 +219,13 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
+                                    <li class="">
+                                        <a href="AffectationSujet">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">affectation des sujets</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
                                 </c:if>
                                     <li class="">
                                         <a href="liste_plannification_soutenance.jsp">
@@ -228,13 +235,7 @@
                                         </a>
                                     </li>
                              
-                                    <li class="">
-                                        <a href="affectation_sujet.jsp">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">affectation des sujets</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
+                                    
                                  </ul>
                               </li>
                               <c:if test="${ !empty(sessionScope.idAgent)}">

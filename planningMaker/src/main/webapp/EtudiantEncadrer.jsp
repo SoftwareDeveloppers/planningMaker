@@ -3,6 +3,42 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
 <jsp:include page="header.jsp"></jsp:include>
+<style>
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+</style>
 <div class="pcoded-content">
                     <div class="pcoded-inner-content">
 
@@ -30,9 +66,8 @@
                                                             <i class="icofont icofont-home"></i>
                                                         </a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Consulter</a>
-                                                    </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Liste Agnt administratif</a>
+                                                    
+                                                    <li class="breadcrumb-item"><a href="#!">Etudiants Encadrer</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -60,9 +95,11 @@
                                                             	<th>Etudiant</th>
                                                                 <th>Sujet</th>
                                                                 <th>Taux</th>
+                                                                <th>edit</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
+                                                      <c:if test="${ !affectations.isEmpty() }">
                                                         <c:forEach items="${ affectations }" var="affect">
                                                           <c:forEach items="${ etudiants }" var="etud">
                                                            <c:forEach items="${ sujets }" var="suj">
@@ -71,7 +108,7 @@
 															<tr>
 																<td>${ etud.nom} ${ etud.prenom}</td>								
 																<td>${suj.titre}</td>
-																<td>
+																<td style="width:300px">
 														<div class="progress-box">
                                                             
                                                             <div class="progress d-inline-block" style="width:100%">
@@ -79,12 +116,47 @@
                                                             </div>
                                                         </div>
 																</td>	
+																	<td>
+																			<button type="button" class="btn btn-warning btn-modifier waves-effect" 
+																			data-toggle="modal" data-target="#Modal${etud.id}">Action</button>
+																	</td>
+                                                                   <div class="modal fade" id="Modal${etud.id}" tabindex="-1" role="dialog">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h4 class="modal-title">Action</h4>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            			<span aria-hidden="true">&times;</span>
+                                                       					 </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="slidecontainer">
+  																				<input type="range" min="0" max="100" value="${etud.taux}" class="slider" id="myRange">
+  																				<p>Value: <span id="demo"></span></p>
+																				</div>
+                                                                                
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+                                                                                <form role="form" method="post" action="AffectationSujet">
+                                                                                <input type="hidden" id="updateTaux" name="updateTaux">
+                                                                                <input type="hidden" name="tauxEtud" value="${etud.id}">
+                                                                                <button type="submit"
+                                                                                class="btn btn-primary waves-effect waves-light ">Mettre a jour</button>
+                                                                                </form>
+                                                                                
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
 															</tr>
 															</c:if>
 															</c:if>
 															</c:forEach>
 														  </c:forEach>
 														</c:forEach>
+														</c:if>
+														
                                                             </tbody>
                                                             <tfoot>
                                                            
@@ -101,5 +173,15 @@
                 </div>
         </div>
   </div>
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+var taux = document.getElementById("updateTaux");
+output.innerHTML = slider.value;
 
+slider.oninput = function() {
+  output.innerHTML = this.value;
+  taux.value = this.value;
+}
+</script>
   <jsp:include page="footer.jsp"></jsp:include>

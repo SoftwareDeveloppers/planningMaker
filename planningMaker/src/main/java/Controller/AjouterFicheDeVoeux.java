@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
 import dao.FicheDeVoeuxDaoImpl;
 import dao.SujetDaoImpl;
+import model.Enseignant;
 import model.FicheDeVoeux;
 import model.Sujet;
 
@@ -54,8 +56,12 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 
 			} else {
 				FicheDeVoeuxDaoImpl fichedao = new FicheDeVoeuxDaoImpl();
-
+				EnseignantDaoImpl ensDao = new EnseignantDaoImpl();
+				List<Enseignant> listEns = new ArrayList<Enseignant>();
+				listEns = ensDao.findAll();
+				
 				remplie = true;
+				request.setAttribute("listEns", listEns);
 				request.setAttribute("remplie", remplie);
 				request.setAttribute("sujetsChoisi", fichedao.listSujets(idEtudiant));
 				this.getServletContext().getRequestDispatcher("/fiche-de-voeux.jsp").forward(request, response);

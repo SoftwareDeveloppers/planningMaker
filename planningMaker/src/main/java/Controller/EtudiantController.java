@@ -60,46 +60,9 @@ public class EtudiantController extends HttpServlet {
 		String email = request.getParameter("email");
 		EtudiantDaoImpl etudiantchekEmail = new EtudiantDaoImpl();
 
-		String idEtudSupp = request.getParameter("etudSupp");
-		String idEtudModif = request.getParameter("etudModif");
 		
-		if(idEtudSupp != null) {
-			EtudiantDaoImpl enseignantdelete = new EtudiantDaoImpl();
-			int idEtudSup = Integer.parseInt(idEtudSupp);
-			enseignantdelete.delete(idEtudSup);
-		}
 		
-		else if(idEtudModif != null) {
-			int idEtudMod = Integer.parseInt(idEtudModif);
-			System.out.println("etudiant modif int" + idEtudMod);
-			String nom = request.getParameter("nom");
-			String prenom = request.getParameter("prenom");
-
-			String mdp = request.getParameter("mdp");
-			Date dateN = Date.valueOf(request.getParameter("dateN"));
-			String specialite = request.getParameter("specialite");
-			String promotion = request.getParameter("promotion");
-			float moy = Float.parseFloat(request.getParameter("moy"));
-
-			// float taux = Float.parseFloat(request.getParameter("taux"));
-			// pas encore ajouter a la bdd et au model !
-			/*
-			 * String lieuN = request.getParameter("lieuN"); String adresse =
-			 * request.getParameter("adresse"); String sexe =
-			 * request.getParameter("sexe"); String
-			 * telephone=request.getParameter("telephone"); String
-			 * idcarteEtudiant = request.getParameter("id");
-			 */
-
-			EtudiantDaoImpl etudiantDao = new EtudiantDaoImpl();
-			Etudiant etudiant = new Etudiant(idEtudMod, nom, prenom, email, mdp, dateN, specialite, promotion, moy, (float) 0);
-			if (etudiantDao.update(etudiant)) {
-				out.print("./liste_enseignant.jsp");
-
-			}
-		}
-		
-		else if (etudiantchekEmail.checkEmail(email)) {
+		if (etudiantchekEmail.checkEmail(email)) {
 			out.print("mailExiste");
 		} else {
 
