@@ -85,23 +85,24 @@
 																	<th>titre</th>
 																	<th>specialité</th>
 																	<th>date de création</th>
-																	<th>id_enseignant</th>
+																	<th>Encadreur</th>
 
 
 																</tr>
 															</thead>
 															<tbody>
-																<c:forEach items="${sujetsChoisi}" var="sujet"
-																	varStatus="ch">
-																	<tr>
+																<c:forEach items="${sujetsChoisi}" var="sujet" varStatus="ch">
+																  <c:forEach items="${listEns}" var="ens">
+																   <c:if test="${sujet.id_enseignant == ens.id}">
+																	 <tr>
 																		<td>${ch.count }</td>
 																		<td>${sujet.titre}</td>
 																		<td>${sujet.specialite}</td>
 																		<td>${sujet.dateCreation}</td>
-																		<td>${sujet.id_enseignant}</td>
-
-
-																	</tr>
+																		<td>${ens.nom} ${ens.prenom}</td>																	 
+																	 </tr>
+																	</c:if>
+																  </c:forEach>
 																</c:forEach>
 
 															</tbody>

@@ -60,6 +60,8 @@ public class EtudiantController extends HttpServlet {
 		String email = request.getParameter("email");
 		EtudiantDaoImpl etudiantchekEmail = new EtudiantDaoImpl();
 
+		
+		
 		if (etudiantchekEmail.checkEmail(email)) {
 			out.print("mailExiste");
 		} else {

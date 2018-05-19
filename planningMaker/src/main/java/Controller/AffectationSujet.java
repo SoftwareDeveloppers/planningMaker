@@ -54,11 +54,11 @@ public class AffectationSujet extends HttpServlet {
 			{
 				Affectation af = affectation.findBySujet(sujets.get(i).getId());
 				affectations.add(af);
-				System.out.println("afff suj"+affectations.get(i).getId_Etudiant());
-				System.out.println("afff "+af.getId_Etudiant());
-				Etudiant etu = etudDao.findById(af.getId_Etudiant());
-				etud.add(etu);
-				System.out.println(etu.getNom());
+				if(af != null)
+				{
+					Etudiant etu = etudDao.findById(af.getId_Etudiant());
+					etud.add(etu);
+				}
 				
 			}
 			
@@ -70,7 +70,7 @@ public class AffectationSujet extends HttpServlet {
 			}
 		
 		
-		if (session.getAttribute("idAgent") == null) {
+		else if (session.getAttribute("idAgent") == null) {
 
 			response.sendRedirect("Deconnexion");
 
@@ -99,6 +99,16 @@ public class AffectationSujet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		if(request.getParameter("updateTaux")!=null)
+		{
+			int updateTaux = Integer.parseInt(request.getParameter("updateTaux"));
+			int idEtud = Integer.parseInt(request.getParameter("tauxEtud"));
+			EtudiantDaoImpl etudDao = new EtudiantDaoImpl();
+			etudDao.updateTaux(idEtud, updateTaux);
+			request.setAttribute("etudiantEncadrer", "12654abc");
+			//this.doGet(request, response);
+		}
+		
 		// importe tt les sujets
 		ArrayList<Sujet> sujets = new ArrayList<Sujet>();
 		SujetDaoImpl sujet = new SujetDaoImpl();
