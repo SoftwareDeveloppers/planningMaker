@@ -50,6 +50,15 @@ public class affectationJoin {
 	public void setNomEnseignant(String nomEnseignant) {
 		this.nomEnseignant = nomEnseignant;
 	}
+	
+
+	public String getPrenomEnseignant() {
+		return prenomEnseignant;
+	}
+
+	public void setPrenomEnseignant(String prenomEnseignant) {
+		this.prenomEnseignant = prenomEnseignant;
+	}
 
 	public String getSpecialiteEtudaint() {
 		return specialiteEtudaint;
