@@ -97,6 +97,13 @@
 	<description></description>
 	<servlet-class>Controller.ModifierProfil</servlet-class>
 </servlet>
+<servlet>
+	<servlet-name>AccueilCon</servlet-name>
+	<display-name>AccueilCon</display-name>
+	<description></description>
+	<servlet-class>Controller.AccueilCon</servlet-class>
+</servlet>
+
 
 	<servlet-mapping>
 		<servlet-name>AjouterFicheDeVoeux</servlet-name>
@@ -155,6 +162,11 @@
 	<servlet-name>ModifierProfil</servlet-name>
 	<url-pattern>/ModifierProfil</url-pattern>
 </servlet-mapping>
+<servlet-mapping>
+	<servlet-name>AccueilCon</servlet-name>
+	<url-pattern>/AccueilCon</url-pattern>
+</servlet-mapping>
+
 
 
 
