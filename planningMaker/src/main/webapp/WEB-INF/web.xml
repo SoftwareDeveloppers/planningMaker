@@ -98,11 +98,18 @@
 	<servlet-class>Controller.ModifierProfil</servlet-class>
 </servlet>
 <servlet>
+	<servlet-name>SoutenanceController</servlet-name>
+	<display-name>SoutenanceController</display-name>
+	<description></description>
+	<servlet-class>Controller.SoutenanceController</servlet-class>
+</servlet>
+<servlet>
 	<servlet-name>AccueilCon</servlet-name>
 	<display-name>AccueilCon</display-name>
 	<description></description>
 	<servlet-class>Controller.AccueilCon</servlet-class>
 </servlet>
+
 
 
 	<servlet-mapping>
@@ -161,6 +168,10 @@
 <servlet-mapping>
 	<servlet-name>ModifierProfil</servlet-name>
 	<url-pattern>/ModifierProfil</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>SoutenanceController</servlet-name>
+	<url-pattern>/SoutenanceController</url-pattern>
 </servlet-mapping>
 <servlet-mapping>
 	<servlet-name>AccueilCon</servlet-name>

@@ -151,6 +151,7 @@ public class AffectationSujet extends HttpServlet {
 										etudiants.get(i).getId(), sujets.get(j).getId());
 								trouve = true;
 								aff.create(e);
+								etudiant.updateIdEnseignant(etudiants.get(i).getId(), sujets.get(i).getId_enseignant());
 								sujets.remove(j);
 								break;
 							}

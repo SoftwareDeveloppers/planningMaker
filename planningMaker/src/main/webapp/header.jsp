@@ -86,7 +86,8 @@
                         </a>
                         
                         <a href="./AccueilCon">
-                            <img class="img-fluid" src="assets/images/logojpng" />
+
+                            <img class="img-fluid" src="assets/images/logoblan.png" />
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -220,7 +221,7 @@
                                     </li>
                                 </c:if>
                                     <li class="">
-                                        <a href="liste_plannification_soutenance.jsp">
+                                        <a href="SoutenanceController">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">planning des soutenances</span>
                                             <span class="pcoded-mcaret"></span>

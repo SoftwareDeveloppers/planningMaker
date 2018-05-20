@@ -19,7 +19,7 @@ public class SalleDaoImpl implements SalleDao{
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setBoolean(1, salle.getEtat());
+			ps.setInt(1, salle.getEtat());
 			ps.execute();
 			conn.close();
 			
@@ -57,7 +57,7 @@ public class SalleDaoImpl implements SalleDao{
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setBoolean(1, salle.getEtat());
+			ps.setInt(1, salle.getEtat());
 			ps.execute();
 			conn.close();
 			
@@ -83,7 +83,7 @@ public class SalleDaoImpl implements SalleDao{
 			if (rs.next()){
 				salle = new Salle(
 						rs.getInt(1),
-						rs.getBoolean(2)
+						rs.getInt(2)
 						);
 			}	
 			conn.close();
@@ -111,7 +111,7 @@ public class SalleDaoImpl implements SalleDao{
 			while (rs.next()){
 				salle = new Salle(
 						rs.getInt(1),
-						rs.getBoolean(2)
+						rs.getInt(2)
 						);
 				
 				salles.add(salle);
@@ -123,6 +123,68 @@ public class SalleDaoImpl implements SalleDao{
 	}
 	
 	return salles;
+	}
+	
+	public Salle findByEtat(int etat) {
+		Connection conn=DbConnect.connect();
+		String sql = "Select * FROM salle WHERE etat=?";
+		PreparedStatement ps;
+		ResultSet rs = null ;
+		Salle salle = null ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, etat);
+			rs=ps.executeQuery();
+			if (rs.next()){
+				salle = new Salle(
+						rs.getInt(1),
+						rs.getInt(2)
+						);
+			}	
+			conn.close();
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return salle;
+	}
+	
+	public boolean updateEtat(int etat, int id) {
+		Connection conn=DbConnect.connect();
+		String sql="UPDATE salle SET etat = ? WHERE id = ?";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, etat);
+			ps.setInt(2, id);
+			ps.execute();
+			conn.close();
+			
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return false;
+		}
+	}
+	
+	public boolean libererLesSalles() {
+		Connection conn=DbConnect.connect();
+		String sql="UPDATE salle SET etat = 1";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.execute();
+			conn.close();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return false;
+		}
 	}
 
 }
