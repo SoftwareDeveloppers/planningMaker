@@ -126,7 +126,7 @@ public class EnseignantControler extends HttpServlet {
 			EnseignantDaoImpl enseignantDao = new EnseignantDaoImpl();
 			Enseignant enseignant = new Enseignant(0, nom, prenom, dateN, adresse, email, mdp, specialite, grade, telephone, sexe);
 			if (enseignantDao.create(enseignant)) {
-				out.print("./liste_enseignant.jsp");
+				out.print("./EnseignantControler?Liste=enseignants");
 
 			} else
 				out.print("./ajouter_enseignant.jsp");

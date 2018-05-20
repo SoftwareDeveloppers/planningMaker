@@ -92,7 +92,7 @@
 									</div>
 								</c:if>
 
-								<c:if test="${ !remplie}">
+								<c:if test="${ !remplie &&  sessionScope.idAgent!=null }">
 								<form action="AffectationSujet" method="POST">
 										<button class="btn hor-grd btn-grd-inverse">affectation
 											des sujets</button>

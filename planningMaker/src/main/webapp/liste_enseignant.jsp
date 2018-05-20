@@ -171,7 +171,7 @@
                     </div>
                      <div class="form-group">
                         <label for="exampleInputPassword1">Mot de passe</label>
-                        <input type="password" name="mdp" id="mdp"  class="form-control" placeholder="mot de passe" >
+                        <input type="password" name="mdp" id="mdp"  class="form-control" value="${enseignant.getMdp()}" >
                         <input type="hidden" name="ensModif" value="${enseignant.getId()}">
                     </div>             
                                                                                 

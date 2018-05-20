@@ -71,7 +71,7 @@ public class AffectationSujet extends HttpServlet {
 			}
 		
 		
-		if (session.getAttribute("idAgent") == null) {
+		if (session.getAttribute("idAgent") == null && session.getAttribute("idEtudiant") == null ) {
 
 			response.sendRedirect("Deconnexion");
 

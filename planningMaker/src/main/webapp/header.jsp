@@ -147,37 +147,45 @@
 							<c:if test="${ !empty(sessionScope.idEnseignant)}">
 							
                             <li class="pcoded-hasmenu">
-                                <a href="javascript:void(0)">
-                                    <span class="pcoded-micon" ><i class="ti-layout-cta-right" style="color:#F1C40F;"></i><b>P</b></span>
+                                <a href="ProposerSujet">
+                                    <span class="pcoded-micon" ><i class="ti-layout-cta-right" ></i><b>P</b></span>
                                     <span class="pcoded-mtext" >Proposer Sujet</span>
                                     <span class="pcoded-mcaret" ></span>
                                 </a>
                               </li>
-                              <li class="">
+                              <li class="pcoded-hasmenu">
                                         <a href="AffectationSujet?etudiantEncadrer=132za&ze">
                                             <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>E</b></span>
                                             <span class="pcoded-mtext">Etudiant Encadrer</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
+                                    
+                                <li class="pcoded-hasmenu">
+                                        <a href="SoutenanceController">
+                                            <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>Pl</b></span>
+                                            <span class="pcoded-mtext">planning des soutenances</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
                               	</c:if>
 								
-                               <li class="pcoded-hasmenu">
+                              
+                                <c:if test="${ !empty(sessionScope.idEtudiant)}">
+                                    <li class="pcoded-hasmenu">
+                                        <a href="AjouterFicheDeVoeux">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i><b>F</b></span>
+                                            <span class="pcoded-mtext">Fiche de voeux</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                 <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>N</b></span>
                                     <span class="pcoded-mtext">Consulter</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
                                 <ul class="pcoded-submenu">
-                                <c:if test="${ !empty(sessionScope.idEtudiant)}">
-                                    <li class="">
-                                        <a href="AjouterFicheDeVoeux">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Fiche de voeux</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                
                                     <li class="">
                                         <a href="ListeSujet">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -185,12 +193,34 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
+                                    <li class="">
+                                        <a href="AffectationSujet">
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Liste affectation des sujets</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    </ul>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="emploiPlanning.jsp">
+                                            <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>Pl</b></span>
+                                            <span class="pcoded-mtext">planning des soutenances</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
                                </c:if>
                                
                                 <c:if test="${ !empty(sessionScope.idAgent)}">
+                                <li class="pcoded-hasmenu">
+                                <a href="javascript:void(0)">
+                                    <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>N</b></span>
+                                    <span class="pcoded-mtext">Consulter</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                                <ul class="pcoded-submenu">
                                     <li class="">
                                         <a href="EtudiantController?Liste=132za&ze">
-                                            <span class="pcoded-micon"><i class=class="ti-angle-right"></i></span>
+                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">liste des étudiants</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
@@ -203,36 +233,40 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                               </c:if>
-                                <c:if test="${ !empty(sessionScope.idAgent)&& sessionScope.idAgent == 1 }">
+                              
                                     <li class="">
                                         <a href="AgentController?Liste=132za&ze">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">liste des Agents</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
-                                    </li>
-                                    <li class="">
+                                    </li></ul>
+                                    <li class="pcoded-hasmenu">
+                                <a href="javascript:void(0)">
+                                    <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>N</b></span>
+                                    <span class="pcoded-mtext">Faire</span>
+                                    <span class="pcoded-mcaret"></span>
+                                </a>
+                                <ul class="pcoded-submenu">
+                                     <li class="">
                                         <a href="AffectationSujet">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">affectation des sujets</span>
+                                            <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>A</b></span>
+                                            <span class="pcoded-mtext"  data-i18n="nav.dash.main">affectation des sujets</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                </c:if>
                                     <li class="">
                                         <a href="SoutenanceController">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">planning des soutenances</span>
+                                            <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>Pl</b></span>
+                                            <span class="pcoded-mtext"  data-i18n="nav.dash.main">planning des soutenances</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
+                              </ul>
+                                   
                              
-                                    
-                                 </ul>
-                              </li>
-                              <c:if test="${ !empty(sessionScope.idAgent)}">
-                              <ul class="pcoded-item pcoded-left-item">
+                             
+                              
                             <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)">
                                     <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>A</b></span>
