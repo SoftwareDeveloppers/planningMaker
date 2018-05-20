@@ -143,7 +143,9 @@
                        <div class="pcoded-inner-navbar">
                        
                             <ul class="pcoded-item pcoded-left-item" style="margin-left: 30%;">
-                            
+                                    <a href="./AccueilCon">
+                                     <img src="assets/images/home.png" style="margin-left:270px; "/>
+                                     </a>
 							<c:if test="${ !empty(sessionScope.idEnseignant)}">
 							
                             <li class="pcoded-hasmenu">

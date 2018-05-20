@@ -41,9 +41,8 @@
 											<div class="page-header-title">
 												<i class="icofont icofont-table bg-c-blue"></i>
 												<div class="d-inline">
-													<h4>Liste des encadreurs</h4>
-													<span>trouver dans cette page la liste des
-														encadreurs disponible </span>
+													<h4>Fiche de voeux</h4>
+													<span>Voici vos 5 sujets ,vous pouvez changer votre choix </span>
 												</div>
 											</div>
 										</div>
@@ -55,8 +54,8 @@
 													</a></li>
 													<li class="breadcrumb-item"><a href="#!">Consulter</a>
 													</li>
-													<li class="breadcrumb-item"><a href="#!">Liste
-															enseignant</a></li>
+													<li class="breadcrumb-item"><a href="#!">Liste des sujets
+													</a></li>
 												</ul>
 											</div>
 										</div>
