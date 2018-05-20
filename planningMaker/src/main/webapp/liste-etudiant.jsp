@@ -135,63 +135,39 @@
 																	class="form-control">
 															</div>
 															<div class="form-group">
-																<label for="lieuN">lieu de naissance</label> <input
-																	type="text" name="lieuN" class="form-control"
-																	placeholder="Lieu de naissance">
-															</div>
-															<div class="form-group">
-																<label for="adresse">Address </label> <input type="text"
-																	name="adresse" class="form-control"
-																	placeholder="Adresse">
-															</div>
-															<div class="form-group">
-																<label for="sexe">sexe</label>
-																<div class="controls">
-																	<select name="sexe" class="form-control">
-																		<option>homme</option>
-																		<option>femme</option>
-																	</select>
-																</div>
-															</div>
-															<div class="form-group">
 																<label for="specialite">spécialité</label>
-																<div class="controls">
-																	<select name="specialite" id="specialite"
-																		class="form-control" required="required">
-																		<option>GL</option>
-																		<option>RSD</option>
-																		<option>SIC</option>
-																		<option>MID</option>
-																	</select>
-																</div>
+																<input
+																	type="date" name="dateN" id="dateN" value="${etudiant.specialite}"
+																	class="form-control">
 															</div>
 													
 													<div class="form-group">
 														<label for="promotion">Promotion </label> <input
 															type="text" name="promotion" id="promotion"
-															class="form-control" placeholder="Promotion">
+															class="form-control" value="${etudiant.promotion}">
 													</div>
 												
 												<div class="form-group">
 													<label for="mou">Moyenne </label> <input type="text"
 														name="moy" id="moy" class="form-control"
-														placeholder="Moyenne" required="required">
+														value="${etudiant.moy}">
 												</div>
 											
 											<div class="form-group">
-												<label for="id">id</label> <input type="text" name="id"
+												<label for="id">identifiant de la carte d'etudiant</label> 
+												<input type="text" name="id"
 													class="form-control"
-													placeholder="identifiant de la carte d'etudiant">
+													value="${etudiant.id_Enseignant}">
 											</div>
-											<div class="form-group">
-												<label for="Email">Email</label> <input type="text"
+										
+												 <input type="hidden"
 													name="email" class="form-control" id="email"
-													placeholder="ex : nom@gmail.com" required="required">
-											</div>
+													value="${etudiant.email}">
+										
 											<div class="form-group">
 												<label for="mdp">Mot de passe</label> 
 												<input type="password" name="mdp" id="mdp" class="form-control"
-													placeholder="mot de passe" required="required">
+													value="${etudiant.mdp}" >
 												<input type="hidden" name="etudModif" value="${etudiant.id}">
 											</div>            
                                                                                 
