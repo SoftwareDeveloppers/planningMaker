@@ -126,9 +126,10 @@ public class EnseignantControler extends HttpServlet {
 			EnseignantDaoImpl enseignantDao = new EnseignantDaoImpl();
 			Enseignant enseignant = new Enseignant(0, nom, prenom, dateN, adresse, email, mdp, specialite, grade, telephone, sexe);
 			if (enseignantDao.create(enseignant)) {
-				response.sendRedirect("EnseignantController?Liste=agents");
+				out.print("./liste_enseignant.jsp");
 
-			} else 	response.sendRedirect("EnseignantController");
+			} else
+				out.print("./ajouter_enseignant.jsp");
 
 		}
 	
