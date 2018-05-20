@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.AgentDaoImpl;
+import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
 import model.AgentAdmin;
 import model.Etudiant;
@@ -58,10 +59,10 @@ public class AgentController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		String email = request.getParameter("email");
-		String modif = request.getParameter("modif");
-	
+		String idAgent = request.getParameter("agSupp");
+		String idAgModif = request.getParameter("modif");	
 		AgentDaoImpl agentcheckEmail = new AgentDaoImpl();
-if(modif.equals("true")==false){
+if(idAgModif == null && idAgent == null){
 
 		if (agentcheckEmail.checkEmail(email)) {
 			out.print("mailExiste");
@@ -76,13 +77,13 @@ if(modif.equals("true")==false){
 			
 
 			if (agentDao.create(agent)) {
-				out.print("./liste_agentAdmin.jsp");
+				out.print("AgentController?Liste=agents");
 
 			} else
 				out.print("./ajouter_agentAdmin.jsp");
 
 		}
-}else{
+}else if(idAgModif!=null){
 	
 				AgentDaoImpl agentDao = new AgentDaoImpl();
 				String nom = request.getParameter("nom");
@@ -106,6 +107,16 @@ if(modif.equals("true")==false){
 					response.sendRedirect("AgentController?Liste=agents");
 
 				} else 	response.sendRedirect("AgentController");
+	          }else{
+	        	 AgentDaoImpl agent = new AgentDaoImpl();
+	  			int idag = Integer.parseInt(idAgent);
+	  			AgentAdmin a=agent.findById(idag);
+	  			if(agent.delete(a)){
+				
+					response.sendRedirect("AgentController?Liste=agents");
+
+				} else 	response.sendRedirect("AgentController"); 
+	        	
 	          }
 }
 

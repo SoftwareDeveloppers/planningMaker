@@ -47,7 +47,7 @@ public class AgentDaoImpl implements AgentDao {
 
 			verif = ps.execute();
 			conn.close();
-
+			return true;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}

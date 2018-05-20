@@ -104,8 +104,8 @@
 																				class="btn btn-default waves-effect "
 																				data-dismiss="modal">Close</button>
 																			<form role="form" method="post"
-																				action="EnseignantControler">
-																				<input type="hidden" name="ensSupp"
+																				action="AgentController">
+																				<input type="hidden" name="agSupp"
 																					value="${agent.id}">
 																				<button type="submit"
 																					class="btn btn-primary waves-effect waves-light ">Oui,
@@ -132,7 +132,7 @@
 																			<form method="Post" action="AgentController">
 																			<input type="hidden"
 																						name="modif" id="modif" class="form-control"
-																						value="true">
+																						value="${agent.id}">
 																				<div class="form-group">
 																					<label for="nom">Nom</label> <input type="text"
 																						name="nom" id="nom" class="form-control"
