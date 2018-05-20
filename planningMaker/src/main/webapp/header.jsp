@@ -86,7 +86,7 @@
                         </a>
                         
                         <a href="./AccueilCon">
-                            <img class="img-fluid" src="assets/images/logo3.png" />
+                            <img class="img-fluid" src="assets/images/logojpng" />
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -141,29 +141,21 @@
                     <nav class="pcoded-navbar">
                        <div class="pcoded-inner-navbar">
                        
-                            <ul class="pcoded-item pcoded-left-item">
+                            <ul class="pcoded-item pcoded-left-item" style="margin-left: 30%;">
                             
 							<c:if test="${ !empty(sessionScope.idEnseignant)}">
+							
                             <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)">
-                                    <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>P</b></span>
-                                    <span class="pcoded-mtext">Proposer</span>
-                                    <span class="pcoded-mcaret"></span>
+                                    <span class="pcoded-micon" ><i class="ti-layout-cta-right" style="color:#F1C40F;"></i><b>P</b></span>
+                                    <span class="pcoded-mtext" >Proposer Sujet</span>
+                                    <span class="pcoded-mcaret" ></span>
                                 </a>
-                                <ul class="pcoded-submenu">
-                                    <li class="">
-                                        <a href="ProposerSujet">
-                                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" > Sujet</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                    </li>
-                                 </ul>
                               </li>
                               <li class="">
                                         <a href="AffectationSujet?etudiantEncadrer=132za&ze">
-                                            <span class="pcoded-micon"><i class=class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Etudiant Encadrer</span>
+                                            <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>E</b></span>
+                                            <span class="pcoded-mtext">Etudiant Encadrer</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>

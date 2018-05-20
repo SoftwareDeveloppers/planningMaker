@@ -115,8 +115,8 @@
 
 								<div class="row m-t-30">
 									<div class="col-md-12">
-										<button type="submit"
-											id="ok"class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">
+										<button type="submit" style="color:#2ECC71"
+											id="ok"class="btn btn-round btn-md btn-block waves-effect text-center m-b-20">
 											Connecté</button>
 									</div>
 								</div>
