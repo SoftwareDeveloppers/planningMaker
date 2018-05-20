@@ -2,20 +2,23 @@ package model;
 
 public class Salle {
 	
-	private Boolean etat;
+	private int etat;
 	private int id;
 	
-	public Salle(int id, Boolean etat) {
+	public Salle() {	
+	}
+	
+	public Salle(int id, int etat) {
 		super();
 		this.id = id;
 		this.etat = etat;
 	}
-	
-	public Boolean getEtat() {
+
+	public int getEtat() {
 		return etat;
 	}
 
-	public void setEtat(Boolean etat) {
+	public void setEtat(int etat) {
 		this.etat = etat;
 	}
 
@@ -26,4 +29,6 @@ public class Salle {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	
 }

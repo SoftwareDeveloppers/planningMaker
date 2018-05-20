@@ -335,4 +335,56 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		}
 
 	}
+	public boolean updateIdEnseignant(int idEtudiant, int idEnseignant) {
+		Connection conn=DbConnect.connect();
+		
+		String sql = "UPDATE etudiant SET id_Enseignant= ? WHERE id = ?;";
+		
+		PreparedStatement ps;
+		try {
+			
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, idEnseignant);
+			ps.setInt(2, idEtudiant);
+		
+			ps.execute();
+			conn.close();
+
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+			return false;
+		}
+
+	}
+	public List<Etudiant> findByTaux(int taux) {
+		Connection conn=DbConnect.connect();
+
+		String sql = "SELECT *  FROM etudiant WHERE taux = ? ";
+		PreparedStatement ps;
+		ResultSet rs = null;
+		List<Etudiant> etudiants = new ArrayList<Etudiant>();
+		Etudiant etudiant = null;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, taux);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				etudiant = new Etudiant(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getFloat(9),
+						rs.getFloat(10),rs.getInt(11),rs.getInt(12));
+
+				etudiants.add(etudiant);
+			}
+			
+			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+		
+		return etudiants;	
+	}
 }

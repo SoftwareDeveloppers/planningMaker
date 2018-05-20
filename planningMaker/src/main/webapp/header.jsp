@@ -228,7 +228,7 @@
                                     </li>
                                 </c:if>
                                     <li class="">
-                                        <a href="liste_plannification_soutenance.jsp">
+                                        <a href="SoutenanceController">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.dash.main">planning des soutenances</span>
                                             <span class="pcoded-mcaret"></span>
