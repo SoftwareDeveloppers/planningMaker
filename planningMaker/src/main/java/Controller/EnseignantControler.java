@@ -25,21 +25,25 @@ import model.Etudiant;
 public class EnseignantControler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	String list = null;
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		if(list == null)
+		{
+			list = request.getParameter("Liste");
+		}
 		
-		if (request.getParameter("Liste") != null) {
+		if (list != null) {
 			
 			EnseignantDaoImpl enseignant = new EnseignantDaoImpl();
 			List<Enseignant> enseignants = new ArrayList<Enseignant>();
 			enseignants = enseignant.findAll();
 			request.setAttribute("enseignants", enseignants);
 			this.getServletContext().getRequestDispatcher("/liste_enseignant.jsp").forward(request, response);
-			
 			
 		} else {
 
@@ -80,6 +84,8 @@ public class EnseignantControler extends HttpServlet {
 			EnseignantDaoImpl enseignantdelete = new EnseignantDaoImpl();
 			int idEns = Integer.parseInt(idEnseignant);
 			enseignantdelete.delete(idEns);
+			list = "abc";
+			this.doGet(request, response);
 		}
 		
 		else if(idEnsModif != null) {
@@ -98,8 +104,8 @@ public class EnseignantControler extends HttpServlet {
 			EnseignantDaoImpl enseignantModifDao = new EnseignantDaoImpl();
 			Enseignant enseignant = new Enseignant(idEnsMod, nom, prenom, dateN, adresse, email, mdp, specialite, grade, telephone, sexe);
 			if (enseignantModifDao.update(enseignant)) {
-				out.print("./liste_enseignant.jsp");
-
+				list = "abc";
+				this.doGet(request, response);
 			}
 		}
 		

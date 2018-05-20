@@ -175,16 +175,16 @@
                 </div>
         </div>
   </div>
- <script>
-                                                                    function taux(v){
-																	var slider = document.getElementById("myRange"+v);
-																	var output = document.getElementById("demo"+v);
-																	var taux = document.getElementById("updateTaux"+v);
-																	output.innerHTML = slider.value;
+    <script>
+            function taux(v){
+				var slider = document.getElementById("myRange"+v);
+				var output = document.getElementById("demo"+v);
+				var taux = document.getElementById("updateTaux"+v);
+				output.innerHTML = slider.value;
 																	
-																	slider.oninput = function() {
-																	  output.innerHTML = this.value;
-																	  taux.value = this.value;
-																	}}
-																	</script>
+				slider.oninput = function() {
+				output.innerHTML = this.value;
+				taux.value = this.value;
+			}}
+	</script>
   <jsp:include page="footer.jsp"></jsp:include>
