@@ -86,7 +86,7 @@
                         </a>
                         
                         <a href="./AccueilCon">
-                            <img class="img-fluid" src="assets/images/logo3.png" />
+                            <img class="img-fluid" src="assets/images/logoblan.png" />
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
