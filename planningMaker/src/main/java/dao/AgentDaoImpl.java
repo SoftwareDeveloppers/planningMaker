@@ -58,7 +58,7 @@ public class AgentDaoImpl implements AgentDao {
 	public boolean update(AgentAdmin a) {
 		Connection conn = DbConnect.connect();
 
-		String sql = "UPDATE agentadmin SET nom = '?', prenom = '?', email = '?', mdp = '?'" + " WHERE id = ?;";
+		String sql = "UPDATE agentadmin SET nom = ?, prenom = ?, email = ?, mdp = ?" + " WHERE id = ?";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
@@ -102,6 +102,32 @@ public class AgentDaoImpl implements AgentDao {
 		}
 
 		return agent;
+	}
+	public int findId(String email) {
+		Connection conn = DbConnect.connect();
+
+		String sql = "Select id FROM agentadmin WHERE email=?";
+		PreparedStatement ps;
+		ResultSet rs = null;
+		int id = 0;
+
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, email);
+			
+
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				id = rs.getInt(1);
+			}
+			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+
+		return id;
 	}
 
 	public List<AgentAdmin> findAll() {

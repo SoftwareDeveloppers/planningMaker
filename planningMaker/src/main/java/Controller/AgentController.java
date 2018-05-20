@@ -53,12 +53,15 @@ public class AgentController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession session = request.getSession();
 		response.setContentType("text/plain");
 		PrintWriter out = response.getWriter();
 
 		String email = request.getParameter("email");
+		String modif = request.getParameter("modif");
+	
 		AgentDaoImpl agentcheckEmail = new AgentDaoImpl();
+if(modif.equals("true")==false){
 
 		if (agentcheckEmail.checkEmail(email)) {
 			out.print("mailExiste");
@@ -67,9 +70,9 @@ public class AgentController extends HttpServlet {
 			String nom = request.getParameter("nom");
 			String prenom = request.getParameter("prenom");
 			String mdp = request.getParameter("mdp");
-		
-			AgentAdmin agent = new AgentAdmin(0, nom, prenom, email, mdp);
+			
 			AgentDaoImpl agentDao = new AgentDaoImpl();
+			AgentAdmin agent = new AgentAdmin(0, nom, prenom, email, mdp);
 			
 
 			if (agentDao.create(agent)) {
@@ -79,6 +82,33 @@ public class AgentController extends HttpServlet {
 				out.print("./ajouter_agentAdmin.jsp");
 
 		}
-	}
+}else{
+	
+				AgentDaoImpl agentDao = new AgentDaoImpl();
+				String nom = request.getParameter("nom");
+				
+				String prenom = request.getParameter("prenom");
+				String mdp = request.getParameter("mdp");
+				int id=agentDao.findId(email);
+				
+
+				AgentAdmin a= agentDao.findById(id);
+				a.setNom(nom);
+				a.setPrenom(prenom);
+				a.setEmail(email);
+				a.setMdp(mdp);
+				session.setAttribute("nom", a.getNom());
+				session.setAttribute("prenom", a.getPrenom());
+				session.setAttribute("emailAgent", a.getEmail());
+				
+				if (agentDao.update(a)) {
+				
+					response.sendRedirect("AgentController?Liste=agents");
+
+				} else 	response.sendRedirect("AgentController");
+	          }
+}
+
+	
 
 }

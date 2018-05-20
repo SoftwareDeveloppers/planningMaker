@@ -72,37 +72,7 @@
 																	type="text" name="prenom" id="prenom" class="form-control"
 																	placeholder="Prenom">
 															</div>
-															<div class="form-group">
-																<label for="dateN">Date de
-																	naissance</label> <input type="date" name="dateN" id="dateN"
-																	class="form-control">
-															</div>
-															<div class="form-group">
-																<label for="lieuN">lieu de
-																	naissance</label> <input type="text" name="lieuN" id="lieuN"
-																	class="form-control" placeholder="Lieu de naissance">
-															</div>
-															<div class="form-group">
-																<label for="adrese">Address </label> <input
-																	type="text" name="adresse" id="adresse" class="form-control"
-																	id="exampleInputEmail1" placeholder="Adresse">
-															</div>
-															<div class="form-group">
-																<label for="sexe">sexe</label>
-																<div class="controls">
-																	<select name="sexe" id="sexe" class="form-control">
-																		<option>homme</option>
-																		<option>femme</option>
-																	</select>
-																</div>
-															</div>
-
-															<div class="form-group">
-																<label for="tel">telephone</label> <input
-																	type="text" name="telephone" id="tel" class="form-control"
-																	pattern="[0][6|7|5][0-9]{8}" placeholder="telephone">
-															</div>
-
+															
 															<div class="form-group">
 																<label for="email">Email</label> <input
 																	type="text" name="email" id="email"class="form-control"
@@ -151,7 +121,7 @@
 							var prenom = $('#prenom').val();
 							var email = $('#email').val();
 							var mdp = $('#mdp').val();
-							var dateN = $('#dateN').val();
+							
 							
 							if( nom =="" || prenom =="" || email =="" || mdp =="" ){
 								$
