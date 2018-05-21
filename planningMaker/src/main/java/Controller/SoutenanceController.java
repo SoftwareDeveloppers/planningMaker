@@ -13,6 +13,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.fabric.xmlrpc.base.Array;
 
 import dao.AffectationDaoImpl;
 import dao.AssisteDaoImpl;
@@ -20,11 +23,14 @@ import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
 import dao.SalleDaoImpl;
 import dao.SoutenanceDaoImpl;
+import model.Affectation;
 import model.Assiste;
 import model.Enseignant;
 import model.Etudiant;
 import model.Salle;
 import model.Soutenance;
+import model.SoutenanceJoin;
+import model.affectationJoin;
 
 public class SoutenanceController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -35,8 +41,58 @@ public class SoutenanceController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/liste_plannification_soutenance.jsp").forward(request,
-				response);
+		HttpSession session = request.getSession();
+		boolean remplie;
+
+		if (/*
+			 * session.getAttribute("idAgent") == null && session.getAttribute("idEtudiant")
+			 * == null
+			 */false) {
+
+			response.sendRedirect("Deconnexion");
+
+		} else {
+			ArrayList<Assiste> assistes = new ArrayList<Assiste>();
+			SoutenanceDaoImpl soutimpl = new SoutenanceDaoImpl();
+			assistes = soutimpl.AssitesFindALL();
+			EnseignantDaoImpl enseignantDaoImpl = new EnseignantDaoImpl() ; 
+			ArrayList<Enseignant> enseignants = new ArrayList<Enseignant>();
+			enseignants = (ArrayList<Enseignant>) enseignantDaoImpl.findAll();
+			
+			ArrayList<SoutenanceJoin> soutenanceJoins = new ArrayList<SoutenanceJoin>();
+			soutenanceJoins = soutimpl.jointureSoutnance();
+
+			String[] dateD = soutenanceJoins.get(0).getDate().toString().split("-");
+			String[] datef = soutenanceJoins.get(soutenanceJoins.size() - 1).getDate().toString().split("-");
+			
+			System.out.println(dateD[1]);
+			int moisDebut = Integer.parseInt(dateD[1]);
+			int moisfin = Integer.parseInt(datef[1]);
+			
+			int jourDebut = Integer.parseInt(dateD[2]);
+			int jourfin = Integer.parseInt(datef[2]);
+
+			int nbrJour = 0;
+
+			if (moisDebut ==  moisfin) {
+				System.out.println(jourfin + " deb"+jourDebut);
+
+				nbrJour = jourfin - jourDebut;
+
+			} else if (moisDebut < moisfin) {
+
+			
+					nbrJour = jourDebut + (30 - jourfin);
+				
+
+			}
+			request.setAttribute("nbrjour", nbrJour);
+			request.setAttribute("ens", enseignants);
+			request.setAttribute("assiste", assistes);
+			request.setAttribute("soutnances", soutenanceJoins);
+			this.getServletContext().getRequestDispatcher("/emploiPlanning.jsp").forward(request, response);
+
+		}
 
 	}
 
@@ -49,6 +105,7 @@ public class SoutenanceController extends HttpServlet {
 		pgrSoutenances(DateSoutenance);
 		// Etape2: choisir 5 jurés pour chaque soutenance de manière intelligente.
 		choisirJures();
+
 	}
 
 	void pgrSoutenances(String DateSoutenance) {
@@ -108,7 +165,8 @@ public class SoutenanceController extends HttpServlet {
 	}
 
 	void choisirJures() {
-		// Hashtable pour mémoriser nombre de participation des enseignants dans les soutenances
+		// Hashtable pour mémoriser nombre de participation des enseignants dans les
+		// soutenances
 		// enseignant.
 		// clé = id_enseigant , valeur = nombre de participation dans les soutenances .
 		Hashtable<Integer, Integer> Memo = new Hashtable<Integer, Integer>();
@@ -131,7 +189,7 @@ public class SoutenanceController extends HttpServlet {
 		 * Enumeration e = Memo.elements(); while (e.hasMoreElements())
 		 * System.out.println(e.nextElement());
 		 */
-		//déclaration des variables
+		// déclaration des variables
 		int nombreDeParticipation = 0;
 		int nombreDeJurerDispo = 1;
 		int nombreDeJurers = 5;
@@ -156,39 +214,47 @@ public class SoutenanceController extends HttpServlet {
 			ArrayList<Integer> enseignantsMemeSpecialite = new ArrayList<Integer>();
 			enseignantsMemeSpecialite = en.findBySpecialite(speciliteEnseignant);
 			// un cas spécial: nombre des enseignants < 4
-			// pour eviter de prendre l'enseignant 2 fois dans la table assiste pour la meme soutenance on le supprime
-			// de la liste qui regroupe tt les enseignants de la meme specialite que le premier (l'encadreur).
+			// pour eviter de prendre l'enseignant 2 fois dans la table assiste pour la meme
+			// soutenance on le supprime
+			// de la liste qui regroupe tt les enseignants de la meme specialite que le
+			// premier (l'encadreur).
 			// parcourir la liste
 			for (int i = 0; i < enseignantsMemeSpecialite.size(); i++) {
 				// cherchez l'encadreur pour le supprimer de la liste
 				if (enseignantsMemeSpecialite.get(i) == idEnseignant)
 					enseignantsMemeSpecialite.remove(i);
 			}
-			// variable nombreDeParticipation initialiser a zero : pour commencer a chercher les enseignants
+			// variable nombreDeParticipation initialiser a zero : pour commencer a chercher
+			// les enseignants
 			// qui on aucune participation dans les soutenances
-			 nombreDeParticipation = 0;
-			// var nombreDeJurerDispo initialiser a un : pour compter le nombre de jurés disponible pour la soutennace
+			nombreDeParticipation = 0;
+			// var nombreDeJurerDispo initialiser a un : pour compter le nombre de jurés
+			// disponible pour la soutennace
 			// vaut 1 au début car on deja deja l'encadreur dans la table assiste
-			 nombreDeJurerDispo = 1;
+			nombreDeJurerDispo = 1;
 			// variable nombreDeJurers vaut 5 : 5 jurers max pour une soutenance
-			 nombreDeJurers = 5;
+			nombreDeJurers = 5;
 			// variable boulean pour indiquer si on'a deja pri 4 jurés
-			 fin = false;
-			// variable taille pour enregistrer la taille de la liste 
-			 taille = enseignantsMemeSpecialite.size();
-			
-			
-			// on ne sais pas combien de participation il a un enseignant dans les soutenances
+			fin = false;
+			// variable taille pour enregistrer la taille de la liste
+			taille = enseignantsMemeSpecialite.size();
+
+			// on ne sais pas combien de participation il a un enseignant dans les
+			// soutenances
 			// pour ne pas limité les choses j'ai bien met une boucle a l'infinie
-			// ca dépend nombre de soutenance et le nombre des enseignants disponible pour chaque spécialité
-			// (précondition ne doit pas dépassé 5 <nombreDeParticipation> reste a faire des tests)
+			// ca dépend nombre de soutenance et le nombre des enseignants disponible pour
+			// chaque spécialité
+			// (précondition ne doit pas dépassé 5 <nombreDeParticipation> reste a faire des
+			// tests)
 			while (true) {
-				// pour ne pas tombé dans une boucle infinie si on'a pas plus que 4 enseignants dans la liste.
+				// pour ne pas tombé dans une boucle infinie si on'a pas plus que 4 enseignants
+				// dans la liste.
 				// cas spéciale!
 				if (taille < nombreDeJurers) {
-					nombreDeJurers = taille;				
+					nombreDeJurers = taille;
 				}
-				// parcourir notre qui contien les enseignant de la meme spécialité que l'encadreur
+				// parcourir notre qui contien les enseignant de la meme spécialité que
+				// l'encadreur
 				for (int i = 0; i < enseignantsMemeSpecialite.size(); i++) {
 					// testé si on a deja 4 jurés
 					if (nombreDeJurerDispo == nombreDeJurers) {
@@ -196,33 +262,34 @@ public class SoutenanceController extends HttpServlet {
 						fin = true;
 						break;
 					}
-					// testé si on 
+					// testé si on
 					if (Memo.get(enseignantsMemeSpecialite.get(i)) == nombreDeParticipation) {
-						// inserer dans la table assiste l'enseignant 
+						// inserer dans la table assiste l'enseignant
 						createAssiste(soutenances.get(j).getId(), enseignantsMemeSpecialite.get(i));
-						// incrémenter nombreDeJurersDispo 
+						// incrémenter nombreDeJurersDispo
 						nombreDeJurerDispo++;
 						// modifier nombre de participation dans les soutenances en la rajoute 1
 						Memo.put(enseignantsMemeSpecialite.get(i), nombreDeParticipation + 1);
-						// pour eviter de prendre l'enseignant 2 fois pour la meme soutenance on le supprime de la liste
+						// pour eviter de prendre l'enseignant 2 fois pour la meme soutenance on le
+						// supprime de la liste
 						// cas spéciale
-						enseignantsMemeSpecialite.remove(i); 
+						enseignantsMemeSpecialite.remove(i);
 					}
-					//fin boucle for
+					// fin boucle for
 				}
-				// augmenter nombreDeParticipation par un 
+				// augmenter nombreDeParticipation par un
 				nombreDeParticipation++;
-				//testé si on'a bien 4 jurés
+				// testé si on'a bien 4 jurés
 				if (fin) {
-					//si oui on sort de la boucle while(true)
-					break;		
+					// si oui on sort de la boucle while(true)
+					break;
 				}
 
-				//fin boucle while
+				// fin boucle while
 			}
-			//fin boucle for
+			// fin boucle for
 		}
-		//fin méthode choisirJures()
+		// fin méthode choisirJures()
 	}
 
 	void createAssiste(int id_soutenance, int id_enseignant) {
