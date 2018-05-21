@@ -68,7 +68,7 @@
 												<tbody>
 													<c:forEach items="${ etudiants }" var="etudiant">
 														<tr>
-															<td>${ etudiant.nom}${ etudiant.prenom}</td>
+															<td>${ etudiant.nom} ${ etudiant.prenom}</td>
 															<td>${ etudiant.specialite}</td>
 															<td>${ etudiant.promotion}</td>
 															<td>${ etudiant.moy}</td>
@@ -137,15 +137,14 @@
 																			<form role="form" method="post"
 																				action="EtudiantController">
 																				<div class="form-group">
-																					<label for="nom">Nom</label> <input type="text"
-																						name="nom" class="form-control"
-																						value="${etudiant.nom}" required="required">
+																					<label for="nom">Nom</label> 
+																					<input type="text" name="nom" class="form-control"
+																						value="${etudiant.nom}">
 																				</div>
 																				<div class="form-group">
 																					<label for="prenom">Prenom</label> <input
 																						type="text" name="prenom" id="prenom"
-																						class="form-control" value="${etudiant.prenom}"
-																						required="required">
+																						class="form-control" value="${etudiant.prenom}">
 																				</div>
 																				<div class="form-group">
 																					<label for="dateN">Date de naissance</label> <input
@@ -168,20 +167,23 @@
 
 																				<div class="form-group">
 																					<label for="mou">Moyenne </label> <input
-																						type="text" name="moy" id="moy"
+																						type="text" name="moyenne" id="moyenne"
 																						class="form-control" value="${etudiant.moy}">
 																				</div>
 
-																				<div class="form-group">
-																					<label for="id">identifiant de la carte
-																						d'etudiant</label> <input type="text" name="id"
-																						class="form-control"
-																						value="${etudiant.id_Enseignant}">
-																				</div>
 
 																				<input type="hidden" name="email"
 																					class="form-control" id="email"
 																					value="${etudiant.email}">
+																					<input type="hidden" name="idFiche"
+																					class="form-control" id="idFiche"
+																					value="${etudiant.id_FicheDeVoeux}">
+																					<input type="hidden" name=idEns
+																					class="form-control" id="idEns"
+																					value="${etudiant.id_Enseignant}">
+																					<input type="hidden" name=taux
+																					class="form-control" id="taux"
+																					value="${etudiant.taux}">
 
 																				<div class="form-group">
 																					<label for="mdp">Mot de passe</label> <input

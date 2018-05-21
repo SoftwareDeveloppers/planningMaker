@@ -79,25 +79,7 @@
 																	type="date" name="dateN" id="dateN"
 																	class="form-control">
 															</div>
-															<div class="form-group">
-																<label for="lieuN">lieu de naissance</label> <input
-																	type="text" name="lieuN" class="form-control"
-																	placeholder="Lieu de naissance">
-															</div>
-															<div class="form-group">
-																<label for="adresse">Address </label> <input type="text"
-																	name="adresse" class="form-control"
-																	placeholder="Adresse">
-															</div>
-															<div class="form-group">
-																<label for="sexe">sexe</label>
-																<div class="controls">
-																	<select name="sexe" class="form-control">
-																		<option>homme</option>
-																		<option>femme</option>
-																	</select>
-																</div>
-															</div>
+															
 															<div class="form-group">
 																<label for="specialite">spécialité</label>
 																<div class="controls">
@@ -122,12 +104,6 @@
 														name="moy" id="moy" class="form-control"
 														placeholder="Moyenne" required="required">
 												</div>
-											</div>
-											<div class="form-group">
-												<label for="id">id</label> <input type="text" name="id"
-													class="form-control"
-													placeholder="identifiant de la carte d'etudiant">
-											</div>
 											<div class="form-group">
 												<label for="Email">Email</label> <input type="text"
 													name="email" class="form-control" id="email"
@@ -137,7 +113,7 @@
 												<label for="mdp">Mot de passe</label> <input type="password"
 													name="mdp" id="mdp" class="form-control"
 													placeholder="mot de passe" required="required">
-											</div>
+											</div></div>
 											<div class="form-group row">
 												<label class="col-sm-2"></label>
 												<div class="col-sm-10">

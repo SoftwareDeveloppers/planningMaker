@@ -37,7 +37,7 @@ public class EtudiantController extends HttpServlet {
 		} else {
 
 			HttpSession session = request.getSession();
-			if (session.getAttribute("idEtudiant") == null) {
+			if (session.getAttribute("idEtudiant") == null ) {
 
 				response.sendRedirect("Login");
 
@@ -60,31 +60,54 @@ public class EtudiantController extends HttpServlet {
 		String email = request.getParameter("email");
 		EtudiantDaoImpl etudiantchekEmail = new EtudiantDaoImpl();
 
+		String idEtudiant = request.getParameter("etudSupp");
+		String idEtuModif = request.getParameter("etudModif");
 		
+		if(idEtudiant != null) {
+			EtudiantDaoImpl etudiantDao = new EtudiantDaoImpl();
+			int idEtu = Integer.parseInt(idEtudiant);
+			if(etudiantDao.delete(idEtu)){
+				response.sendRedirect("EtudiantController?Liste=etudiants");
+
+			} else
+				response.sendRedirect("EtudiantController");
 		
-		if (etudiantchekEmail.checkEmail(email)) {
+		}
+		
+		else if(idEtuModif != null) {
+			int idEtuMod = Integer.parseInt(idEtuModif);
+			String nom = request.getParameter("nom");
+			String prenom = request.getParameter("prenom");
+			Date dateN = Date.valueOf(request.getParameter("dateN"));
+			String specialite = request.getParameter("specialite");
+			Float moyenne =Float.parseFloat(request.getParameter("moyenne"));
+			String promotion = request.getParameter("promotion");
+			String mdp = request.getParameter("mdp");
+			int idFiche = Integer.parseInt(request.getParameter("idFiche"));
+			int idEns = Integer.parseInt(request.getParameter("idEns"));
+			Float taux = Float.parseFloat(request.getParameter("taux"));
+			
+			EtudiantDaoImpl etudiantDao = new EtudiantDaoImpl();
+			Etudiant etudiant = new Etudiant(idEtuMod, nom, prenom,email, mdp,dateN,specialite, promotion, moyenne,taux,idFiche,idEns);
+			if (etudiantDao.update(etudiant)) {
+				response.sendRedirect("EtudiantController?Liste=etudiants");
+
+			} else
+				response.sendRedirect("EtudiantController");
+		
+		}else if(etudiantchekEmail.checkEmail(email)) {
 			out.print("mailExiste");
 		} else {
 
 			String nom = request.getParameter("nom");
 			String prenom = request.getParameter("prenom");
-
 			String mdp = request.getParameter("mdp");
 			Date dateN = Date.valueOf(request.getParameter("dateN"));
 			String specialite = request.getParameter("specialite");
 			String promotion = request.getParameter("promotion");
 			float moy = Float.parseFloat(request.getParameter("moy"));
 
-			// float taux = Float.parseFloat(request.getParameter("taux"));
-			// pas encore ajouter a la bdd et au model !
-			/*
-			 * String lieuN = request.getParameter("lieuN"); String adresse =
-			 * request.getParameter("adresse"); String sexe =
-			 * request.getParameter("sexe"); String
-			 * telephone=request.getParameter("telephone"); String
-			 * idcarteEtudiant = request.getParameter("id");
-			 */
-
+			
 			EtudiantDaoImpl etudiantDao = new EtudiantDaoImpl();
 			Etudiant etudaint = new Etudiant(0, nom, prenom, email, mdp, dateN, specialite, promotion, moy, null, 0, 0);
 

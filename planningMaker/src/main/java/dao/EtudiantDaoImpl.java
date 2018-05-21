@@ -51,7 +51,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 
 			verif = ps.execute();
 			conn.close();
-
+			return true;
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
