@@ -279,4 +279,30 @@ public class EnseignantDaoImpl implements EnseignantDao {
 		}
 		return id_enseignants;
 	}
+	public int NombreEnseignant() {
+		Connection conn = DbConnect.connect();
+
+		String sql = "SELECT count(*) FROM enseignant ";
+		int result = 0;
+		PreparedStatement ps;
+		ResultSet rs = null;
+
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt(1);
+
+			}
+			conn.close();
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return result;
+
+		
+	}
+
 }
