@@ -56,11 +56,11 @@
 												class="table table-striped table-bordered nowrap">
 												<thead>
 													<tr>
-														<th>Nom et prenom</th>
-														<th>specialité</th>
-														<th>promotion</th>
-														<th>moyenne</th>
-														<th>date de naissance</th>
+														<th>numero de la salle</th>
+														<th>date debut </th>
+														<th>heure</th>
+														<th>titre sujet</th>
+														<th>les jures</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -74,7 +74,7 @@
 															<th rowspan="5" align="center">${sout.titreSujets}</td>
 															</c:if>
 															<td>
-																${sout.jure} 
+																${sout.jurenom} ${sout.jurePrenom} 
 															</td>
 														</tr>
 													</c:forEach>

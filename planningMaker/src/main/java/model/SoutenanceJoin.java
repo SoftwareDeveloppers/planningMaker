@@ -11,22 +11,34 @@ public class SoutenanceJoin {
 	private int id_salle;
 	private String titreSujets;
 	private String ContenuSujets;
-	private String jure ;
+	private String jurenom ;
+	private String jurePrenom ;
+
 	
 
 	
+	public String getJurenom() {
+		return jurenom;
+	}
+
+	public void setJurenom(String jurenom) {
+		this.jurenom = jurenom;
+	}
+
+	public String getJurePrenom() {
+		return jurePrenom;
+	}
+
+	public void setJurePrenom(String jurePrenom) {
+		this.jurePrenom = jurePrenom;
+	}
+
 	public SoutenanceJoin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getJure() {
-		return jure;
-	}
-
-	public void setJure(String jure) {
-		this.jure = jure;
-	}
+	
 
 	public int getId() {
 		return id;
@@ -66,8 +78,10 @@ public class SoutenanceJoin {
 	}
 	
 	
+	
+
 	public SoutenanceJoin(int id, Date date, Time heure, int id_salle, String titreSujets, String contenuSujets,
-			String jure) {
+			String jurenom, String jurePrenom) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -75,13 +89,14 @@ public class SoutenanceJoin {
 		this.id_salle = id_salle;
 		this.titreSujets = titreSujets;
 		ContenuSujets = contenuSujets;
-		this.jure = jure;
+		this.jurenom = jurenom;
+		this.jurePrenom = jurePrenom;
 	}
 
 	@Override
 	public String toString() {
 		return "SoutenanceJoin [id=" + id + ", date=" + date + ", heure=" + heure + ", id_salle=" + id_salle
-				+ ", titreSujets=" + titreSujets + ", ContenuSujets=" + ContenuSujets + ", jure=" + jure + "]";
+				+ ", titreSujets=" + titreSujets + ", ContenuSujets=" + ContenuSujets + ", jure=" + jurenom + "]";
 	}
 
 	
