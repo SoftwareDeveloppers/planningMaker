@@ -10,9 +10,8 @@ import java.util.List;
 import com.mysql.jdbc.PreparedStatement;
 
 import model.Remarque;
-import model.Sujet;
 
-public class RemarqueDaoImpl {
+public class RemarqueDaoImpl implements RemarqueDao {
 	
 	
 	public boolean create(Remarque r) {

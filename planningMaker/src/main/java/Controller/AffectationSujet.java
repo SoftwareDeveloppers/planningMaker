@@ -117,7 +117,8 @@ public class AffectationSujet extends HttpServlet {
 			int idEtud = Integer.parseInt(request.getParameter("idEtudRem"));
 			String titreRem = request.getParameter("titreRem");
 			String contenuRem = request.getParameter("textarea");
-			
+			System.out.println("titre rem"+titreRem);
+			System.out.println("id etud"+idEtud);
 			Remarque rem = new Remarque(idEtud,titreRem,contenuRem);
 			RemarqueDaoImpl remDao = new RemarqueDaoImpl();
 			remDao.create(rem);

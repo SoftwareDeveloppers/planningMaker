@@ -73,7 +73,7 @@
 						<div class="card-block">
 						<div class="row">
 						<div class="col-sm-1"></div>
-						<div class="col-sm-2"><h5>Vous etes avancé a :</h5></div>
+						<div class="col-sm-2"><h5>Vous êtes avancé a :</h5></div>
 						<div class="col-sm-7">
 						<div class="progress">
 						  <div class="progress-bar progress-bar-success progress-bar-striped " role="progressbar"
@@ -125,7 +125,7 @@
                                                                        data-parent="#accordion" href="#collapse${remarque.id}"
                                                                        aria-expanded="false"
                                                                        aria-controls="collapseThree">
-                                                                        <p style="font-size: 17px">${remarque.titre}  (${remarque.date})</p>
+                                                                        <p style="font-size: 15px">${remarque.titre}  (${remarque.date}) >></p>
                                                                     </a>
                                                                 </h3>
                                                                 </div>
