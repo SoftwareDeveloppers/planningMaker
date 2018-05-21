@@ -44,10 +44,7 @@ public class SoutenanceController extends HttpServlet {
 		HttpSession session = request.getSession();
 		boolean remplie;
 
-		if (/*
-			 * session.getAttribute("idAgent") == null && session.getAttribute("idEtudiant")
-			 * == null
-			 */false) {
+		if (session.getAttribute("idAgent") == null && session.getAttribute("idEtudiant")== null ) {
 
 			response.sendRedirect("Deconnexion");
 
