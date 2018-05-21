@@ -25,7 +25,7 @@
 									<li class="breadcrumb-item"><a href="fiche-de-voeux.html">
 											<i class="icofont icofont-home"></i>
 									</a></li>
-									<li class="breadcrumb-item"><a href="#!">Consultez</a></li>
+									<li class="breadcrumb-item"><a href="#!">Ajouter</a></li>
 									<li class="breadcrumb-item"><a href="#!">Ajouter
 											étudiant</a></li>
 								</ul>

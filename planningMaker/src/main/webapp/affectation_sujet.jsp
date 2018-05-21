@@ -20,7 +20,7 @@
 									<i class="icofont icofont-table bg-c-blue"></i>
 									<div class="d-inline">
 										<h4>Liste d'affectation des sujets</h4>
-										<span>trouver dans cette page </span>
+										<span>trouver dans cette page la liste d'affectation des sujets </span>
 									</div>
 								</div>
 							</div>
