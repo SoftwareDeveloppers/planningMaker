@@ -387,4 +387,55 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		
 		return etudiants;	
 	}
+	public int NombreEtudiant() {
+		Connection conn = DbConnect.connect();
+
+		String sql = "SELECT count(*) FROM etudiant ";
+		int result = 0;
+		PreparedStatement ps;
+		ResultSet rs = null;
+
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt(1);
+
+			}
+			conn.close();
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return result;
+
+		
+	}
+	public int NombreEtudiantEnc(int idEns) {
+		Connection conn = DbConnect.connect();
+
+		String sql = "SELECT count(*) FROM etudiant WHERE id_enseigant= ? ";
+		int result = 0;
+		PreparedStatement ps;
+		ResultSet rs = null;
+
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, idEns);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt(1);
+
+			}
+			conn.close();
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return result;
+
+		
+	}
 }
