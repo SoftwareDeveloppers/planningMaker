@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 21 Mai 2018 à 16:01
+-- Généré le :  Lun 21 Mai 2018 à 21:55
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -40,14 +40,17 @@ INSERT INTO `affectation` (`id`, `id_Etudiant`, `id_Sujet`) VALUES
 (9, 1, 189),
 (18, 2, 192),
 (16, 3, 211),
-(18, 5, 228),
+(32, 5, 242),
 (29, 6, 188),
 (8, 8, 195),
 (4, 12, 216),
 (4, 16, 197),
 (29, 20, 223),
 (26, 23, 196),
-(9, 28, 230);
+(9, 28, 230),
+(30, 29, 193),
+(33, 107, 186),
+(32, 118, 187);
 
 -- --------------------------------------------------------
 
@@ -171,11 +174,11 @@ CREATE TABLE `etudiant` (
 --
 
 INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, `specialite`, `promotion`, `moyenne`, `taux`, `id_FicheDeVoeux`, `id_Enseignant`) VALUES
-(1, 'Benmansour', 'Hichem', 'cartwright.coleman@gmail.com', '123456', '1995-10-05', 'SIC', '2014', 13, 100, 1, 24),
+(1, 'Benmansour', 'Hichem', 'cartwright.coleman@gmail.com', '123456', '1995-10-05', 'SIC', '2014', 13, 47, 1, 24),
 (2, 'Sour', 'Salim', 'hahn.jared@hotmail.com', '123456', '1996-02-08', 'RSD', '2013', 11, 100, 2, 28),
 (3, 'Azzouni', 'Hind', 'kristina03@hotmail.com', '123456', '1996-02-03', 'SIC', '2011', 16, 0, 3, 23),
 (4, 'Tabet Aoul', 'Mounia', 'gfay@hotmail.com', 'azerty13', '1994-12-22', 'RSD', '2011', 10, 0, NULL, NULL),
-(5, 'Tabet Aoul', 'Chaib', 'boyer.lizeth@yahoo.com', '123456', '1995-03-07', 'SIC', '2012', 15, 100, 5, 9),
+(5, 'Tabet Aoul', 'Chaib', 'boyer.lizeth@yahoo.com', '123456', '1995-03-07', 'SIC', '2012', 15, 36, 5, 9),
 (6, 'Sour', 'Yassine', 'umurphy@yahoo.com', 'azerty13', '1993-12-16', 'GL', '2014', 12, 100, 6, 9),
 (7, 'Kazi Aoul', 'Reda', 'raynor.alba@gmail.com', 'azerty13', '1992-11-21', 'SIC', '2013', 13, 0, NULL, NULL),
 (8, 'Soulimane', 'Hind', 'esteban.turner@gmail.com', 'azerty13', '1992-09-20', 'GL', '2014', 20, 100, 8, 23),
@@ -198,7 +201,7 @@ INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, 
 (25, 'Rahmoun', 'Nihel', 'frederic64@hotmail.com', 'azerty13', '1993-10-03', 'RSD', '2013', 15, 0, NULL, NULL),
 (26, 'Mekhezzem', 'Yasmine', 'seffertz@gmail.com', 'azerty13', '1993-01-04', 'RSD', '2014', 13, 0, NULL, NULL),
 (27, 'Fasla', 'Linda', 'cruickshank.rubye@yahoo.com', '123456', '1992-09-04', 'RSD', '2013', 14, 0, NULL, NULL),
-(28, 'Hamza Cherif', 'Chaib', 'kunze.jennie@hotmail.com', '123456', '1994-03-24', 'GL', '2011', 14, 0, 28, 30),
+(28, 'Hamza Cherif', 'Chaib', 'kunze.jennie@hotmail.com', '123456', '1994-03-24', 'GL', '2011', 14, 15, 28, 30),
 (29, 'Benmansour', 'Rihem', 'vpowlowski@yahoo.com', '123456', '1995-07-06', 'SIC', '2013', 10, 0, NULL, NULL),
 (30, 'Bendimred', 'Nesrine', 'mckenzie51@yahoo.com', 'azerty13', '1994-11-03', 'RSD', '2012', 8, 0, NULL, NULL),
 (34, 'Mesroua', 'Abdelhak', 'kelli.schamberger@hotmail.com', 'azerty13', '1994-04-21', 'RSD', '2011', 12, 0, NULL, NULL),
@@ -240,7 +243,7 @@ INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, 
 (83, 'Meriah', 'Amine', 'daugherty.ivory@gmail.com', '123456', '1994-09-08', 'SIC', '2014', 15, 0, NULL, NULL),
 (84, 'Malti', 'Abdelhak', 'garfield.boyer@hotmail.com', '123456', '1995-09-18', 'RSD', '2012', 16, 0, NULL, NULL),
 (85, 'Kazi Aoul', 'Hichem', 'hayes.kevin@yahoo.com', '123456', '1992-09-29', 'RSD', '2013', 8, 0, NULL, NULL),
-(86, 'Azzouni', 'Chiheb', 'kmarks@gmail.com', '123456', '1992-04-04', 'RSD', '2014', 8, 0, NULL, NULL),
+(86, 'Azzouni', 'Chiheb', 'kmarks@gmail.com', '123456', '1992-04-04', 'RSD', '2014', 17, 0, NULL, NULL),
 (87, 'Merabet', 'Karim', 'josue41@hotmail.com', '123456', '1995-02-09', 'SIC', '2011', 11, 0, NULL, NULL),
 (88, 'Zenagui', 'Djihene', 'nels.runolfsson@hotmail.com', 'azerty13', '1995-04-02', 'RSD', '2014', 10, 0, NULL, NULL),
 (89, 'Fasla', 'Nihel', 'cwillms@yahoo.com', '123456', '1993-11-12', 'SIC', '2013', 14, 0, NULL, NULL),
@@ -254,7 +257,6 @@ INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, 
 (99, 'Seghiri', 'Mustapha', 'wade20@hotmail.com', 'azerty13', '1993-11-18', 'SIC', '2013', 11, 0, NULL, NULL),
 (100, 'Sari', 'Yasser', 'nikolaus.euna@yahoo.com', '123456', '1994-01-30', 'RSD', '2014', 14, 0, NULL, NULL),
 (102, 'Hamzaoui', 'Rihem', 'schuyler.reynolds@gmail.com', 'azerty13', '1992-09-13', 'SIC', '2012', 12, 0, NULL, NULL),
-(103, 'Zenagui', 'Yassine', 'beatty.napoleon@gmail.com', 'azerty13', '1996-02-12', 'RSD', '2012', 11, 0, NULL, NULL),
 (105, 'Bereksi', 'Salim', 'selmer07@hotmail.com', 'azerty13', '1992-09-12', 'SIC', '2012', 11, 0, NULL, NULL),
 (106, 'Hamzaoui', 'Mounia', 'maribel.grant@yahoo.com', '123456', '1996-01-16', 'SIC', '2012', 9, 0, NULL, NULL),
 (107, 'Seghiri', 'Hind', 'nschaefer@yahoo.com', 'azerty13', '1995-06-09', 'RSD', '2014', 15, 0, NULL, NULL),
@@ -266,7 +268,7 @@ INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, 
 (115, 'Kalfat', 'Karim', 'uhegmann@yahoo.com', '123456', '1992-05-01', 'SIC', '2014', 10, 0, NULL, NULL),
 (116, 'Kalfat', 'Ines', 'doyle.bethel@hotmail.com', 'azerty13', '1994-01-27', 'SIC', '2011', 9, 0, NULL, NULL),
 (117, 'Sekkal', 'Mounia', 'peggie21@yahoo.com', '123456', '1995-04-01', 'SIC', '2012', 15, 0, NULL, NULL),
-(118, 'Sari', 'Ines', 'isaias19@gmail.com', '123456', '1993-08-30', 'SIC', '2013', 14, 0, NULL, NULL);
+(118, 'Sari', 'Ines', 'isaias19@gmail.com', '123456', '1993-08-30', 'SIC', '2013', 14, 52, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -340,6 +342,31 @@ INSERT INTO `fichedevoeux` (`id`, `id_Sujet`, `ordre`) VALUES
 (23, 236, 2),
 (2, 237, 2),
 (23, 238, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `remarque`
+--
+
+CREATE TABLE `remarque` (
+  `id` int(11) NOT NULL,
+  `id_Etudiant` int(11) NOT NULL,
+  `titre` varchar(20) NOT NULL,
+  `contenu` varchar(150) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `remarque`
+--
+
+INSERT INTO `remarque` (`id`, `id_Etudiant`, `titre`, `contenu`, `date`) VALUES
+(1, 1, 'rvrqebv', 'brtab', '2018-05-20'),
+(2, 107, 'abc', 'afezrgreqbtb', '2018-05-21'),
+(3, 1, 'remarque1', ' ehrvrelahgiuaerhgiu heraigheariuhgiuaerhiguhaeiughaieruhgiuraehogihaerg', '2018-05-21'),
+(4, 1, 'remarque2', 'regfrukguauhaerlgjherajghmhajregh liurhguhraelgheag', '2018-05-21'),
+(5, 1, 'abcdef', '6 kjhezrugfiuh aerg6 trbtrhjahtih', '2018-05-21');
 
 -- --------------------------------------------------------
 
@@ -504,6 +531,12 @@ ALTER TABLE `fichedevoeux`
   ADD KEY `FK_FicheDeVoeux_id_Sujet` (`id_Sujet`);
 
 --
+-- Index pour la table `remarque`
+--
+ALTER TABLE `remarque`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `salle`
 --
 ALTER TABLE `salle`
@@ -548,6 +581,11 @@ ALTER TABLE `etudiant`
 --
 ALTER TABLE `fichedevoeux`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+--
+-- AUTO_INCREMENT pour la table `remarque`
+--
+ALTER TABLE `remarque`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `salle`
 --
