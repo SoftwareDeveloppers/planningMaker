@@ -119,6 +119,8 @@
 																	<td>
 																			<button type="button" class="btn btn-warning btn-modifier waves-effect" 
 																			data-toggle="modal" data-target="#Modal${etud.id}" onclick="taux('${etud.id}')">Action</button>
+																			<button type="button" class="btn btn-primary btn-modifier waves-effect" 
+																			data-toggle="modal" data-target="#ModalRem${etud.id}">Remarque</button>
 																	</td>
                                                                    <div class="modal fade" id="Modal${etud.id}" tabindex="-1" role="dialog">
                                                                     <div class="modal-dialog" role="document">
@@ -144,13 +146,42 @@
                                                                                 <input type="hidden" name="tauxEtud" value="${etud.id}">
                                                                                 <button type="submit"
                                                                                 class="btn btn-primary waves-effect waves-light ">Mettre a jour</button>
-                                                                                </form>
-                                                                                
+                                                                                </form>    
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                   
                                                                 </div>
+                                             <!-- -------------------------------------------------------------------------- -->
+                                                                <div class="modal fade" id="ModalRem${etud.id}" tabindex="-1" role="dialog">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h4 class="modal-title">Ajouter une remarque</h4>
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            			<span aria-hidden="true">&times;</span>
+                                                       					 </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                            
+                                                                            <form role="form" method="post" action="AffectationSujet">
+                                                                            <label><h5>Objet : </h5></label>
+                                                                            		<input type="text" name="titreRem" placeholder="Objet de la remarque">
+                                                                            		</br></br>
+                                                                            		<h5>Contenu: </h5></br>
+                                                                            		<textarea name="textarea" rows="8" cols="50"></textarea>
+                                                                            		<input type="hidden" name="idEtudRem" value="${etud.id}">
+                                                                            		
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal">Close</button>
+                                                                                <button type="submit"
+                                                                                class="btn btn-primary waves-effect waves-light ">Envoyer</button>
+                                                                                </form>    
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                              <!-- -------------------------------------------------------------------------- -->
 															</tr>
 															</c:if>
 															</c:if>

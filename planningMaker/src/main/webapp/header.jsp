@@ -143,9 +143,7 @@
                        <div class="pcoded-inner-navbar">
                        
                             <ul class="pcoded-item pcoded-left-item" style="margin-left: 30%;">
-                                    <a href="./AccueilCon">
-                                     <img src="assets/images/home.png" style="margin-left:270px; "/>
-                                     </a>
+                                   
 							<c:if test="${ !empty(sessionScope.idEnseignant)}">
 							
                             <li class="pcoded-hasmenu">
@@ -215,7 +213,7 @@
                                 <c:if test="${ !empty(sessionScope.idAgent)}">
                                 <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)">
-                                    <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>N</b></span>
+                                    <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>C</b></span>
                                     <span class="pcoded-mtext">Consulter</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
@@ -245,21 +243,21 @@
                                     </li></ul>
                                     <li class="pcoded-hasmenu">
                                 <a href="javascript:void(0)">
-                                    <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>N</b></span>
+                                    <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>F</b></span>
                                     <span class="pcoded-mtext">Faire</span>
                                     <span class="pcoded-mcaret"></span>
                                 </a>
                                 <ul class="pcoded-submenu">
                                      <li class="">
                                         <a href="AffectationSujet">
-                                            <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>A</b></span>
+                                            <span class="pcoded-micon"><i class="ti-layout-cta-right"></i></span>
                                             <span class="pcoded-mtext"  data-i18n="nav.dash.main">affectation des sujets</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
                                     <li class="">
                                         <a href="SoutenanceController">
-                                            <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>Pl</b></span>
+                                            <span class="pcoded-micon"><i class="ti-layout-cta-right"></i></span>
                                             <span class="pcoded-mtext"  data-i18n="nav.dash.main">planning des soutenances</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>

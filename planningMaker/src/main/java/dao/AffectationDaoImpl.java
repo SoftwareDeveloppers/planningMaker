@@ -181,4 +181,29 @@ public class AffectationDaoImpl implements AffectationDao{
 		
 	}
 	
+	public int findByEtudiant(int id) {
+		Connection conn=DbConnect.connect();
+
+		String sql = "Select id_Sujet FROM affectation WHERE id_Etudiant=?";
+		PreparedStatement ps;
+		ResultSet rs = null ;
+		int idSujet = 0 ;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			rs=ps.executeQuery();
+			while (rs.next()){
+				idSujet = rs.getInt("id_Sujet");
+			}	
+			conn.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return idSujet;
+	}
+	
 }

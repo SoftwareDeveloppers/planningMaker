@@ -16,10 +16,12 @@ import javax.servlet.http.HttpSession;
 import dao.AffectationDaoImpl;
 import dao.EtudiantDaoImpl;
 import dao.FicheDeVoeuxDaoImpl;
+import dao.RemarqueDaoImpl;
 import dao.SujetDaoImpl;
 import model.Affectation;
 import model.Etudiant;
 import model.FicheDeVoeux;
+import model.Remarque;
 import model.Sujet;
 import model.affectationJoin;
 
@@ -106,6 +108,20 @@ public class AffectationSujet extends HttpServlet {
 			EtudiantDaoImpl etudDao = new EtudiantDaoImpl();
 			etudDao.updateTaux(idEtud, updateTaux);
 			//String att = "132za&ze";
+			param = "132za&ze";
+			this.doGet(request, response);
+		}
+		
+		if(request.getParameter("idEtudRem") != null)
+		{
+			int idEtud = Integer.parseInt(request.getParameter("idEtudRem"));
+			String titreRem = request.getParameter("titreRem");
+			String contenuRem = request.getParameter("textarea");
+			
+			Remarque rem = new Remarque(idEtud,titreRem,contenuRem);
+			RemarqueDaoImpl remDao = new RemarqueDaoImpl();
+			remDao.create(rem);
+			
 			param = "132za&ze";
 			this.doGet(request, response);
 		}

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.sql.Date;
 
 import javax.servlet.ServletException;
@@ -12,10 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.AffectationDaoImpl;
 import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
+import dao.RemarqueDaoImpl;
+import dao.SujetDaoImpl;
 import model.Enseignant;
 import model.Etudiant;
+import model.Remarque;
 
 /**
  * Servlet implementation class Etudiant
@@ -44,6 +49,14 @@ public class EtudiantController extends HttpServlet {
 			} else {
 				int idEtudiant = (Integer) session.getAttribute("idEtudiant");
 				EtudiantDaoImpl e = new EtudiantDaoImpl();
+				SujetDaoImpl sujDao = new SujetDaoImpl();
+				AffectationDaoImpl affDao = new AffectationDaoImpl();
+				RemarqueDaoImpl remDao = new RemarqueDaoImpl();
+				List<Remarque> rems = new ArrayList<Remarque>();
+				rems = remDao.findByIdEtudiant(idEtudiant);
+				
+				request.setAttribute("remarques", rems);
+				request.setAttribute("sujet", sujDao.findById(affDao.findByEtudiant(idEtudiant)));
 				request.setAttribute("etudiant", e.findById(idEtudiant));
 				this.getServletContext().getRequestDispatcher("/accueil_etudiant.jsp").forward(request, response);
 
