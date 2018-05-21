@@ -59,5 +59,11 @@ public class Soutenance {
 	public void setId_Etudiant(int id_Etudiant) {
 		this.id_Etudiant = id_Etudiant;
 	}
+
+	@Override
+	public String toString() {
+		return "Soutenance [id=" + id + ", date=" + date + ", heure=" + heure + ", id_salle=" + id_salle
+				+ ", id_Etudiant=" + id_Etudiant + "]";
+	}
 	
 }

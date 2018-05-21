@@ -70,7 +70,6 @@ public class AffectationDaoImpl implements AffectationDao{
 	}
 
 	public ArrayList<affectationJoin> jointureAffectaction() {
-		// TODO Auto-generated method stub
 		Connection conn = DbConnect.connect();
 		String sql = "Select sujet.titre,etudiant.nom,etudiant.prenom,etudiant.specialite,enseignant.nom,enseignant.prenom"
 				+ " FROM sujet,affectation,enseignant,etudiant "
@@ -126,6 +125,60 @@ public class AffectationDaoImpl implements AffectationDao{
 		}
 		
 		return affectation;
+	}
+	
+	public int nombreOccurrence (int idEnseignant) {
+		Connection conn=DbConnect.connect();
+
+		String sql = "Select count(id) FROM affectation WHERE id=?";
+		PreparedStatement ps;
+		ResultSet rs = null ;
+		int nombreOccurrence=0;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, idEnseignant);
+			rs=ps.executeQuery();
+			if (rs.next()) {
+				nombreOccurrence=rs.getInt(1);
+			}
+			
+			conn.close();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return nombreOccurrence;
+	}
+
+	public int findIdEnseigantByIdEtudiant(int id_Etudiant) {
+		Connection conn=DbConnect.connect();
+
+		String sql = "Select id FROM affectation WHERE id_Etudiant=?";
+		PreparedStatement ps;
+		ResultSet rs = null ;
+		int idEnseignant=0;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, id_Etudiant);
+			rs=ps.executeQuery();
+			if (rs.next()) {
+				idEnseignant=rs.getInt(1);
+			}
+			
+			conn.close();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return idEnseignant;
+		
 	}
 	
 }

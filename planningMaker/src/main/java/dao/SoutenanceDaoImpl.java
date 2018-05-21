@@ -1,10 +1,15 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.jdbc.PreparedStatement;
 
+
+import model.Affectation;
 import model.Soutenance;
 
 public class SoutenanceDaoImpl implements SoutenanceDao{
@@ -41,6 +46,39 @@ public class SoutenanceDaoImpl implements SoutenanceDao{
 	public boolean update(Soutenance s) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public List<Soutenance> findAll() {
+		String sql = "Select * FROM soutenance";
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		List<Soutenance> soutenances= new ArrayList<Soutenance>();
+		Soutenance soutenance = null ;
+		Connection conn=DbConnect.connect();
+
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			
+			rs=ps.executeQuery();
+			while (rs.next()){
+				soutenance = new Soutenance(
+						rs.getInt(1),
+						rs.getDate(2), 
+						rs.getTime(3),
+						rs.getInt(4),
+						rs.getInt(5)
+						);
+				
+				soutenances.add(soutenance);
+			}	
+			conn.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+		
+	}
+	
+	return soutenances;
+
 	}
 	
 
