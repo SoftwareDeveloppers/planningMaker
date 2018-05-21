@@ -30,6 +30,12 @@ public class ListeSujet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		if(request.getParameter("assiste")!= null) {
+			
+			
+		}else {
+		
 		String specialite = request.getParameter("spec");
 		Sujet sujet = new Sujet() ;
 		sujet.setSpecialite(specialite);
@@ -39,6 +45,7 @@ public class ListeSujet extends HttpServlet {
 		request.setAttribute("sujets", sujets);
 
 		this.getServletContext().getRequestDispatcher("/listeSujet.jsp").forward(request, response);
+		}
 	}
 
 }

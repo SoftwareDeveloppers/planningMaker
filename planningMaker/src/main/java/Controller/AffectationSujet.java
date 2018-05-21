@@ -164,11 +164,11 @@ public class AffectationSujet extends HttpServlet {
 
 							if (sujets.get(j).getId() == ff.getIdSujet()) {
 								AffectationDaoImpl aff = new AffectationDaoImpl();
-								Affectation e = new Affectation(sujets.get(i).getId_enseignant(),
+								Affectation e = new Affectation(sujets.get(j).getId_enseignant(),
 										etudiants.get(i).getId(), sujets.get(j).getId());
 								trouve = true;
 								aff.create(e);
-								etudiant.updateIdEnseignant(etudiants.get(i).getId(), sujets.get(i).getId_enseignant());
+								etudiant.updateIdEnseignant(etudiants.get(i).getId(), sujets.get(j).getId_enseignant());
 								sujets.remove(j);
 								break;
 							}

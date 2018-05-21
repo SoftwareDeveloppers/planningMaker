@@ -8,9 +8,10 @@ import java.util.List;
 
 import com.mysql.jdbc.PreparedStatement;
 
-
-import model.Affectation;
+import model.Assiste;
 import model.Soutenance;
+import model.SoutenanceJoin;
+import model.affectationJoin;
 
 public class SoutenanceDaoImpl implements SoutenanceDao{
 
@@ -81,5 +82,63 @@ public class SoutenanceDaoImpl implements SoutenanceDao{
 
 	}
 	
+	public ArrayList<SoutenanceJoin> jointureSoutnance() {
+		Connection conn = DbConnect.connect();
+		String sql = "SELECT soutenance.id,date ,heure,id_Salle,sujet.titre,sujet.contenu,enseignant.nom,enseignant.prenom\r\n" + 
+				"				from sujet,soutenance,affectation,assiste,enseignant wHERE\r\n" + 
+				"				 soutenance.id_Etudiant = affectation.id_Etudiant \r\n" + 
+				"				and soutenance.id = assiste.id\r\n" + 
+				"				and affectation.id_Sujet = sujet.id \r\n" + 
+				"				and enseignant.id = assiste.id_Enseignant";
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		ArrayList<SoutenanceJoin> soutenanceJoins= new ArrayList<SoutenanceJoin>();
+		SoutenanceJoin soutenanceJoin = null ;
+
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			
+			rs=ps.executeQuery();
+			int i = 0; 
+			while (rs.next()){
+					soutenanceJoin = new SoutenanceJoin(rs.getInt(1), rs.getDate(2), rs.getTime(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8));
+					soutenanceJoins.add(soutenanceJoin);
+				}
+					
+			conn.close();
+	} catch (SQLException ex) {
+		ex.printStackTrace();
+		
+	}
+	
+	return soutenanceJoins;
+	}
+	
+	public ArrayList<Assiste> AssitesFindALL() {
+		Connection conn = DbConnect.connect();
+		String sql = "SELECT * from assiste ";
+		PreparedStatement ps;
+		ResultSet rs =null ;
+		ArrayList<Assiste> assistes = new ArrayList<Assiste>();
+		Assiste assite = null ;
+
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			
+			rs=ps.executeQuery();
+			int i = 0; 
+			while (rs.next()){
+					assite = new Assiste(rs.getInt(1), rs.getInt(2));
+					assistes.add(assite);
+				}
+					
+			conn.close();
+	} catch (SQLException ex) {
+		ex.printStackTrace();
+		
+	}
+	
+	return assistes;
+	}
 
 }
