@@ -131,6 +131,12 @@ public class SoutenanceController extends HttpServlet {
 		 * Enumeration e = Memo.elements(); while (e.hasMoreElements())
 		 * System.out.println(e.nextElement());
 		 */
+		//déclaration des variables
+		int nombreDeParticipation = 0;
+		int nombreDeJurerDispo = 1;
+		int nombreDeJurers = 5;
+		boolean fin = false;
+		int taille = 0;
 		// récuperer tt les soutenances
 		ArrayList<Soutenance> soutenances = new ArrayList<Soutenance>();
 		SoutenanceDaoImpl soutenance = new SoutenanceDaoImpl();
@@ -158,18 +164,20 @@ public class SoutenanceController extends HttpServlet {
 				if (enseignantsMemeSpecialite.get(i) == idEnseignant)
 					enseignantsMemeSpecialite.remove(i);
 			}
-			// varible nombreDeParticipation initialiser a zero : pour commencer a chercher les enseignants
+			// variable nombreDeParticipation initialiser a zero : pour commencer a chercher les enseignants
 			// qui on aucune participation dans les soutenances
-			int nombreDeParticipation = 0;
+			 nombreDeParticipation = 0;
 			// var nombreDeJurerDispo initialiser a un : pour compter le nombre de jurés disponible pour la soutennace
 			// vaut 1 au début car on deja deja l'encadreur dans la table assiste
-			int nombreDeJurerDispo = 1;
+			 nombreDeJurerDispo = 1;
 			// variable nombreDeJurers vaut 5 : 5 jurers max pour une soutenance
-			int nombreDeJurers = 5;
+			 nombreDeJurers = 5;
 			// variable boulean pour indiquer si on'a deja pri 4 jurés
-			boolean fin = false;
+			 fin = false;
 			// variable taille pour enregistrer la taille de la liste 
-			int taille = enseignantsMemeSpecialite.size();
+			 taille = enseignantsMemeSpecialite.size();
+			
+			
 			// on ne sais pas combien de participation il a un enseignant dans les soutenances
 			// pour ne pas limité les choses j'ai bien met une boucle a l'infinie
 			// ca dépend nombre de soutenance et le nombre des enseignants disponible pour chaque spécialité
@@ -177,7 +185,7 @@ public class SoutenanceController extends HttpServlet {
 			while (true) {
 				// pour ne pas tombé dans une boucle infinie si on'a pas plus que 4 enseignants dans la liste.
 				// cas spéciale!
-				if (taille< 5) {
+				if (taille < nombreDeJurers) {
 					nombreDeJurers = taille;				
 				}
 				// parcourir notre qui contien les enseignant de la meme spécialité que l'encadreur
@@ -192,7 +200,7 @@ public class SoutenanceController extends HttpServlet {
 					if (Memo.get(enseignantsMemeSpecialite.get(i)) == nombreDeParticipation) {
 						// inserer dans la table assiste l'enseignant 
 						createAssiste(soutenances.get(j).getId(), enseignantsMemeSpecialite.get(i));
-						// incrémenter nombreDeJurers dispo 
+						// incrémenter nombreDeJurersDispo 
 						nombreDeJurerDispo++;
 						// modifier nombre de participation dans les soutenances en la rajoute 1
 						Memo.put(enseignantsMemeSpecialite.get(i), nombreDeParticipation + 1);
@@ -205,9 +213,11 @@ public class SoutenanceController extends HttpServlet {
 				// augmenter nombreDeParticipation par un 
 				nombreDeParticipation++;
 				//testé si on'a bien 4 jurés
-				if (fin)
+				if (fin) {
 					//si oui on sort de la boucle while(true)
-					break;
+					break;		
+				}
+
 				//fin boucle while
 			}
 			//fin boucle for
