@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 24 Avril 2018 à 12:18
--- Version du serveur :  10.1.21-MariaDB
--- Version de PHP :  5.6.30
+-- Généré le :  Lun 21 Mai 2018 à 16:01
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,6 +31,23 @@ CREATE TABLE `affectation` (
   `id_Etudiant` int(11) NOT NULL,
   `id_Sujet` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `affectation`
+--
+
+INSERT INTO `affectation` (`id`, `id_Etudiant`, `id_Sujet`) VALUES
+(9, 1, 189),
+(18, 2, 192),
+(16, 3, 211),
+(18, 5, 228),
+(29, 6, 188),
+(8, 8, 195),
+(4, 12, 216),
+(4, 16, 197),
+(29, 20, 223),
+(26, 23, 196),
+(9, 28, 230);
 
 -- --------------------------------------------------------
 
@@ -92,41 +109,41 @@ CREATE TABLE `enseignant` (
 --
 
 INSERT INTO `enseignant` (`id`, `nom`, `prenom`, `dateN`, `adresse`, `email`, `mdp`, `specialite`, `grade`, `telephone`, `sexe`) VALUES
-(1, 'Cortez', 'Rice', '2018-04-12', 'email@gmail.com', 'bert.gaylord@hotmail.com', 'azerty', 'SIC', 'Maître Assistant A', '774586000', 'homme'),
-(2, 'Stephon', 'Metz', '0000-00-00', 'email@gmail.com', 'jerrold.wiegand@yahoo.com', 'azerty', 'SIC', 'Maître de conférences B', '774586000', 'homme'),
-(3, 'Khalid', 'Abbott', '0000-00-00', 'email@gmail.com', 'cassie.monahan@gmail.com', '123', 'MID', 'Professeur', '774586000', 'homme'),
-(4, 'Lance', 'Lowe', '0000-00-00', 'email@gmail.com', 'prosacco.luigi@hotmail.com', 'azerty', 'RSD', 'Maître de conférences A', '774586000', 'homme'),
-(5, 'Eliezer', 'Blanda', '0000-00-00', 'email@gmail.com', 'cheyanne04@gmail.com', '123', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
-(6, 'Virginia', 'Armstrong', '0000-00-00', 'email@gmail.com', 'pfeffer.marjolaine@gmail.com', 'azerty', 'RSD', 'Professeur', '774586000', 'homme'),
-(7, 'Yasmin', 'Grimes', '0000-00-00', 'email@gmail.com', 'destiny.turner@hotmail.com', '123', 'GL', 'Professeur', '774586000', 'homme'),
-(8, 'Natalia', 'Dietrich', '0000-00-00', 'email@gmail.com', 'elody.ortiz@yahoo.com', '123', 'MID', 'Maître de conférences A', '774586000', 'homme'),
-(9, 'Forest', 'Keeling', '0000-00-00', 'email@gmail.com', 'pansy69@hotmail.com', '123', 'GL', 'Professeur', '774586000', 'homme'),
-(10, 'Jaycee', 'Kuvalis', '0000-00-00', 'email@gmail.com', 'hand.reilly@yahoo.com', 'azerty', 'MID', 'Professeur', '774586000', 'homme'),
-(11, 'Danyka', 'McGlynn', '0000-00-00', 'email@gmail.com', 'mstamm@yahoo.com', '123', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
-(12, 'Brendan', 'Bergnaum', '0000-00-00', 'email@gmail.com', 'otto.borer@hotmail.com', '123', 'RSD', 'Maître de conférences A', '774586000', 'homme'),
-(13, 'Bennett', 'Purdy', '0000-00-00', 'email@gmail.com', 'nmarquardt@yahoo.com', '123', 'SIC', 'Maître de conférences A', '774586000', 'homme'),
-(14, 'Lawrence', 'Nitzsche', '0000-00-00', 'email@gmail.com', 'vivienne.prosacco@hotmail.com', 'azerty', 'SIC', 'Maître Assistant A', '774586000', 'homme'),
-(15, 'Dangelo', 'Padberg', '0000-00-00', 'email@gmail.com', 'jboehm@hotmail.com', '123', 'GL', 'Professeur', '774586000', 'homme'),
-(16, 'Schuyler', 'Yundt', '0000-00-00', 'email@gmail.com', 'arvid71@gmail.com', 'azerty', 'MID', 'Maître de conférences B', '774586000', 'homme'),
-(17, 'Matilde', 'Mraz', '0000-00-00', 'email@gmail.com', 'pbayer@gmail.com', 'azerty', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
-(18, 'Raoul', 'Huels', '0000-00-00', 'email@gmail.com', 'candace.weissnat@yahoo.com', 'azerty', 'MID', 'Professeur', '774586000', 'homme'),
-(19, 'Sadye', 'Bins', '0000-00-00', 'email@gmail.com', 'kihn.kaci@gmail.com', 'azerty', 'GL', 'Professeur', '774586000', 'homme'),
-(20, 'Germaine', 'Turcotte', '0000-00-00', 'email@gmail.com', 'piper71@gmail.com', 'azerty', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
-(21, 'Lurline', 'Collins', '0000-00-00', 'email@gmail.com', 'kihn.teresa@yahoo.com', '123', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
-(22, 'Camren', 'Wuckert', '0000-00-00', 'email@gmail.com', 'letitia.marks@yahoo.com', 'azerty', 'SIC', 'Maître de conférences B', '774586000', 'homme'),
-(23, 'Junius', 'Will', '0000-00-00', 'email@gmail.com', 'uryan@hotmail.com', '123', 'SIC', 'Maître de conférences B', '774586000', 'homme'),
-(24, 'Charley', 'Larson', '0000-00-00', 'email@gmail.com', 'mara69@gmail.com', 'azerty', 'RSD', 'Maître Assistant B', '774586000', 'homme'),
-(25, 'Shanie', 'Murphy', '0000-00-00', 'email@gmail.com', 'kim.reilly@hotmail.com', '123', 'GL', 'Maître Assistant B', '774586000', 'homme'),
-(26, 'Jermaine', 'Murazik', '0000-00-00', 'email@gmail.com', 'pupton@yahoo.com', '123', 'MID', 'Maître Assistant A', '774586000', 'homme'),
-(27, 'Isac', 'Harber', '0000-00-00', 'email@gmail.com', 'bradly.ebert@gmail.com', '123', 'MID', 'Maître de conférences A', '774586000', 'homme'),
-(28, 'Norbert', 'Reynolds', '0000-00-00', 'email@gmail.com', 'crooks.claudie@gmail.com', '123', 'MID', 'Maître de conférences B', '774586000', 'homme'),
-(29, 'Chad', 'Gulgowski', '0000-00-00', 'email@gmail.com', 'madeline75@hotmail.com', '123', 'GL', 'Maître de conférences B', '774586000', 'homme'),
-(30, 'Zoey', 'Gusikowski', '0000-00-00', 'email@gmail.com', 'xgleason@gmail.com', '123', 'GL', 'Maître Assistant B', '774586000', 'homme'),
-(31, 'Messabihi', 'Mohammed', '1845-01-01', 'Imama', 'messabihi.mohammed@gmail.com', 'mes1', 'GL', 'professeur', '558963000', 'homme'),
-(32, 'ccccc', 'azeaze', '1885-03-19', 'vvvvvvvvv', 'adilos-rahmoun07@outlook.fr', 'cc1', 'GL', 'azezae', '775490000', 'homme'),
-(33, 'zzzzzz', 'zzz', '1551-01-01', 'Imama', 'zzz@gmail.com', 'zz1', 'GL', 'fds', '0558963214', 'homme'),
-(34, 'zzzzzz', 'zzz', '2018-03-31', 'aezzae', 'messabihi.1mohammed@gmail.com', '2', 'GL', 'azezae', '0558963214', 'homme'),
-(35, 'zzzzzz', 'zzz', '2018-03-31', 'aezzae', 'mess2abihi.1mohammed@gmail.com', '1', 'GL', 'azezae', '0558963214', 'homme');
+(1, 'Cortez', 'Rice', '2017-05-05', 'email@gmail.com', 'bert.gaylord@hotmail.com', 'azerty', 'SIC', 'Maître Assistant A', '774586000', 'homme'),
+(2, 'Stephon', 'Metz', '2017-05-05', 'email@gmail.com', 'jerrold.wiegand@yahoo.com', 'azerty', 'SIC', 'Maître de conférences B', '774586000', 'homme'),
+(3, 'Khalid', 'Abbott', '2017-05-05', 'email@gmail.com', 'cassie.monahan@gmail.com', '123', 'MID', 'Professeur', '774586000', 'homme'),
+(4, 'Lance', 'Lowe', '2017-05-05', 'email@gmail.com', 'prosacco.luigi@hotmail.com', 'azerty', 'RSD', 'Maître de conférences A', '774586000', 'homme'),
+(5, 'Eliezer', 'Blanda', '2017-05-05', 'email@gmail.com', 'cheyanne04@gmail.com', '123', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
+(6, 'Virginia', 'Armstrong', '2017-05-05', 'email@gmail.com', 'pfeffer.marjolaine@gmail.com', 'azerty', 'RSD', 'Professeur', '774586000', 'homme'),
+(7, 'Yasmin', 'Grimes', '2017-05-05', 'email@gmail.com', 'destiny.turner@hotmail.com', '123', 'GL', 'Professeur', '774586000', 'homme'),
+(8, 'Natalia', 'Dietrich', '2017-05-05', 'email@gmail.com', 'elody.ortiz@yahoo.com', '123', 'MID', 'Maître de conférences A', '774586000', 'homme'),
+(9, 'Forest', 'Keeling', '2017-05-05', 'email@gmail.com', 'pansy69@hotmail.com', '123', 'GL', 'Professeur', '774586000', 'homme'),
+(10, 'Jaycee', 'Kuvalis', '2017-05-05', 'email@gmail.com', 'hand.reilly@yahoo.com', 'azerty', 'MID', 'Professeur', '774586000', 'homme'),
+(11, 'Danyka', 'McGlynn', '2017-05-05', 'email@gmail.com', 'mstamm@yahoo.com', '123', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
+(12, 'Brendan', 'Bergnaum', '2017-05-05', 'email@gmail.com', 'otto.borer@hotmail.com', '123', 'RSD', 'Maître de conférences A', '774586000', 'homme'),
+(13, 'Bennett', 'Purdy', '2017-05-05', 'email@gmail.com', 'nmarquardt@yahoo.com', '123', 'SIC', 'Maître de conférences A', '774586000', 'homme'),
+(14, 'Lawrence', 'Nitzsche', '2017-05-05', 'email@gmail.com', 'vivienne.prosacco@hotmail.com', 'azerty', 'SIC', 'Maître Assistant A', '774586000', 'homme'),
+(15, 'Dangelo', 'Padberg', '2017-05-05', 'email@gmail.com', 'jboehm@hotmail.com', '123', 'GL', 'Professeur', '774586000', 'homme'),
+(16, 'Schuyler', 'Yundt', '2017-05-05', 'email@gmail.com', 'arvid71@gmail.com', 'azerty', 'MID', 'Maître de conférences B', '774586000', 'homme'),
+(17, 'Matilde', 'Mraz', '2017-05-05', 'email@gmail.com', 'pbayer@gmail.com', 'azerty', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
+(18, 'Raoul', 'Huels', '2017-05-05', 'email@gmail.com', 'candace.weissnat@yahoo.com', 'azerty', 'MID', 'Professeur', '774586000', 'homme'),
+(19, 'Sadye', 'Bins', '2017-05-05', 'email@gmail.com', 'kihn.kaci@gmail.com', 'azerty', 'GL', 'Professeur', '774586000', 'homme'),
+(20, 'Germaine', 'Turcotte', '2017-05-05', 'email@gmail.com', 'piper71@gmail.com', 'azerty', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
+(21, 'Lurline', 'Collins', '2017-05-05', 'email@gmail.com', 'kihn.teresa@yahoo.com', '123', 'RSD', 'Maître de conférences B', '774586000', 'homme'),
+(22, 'Camren', 'Wuckert', '2017-05-05', 'email@gmail.com', 'letitia.marks@yahoo.com', 'azerty', 'SIC', 'Maître de conférences B', '774586000', 'homme'),
+(23, 'Junius', 'Will', '2017-05-05', 'email@gmail.com', 'uryan@hotmail.com', '123', 'SIC', 'Maître de conférences B', '774586000', 'homme'),
+(24, 'Charley', 'Larson', '2017-05-05', 'email@gmail.com', 'mara69@gmail.com', 'azerty', 'RSD', 'Maître Assistant B', '774586000', 'homme'),
+(25, 'Shanie', 'Murphy', '2017-05-05', 'email@gmail.com', 'kim.reilly@hotmail.com', '123', 'GL', 'Maître Assistant B', '774586000', 'homme'),
+(26, 'Jermaine', 'Murazik', '2017-05-05', 'email@gmail.com', 'pupton@yahoo.com', '123', 'MID', 'Maître Assistant A', '774586000', 'homme'),
+(27, 'Isac', 'Harber', '2017-05-05', 'email@gmail.com', 'bradly.ebert@gmail.com', '123', 'MID', 'Maître de conférences A', '774586000', 'homme'),
+(28, 'Norbert', 'Reynolds', '2017-05-05', 'email@gmail.com', 'crooks.claudie@gmail.com', '123', 'MID', 'Maître de conférences B', '774586000', 'homme'),
+(29, 'Chad', 'Gulgowski', '2017-05-05', 'email@gmail.com', 'madeline75@hotmail.com', '123', 'GL', 'Maître de conférences B', '774586000', 'homme'),
+(30, 'Zoey', 'Gusikowski', '2017-05-05', 'email@gmail.com', 'xgleason@gmail.com', '123', 'GL', 'Maître Assistant B', '774586000', 'homme'),
+(31, 'Messabihi', 'Mohammed', '2017-05-05', 'Imama', 'messabihi.mohammed@gmail.com', 'mes1', 'GL', 'professeur', '558963000', 'homme'),
+(32, 'ccccc', 'azeaze', '2017-05-05', 'vvvvvvvvv', 'adilos-rahmoun07@outlook.fr', 'cc1', 'GL', 'azezae', '775490000', 'homme'),
+(33, 'zzzzzz', 'zzz', '2017-05-05', 'Imama', 'zzz@gmail.com', 'zz1', 'GL', 'fds', '0558963214', 'homme'),
+(34, 'zzzzzz', 'zzz', '2017-05-05', 'aezzae', 'messabihi.1mohammed@gmail.com', '2', 'GL', 'azezae', '0558963214', 'homme'),
+(35, 'zzzzzz', 'zzz', '2017-05-05', 'aezzae', 'mess2abihi.1mohammed@gmail.com', '1', 'GL', 'azezae', '0558963214', 'homme');
 
 -- --------------------------------------------------------
 
@@ -154,42 +171,38 @@ CREATE TABLE `etudiant` (
 --
 
 INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, `specialite`, `promotion`, `moyenne`, `taux`, `id_FicheDeVoeux`, `id_Enseignant`) VALUES
-(1, 'Benmansour', 'Hichem', 'cartwright.coleman@gmail.com', '123456', '1995-10-05', 'SIC', '2014', 13, 0, NULL, NULL),
-(2, 'Sour', 'Salim', 'hahn.jared@hotmail.com', '123456', '1996-02-08', 'RSD', '2013', 11, 0, NULL, NULL),
-(3, 'Azzouni', 'Hind', 'kristina03@hotmail.com', '123456', '1996-02-03', 'SIC', '2011', 16, 0, NULL, NULL),
+(1, 'Benmansour', 'Hichem', 'cartwright.coleman@gmail.com', '123456', '1995-10-05', 'SIC', '2014', 13, 100, 1, 24),
+(2, 'Sour', 'Salim', 'hahn.jared@hotmail.com', '123456', '1996-02-08', 'RSD', '2013', 11, 100, 2, 28),
+(3, 'Azzouni', 'Hind', 'kristina03@hotmail.com', '123456', '1996-02-03', 'SIC', '2011', 16, 0, 3, 23),
 (4, 'Tabet Aoul', 'Mounia', 'gfay@hotmail.com', 'azerty13', '1994-12-22', 'RSD', '2011', 10, 0, NULL, NULL),
-(5, 'Tabet Aoul', 'Chaib', 'boyer.lizeth@yahoo.com', '123456', '1995-03-07', 'SIC', '2012', 15, 0, NULL, NULL),
-(6, 'Sour', 'Yassine', 'umurphy@yahoo.com', 'azerty13', '1993-12-16', 'GL', '2014', 12, 0, NULL, NULL),
+(5, 'Tabet Aoul', 'Chaib', 'boyer.lizeth@yahoo.com', '123456', '1995-03-07', 'SIC', '2012', 15, 100, 5, 9),
+(6, 'Sour', 'Yassine', 'umurphy@yahoo.com', 'azerty13', '1993-12-16', 'GL', '2014', 12, 100, 6, 9),
 (7, 'Kazi Aoul', 'Reda', 'raynor.alba@gmail.com', 'azerty13', '1992-11-21', 'SIC', '2013', 13, 0, NULL, NULL),
-(8, 'Soulimane', 'Hind', 'esteban.turner@gmail.com', 'azerty13', '1992-09-20', 'GL', '2014', 9, 0, NULL, NULL),
+(8, 'Soulimane', 'Hind', 'esteban.turner@gmail.com', 'azerty13', '1992-09-20', 'GL', '2014', 20, 100, 8, 23),
 (9, 'Bereksi', 'Ines', 'haley.keebler@gmail.com', '123456', '1995-06-09', 'RSD', '2012', 15, 0, NULL, NULL),
 (10, 'Sekkal', 'Hind', 'milan94@hotmail.com', '123456', '1995-08-29', 'SIC', '2014', 11, 0, NULL, NULL),
 (11, 'Tabet', 'Hind', 'conroy.osborne@yahoo.com', '123456', '1995-04-15', 'RSD', '2012', 9, 0, NULL, NULL),
-(12, 'Kalfat', 'Chaib', 'jaiden02@yahoo.com', '123456', '1992-10-08', 'GL', '2014', 16, 0, NULL, NULL),
+(12, 'Kalfat', 'Chaib', 'jaiden02@yahoo.com', '123456', '1992-10-08', 'GL', '2014', 16, 100, 12, 2),
 (13, 'Hamza Cherif', 'Abdelhak', 'mayra05@gmail.com', 'azerty13', '1993-02-16', 'SIC', '2014', 11, 0, NULL, NULL),
 (14, 'Kazi Aoul', 'Toufik', 'simone43@hotmail.com', '123456', '1994-05-18', 'RSD', '2012', 9, 0, NULL, NULL),
 (15, 'Soulimane', 'Sidou', 'garry14@gmail.com', 'azerty13', '1992-07-05', 'SIC', '2014', 12, 0, NULL, NULL),
-(16, 'Bendimred', 'Mohammed', 'elang@hotmail.com', '123456', '1995-11-27', 'GL', '2014', 12, 0, NULL, NULL),
+(16, 'Bendimred', 'Mohammed', 'elang@hotmail.com', '123456', '1995-11-27', 'GL', '2014', 18, 100, 16, 10),
 (17, 'Tabet', 'Karim', 'msanford@hotmail.com', 'azerty13', '1994-10-10', 'RSD', '2011', 14, 0, NULL, NULL),
 (18, 'Seghiri', 'Abdelhak', 'aylin.king@yahoo.com', 'azerty13', '1994-10-30', 'SIC', '2012', 10, 0, NULL, NULL),
 (19, 'Seghiri', 'Nesrine', 'herman.retta@yahoo.com', '123456', '1993-10-08', 'RSD', '2012', 10, 0, NULL, NULL),
-(20, 'Hamzaoui', 'Hichem', 'stroman.leora@hotmail.com', '123456', '1992-12-10', 'GL', '2012', 9, 0, NULL, NULL),
+(20, 'Hamzaoui', 'Hichem', 'stroman.leora@hotmail.com', '123456', '1992-12-10', 'GL', '2012', 19, 100, 20, 24),
 (21, 'Rahmoun', 'Chiheb', 'taylor.bechtelar@yahoo.com', '123456', '1992-10-19', 'SIC', '2013', 14, 0, NULL, NULL),
 (22, 'Meriah', 'Salim', 'euna62@yahoo.com', 'azerty13', '1995-08-09', 'RSD', '2012', 13, 0, NULL, NULL),
-(23, 'Hamza Cherif', 'Mounia', 'kayden48@yahoo.com', 'azerty13', '1993-11-29', 'RSD', '2014', 15, 0, NULL, NULL),
+(23, 'Hamza Cherif', 'Mounia', 'kayden48@yahoo.com', 'azerty13', '1993-11-29', 'RSD', '2014', 15, 100, 23, 2),
 (24, 'Belkhodja', 'Abderahmen', 'murphy.edwina@yahoo.com', 'azerty13', '1994-04-08', 'SIC', '2014', 14, 0, NULL, NULL),
 (25, 'Rahmoun', 'Nihel', 'frederic64@hotmail.com', 'azerty13', '1993-10-03', 'RSD', '2013', 15, 0, NULL, NULL),
 (26, 'Mekhezzem', 'Yasmine', 'seffertz@gmail.com', 'azerty13', '1993-01-04', 'RSD', '2014', 13, 0, NULL, NULL),
 (27, 'Fasla', 'Linda', 'cruickshank.rubye@yahoo.com', '123456', '1992-09-04', 'RSD', '2013', 14, 0, NULL, NULL),
-(28, 'Hamza Cherif', 'Chaib', 'kunze.jennie@hotmail.com', '123456', '1994-03-24', 'GL', '2011', 14, 0, NULL, NULL),
+(28, 'Hamza Cherif', 'Chaib', 'kunze.jennie@hotmail.com', '123456', '1994-03-24', 'GL', '2011', 14, 0, 28, 30),
 (29, 'Benmansour', 'Rihem', 'vpowlowski@yahoo.com', '123456', '1995-07-06', 'SIC', '2013', 10, 0, NULL, NULL),
 (30, 'Bendimred', 'Nesrine', 'mckenzie51@yahoo.com', 'azerty13', '1994-11-03', 'RSD', '2012', 8, 0, NULL, NULL),
-(31, 'Tabet', 'Mustapha', 'uveum@yahoo.com', '123456', '1992-08-29', 'GL', '2012', 15, 0, NULL, NULL),
-(32, 'Hamzaoui', 'Selma', 'oren.donnelly@yahoo.com', '123456', '1994-01-23', 'GL', '2012', 11, 0, NULL, NULL),
-(33, 'Soulimane', 'Hichem', 'clair59@yahoo.com', '123456', '1994-02-23', 'GL', '2012', 11, 0, NULL, NULL),
 (34, 'Mesroua', 'Abdelhak', 'kelli.schamberger@hotmail.com', 'azerty13', '1994-04-21', 'RSD', '2011', 12, 0, NULL, NULL),
 (35, 'Sekkal', 'Djihene', 'jamir.emard@yahoo.com', '123456', '1993-06-10', 'RSD', '2014', 11, 0, NULL, NULL),
-(36, 'Mesroua', 'Djihene', 'verlie78@hotmail.com', '123456', '1993-03-03', 'GL', '2014', 12, 0, NULL, NULL),
 (37, 'Mesroua', 'Mohammed', 'wschmeler@gmail.com', 'azerty13', '1993-06-16', 'RSD', '2014', 13, 0, NULL, NULL),
 (38, 'Malti', 'Abdelhak', 'chauncey19@gmail.com', '123456', '1993-12-28', 'SIC', '2013', 12, 0, NULL, NULL),
 (39, 'Sour', 'Mohammed', 'laurie.kirlin@yahoo.com', '123456', '1994-08-09', 'SIC', '2014', 9, 0, NULL, NULL),
@@ -197,45 +210,33 @@ INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, 
 (41, 'Soulimane', 'Hichem', 'keyon.reinger@yahoo.com', '123456', '1992-11-04', 'RSD', '2012', 15, 0, NULL, NULL),
 (42, 'Bereksi', 'Hazar', 'kreiger.bria@gmail.com', '123456', '1995-11-09', 'SIC', '2013', 12, 0, NULL, NULL),
 (43, 'Soulimane', 'Yasmine', 'stacey.langworth@hotmail.com', 'azerty13', '1995-11-26', 'SIC', '2012', 12, 0, NULL, NULL),
-(44, 'Bendimred', 'Selma', 'kreichel@gmail.com', 'azerty13', '1993-04-06', 'GL', '2013', 15, 0, NULL, NULL),
 (45, 'Malti', 'Toufik', 'hoeger.litzy@gmail.com', 'azerty13', '1992-06-10', 'RSD', '2012', 13, 0, NULL, NULL),
-(46, 'Bendimred', 'Lilya', 'mohamed07@hotmail.com', 'azerty13', '1994-07-30', 'GL', '2013', 9, 0, NULL, NULL),
 (47, 'Kazi Aoul', 'Abdelhak', 'jedediah.huel@hotmail.com', 'azerty13', '1995-12-26', 'SIC', '2011', 9, 0, NULL, NULL),
 (48, 'Bereksi', 'Riad', 'ortiz.garrison@gmail.com', 'azerty13', '1993-04-04', 'SIC', '2013', 14, 0, NULL, NULL),
 (49, 'Sekkal', 'Mohammed', 'barton.murl@hotmail.com', 'azerty13', '1992-08-30', 'RSD', '2014', 11, 0, NULL, NULL),
 (50, 'Sour', 'Linda', 'carter.everett@gmail.com', 'azerty13', '1994-05-28', 'SIC', '2014', 9, 0, NULL, NULL),
 (51, 'Rahmoun', 'Nihel', 'zdach@yahoo.com', '123456', '1995-08-07', 'SIC', '2011', 16, 0, NULL, NULL),
-(52, 'Azzouni', 'Yasser', 'imraz@gmail.com', 'azerty13', '1992-11-13', 'GL', '2011', 9, 0, NULL, NULL),
 (53, 'Merabet', 'Chiheb', 'zkirlin@hotmail.com', 'azerty13', '1996-05-17', 'SIC', '2013', 12, 0, NULL, NULL),
 (54, 'Mesroua', 'Hichem', 'bdenesik@hotmail.com', '123456', '1994-03-25', 'SIC', '2013', 8, 0, NULL, NULL),
 (55, 'Bendimred', 'Abderahmen', 'tsenger@hotmail.com', '123456', '1995-04-19', 'RSD', '2011', 12, 0, NULL, NULL),
 (56, 'Bereksi', 'Ines', 'alba69@yahoo.com', 'azerty13', '1996-02-28', 'RSD', '2011', 9, 0, NULL, NULL),
-(57, 'Tabet', 'Mounia', 'mcglynn.cora@hotmail.com', '123456', '1994-01-09', 'GL', '2014', 8, 0, NULL, NULL),
 (58, 'Meriah', 'Nadir', 'jeromy.dickinson@yahoo.com', 'azerty13', '1995-06-18', 'SIC', '2012', 16, 0, NULL, NULL),
-(59, 'Malti', 'Yassine', 'armand.boyle@gmail.com', '123456', '1994-12-10', 'GL', '2014', 10, 0, NULL, NULL),
 (60, 'Soulimane', 'Nadir', 'ronaldo.moen@gmail.com', '123456', '1996-05-20', 'SIC', '2012', 9, 0, NULL, NULL),
 (61, 'Azzouni', 'Ines', 'paolo.kohler@yahoo.com', 'azerty13', '1995-11-23', 'RSD', '2012', 12, 0, NULL, NULL),
 (62, 'Rahmoun', 'Nihel', 'colten.monahan@yahoo.com', 'azerty13', '1996-05-15', 'RSD', '2011', 12, 0, NULL, NULL),
 (63, 'Sour', 'Chaib', 'emelia38@yahoo.com', 'azerty13', '1993-05-21', 'SIC', '2013', 15, 0, NULL, NULL),
-(64, 'Mekhezzem', 'Nesrine', 'fraynor@yahoo.com', '123456', '1995-09-22', 'GL', '2011', 9, 0, NULL, NULL),
 (65, 'Kazi Aoul', 'Hichem', 'bhagenes@gmail.com', 'azerty13', '1993-04-28', 'SIC', '2013', 10, 0, NULL, NULL),
 (66, 'Benmansour', 'Mohammed', 'klarkin@hotmail.com', 'azerty13', '1995-04-22', 'RSD', '2011', 15, 0, NULL, NULL),
 (67, 'Mesroua', 'Chaib', 'carli.parisian@gmail.com', '123456', '1994-12-31', 'RSD', '2012', 13, 0, NULL, NULL),
 (68, 'Rahmoun', 'Amine', 'narciso.kuvalis@gmail.com', '123456', '1995-02-18', 'RSD', '2011', 12, 0, NULL, NULL),
-(69, 'Zenagui', 'Ines', 'howell.mayer@yahoo.com', 'azerty13', '1994-08-07', 'GL', '2013', 16, 0, NULL, NULL),
 (70, 'Meriah', 'Amine', 'mosciski.wilton@gmail.com', 'azerty13', '1994-11-04', 'SIC', '2014', 11, 0, NULL, NULL),
 (71, 'Mesroua', 'Amine', 'glenda82@gmail.com', '123456', '1994-10-05', 'RSD', '2012', 14, 0, NULL, NULL),
-(72, 'Benmansour', 'Nesrine', 'elissa93@gmail.com', '123456', '1995-02-22', 'GL', '2012', 15, 0, NULL, NULL),
-(73, 'Tabet Aoul', 'Hichem', 'jolie.greenholt@hotmail.com', '123456', '1995-11-27', 'GL', '2014', 8, 0, NULL, NULL),
 (74, 'Benmansour', 'Amine', 'kaelyn36@gmail.com', 'azerty13', '1992-05-12', 'RSD', '2012', 15, 0, NULL, NULL),
-(75, 'Hamzaoui', 'Hazar', 'kuvalis.emely@yahoo.com', '123456', '1994-11-20', 'GL', '2014', 13, 0, NULL, NULL),
 (76, 'Malti', 'Nedjlaa', 'medhurst.dorothy@yahoo.com', '123456', '1993-08-18', 'SIC', '2013', 8, 0, NULL, NULL),
 (77, 'Meriah', 'Ines', 'ratke.kiara@yahoo.com', '123456', '1994-02-14', 'SIC', '2014', 14, 0, NULL, NULL),
-(78, 'Fasla', 'Djihene', 'damien89@gmail.com', 'azerty13', '1993-03-23', 'GL', '2011', 16, 0, NULL, NULL),
 (79, 'Azzouni', 'Hind', 'qhansen@gmail.com', 'azerty13', '1992-11-04', 'SIC', '2012', 10, 0, NULL, NULL),
 (80, 'Seghiri', 'Imene', 'suzanne.bailey@hotmail.com', '123456', '1993-09-04', 'RSD', '2014', 10, 0, NULL, NULL),
 (81, 'Seghiri', 'Chaib', 'fnader@hotmail.com', 'azerty13', '1992-09-07', 'RSD', '2014', 12, 0, NULL, NULL),
-(82, 'Kazi Aoul', 'Nadir', 'damian30@gmail.com', '123456', '1994-12-05', 'GL', '2014', 12, 0, NULL, NULL),
 (83, 'Meriah', 'Amine', 'daugherty.ivory@gmail.com', '123456', '1994-09-08', 'SIC', '2014', 15, 0, NULL, NULL),
 (84, 'Malti', 'Abdelhak', 'garfield.boyer@hotmail.com', '123456', '1995-09-18', 'RSD', '2012', 16, 0, NULL, NULL),
 (85, 'Kazi Aoul', 'Hichem', 'hayes.kevin@yahoo.com', '123456', '1992-09-29', 'RSD', '2013', 8, 0, NULL, NULL),
@@ -244,37 +245,28 @@ INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, 
 (88, 'Zenagui', 'Djihene', 'nels.runolfsson@hotmail.com', 'azerty13', '1995-04-02', 'RSD', '2014', 10, 0, NULL, NULL),
 (89, 'Fasla', 'Nihel', 'cwillms@yahoo.com', '123456', '1993-11-12', 'SIC', '2013', 14, 0, NULL, NULL),
 (90, 'Seghiri', 'Mohammed', 'ghand@gmail.com', 'azerty13', '1993-08-29', 'SIC', '2012', 10, 0, NULL, NULL),
-(91, 'Mekhezzem', 'Hazar', 'dauer@yahoo.com', 'azerty13', '1995-08-10', 'GL', '2014', 13, 0, NULL, NULL),
 (92, 'Kazi Aoul', 'Nesrine', 'fay.berniece@yahoo.com', '123456', '1994-05-01', 'SIC', '2011', 16, 0, NULL, NULL),
 (93, 'Seghiri', 'Ibrahim', 'joaquin72@gmail.com', 'azerty13', '1992-07-14', 'SIC', '2014', 16, 0, NULL, NULL),
 (94, 'Kazi Aoul', 'Mounia', 'deshaun62@gmail.com', '123456', '1994-07-07', 'RSD', '2014', 12, 0, NULL, NULL),
 (95, 'Bereksi', 'Ibrahim', 'turner.bernard@hotmail.com', '123456', '1995-05-24', 'RSD', '2014', 15, 0, NULL, NULL),
 (96, 'Sekkal', 'Mustapha', 'gbernier@hotmail.com', 'azerty13', '1992-10-04', 'RSD', '2014', 8, 0, NULL, NULL),
-(97, 'Merabet', 'Djihene', 'koepp.salma@yahoo.com', 'azerty13', '1994-03-31', 'GL', '2013', 16, 0, NULL, NULL),
 (98, 'Seghiri', 'Nesrine', 'forrest.hermann@hotmail.com', '123456', '1993-05-12', 'SIC', '2014', 12, 0, NULL, NULL),
 (99, 'Seghiri', 'Mustapha', 'wade20@hotmail.com', 'azerty13', '1993-11-18', 'SIC', '2013', 11, 0, NULL, NULL),
 (100, 'Sari', 'Yasser', 'nikolaus.euna@yahoo.com', '123456', '1994-01-30', 'RSD', '2014', 14, 0, NULL, NULL),
-(101, 'Kalfat', 'Imene', 'andres35@yahoo.com', 'azerty13', '1994-04-07', 'GL', '2013', 11, 0, NULL, NULL),
 (102, 'Hamzaoui', 'Rihem', 'schuyler.reynolds@gmail.com', 'azerty13', '1992-09-13', 'SIC', '2012', 12, 0, NULL, NULL),
 (103, 'Zenagui', 'Yassine', 'beatty.napoleon@gmail.com', 'azerty13', '1996-02-12', 'RSD', '2012', 11, 0, NULL, NULL),
-(104, 'Zenagui', 'Selma', 'jamey.ratke@yahoo.com', '123456', '1995-12-30', 'GL', '2014', 9, 0, NULL, NULL),
 (105, 'Bereksi', 'Salim', 'selmer07@hotmail.com', 'azerty13', '1992-09-12', 'SIC', '2012', 11, 0, NULL, NULL),
 (106, 'Hamzaoui', 'Mounia', 'maribel.grant@yahoo.com', '123456', '1996-01-16', 'SIC', '2012', 9, 0, NULL, NULL),
 (107, 'Seghiri', 'Hind', 'nschaefer@yahoo.com', 'azerty13', '1995-06-09', 'RSD', '2014', 15, 0, NULL, NULL),
 (108, 'Tabet', 'Nadir', 'carolyne67@yahoo.com', '123456', '1992-09-19', 'RSD', '2012', 11, 0, NULL, NULL),
 (109, 'Bendimred', 'Yasser', 'stokes.olin@yahoo.com', 'azerty13', '1994-11-05', 'RSD', '2013', 9, 0, NULL, NULL),
-(110, 'Hamzaoui', 'Chiheb', 'paucek.ephraim@yahoo.com', '123456', '1996-04-13', 'GL', '2013', 15, 0, NULL, NULL),
 (111, 'Rahmoun', 'Nihel', 'lindsay.cummerata@hotmail.com', '123456', '1996-03-17', 'SIC', '2013', 12, 0, NULL, NULL),
 (112, 'Sari', 'Mustapha', 'qkassulke@gmail.com', '123456', '1992-09-07', 'SIC', '2013', 13, 0, NULL, NULL),
 (113, 'Kalfat', 'Chiheb', 'lschaden@gmail.com', '123456', '1993-08-28', 'RSD', '2013', 16, 0, NULL, NULL),
-(114, 'Bendimred', 'Yasmine', 'konopelski.miller@gmail.com', 'azerty13', '1992-03-27', 'GL', '2012', 8, 0, NULL, NULL),
 (115, 'Kalfat', 'Karim', 'uhegmann@yahoo.com', '123456', '1992-05-01', 'SIC', '2014', 10, 0, NULL, NULL),
 (116, 'Kalfat', 'Ines', 'doyle.bethel@hotmail.com', 'azerty13', '1994-01-27', 'SIC', '2011', 9, 0, NULL, NULL),
 (117, 'Sekkal', 'Mounia', 'peggie21@yahoo.com', '123456', '1995-04-01', 'SIC', '2012', 15, 0, NULL, NULL),
-(118, 'Sari', 'Ines', 'isaias19@gmail.com', '123456', '1993-08-30', 'SIC', '2013', 14, 0, NULL, NULL),
-(119, 'Tabet', 'Hazar', 'luettgen.enos@hotmail.com', '123456', '1995-11-11', 'GL', '2013', 10, 0, NULL, NULL),
-(120, 'Belkhodja', 'Nesrine', 'lonnie.koepp@yahoo.com', 'azerty13', '1994-05-01', 'GL', '2014', 8, 0, NULL, NULL),
-(121, 'nnnnnnnn', 'zzz', 'nom2@gmail.com', '2', '2018-04-12', 'GL', 'ppppppp', 11, 0, NULL, NULL);
+(118, 'Sari', 'Ines', 'isaias19@gmail.com', '123456', '1993-08-30', 'SIC', '2013', 14, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -288,6 +280,67 @@ CREATE TABLE `fichedevoeux` (
   `ordre` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `fichedevoeux`
+--
+
+INSERT INTO `fichedevoeux` (`id`, `id_Sujet`, `ordre`) VALUES
+(2, 181, 5),
+(6, 182, 2),
+(20, 182, 4),
+(16, 187, 4),
+(1, 188, 1),
+(6, 188, 1),
+(1, 189, 2),
+(12, 189, 2),
+(28, 189, 5),
+(3, 191, 5),
+(2, 192, 1),
+(1, 195, 3),
+(8, 195, 1),
+(23, 196, 1),
+(8, 197, 4),
+(16, 197, 1),
+(20, 197, 2),
+(28, 197, 3),
+(3, 200, 3),
+(8, 201, 3),
+(28, 201, 4),
+(2, 209, 4),
+(3, 211, 1),
+(12, 216, 1),
+(16, 216, 3),
+(20, 216, 5),
+(23, 218, 5),
+(3, 219, 4),
+(6, 220, 5),
+(16, 220, 2),
+(8, 222, 2),
+(12, 222, 4),
+(28, 222, 2),
+(5, 223, 4),
+(20, 223, 1),
+(5, 224, 3),
+(6, 224, 3),
+(20, 224, 3),
+(3, 227, 2),
+(1, 228, 4),
+(5, 228, 1),
+(6, 228, 4),
+(12, 228, 5),
+(1, 229, 5),
+(5, 230, 2),
+(8, 230, 5),
+(28, 230, 1),
+(5, 231, 5),
+(12, 231, 3),
+(16, 231, 5),
+(2, 234, 3),
+(23, 234, 3),
+(23, 236, 2),
+(2, 237, 2),
+(23, 238, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -296,7 +349,7 @@ CREATE TABLE `fichedevoeux` (
 
 CREATE TABLE `salle` (
   `id` int(11) NOT NULL,
-  `etat` tinyint(1) NOT NULL
+  `etat` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -305,25 +358,7 @@ CREATE TABLE `salle` (
 
 INSERT INTO `salle` (`id`, `etat`) VALUES
 (1, 1),
-(2, 1),
-(3, 1),
-(4, 1),
-(5, 0),
-(6, 0),
-(7, 1),
-(8, 1),
-(9, 0),
-(10, 1),
-(11, 1),
-(12, 0),
-(13, 0),
-(14, 1),
-(15, 1),
-(16, 1),
-(17, 1),
-(18, 0),
-(19, 1),
-(20, 1);
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -334,7 +369,9 @@ INSERT INTO `salle` (`id`, `etat`) VALUES
 CREATE TABLE `soutenance` (
   `id` int(11) NOT NULL,
   `date` date NOT NULL,
-  `id_Salle` int(11) DEFAULT NULL
+  `heure` time NOT NULL,
+  `id_Salle` int(11) DEFAULT NULL,
+  `id_Etudiant` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -370,7 +407,7 @@ INSERT INTO `sujet` (`id`, `titre`, `contenu`, `specialite`, `date_creation`, `i
 (191, 'Voluptas sequi.', 'Will you, won\'t you, will you, won\'t you, will you, won\'t you join the dance. Would not, could not.', 'SIC', '2017-11-12', 24),
 (192, 'Nihil maxime tempora qui ', 'Alice, as she could, for the Dormouse,\' thought Alice; \'I daresay it\'s a very curious sensation,.', 'RSD', '2017-04-12', 18),
 (193, 'Voluptates ipsum sit.', 'HERE.\' \'But then,\' thought Alice, \'or perhaps they won\'t walk the way out of the trees behind him..', 'GL', '2017-05-28', 18),
-(194, 'Molestias voluptas quia h', 'Normans--\" How are you getting on now, my dear?\' it continued, turning to Alice with one eye; \'I.', 'SIC', '2017-11-23', 19),
+(194, 'Molestias voluptas quia h', 'Normans--" How are you getting on now, my dear?\' it continued, turning to Alice with one eye; \'I.', 'SIC', '2017-11-23', 19),
 (195, 'Quia officia.', 'HIS time of life. The King\'s argument was, that she did not at all for any of them. However, on.', 'GL', '2017-06-05', 8),
 (196, 'Iure maiores repudiandae ', 'WHAT?\' thought Alice; \'I might as well as I used--and I don\'t like them!\' When the sands are all.', 'RSD', '2017-09-07', 26),
 (197, 'Eaque quam eos.', 'March Hare: she thought to herself what such an extraordinary ways of living would be like, \'--for.', 'GL', '2017-05-11', 4),
@@ -378,11 +415,11 @@ INSERT INTO `sujet` (`id`, `titre`, `contenu`, `specialite`, `date_creation`, `i
 (199, 'Facilis iusto ipsum.', 'King turned pale, and shut his note-book hastily. \'Consider your verdict,\' he said to herself, as.', 'SIC', '2017-06-24', 26),
 (200, 'Harum enim aut voluptate.', 'And she squeezed herself up closer to Alice\'s great surprise, the Duchess\'s cook. She carried the.', 'SIC', '2017-12-30', 17),
 (201, 'Non saepe fugiat eum quas', 'Alice went timidly up to her in such a tiny golden key, and when she looked down at her own mind.', 'GL', '2017-09-04', 24),
-(202, 'Dignissimos quia eveniet.', 'AND WASHING--extra.\"\' \'You couldn\'t have wanted it much,\' said Alice, surprised at her as she had.', 'RSD', '2017-06-02', 1),
+(202, 'Dignissimos quia eveniet.', 'AND WASHING--extra."\' \'You couldn\'t have wanted it much,\' said Alice, surprised at her as she had.', 'RSD', '2017-06-02', 1),
 (203, 'Sed vel voluptatem.', 'Alice again, in a loud, indignant voice, but she saw them, they set to work throwing everything.', 'RSD', '2017-10-08', 12),
 (204, 'Ducimus debitis ad.', 'I\'d only been the whiting,\' said the March Hare said in a very pretty dance,\' said Alice in a.', 'RSD', '2017-03-16', 5),
 (205, 'Itaque velit sed aut.', 'Miss, we\'re doing our best, afore she comes, to--\' At this moment the King, looking round the.', 'RSD', '2017-04-28', 26),
-(206, 'Rerum voluptate saepe.', 'GAVE HER ONE, THEY GAVE HIM TWO--\" why, that must be the right size to do it! Oh dear! I\'d nearly.', 'RSD', '2017-08-20', 20),
+(206, 'Rerum voluptate saepe.', 'GAVE HER ONE, THEY GAVE HIM TWO--" why, that must be the right size to do it! Oh dear! I\'d nearly.', 'RSD', '2017-08-20', 20),
 (207, 'Ea aut consequatur.', 'Dodo solemnly, rising to its feet, \'I move that the poor little thing grunted in reply (it had.', 'RSD', '2017-12-27', 5),
 (208, 'Neque aut illum.', 'And will talk in contemptuous tones of the evening, beautiful Soup! Soup of the singers in the.', 'SIC', '2017-12-01', 12),
 (209, 'Aliquam veritatis in nece', 'Five. \'I heard every word you fellows were saying.\' \'Tell us a story.\' \'I\'m afraid I can\'t see.', 'RSD', '2017-08-25', 5),
@@ -477,7 +514,8 @@ ALTER TABLE `salle`
 --
 ALTER TABLE `soutenance`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_Soutenance_id_Salle` (`id_Salle`);
+  ADD KEY `FK_Soutenance_id_Salle` (`id_Salle`),
+  ADD KEY `id_Etudiant` (`id_Etudiant`);
 
 --
 -- Index pour la table `sujet`
@@ -504,22 +542,22 @@ ALTER TABLE `enseignant`
 -- AUTO_INCREMENT pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 --
 -- AUTO_INCREMENT pour la table `fichedevoeux`
 --
 ALTER TABLE `fichedevoeux`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT pour la table `salle`
 --
 ALTER TABLE `salle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `soutenance`
 --
 ALTER TABLE `soutenance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=376;
 --
 -- AUTO_INCREMENT pour la table `sujet`
 --
@@ -533,41 +571,42 @@ ALTER TABLE `sujet`
 -- Contraintes pour la table `affectation`
 --
 ALTER TABLE `affectation`
-  ADD CONSTRAINT `FK_affectation_id` FOREIGN KEY (`id`) REFERENCES `enseignant` (`id`),
-  ADD CONSTRAINT `FK_affectation_id_Etudiant` FOREIGN KEY (`id_Etudiant`) REFERENCES `etudiant` (`id`),
-  ADD CONSTRAINT `FK_affectation_id_Sujet` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`);
+  ADD CONSTRAINT `affectation_ibfk_1` FOREIGN KEY (`id`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `affectation_ibfk_2` FOREIGN KEY (`id_Etudiant`) REFERENCES `etudiant` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `affectation_ibfk_3` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `assiste`
 --
 ALTER TABLE `assiste`
-  ADD CONSTRAINT `FK_assiste_id` FOREIGN KEY (`id`) REFERENCES `soutenance` (`id`),
-  ADD CONSTRAINT `FK_assiste_id_Enseignant` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`);
+  ADD CONSTRAINT `assiste_ibfk_2` FOREIGN KEY (`id`) REFERENCES `soutenance` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `assiste_ibfk_3` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
-  ADD CONSTRAINT `FK_Etudiant_id_Enseignant` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`),
-  ADD CONSTRAINT `FK_Etudiant_id_FicheDeVoeux` FOREIGN KEY (`id_FicheDeVoeux`) REFERENCES `fichedevoeux` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+  ADD CONSTRAINT `etudiant_ibfk_1` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `etudiant_ibfk_2` FOREIGN KEY (`id_FicheDeVoeux`) REFERENCES `fichedevoeux` (`id`) ON DELETE CASCADE ON UPDATE SET NULL;
 
 --
 -- Contraintes pour la table `fichedevoeux`
 --
 ALTER TABLE `fichedevoeux`
-  ADD CONSTRAINT `FK_FicheDeVoeux_id_Sujet` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fichedevoeux_ibfk_1` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `soutenance`
 --
 ALTER TABLE `soutenance`
-  ADD CONSTRAINT `FK_Soutenance_id_Salle` FOREIGN KEY (`id_Salle`) REFERENCES `salle` (`id`);
+  ADD CONSTRAINT `soutenance_ibfk_3` FOREIGN KEY (`id_Salle`) REFERENCES `salle` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `soutenance_ibfk_4` FOREIGN KEY (`id_Etudiant`) REFERENCES `etudiant` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `sujet`
 --
 ALTER TABLE `sujet`
-  ADD CONSTRAINT `FK_Sujet_id_Enseignant` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`);
+  ADD CONSTRAINT `sujet_ibfk_2` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
