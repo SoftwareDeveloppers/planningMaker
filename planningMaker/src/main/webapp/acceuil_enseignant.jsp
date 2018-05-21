@@ -50,6 +50,7 @@
                                                     <%
                                             		HttpSession session1 = request.getSession();
                                                     int idEnseignant = (Integer) session1.getAttribute("idEnseignant");
+                                                     System.out.print(idEnseignant+"idddddddddddddd");
                                                          int nbrEtuEnc=etuDao.NombreEtudiantEnc(idEnseignant);                                                              
                                                     %>
                                                     <%=nbrEtuEnc %>

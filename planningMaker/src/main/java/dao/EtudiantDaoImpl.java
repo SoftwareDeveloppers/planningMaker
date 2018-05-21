@@ -415,7 +415,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	public int NombreEtudiantEnc(int idEns) {
 		Connection conn = DbConnect.connect();
 
-		String sql = "SELECT count(*) FROM etudiant WHERE id_enseigant= ? ";
+		String sql = "SELECT count(*) FROM affectation WHERE id= ? ";
 		int result = 0;
 		PreparedStatement ps;
 		ResultSet rs = null;
