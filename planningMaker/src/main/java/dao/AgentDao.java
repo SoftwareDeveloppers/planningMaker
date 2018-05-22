@@ -13,5 +13,7 @@ public interface AgentDao {
 	public List<AgentAdmin> findAll();
 	public AgentAdmin check(String user, String mdp);
 	public boolean checkEmail(String email);
-	
+	public boolean updateProfil(AgentAdmin a);
+	public int NombreAgent() ;
+
 }

@@ -44,8 +44,10 @@
 					<div class="page-body">
 						<div class="row">
 							<div class="col-sm-12">
-								<c:if test="${ remplie}">
-									
+								<c:if test="${remplie}">
+									<form action="SupprmerSoutenancesController" method="get">
+										<button class="btn hor-grd btn-grd-inverse">supprimer les sujets</button>
+									</form>
 							
 									<!-- Zero config.table start -->
 									<div class="card">

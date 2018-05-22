@@ -39,9 +39,23 @@ public class SoutenanceDaoImpl implements SoutenanceDao{
 		
 	}
 
-	public boolean delete(Soutenance s) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete() {
+		Connection conn = DbConnect.connect();
+		boolean verif = false;
+		String sql = "DELETE FROM soutenance";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			
+			verif = ps.execute();
+			
+			conn.close();
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+		return verif;
 	}
 
 	public boolean update(Soutenance s) {
@@ -84,12 +98,13 @@ public class SoutenanceDaoImpl implements SoutenanceDao{
 	
 	public ArrayList<SoutenanceJoin> jointureSoutnance() {
 		Connection conn = DbConnect.connect();
-		String sql = "SELECT soutenance.id,date ,heure,id_Salle,sujet.titre,sujet.contenu,enseignant.nom,enseignant.prenom\r\n" + 
-				"				from sujet,soutenance,affectation,assiste,enseignant wHERE\r\n" + 
-				"				 soutenance.id_Etudiant = affectation.id_Etudiant \r\n" + 
-				"				and soutenance.id = assiste.id\r\n" + 
-				"				and affectation.id_Sujet = sujet.id \r\n" + 
-				"				and enseignant.id = assiste.id_Enseignant";
+		String sql = "SELECT soutenance.id,date ,heure,id_Salle,sujet.titre,sujet.contenu,"
+				+ "enseignant.nom,enseignant.prenom,etudiant.nom,etudiant.prenom"
+				+ " from sujet,soutenance,affectation,assiste,enseignant,etudiant wHERE "
+				+ "soutenance.id_Etudiant = affectation.id_Etudiant "
+				+ "and soutenance.id_Etudiant = etudiant.id "
+				+ "and soutenance.id = assiste.id "
+				+ "and affectation.id_Sujet = sujet.id and enseignant.id = assiste.id_Enseignant ";
 		PreparedStatement ps;
 		ResultSet rs =null ;
 		ArrayList<SoutenanceJoin> soutenanceJoins= new ArrayList<SoutenanceJoin>();
@@ -101,7 +116,7 @@ public class SoutenanceDaoImpl implements SoutenanceDao{
 			rs=ps.executeQuery();
 			int i = 0; 
 			while (rs.next()){
-					soutenanceJoin = new SoutenanceJoin(rs.getInt(1), rs.getDate(2), rs.getTime(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8));
+					soutenanceJoin = new SoutenanceJoin(rs.getInt(1), rs.getDate(2), rs.getTime(3), rs.getInt(4), rs.getString(5), rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10));
 					soutenanceJoins.add(soutenanceJoin);
 				}
 					
@@ -140,5 +155,7 @@ public class SoutenanceDaoImpl implements SoutenanceDao{
 	
 	return assistes;
 	}
+	
+	
 
 }

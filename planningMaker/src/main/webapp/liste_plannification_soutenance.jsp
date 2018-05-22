@@ -61,7 +61,12 @@
 
 										<div class="row">
 											<div class="col-md-12">
+											
 												<c:if test="${ remplie}">
+												<form action="SupprmerSoutenancesController" method="POST">
+										<button class="btn hor-grd btn-grd-inverse">supprimer les soutnances</button>
+									</form>
+												
 													<!-- Zero config.table start -->
 													<div class="card">
 														<div class="card-header">
@@ -79,6 +84,7 @@
 																			<th>date debut</th>
 																			<th>heure</th>
 																			<th>titre sujet</th>
+																			<th>nom prenom</th>
 																			<th>les jures</th>
 																		</tr>
 																	</thead>
@@ -88,13 +94,16 @@
 																			<c:if test="${(stat.index mod 5) == 0 }">
 																				<tr>
 																					<th rowspan="5" align="center">${sout.getId_salle()}
-																					</td>
+																					</th>
 																					<th rowspan="5" align="center">${sout.date}
-																					</td>
+																					</th>
 																					<th rowspan="5" align="center">${sout.getHeure()}
-																					</td>
+																					</th>
 																					<th rowspan="5" align="center">${sout.titreSujets}
-																					</td>
+																					</th>
+																					<th rowspan="5" align="center">${sout.etudnom} ${sout.etudePrenom}
+																					</th>
+																					
 																			</c:if>
 																			<td>${sout.jurenom} ${sout.jurePrenom}</td>
 																			</tr>

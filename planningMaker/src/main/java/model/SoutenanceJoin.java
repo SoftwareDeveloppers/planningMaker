@@ -13,10 +13,50 @@ public class SoutenanceJoin {
 	private String ContenuSujets;
 	private String jurenom ;
 	private String jurePrenom ;
+	private String etudnom ;
+	private String etudePrenom ;
 
 	
 
 	
+	@Override
+	public String toString() {
+		return "SoutenanceJoin [id=" + id + ", date=" + date + ", heure=" + heure + ", id_salle=" + id_salle
+				+ ", titreSujets=" + titreSujets + ", ContenuSujets=" + ContenuSujets + ", jurenom=" + jurenom
+				+ ", jurePrenom=" + jurePrenom + ", etudnom=" + etudnom + ", etudePrenom=" + etudePrenom + "]";
+	}
+
+	public SoutenanceJoin(int id, Date date, Time heure, int id_salle, String titreSujets, String contenuSujets,
+			String jurenom, String jurePrenom, String etudnom, String etudePrenom) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.heure = heure;
+		this.id_salle = id_salle;
+		this.titreSujets = titreSujets;
+		ContenuSujets = contenuSujets;
+		this.jurenom = jurenom;
+		this.jurePrenom = jurePrenom;
+		this.etudnom = etudnom;
+		this.etudePrenom = etudePrenom;
+	}
+
+	public String getEtudnom() {
+		return etudnom;
+	}
+
+	public void setEtudnom(String etudnom) {
+		this.etudnom = etudnom;
+	}
+
+	public String getEtudePrenom() {
+		return etudePrenom;
+	}
+
+	public void setEtudePrenom(String etudePrenom) {
+		this.etudePrenom = etudePrenom;
+	}
+
 	public String getJurenom() {
 		return jurenom;
 	}
@@ -80,24 +120,7 @@ public class SoutenanceJoin {
 	
 	
 
-	public SoutenanceJoin(int id, Date date, Time heure, int id_salle, String titreSujets, String contenuSujets,
-			String jurenom, String jurePrenom) {
-		super();
-		this.id = id;
-		this.date = date;
-		this.heure = heure;
-		this.id_salle = id_salle;
-		this.titreSujets = titreSujets;
-		ContenuSujets = contenuSujets;
-		this.jurenom = jurenom;
-		this.jurePrenom = jurePrenom;
-	}
 
-	@Override
-	public String toString() {
-		return "SoutenanceJoin [id=" + id + ", date=" + date + ", heure=" + heure + ", id_salle=" + id_salle
-				+ ", titreSujets=" + titreSujets + ", ContenuSujets=" + ContenuSujets + ", jure=" + jurenom + "]";
-	}
 
 	
 	

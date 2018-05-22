@@ -115,6 +115,12 @@
 	<description></description>
 	<servlet-class>Controller.CountInd</servlet-class>
 </servlet>
+<servlet>
+	<servlet-name>SupprmerSoutenancesController</servlet-name>
+	<display-name>SupprmerSoutenancesController</display-name>
+	<description></description>
+	<servlet-class>Controller.SupprmerSoutenancesController</servlet-class>
+</servlet>
 
 
 
@@ -186,6 +192,10 @@
 <servlet-mapping>
 	<servlet-name>CountInd</servlet-name>
 	<url-pattern>/CountInd</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>SupprmerSoutenancesController</servlet-name>
+	<url-pattern>/SupprmerSoutenancesController</url-pattern>
 </servlet-mapping>
 
 

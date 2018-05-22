@@ -38,6 +38,8 @@ public class AffectationDaoImpl implements AffectationDao{
 		}
 	}
 	
+	
+	
 	public List<Affectation> findAll() {
 		String sql = "Select * FROM affectation";
 		PreparedStatement ps;
@@ -204,6 +206,27 @@ public class AffectationDaoImpl implements AffectationDao{
 		}
 		
 		return idSujet;
+	}
+
+
+
+	public boolean delete() {
+		Connection conn = DbConnect.connect();
+		boolean verif = false;
+		String sql = "DELETE FROM affectation";
+		PreparedStatement ps;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			
+			verif = ps.execute();
+			
+			conn.close();
+
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+
+		return verif;
 	}
 	
 }

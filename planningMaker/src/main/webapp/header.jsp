@@ -202,7 +202,7 @@
                                     </li>
                                     </ul>
                                     <li class="pcoded-hasmenu">
-                                        <a href="emploiPlanning.jsp">
+                                        <a href="SoutenanceController">
                                             <span class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>Pl</b></span>
                                             <span class="pcoded-mtext">planning des soutenances</span>
                                             <span class="pcoded-mcaret"></span>

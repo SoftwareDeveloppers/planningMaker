@@ -75,7 +75,6 @@ public class SoutenanceController extends HttpServlet {
 			int nbrJour = 0;
 
 			if (moisDebut ==  moisfin) {
-				System.out.println(jourfin + " deb"+jourDebut);
 
 				nbrJour = jourfin - jourDebut;
 

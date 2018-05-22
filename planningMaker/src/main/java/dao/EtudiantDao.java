@@ -16,5 +16,13 @@ public interface EtudiantDao {
 	public Etudiant check(String user, String mdp);
 	public boolean checkEmail(String email);
 	public boolean addFicheDeVoeux(int id, int idF);
+	public boolean updateTaux(int id, int taux) ;
+	public boolean updateProfil(Etudiant etudiant) ;
+	public boolean updateIdEnseignant(int idEtudiant, int idEnseignant) ;
+	public List<Etudiant> findByTaux(int taux) ;
+	public int NombreEtudiant() ;
+	public int NombreEtudiantEnc(int idEns) ;
+
+
 	
 }

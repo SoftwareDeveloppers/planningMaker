@@ -13,5 +13,6 @@ public interface SujetDao {
 	public List<Sujet> findBySpecialite(Sujet s);
 	public List<Sujet> findAll();	
 	public int nombreDeSujet(int id);
+	public List<Sujet>  findByIdEnseignant(int id) ;
 	
 }
