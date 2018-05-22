@@ -44,21 +44,24 @@ public class SoutenanceController extends HttpServlet {
 		HttpSession session = request.getSession();
 		boolean remplie;
 
-		if (session.getAttribute("idAgent") == null && session.getAttribute("idEtudiant")== null ) {
+		if (session.getAttribute("idAgent") == null && session.getAttribute("idEtudiant")== null && session.getAttribute("idEnseignant")== null  ) {
 
 			response.sendRedirect("Deconnexion");
 
 		} else {
-			ArrayList<Assiste> assistes = new ArrayList<Assiste>();
-			SoutenanceDaoImpl soutimpl = new SoutenanceDaoImpl();
-			assistes = soutimpl.AssitesFindALL();
-			EnseignantDaoImpl enseignantDaoImpl = new EnseignantDaoImpl() ; 
-			ArrayList<Enseignant> enseignants = new ArrayList<Enseignant>();
-			enseignants = (ArrayList<Enseignant>) enseignantDaoImpl.findAll();
 			
+			SoutenanceDaoImpl soutimpl = new SoutenanceDaoImpl();
 			ArrayList<SoutenanceJoin> soutenanceJoins = new ArrayList<SoutenanceJoin>();
 			soutenanceJoins = soutimpl.jointureSoutnance();
+			
+			if( soutenanceJoins.isEmpty() ) {
+				remplie = false;
+				request.setAttribute("remplie", remplie);
+				this.getServletContext().getRequestDispatcher("/liste_plannification_soutenance.jsp").forward(request, response);
 
+			}
+			else {
+				remplie = true ;
 			String[] dateD = soutenanceJoins.get(0).getDate().toString().split("-");
 			String[] datef = soutenanceJoins.get(soutenanceJoins.size() - 1).getDate().toString().split("-");
 			
@@ -84,10 +87,12 @@ public class SoutenanceController extends HttpServlet {
 
 			}
 			request.setAttribute("nbrjour", nbrJour);
-			request.setAttribute("ens", enseignants);
-			request.setAttribute("assiste", assistes);
+			//request.setAttribute("ens", enseignants);
+			//request.setAttribute("assiste", assistes);
 			request.setAttribute("soutnances", soutenanceJoins);
-			this.getServletContext().getRequestDispatcher("/emploiPlanning.jsp").forward(request, response);
+			request.setAttribute("remplie", remplie);
+			this.getServletContext().getRequestDispatcher("/liste_plannification_soutenance.jsp").forward(request, response);
+		}
 
 		}
 
@@ -102,6 +107,7 @@ public class SoutenanceController extends HttpServlet {
 		pgrSoutenances(DateSoutenance);
 		// Etape2: choisir 5 jurés pour chaque soutenance de manière intelligente.
 		choisirJures();
+		this.doGet(request, response);
 
 	}
 
