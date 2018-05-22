@@ -118,7 +118,7 @@
 																</td>	
 																	<td>
 																			<button type="button" class="btn btn-warning btn-modifier waves-effect" 
-																			data-toggle="modal" data-target="#Modal${etud.id}" onclick="taux('${etud.id}')">Action</button>
+																			data-toggle="modal" data-target="#Modal${etud.id}" onclick="taux('${etud.id}')">Taux</button>
 																			<button type="button" class="btn btn-primary btn-modifier waves-effect" 
 																			data-toggle="modal" data-target="#ModalRem${etud.id}">Remarque</button>
 																	</td>
@@ -126,7 +126,7 @@
                                                                     <div class="modal-dialog" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
-                                                                                <h4 class="modal-title">Action</h4>
+                                                                                <h4 class="modal-title">Modifier le taux</h4>
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             			<span aria-hidden="true">&times;</span>
                                                        					 </button>
