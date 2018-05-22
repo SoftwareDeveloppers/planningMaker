@@ -28,11 +28,13 @@ public class SoutnanceTest {
 		
 	for (int i = 1; i <= soutimpl.jointureSoutnance().size(); i++) {
 		System.out.println(soutimpl.jointureSoutnance().get(i-1).getJurenom());
+
 		if (i % 5 == 0 && i!=1) 
 			System.out.println(soutimpl.jointureSoutnance().get(i-1).getTitreSujets()+"\n_______________________________________"+soutimpl.jointureSoutnance().size());
 	}
 
 		
 	}
+	//200 commits
 
 }

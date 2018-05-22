@@ -114,7 +114,7 @@
 														</div>
 													</div>
 												</c:if>
-												<c:if test="${!remplie}">
+												<c:if test="${!remplie && sessionScope.idAgent!=null}">
 
 													<form action="SoutenanceController" method="POST">
 														<div class="form-group">
