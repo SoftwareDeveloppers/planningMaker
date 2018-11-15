@@ -19,7 +19,7 @@ public class Etudiant_tests {
 	public void FindTest(){
 		EtudiantDaoImpl eimpl = new EtudiantDaoImpl();
 		Date dateN = Date.valueOf("1995-10-05");
-		Etudiant expected = new Etudiant(1, "Benmansour", "Hichem", "cartwright.coleman@gmail.com", "123456", dateN, "SIC", "2014", 13f, 0f, 1, 0);
+		Etudiant expected = new Etudiant(1, "Benmansour", "Hichem", "cartwright.coleman@gmail.com", "123456", dateN, "SIC", "2014", 13f, 0f, 1, 9);
 		Etudiant result = eimpl.findById(1);
 		
 		//Remaraue : il faut redifinir la methodes equals de Etudiant

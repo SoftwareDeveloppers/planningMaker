@@ -187,10 +187,10 @@ public class SoutenanceController extends HttpServlet {
 			// fin boucle for-> hashtable remplie!
 		}
 		// afficher hashtable
-		/*
-		 * Enumeration e = Memo.elements(); while (e.hasMoreElements())
-		 * System.out.println(e.nextElement());
-		 */
+		
+		  Enumeration e = Memo.elements(); while (e.hasMoreElements())
+		 System.out.println(e.nextElement());
+		 
 		// déclaration des variables
 		int nombreDeParticipation = 0;
 		int nombreDeJurerDispo = 1;
@@ -292,8 +292,13 @@ public class SoutenanceController extends HttpServlet {
 			// fin boucle for
 		}
 		// fin méthode choisirJures()
+		// afficher hashtable
+		
+		  Enumeration r = Memo.elements(); while (r.hasMoreElements())
+		  System.out.println(r.nextElement()+"----");
 	}
 
+			 
 	void createAssiste(int id_soutenance, int id_enseignant) {
 		Assiste a = new Assiste(id_soutenance, id_enseignant);
 		AssisteDaoImpl assiste = new AssisteDaoImpl();
