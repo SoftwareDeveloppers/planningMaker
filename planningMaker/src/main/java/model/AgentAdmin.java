@@ -9,6 +9,7 @@ public class AgentAdmin {
 	private String prenom;
 	private String email;
 	private String mdp;
+	
 	public AgentAdmin(int id, String nom, String prenom, String email, String mdp) {
 		super();
 		this.id = id;
