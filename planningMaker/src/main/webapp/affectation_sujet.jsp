@@ -45,10 +45,11 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<c:if test="${remplie}">
+									<c:if test="${ !empty(sessionScope.idAgent)}">
 									<form action="SupprmerSoutenancesController" method="get">
 										<button class="btn hor-grd btn-grd-inverse">supprimer les sujets</button>
 									</form>
-							
+							</c:if>
 									<!-- Zero config.table start -->
 									<div class="card">
 										<div class="card-header">
