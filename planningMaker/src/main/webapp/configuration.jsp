@@ -3,8 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
 <c:choose>
-	<c:when
-		test="${ empty sessionScope.idEnseignant  && empty sessionScope.idEtudiant && empty sessionScope.idAgent }">
+	<c:when test="${ empty sessionScope.idAgent }">
 		<c:redirect url="Login"></c:redirect>
 	</c:when>
 	<c:when test="${ !empty sessionScope.idAgent }">
@@ -32,17 +31,35 @@
 												de voeux :</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="nbrChoixFich" id="nbrChoix"
-												value="0"></input>
+											<input type="text" name="nbrChoixSujet" id="nbrChoixSujet"
+												value="${config.nbrChoixSujet}"></input>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-5">
-											<h6 class="f-w-400 m-b-30">nombre de salle disponible :
-											</h6>
+											<h6 class="f-w-400 m-b-30">nombre de sujet propose par
+												agent :</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="nbrSalle" id="nbrSalle" value="0"></input>
+											<input type="text" name="nbrSujetProposer"
+												id="nbrSujetProposer" value="${config.nbrSujetProposer}"></input>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-5">
+											<h6 class="f-w-400 m-b-30">nombre de jurees :</h6>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" name="nbrJuree" id="nbrJuree" value="${config.nbrJuree}"></input>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-5">
+											<h6 class="f-w-400 m-b-30">specifier le taux minimum
+												autorise:</h6>
+										</div>
+										<div class="col-sm-7">
+											<input type="text" name="taux" id="taux" value="${config.taux}"></input>
 										</div>
 									</div>
 
