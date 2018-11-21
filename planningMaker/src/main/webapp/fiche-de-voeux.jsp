@@ -162,7 +162,7 @@
 											<i class="icofont icofont-file-code bg-c-blue"></i>
 											<div class="d-inline">
 												<h4>Fiche De Voeux ${sessionScope.idEtudiant }</h4>
-												<span>faites un choix <code>5</code> ou 3
+												<span>faites un choix <code>5</code> 
 												</span>
 											</div>
 										</div>

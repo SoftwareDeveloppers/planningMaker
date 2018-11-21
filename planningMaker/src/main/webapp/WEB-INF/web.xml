@@ -121,6 +121,12 @@
 	<description></description>
 	<servlet-class>Controller.SupprmerSoutenancesController</servlet-class>
 </servlet>
+<servlet>
+	<servlet-name>Configuration</servlet-name>
+	<display-name>Configuration</display-name>
+	<description></description>
+	<servlet-class>Controller.Configuration</servlet-class>
+</servlet>
 
 
 
@@ -196,6 +202,10 @@
 <servlet-mapping>
 	<servlet-name>SupprmerSoutenancesController</servlet-name>
 	<url-pattern>/SupprmerSoutenancesController</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>Configuration</servlet-name>
+	<url-pattern>/Configuration</url-pattern>
 </servlet-mapping>
 
 
