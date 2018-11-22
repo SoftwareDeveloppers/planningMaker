@@ -151,14 +151,14 @@
 
 								<li><a href="./Profil"> <i class="ti-user"></i> Profile
 								</a></li>
+								<c:if test="${ !empty(sessionScope.idAgent)}">
+								<li><a href="./Configuration"> <i
+										class="ti-settings"></i> Configuration
+								</a></li>
+								</c:if>
 								<li><a href="./Deconnexion"> <i
 										class="ti-layout-sidebar-left"></i> Déconnecté
 								</a></li>
-								<c:if test="${ !empty(sessionScope.idAgent)}">
-								<li><a href="./Configuration"> <i
-										class="ti-layout-sidebar-left"></i> Configuration
-								</a></li>
-								</c:if>
 							</ul></li>
 					</ul>
 

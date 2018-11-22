@@ -77,8 +77,14 @@
 		<display-name>EnseignantControler</display-name>
 		<description></description>
 		<servlet-class>Controller.EnseignantControler</servlet-class>
-		</servlet>
-<servlet>
+	</servlet>
+	<servlet>
+		<servlet-name>SalleController</servlet-name>
+		<display-name>SalleController</display-name>
+		<description></description>
+		<servlet-class>Controller.SalleController</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>AffectationSujet</servlet-name>
 		<display-name>AffectationSujet</display-name>
 		<description></description>
@@ -126,6 +132,12 @@
 	<display-name>Configuration</display-name>
 	<description></description>
 	<servlet-class>Controller.Configuration</servlet-class>
+</servlet>
+<servlet>
+	<servlet-name>ListSujetProposer</servlet-name>
+	<display-name>ListSujetProposer</display-name>
+	<description></description>
+	<servlet-class>Controller.ListSujetProposer</servlet-class>
 </servlet>
 
 
@@ -206,6 +218,10 @@
 <servlet-mapping>
 	<servlet-name>Configuration</servlet-name>
 	<url-pattern>/Configuration</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>ListSujetProposer</servlet-name>
+	<url-pattern>/ListSujetProposer</url-pattern>
 </servlet-mapping>
 
 
