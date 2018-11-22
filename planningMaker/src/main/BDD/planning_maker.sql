@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2018 at 10:45 AM
+-- Generation Time: Nov 22, 2018 at 01:36 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -34,6 +34,21 @@ CREATE TABLE `affectation` (
   `id_Sujet` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `affectation`
+--
+
+INSERT INTO `affectation` (`id`, `id_Etudiant`, `id_Sujet`) VALUES
+(2, 5, 184),
+(9, 7, 186),
+(9, 12, 187),
+(10, 3, 183),
+(18, 11, 192),
+(23, 9, 181),
+(24, 8, 182),
+(29, 6, 188),
+(30, 4, 185);
+
 -- --------------------------------------------------------
 
 --
@@ -53,10 +68,7 @@ CREATE TABLE `agentadmin` (
 --
 
 INSERT INTO `agentadmin` (`id`, `nom`, `prenom`, `email`, `mdp`) VALUES
-(1, 'Agent', 'admin', 'admin@gmail.com', 'azerty13'),
-(2, 'Employer', 'Devante', '', 'abcd13'),
-(3, 'Admin', 'Gabe', '', 'azerty13'),
-(4, 'Admin', 'Waldo', '', 'azerty13');
+(1, 'Agent', 'admin', 'admin@gmail.com', 'azerty13');
 
 -- --------------------------------------------------------
 
@@ -68,6 +80,48 @@ CREATE TABLE `assiste` (
   `id` int(11) NOT NULL,
   `id_Enseignant` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `assiste`
+--
+
+INSERT INTO `assiste` (`id`, `id_Enseignant`) VALUES
+(72, 7),
+(72, 15),
+(72, 25),
+(72, 30),
+(73, 9),
+(73, 19),
+(73, 31),
+(73, 33),
+(74, 4),
+(74, 6),
+(74, 12),
+(74, 24),
+(75, 3),
+(75, 16),
+(75, 18),
+(75, 27),
+(76, 1),
+(76, 13),
+(76, 22),
+(76, 23),
+(77, 7),
+(77, 9),
+(77, 32),
+(77, 34),
+(78, 1),
+(78, 2),
+(78, 14),
+(78, 22),
+(79, 15),
+(79, 25),
+(79, 29),
+(79, 35),
+(80, 8),
+(80, 10),
+(80, 26),
+(80, 28);
 
 -- --------------------------------------------------------
 
@@ -88,7 +142,7 @@ CREATE TABLE `configuration` (
 --
 
 INSERT INTO `configuration` (`id`, `nbrChoix`, `nbrSujetPropose`, `nbrJuree`, `taux`) VALUES
-(1, 3, 3, 4, 100);
+(1, 3, 5, 4, 100);
 
 -- --------------------------------------------------------
 
@@ -177,34 +231,32 @@ CREATE TABLE `etudiant` (
 --
 
 INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, `specialite`, `promotion`, `moyenne`, `taux`, `id_FicheDeVoeux`, `id_Enseignant`) VALUES
-(1, 'Benmansour', 'Hichem', 'cartwright.coleman@gmail.com', '123456', '1995-10-05', 'SIC', '2014', 13, 50, 1, 9),
-(2, 'Sour', 'Salim', 'hahn.jared@hotmail.com', '123456', '1996-02-08', 'RSD', '2013', 11, 100, 2, 18),
-(3, 'Azzouni', 'Hind', 'kristina03@hotmail.com', '123456', '1996-02-03', 'SIC', '2011', 16, 0, 3, 16),
-(4, 'Tabet Aoul', 'Mounia', 'gfay@hotmail.com', 'azerty13', '1994-12-22', 'RSD', '2011', 10, 0, NULL, NULL),
-(5, 'Tabet Aoul', 'Chaib', 'boyer.lizeth@yahoo.com', '123456', '1995-03-07', 'SIC', '2012', 15, 100, 5, 8),
+(3, 'Azzouni', 'Hind', 'kristina03@hotmail.com', '123456', '1996-02-03', 'SIC', '2011', 16, 100, 3, 10),
+(4, 'Tabet Aoul', 'Mounia', 'gfay@hotmail.com', 'azerty13', '1994-12-22', 'RSD', '2011', 10, 100, 4, 30),
+(5, 'Tabet Aoul', 'Chaib', 'boyer.lizeth@yahoo.com', '123456', '1995-03-07', 'SIC', '2012', 15, 100, 5, 2),
 (6, 'Sour', 'Yassine', 'umurphy@yahoo.com', 'azerty13', '1993-12-16', 'GL', '2014', 12, 100, 6, 29),
-(7, 'Kazi Aoul', 'Reda', 'raynor.alba@gmail.com', 'azerty13', '1992-11-21', 'SIC', '2013', 13, 0, NULL, NULL),
-(8, 'Soulimane', 'Hind', 'esteban.turner@gmail.com', 'azerty13', '1992-09-20', 'GL', '2014', 20, 100, 8, 12),
-(9, 'Bereksi', 'Ines', 'haley.keebler@gmail.com', '123456', '1995-06-09', 'RSD', '2012', 15, 0, NULL, NULL),
+(7, 'Kazi Aoul', 'Reda', 'raynor.alba@gmail.com', 'azerty13', '1992-11-21', 'SIC', '2013', 13, 100, 7, 9),
+(8, 'Soulimane', 'Hind', 'esteban.turner@gmail.com', 'azerty13', '1992-09-20', 'GL', '2014', 20, 100, 8, 24),
+(9, 'Bereksi', 'Ines', 'haley.keebler@gmail.com', '123456', '1995-06-09', 'RSD', '2012', 15, 100, 9, 23),
 (10, 'Sekkal', 'Hind', 'milan94@hotmail.com', '123456', '1995-08-29', 'SIC', '2014', 11, 0, NULL, NULL),
-(11, 'Tabet', 'Hind', 'conroy.osborne@yahoo.com', '123456', '1995-04-15', 'RSD', '2012', 9, 0, NULL, NULL),
-(12, 'Kalfat', 'Chaib', 'jaiden02@yahoo.com', '123456', '1992-10-08', 'GL', '2014', 16, 100, 12, 4),
+(11, 'Tabet', 'Hind', 'conroy.osborne@yahoo.com', '123456', '1995-04-15', 'RSD', '2012', 9, 100, 11, 18),
+(12, 'Kalfat', 'Chaib', 'jaiden02@yahoo.com', '123456', '1992-10-08', 'GL', '2014', 16, 100, 12, 9),
 (13, 'Hamza Cherif', 'Abdelhak', 'mayra05@gmail.com', 'azerty13', '1993-02-16', 'SIC', '2014', 11, 0, NULL, NULL),
 (14, 'Kazi Aoul', 'Toufik', 'simone43@hotmail.com', '123456', '1994-05-18', 'RSD', '2012', 9, 0, NULL, NULL),
-(15, 'Soulimane', 'Sidou', 'garry14@gmail.com', 'azerty13', '1992-07-05', 'SIC', '2014', 12, 100, 15, 12),
-(16, 'Bendimred', 'Mohammed', 'elang@hotmail.com', '123456', '1995-11-27', 'GL', '2014', 18, 100, 16, 12),
+(15, 'Soulimane', 'Sidou', 'garry14@gmail.com', 'azerty13', '1992-07-05', 'SIC', '2014', 12, 0, NULL, NULL),
+(16, 'Bendimred', 'Mohammed', 'elang@hotmail.com', '123456', '1995-11-27', 'GL', '2014', 18, 0, NULL, NULL),
 (17, 'Tabet', 'Karim', 'msanford@hotmail.com', 'azerty13', '1994-10-10', 'RSD', '2011', 14, 0, NULL, NULL),
 (18, 'Seghiri', 'Abdelhak', 'aylin.king@yahoo.com', 'azerty13', '1994-10-30', 'SIC', '2012', 10, 0, NULL, NULL),
 (19, 'Seghiri', 'Nesrine', 'herman.retta@yahoo.com', '123456', '1993-10-08', 'RSD', '2012', 10, 0, NULL, NULL),
-(20, 'Hamzaoui', 'Hichem', 'stroman.leora@hotmail.com', '123456', '1992-12-10', 'GL', '2012', 19, 0, 20, 4),
-(21, 'Rahmoun', 'Chiheb', 'taylor.bechtelar@yahoo.com', '123456', '1992-10-19', 'SIC', '2013', 14, 0, 21, NULL),
-(22, 'Meriah', 'Salim', 'euna62@yahoo.com', 'azerty13', '1995-08-09', 'RSD', '2012', 13, 0, 22, NULL),
-(23, 'Hamza Cherif', 'Mounia', 'kayden48@yahoo.com', 'azerty13', '1993-11-29', 'RSD', '2014', 15, 100, 23, 26),
+(20, 'Hamzaoui', 'Hichem', 'stroman.leora@hotmail.com', '123456', '1992-12-10', 'GL', '2012', 19, 0, NULL, NULL),
+(21, 'Rahmoun', 'Chiheb', 'taylor.bechtelar@yahoo.com', '123456', '1992-10-19', 'SIC', '2013', 14, 0, NULL, NULL),
+(22, 'Meriah', 'Salim', 'euna62@yahoo.com', 'azerty13', '1995-08-09', 'RSD', '2012', 13, 0, NULL, NULL),
+(23, 'Hamza Cherif', 'Mounia', 'kayden48@yahoo.com', 'azerty13', '1993-11-29', 'RSD', '2014', 15, 0, NULL, NULL),
 (24, 'Belkhodja', 'Abderahmen', 'murphy.edwina@yahoo.com', 'azerty13', '1994-04-08', 'SIC', '2014', 14, 0, NULL, NULL),
 (25, 'Rahmoun', 'Nihel', 'frederic64@hotmail.com', 'azerty13', '1993-10-03', 'RSD', '2013', 15, 0, NULL, NULL),
 (26, 'Mekhezzem', 'Yasmine', 'seffertz@gmail.com', 'azerty13', '1993-01-04', 'RSD', '2014', 13, 0, NULL, NULL),
 (27, 'Fasla', 'Linda', 'cruickshank.rubye@yahoo.com', '123456', '1992-09-04', 'RSD', '2013', 14, 0, NULL, NULL),
-(28, 'Hamza Cherif', 'Chaib', 'kunze.jennie@hotmail.com', '123456', '1994-03-24', 'GL', '2011', 14, 15, 28, 9),
+(28, 'Hamza Cherif', 'Chaib', 'kunze.jennie@hotmail.com', '123456', '1994-03-24', 'GL', '2011', 14, 0, NULL, NULL),
 (29, 'Benmansour', 'Rihem', 'vpowlowski@yahoo.com', '123456', '1995-07-06', 'SIC', '2013', 10, 0, NULL, NULL),
 (30, 'Bendimred', 'Nesrine', 'mckenzie51@yahoo.com', 'azerty13', '1994-11-03', 'RSD', '2012', 8, 0, NULL, NULL),
 (34, 'Mesroua', 'Abdelhak', 'kelli.schamberger@hotmail.com', 'azerty13', '1994-04-21', 'RSD', '2011', 12, 0, NULL, NULL),
@@ -271,7 +323,7 @@ INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, 
 (115, 'Kalfat', 'Karim', 'uhegmann@yahoo.com', '123456', '1992-05-01', 'SIC', '2014', 10, 0, NULL, NULL),
 (116, 'Kalfat', 'Ines', 'doyle.bethel@hotmail.com', 'azerty13', '1994-01-27', 'SIC', '2011', 9, 0, NULL, NULL),
 (117, 'Sekkal', 'Mounia', 'peggie21@yahoo.com', '123456', '1995-04-01', 'SIC', '2012', 15, 0, NULL, NULL),
-(118, 'Sari', 'Ines', 'isaias19@gmail.com', '123456', '1993-08-30', 'SIC', '2013', 14, 52, 118, 2);
+(118, 'Sari', 'Ines', 'isaias19@gmail.com', '123456', '1993-08-30', 'SIC', '2013', 14, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -290,79 +342,33 @@ CREATE TABLE `fichedevoeux` (
 --
 
 INSERT INTO `fichedevoeux` (`id`, `id_Sujet`, `ordre`) VALUES
-(1, 188, 1),
-(1, 189, 2),
-(1, 195, 3),
-(1, 228, 4),
-(1, 229, 5),
-(2, 181, 5),
-(2, 192, 1),
-(2, 209, 4),
-(2, 234, 3),
-(2, 237, 2),
-(3, 191, 5),
-(3, 200, 3),
-(3, 211, 1),
-(3, 219, 4),
-(3, 227, 2),
-(5, 223, 4),
-(5, 224, 3),
-(5, 230, 2),
-(5, 231, 5),
-(5, 243, 1),
-(6, 182, 2),
-(6, 188, 1),
-(6, 220, 5),
-(6, 224, 3),
-(6, 228, 4),
-(8, 197, 4),
-(8, 201, 3),
-(8, 222, 2),
-(8, 230, 5),
-(8, 244, 1),
-(12, 189, 2),
-(12, 216, 1),
-(12, 222, 4),
-(12, 228, 5),
-(12, 231, 3),
-(15, 194, 2),
-(15, 208, 1),
-(15, 212, 4),
-(15, 217, 3),
-(15, 221, 5),
-(16, 187, 4),
-(16, 197, 1),
-(16, 216, 3),
-(16, 220, 2),
-(16, 231, 5),
-(20, 182, 4),
-(20, 197, 2),
-(20, 216, 5),
-(20, 224, 3),
-(20, 244, 1),
-(21, 184, 2),
-(21, 186, 3),
-(21, 190, 4),
-(21, 219, 5),
-(21, 240, 1),
-(22, 198, 3),
-(22, 209, 1),
-(22, 218, 2),
-(23, 196, 1),
-(23, 218, 5),
-(23, 234, 3),
-(23, 236, 2),
-(23, 238, 4),
-(28, 189, 5),
-(28, 197, 3),
-(28, 201, 4),
-(28, 222, 2),
-(28, 230, 1),
-(118, 183, 2),
-(118, 184, 1),
-(118, 186, 3),
-(118, 194, 4),
-(118, 219, 5);
+(3, 183, 1),
+(3, 184, 2),
+(3, 186, 3),
+(4, 181, 1),
+(4, 185, 2),
+(4, 192, 3),
+(5, 183, 1),
+(5, 184, 2),
+(5, 186, 3),
+(6, 182, 1),
+(6, 187, 2),
+(6, 188, 3),
+(7, 183, 1),
+(7, 184, 2),
+(7, 186, 3),
+(8, 182, 1),
+(8, 187, 2),
+(8, 188, 3),
+(9, 181, 1),
+(9, 185, 2),
+(9, 192, 3),
+(11, 181, 1),
+(11, 185, 2),
+(11, 192, 3),
+(12, 182, 1),
+(12, 187, 2),
+(12, 188, 3);
 
 -- --------------------------------------------------------
 
@@ -377,21 +383,6 @@ CREATE TABLE `remarque` (
   `contenu` varchar(150) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `remarque`
---
-
-INSERT INTO `remarque` (`id`, `id_Etudiant`, `titre`, `contenu`, `date`) VALUES
-(1, 1, 'rvrqebv', 'brtab', '2018-05-20'),
-(2, 107, 'abc', 'afezrgreqbtb', '2018-05-21'),
-(3, 1, 'remarque1', ' ehrvrelahgiuaerhgiu heraigheariuhgiuaerhiguhaeiughaieruhgiuraehogihaerg', '2018-05-21'),
-(4, 1, 'remarque2', 'regfrukguauhaerlgjherajghmhajregh liurhguhraelgheag', '2018-05-21'),
-(5, 1, 'abcdef', '6 kjhezrugfiuh aerg6 trbtrhjahtih', '2018-05-21'),
-(6, 1, 'coucouu', 'hjgkjhkhkhkhmhgghghjghgh', '2018-05-22'),
-(7, 5, '', '100 / 100 bravo fini !!! conard le barbar', '2018-11-12'),
-(8, 8, 'rem1', 'brgfhgfjjy', '2018-11-12'),
-(9, 8, 'rem2', 'hfhyghghfhgfgfgdgfdfd', '2018-11-12');
 
 -- --------------------------------------------------------
 
@@ -409,8 +400,10 @@ CREATE TABLE `salle` (
 --
 
 INSERT INTO `salle` (`id`, `etat`) VALUES
-(1, 1),
-(2, 1);
+(1, 2),
+(2, 1),
+(3, 1),
+(4, 1);
 
 -- --------------------------------------------------------
 
@@ -425,6 +418,21 @@ CREATE TABLE `soutenance` (
   `id_Salle` int(11) DEFAULT NULL,
   `id_Etudiant` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `soutenance`
+--
+
+INSERT INTO `soutenance` (`id`, `date`, `heure`, `id_Salle`, `id_Etudiant`) VALUES
+(72, '2018-11-23', '10:00:00', 1, 4),
+(73, '2018-11-23', '14:00:00', 1, 12),
+(74, '2018-11-23', '10:00:00', 2, 8),
+(75, '2018-11-23', '14:00:00', 2, 11),
+(76, '2018-11-23', '10:00:00', 3, 9),
+(77, '2018-11-23', '14:00:00', 3, 7),
+(78, '2018-11-23', '10:00:00', 4, 5),
+(79, '2018-11-23', '14:00:00', 4, 6),
+(80, '2018-11-24', '10:00:00', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -507,7 +515,6 @@ INSERT INTO `sujet` (`id`, `titre`, `contenu`, `specialite`, `date_creation`, `i
 (239, 'Rerum ratione corrupti.', 'I can guess that,\' she added in a great hurry. An enormous puppy was looking about for some time.', 'GL', '2017-06-02', 18),
 (240, 'Quam tempora officia.', 'Dodo, \'the best way to explain the mistake it had a pencil that squeaked. This of course, to begin.', 'SIC', '2017-09-29', 10),
 (241, 'nouveau sujet', 'hjgjhgjhghgggggggggggggggggggg858', 'GL', '2018-03-28', 1),
-(242, 'nouveau sujet', 'hjgjhgjhghgggggggggggggggggggg858', 'GL', '2018-03-28', 1),
 (243, 'google', 'google infrastructure', 'GL', '2018-11-12', 8),
 (244, 'gestion des souris', 'blqblqblq', 'GL', '2018-11-12', 12);
 
@@ -634,13 +641,13 @@ ALTER TABLE `remarque`
 -- AUTO_INCREMENT for table `salle`
 --
 ALTER TABLE `salle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `soutenance`
 --
 ALTER TABLE `soutenance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `sujet`
@@ -656,9 +663,9 @@ ALTER TABLE `sujet`
 -- Constraints for table `affectation`
 --
 ALTER TABLE `affectation`
-  ADD CONSTRAINT `affectation_ibfk_1` FOREIGN KEY (`id`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `affectation_ibfk_2` FOREIGN KEY (`id_Etudiant`) REFERENCES `etudiant` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `affectation_ibfk_3` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `affectation_ibfk_1` FOREIGN KEY (`id`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `affectation_ibfk_2` FOREIGN KEY (`id_Etudiant`) REFERENCES `etudiant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `affectation_ibfk_3` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `assiste`
@@ -671,27 +678,27 @@ ALTER TABLE `assiste`
 -- Constraints for table `etudiant`
 --
 ALTER TABLE `etudiant`
-  ADD CONSTRAINT `etudiant_ibfk_1` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `etudiant_ibfk_2` FOREIGN KEY (`id_FicheDeVoeux`) REFERENCES `fichedevoeux` (`id`) ON DELETE CASCADE ON UPDATE SET NULL;
+  ADD CONSTRAINT `etudiant_ibfk_1` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `etudiant_ibfk_2` FOREIGN KEY (`id_FicheDeVoeux`) REFERENCES `fichedevoeux` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `fichedevoeux`
 --
 ALTER TABLE `fichedevoeux`
-  ADD CONSTRAINT `fichedevoeux_ibfk_1` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fichedevoeux_ibfk_1` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `soutenance`
 --
 ALTER TABLE `soutenance`
-  ADD CONSTRAINT `soutenance_ibfk_3` FOREIGN KEY (`id_Salle`) REFERENCES `salle` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `soutenance_ibfk_4` FOREIGN KEY (`id_Etudiant`) REFERENCES `etudiant` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `soutenance_ibfk_3` FOREIGN KEY (`id_Salle`) REFERENCES `salle` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `soutenance_ibfk_4` FOREIGN KEY (`id_Etudiant`) REFERENCES `etudiant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `sujet`
 --
 ALTER TABLE `sujet`
-  ADD CONSTRAINT `sujet_ibfk_2` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `sujet_ibfk_2` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
