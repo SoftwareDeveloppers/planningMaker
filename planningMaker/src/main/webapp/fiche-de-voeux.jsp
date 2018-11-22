@@ -161,7 +161,7 @@
 										<div class="page-header-title">
 											<i class="icofont icofont-file-code bg-c-blue"></i>
 											<div class="d-inline">
-												<h4>Fiche De Voeux ${sessionScope.idEtudiant }</h4>
+												<h4>Fiche De Voeux numero : ${sessionScope.idEtudiant }</h4>
 												<span>faites un choix <code>${config.nbrChoixSujet }</code> 
 												</span>
 											</div>
