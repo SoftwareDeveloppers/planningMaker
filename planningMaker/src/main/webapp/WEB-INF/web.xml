@@ -91,54 +91,61 @@
 		<servlet-class>Controller.AffectationSujet</servlet-class>
 
 	</servlet>
-<servlet>
-	<servlet-name>Profil</servlet-name>
-	<display-name>Profil</display-name>
-	<description></description>
-	<servlet-class>Controller.Profil</servlet-class>
-</servlet>
-<servlet>
-	<servlet-name>ModifierProfil</servlet-name>
-	<display-name>ModifierProfil</display-name>
-	<description></description>
-	<servlet-class>Controller.ModifierProfil</servlet-class>
-</servlet>
-<servlet>
-	<servlet-name>SoutenanceController</servlet-name>
-	<display-name>SoutenanceController</display-name>
-	<description></description>
-	<servlet-class>Controller.SoutenanceController</servlet-class>
-</servlet>
-<servlet>
-	<servlet-name>AccueilCon</servlet-name>
-	<display-name>AccueilCon</display-name>
-	<description></description>
-	<servlet-class>Controller.AccueilCon</servlet-class>
-</servlet>
-<servlet>
-	<servlet-name>CountInd</servlet-name>
-	<display-name>CountInd</display-name>
-	<description></description>
-	<servlet-class>Controller.CountInd</servlet-class>
-</servlet>
-<servlet>
-	<servlet-name>SupprmerSoutenancesController</servlet-name>
-	<display-name>SupprmerSoutenancesController</display-name>
-	<description></description>
-	<servlet-class>Controller.SupprmerSoutenancesController</servlet-class>
-</servlet>
-<servlet>
-	<servlet-name>Configuration</servlet-name>
-	<display-name>Configuration</display-name>
-	<description></description>
-	<servlet-class>Controller.Configuration</servlet-class>
-</servlet>
-<servlet>
-	<servlet-name>ListSujetProposer</servlet-name>
-	<display-name>ListSujetProposer</display-name>
-	<description></description>
-	<servlet-class>Controller.ListSujetProposer</servlet-class>
-</servlet>
+	<servlet>
+		<servlet-name>Profil</servlet-name>
+		<display-name>Profil</display-name>
+		<description></description>
+		<servlet-class>Controller.Profil</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ModifierProfil</servlet-name>
+		<display-name>ModifierProfil</display-name>
+		<description></description>
+		<servlet-class>Controller.ModifierProfil</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SoutenanceController</servlet-name>
+		<display-name>SoutenanceController</display-name>
+		<description></description>
+		<servlet-class>Controller.SoutenanceController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AccueilCon</servlet-name>
+		<display-name>AccueilCon</display-name>
+		<description></description>
+		<servlet-class>Controller.AccueilCon</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>CountInd</servlet-name>
+		<display-name>CountInd</display-name>
+		<description></description>
+		<servlet-class>Controller.CountInd</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SupprmerSoutenancesController</servlet-name>
+		<display-name>SupprmerSoutenancesController</display-name>
+		<description></description>
+		<servlet-class>Controller.SupprmerSoutenancesController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Configuration</servlet-name>
+		<display-name>Configuration</display-name>
+		<description></description>
+		<servlet-class>Controller.Configuration</servlet-class>
+	</servlet>
+	<servlet>
+
+		<servlet-name>ListSujetProposer</servlet-name>
+		<display-name>ListSujetProposer</display-name>
+		<description></description>
+		<servlet-class>Controller.ListSujetProposer</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SalleController</servlet-name>
+		<display-name>SalleController</display-name>
+		<description></description>
+		<servlet-class>Controller.SalleController</servlet-class>
+	</servlet>
 
 
 
@@ -187,42 +194,47 @@
 		<servlet-name>EnseignantControler</servlet-name>
 		<url-pattern>/EnseignantControler</url-pattern>
 	</servlet-mapping>
-<servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SalleController</servlet-name>
+		<url-pattern>/SalleController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>AffectationSujet</servlet-name>
 		<url-pattern>/AffectationSujet</url-pattern>
 	</servlet-mapping>
-<servlet-mapping>
-	<servlet-name>Profil</servlet-name>
-	<url-pattern>/Profil</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-	<servlet-name>ModifierProfil</servlet-name>
-	<url-pattern>/ModifierProfil</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-	<servlet-name>SoutenanceController</servlet-name>
-	<url-pattern>/SoutenanceController</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-	<servlet-name>AccueilCon</servlet-name>
-	<url-pattern>/AccueilCon</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-	<servlet-name>CountInd</servlet-name>
-	<url-pattern>/CountInd</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-	<servlet-name>SupprmerSoutenancesController</servlet-name>
-	<url-pattern>/SupprmerSoutenancesController</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-	<servlet-name>Configuration</servlet-name>
-	<url-pattern>/Configuration</url-pattern>
-</servlet-mapping>
-<servlet-mapping>
-	<servlet-name>ListSujetProposer</servlet-name>
-	<url-pattern>/ListSujetProposer</url-pattern>
-</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Profil</servlet-name>
+		<url-pattern>/Profil</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModifierProfil</servlet-name>
+		<url-pattern>/ModifierProfil</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SoutenanceController</servlet-name>
+		<url-pattern>/SoutenanceController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AccueilCon</servlet-name>
+		<url-pattern>/AccueilCon</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CountInd</servlet-name>
+		<url-pattern>/CountInd</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SupprmerSoutenancesController</servlet-name>
+		<url-pattern>/SupprmerSoutenancesController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Configuration</servlet-name>
+		<url-pattern>/Configuration</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ListSujetProposer</servlet-name>
+		<url-pattern>/ListSujetProposer</url-pattern>
+	</servlet-mapping>
+
 
 
 

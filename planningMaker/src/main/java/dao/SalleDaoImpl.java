@@ -14,12 +14,13 @@ public class SalleDaoImpl implements SalleDao{
 
 	public boolean create(Salle salle) {
 		Connection conn=DbConnect.connect();
-	String sql = "INSERT INTO salle (etat)"
-				+ " VALUES (?);";
+	String sql = "INSERT INTO salle (numSalle,etat)"
+				+ " VALUES (?,?);";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setInt(1, salle.getEtat());
+			ps.setString(1, salle.getNumSalle());
+			ps.setInt(2, 1);
 			ps.execute();
 			conn.close();
 			
@@ -52,12 +53,13 @@ public class SalleDaoImpl implements SalleDao{
 
 	public boolean update(Salle salle) {
 		Connection conn=DbConnect.connect();
-		String sql="UPDATE salle SET etat = '?'"
-				+ " WHERE id = ?;";
+		String sql="UPDATE salle SET numSalle = ? , etat = ? WHERE id = ?";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
-			ps.setInt(1, salle.getEtat());
+			ps.setString(1, salle.getNumSalle());
+			ps.setInt(2, salle.getEtat());
+			ps.setInt(3, salle.getId());
 			ps.execute();
 			conn.close();
 			
@@ -83,7 +85,8 @@ public class SalleDaoImpl implements SalleDao{
 			if (rs.next()){
 				salle = new Salle(
 						rs.getInt(1),
-						rs.getInt(2)
+						rs.getString(2),
+						rs.getInt(3)
 						);
 			}	
 			conn.close();
@@ -111,7 +114,8 @@ public class SalleDaoImpl implements SalleDao{
 			while (rs.next()){
 				salle = new Salle(
 						rs.getInt(1),
-						rs.getInt(2)
+						rs.getString(2),
+						rs.getInt(3)
 						);
 				
 				salles.add(salle);
@@ -139,7 +143,8 @@ public class SalleDaoImpl implements SalleDao{
 			if (rs.next()){
 				salle = new Salle(
 						rs.getInt(1),
-						rs.getInt(2)
+						rs.getString(2),
+						rs.getInt(3)
 						);
 			}	
 			conn.close();
@@ -185,6 +190,30 @@ public class SalleDaoImpl implements SalleDao{
 			
 			return false;
 		}
+	}
+	
+	public boolean findByNum(String numSalle) {
+		Connection conn=DbConnect.connect();
+		String sql = "Select * FROM salle WHERE numSalle=?";
+		PreparedStatement ps;
+		ResultSet rs = null ;
+		boolean exist = false;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, numSalle);
+			rs=ps.executeQuery();
+			if (rs.next()){
+				exist = true;
+			}	
+			conn.close();
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return exist;
 	}
 
 }

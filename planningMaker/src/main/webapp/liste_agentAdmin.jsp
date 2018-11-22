@@ -75,10 +75,12 @@
 																	class="btn btn-warning btn-modifier waves-effect"
 																	data-toggle="modal"
 																	data-target="#modif-Modal${agent.id}">Modifier</button>
-
+																
+																<c:if test="${agent.id != 1}">
 																<button type="button"
 																	class="btn btn-danger waves-effect" data-toggle="modal"
 																	data-target="#supp-Modal${agent.id}">Supprimer</button>
+																</c:if>
 															</td>
 
 															<div class="modal fade" id="supp-Modal${agent.id}"

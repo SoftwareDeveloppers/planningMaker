@@ -248,10 +248,18 @@
 												des enseignants</span> <span class="pcoded-mcaret"></span>
 									</a></li>
 
+									<c:if test="${ sessionScope.idAgent == 1}">
 									<li class=""><a href="AgentController?Liste=132za&ze">
 											<span class="pcoded-micon"><i class="ti-angle-right"></i></span>
 											<span class="pcoded-mtext" data-i18n="nav.dash.main">liste
 												des Agents</span> <span class="pcoded-mcaret"></span>
+									</a></li>
+									</c:if>
+									
+									<li class=""><a href="SalleController?Liste=132za&ze">
+											<span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+											<span class="pcoded-mtext" data-i18n="nav.dash.main">Liste
+												des Salles</span> <span class="pcoded-mcaret"></span>
 									</a></li>
 								</ul>
 							<li class="pcoded-hasmenu"><a href="javascript:void(0)">
@@ -287,6 +295,11 @@
 											class="pcoded-micon"><i class="ti-angle-right"></i></span> <span
 											class="pcoded-mtext" data-i18n="nav.dash.main">Ajouter
 												enseignant</span> <span class="pcoded-mcaret"></span>
+									</a></li>
+									<li class=""><a href="ajouter_salle.jsp"> <span
+											class="pcoded-micon"><i class="ti-angle-right"></i></span> <span
+											class="pcoded-mtext" data-i18n="nav.dash.main">Ajouter
+												salle</span> <span class="pcoded-mcaret"></span>
 									</a></li>
 									<c:if
 										test="${ !empty(sessionScope.idAgent)&& sessionScope.idAgent == 1 }">
