@@ -2,7 +2,7 @@
 <%@ page isELIgnored="false"%>
 
  <form role="form" method="post" action="ModifierFiche">
-<c:forEach begin="0" end="5" items="${ liste }" var="liste">
+<c:forEach items="${ liste }" var="liste" >
 	<div class="form-group row">
 		<label class="col-sm-3 col-form-label">Sujet n°${ i=i+1 }: </label>
 		<div class="ajax col-sm-9">
@@ -27,7 +27,8 @@
 	</div>
 </c:forEach>
     <div class="">
-		<button type="submit" class="modifier btn btn-primary m-b-0" style="float: right;">Validez</button>
+		<button type="submit" class="red modifier btn btn-primary m-b-0" style="float: right;">Validez</button>
     </div>
 </form>
+
 		

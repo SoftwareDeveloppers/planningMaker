@@ -162,7 +162,7 @@
 											<i class="icofont icofont-file-code bg-c-blue"></i>
 											<div class="d-inline">
 												<h4>Fiche De Voeux ${sessionScope.idEtudiant }</h4>
-												<span>faites un choix <code>5</code> 
+												<span>faites un choix <code>${config.nbrChoixSujet }</code> 
 												</span>
 											</div>
 										</div>
@@ -192,9 +192,7 @@
 										<!-- Basic Form Inputs card start -->
 										<div class="card">
 											<div class="card-header">
-												<h5>Vous pouvez choisir 5 sujets !</h5>
-												<span>ici <code>1-2-3-4-5</code> ici
-												</span>
+												<h5>Vous pouvez choisir ${config.nbrChoixSujet} sujets !</h5>
 												<div class="card-header-right">
 													<i class="icofont icofont-spinner-alt-5"></i>
 												</div>
@@ -207,7 +205,7 @@
 											<div class="card-block">
 												<h4 class="sub-title">Basic Inputs</h4>
 												<form method="POST" action="AjouterFicheDeVoeux">
-													<c:forEach begin="1" end="5" varStatus="stat">
+													<c:forEach begin="1" end="${config.nbrChoixSujet}" varStatus="stat">
 														<div class="form-group row">
 															<label class="col-sm-2 col-form-label">Sujet n°${ stat.index }:
 															</label>
@@ -265,16 +263,17 @@
 									var idSujet4 = $("select#select4").val();
 									var idSujet5 = $("select#select5").val();
 
-									if (idSujet1 != idSujet2
-											&& idSujet1 != idSujet3
-											&& idSujet1 != idSujet4
-											&& idSujet1 != idSujet5
-											&& idSujet2 != idSujet3
-											&& idSujet2 != idSujet4
-											&& idSujet2 != idSujet5
-											&& idSujet3 != idSujet4
-											&& idSujet3 != idSujet5
-											&& idSujet4 != idSujet5) {
+									if (	   (idSujet1 != idSujet2 || idSujet1==null || idSujet2==null )
+											&& (idSujet1 != idSujet3 || idSujet1==null || idSujet3==null )
+											&& (idSujet1 != idSujet4 || idSujet1==null || idSujet4==null )
+											&& (idSujet1 != idSujet5 || idSujet1==null || idSujet5==null )
+											&& (idSujet2 != idSujet3 || idSujet2==null || idSujet3==null )
+											&& (idSujet2 != idSujet4 || idSujet2==null || idSujet4==null )
+											&& (idSujet2 != idSujet5 || idSujet2==null || idSujet5==null )
+											&& (idSujet3 != idSujet4 || idSujet3==null || idSujet4==null )
+											&& (idSujet3 != idSujet5 || idSujet3==null || idSujet5==null )
+											&& (idSujet4 != idSujet5 || idSujet4==null || idSujet5==null )
+											) {
 
 										return true;
 									} else {

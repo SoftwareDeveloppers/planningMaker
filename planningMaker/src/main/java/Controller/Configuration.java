@@ -24,6 +24,7 @@ public class Configuration extends HttpServlet {
 
 		if (session.getAttribute("idAgent") != null) {
 			
+			
 			request.setAttribute("config",new ConfigurationDaoImpl().find());
 
 			this.getServletContext().getRequestDispatcher("/configuration.jsp").forward(request, response);
@@ -31,6 +32,8 @@ public class Configuration extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 	}
 
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 			int nbrChoixSujet = Integer.parseInt(request.getParameter("nbrChoixSujet")) ;

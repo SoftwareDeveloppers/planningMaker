@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.ConfigurationDaoImpl;
 import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
 import dao.FicheDeVoeuxDaoImpl;
 import dao.SujetDaoImpl;
+import model.Configuration;
 import model.Enseignant;
 import model.FicheDeVoeux;
 import model.Sujet;
@@ -36,8 +38,9 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 		} else {
 			int idEtudiant = (Integer) session.getAttribute("idEtudiant");
 			FicheDeVoeuxDaoImpl ficheDao = new FicheDeVoeuxDaoImpl();
-
-			if (ficheDao.nbrSujeuts(idEtudiant) != 5) {
+			int nbrsujetconfig = new ConfigurationDaoImpl().find().getNbrChoixSujet();
+			
+			if (ficheDao.nbrSujeuts(idEtudiant) != nbrsujetconfig ) {
 
 				
 				List<Sujet> sujets = new ArrayList<Sujet>();
@@ -52,6 +55,8 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 				
 				request.setAttribute("sujets", sujets);
 				request.setAttribute("remplie", remplie);
+				//envoie configuration 
+				request.setAttribute("config",new ConfigurationDaoImpl().find());
 				this.getServletContext().getRequestDispatcher("/fiche-de-voeux.jsp").forward(request, response);
 
 			} else {
@@ -74,10 +79,15 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		EtudiantDaoImpl addFiche = new EtudiantDaoImpl();
+		FicheDeVoeuxDaoImpl ficheDao1 = new FicheDeVoeuxDaoImpl();
+		
+		Configuration c = new Configuration() ;
+		 c = new ConfigurationDaoImpl().find() ;
+		 
 		HttpSession session = request.getSession();
 		int idEtudiant = (Integer) session.getAttribute("idEtudiant");
 
-		int idSujet1 = Integer.parseInt(request.getParameter("sujet1"));
+		/*int idSujet1 = Integer.parseInt(request.getParameter("sujet1"));
 		int idSujet2 = Integer.parseInt(request.getParameter("sujet2"));
 		int idSujet3 = Integer.parseInt(request.getParameter("sujet3"));
 		int idSujet4 = Integer.parseInt(request.getParameter("sujet4"));
@@ -89,17 +99,26 @@ public class AjouterFicheDeVoeux extends HttpServlet {
 		FicheDeVoeux fiche4 = new FicheDeVoeux(idEtudiant, idSujet4,4);
 		FicheDeVoeux fiche5 = new FicheDeVoeux(idEtudiant, idSujet5,5);
 
-		FicheDeVoeuxDaoImpl ficheDao1 = new FicheDeVoeuxDaoImpl();
+		
 	
 
 		ficheDao1.create(fiche1);
 		ficheDao1.create(fiche2);
 		ficheDao1.create(fiche3);
 		ficheDao1.create(fiche4);
-		ficheDao1.create(fiche5);
-
-		addFiche.addFicheDeVoeux(idEtudiant, idEtudiant); //comme ca si id fiche de voeux seras generer avec random par ex nehtajou 2 param 									
+		ficheDao1.create(fiche5);*/
 		
+		for (int i= 1 ; i <= c.getNbrChoixSujet() ; i++) {
+			int idSujet = Integer.parseInt(request.getParameter("sujet" + i ));
+			FicheDeVoeux fiche = new FicheDeVoeux(idEtudiant, idSujet, i );
+			ficheDao1.create(fiche);
+		}
+		
+		 /**
+		  * comme ca si id fiche de voeux seras generer avec random par ex nehtajou 2 param
+		  	pour assosier une fiche de veux a un etudiant
+		  **/
+		addFiche.addFicheDeVoeux(idEtudiant, idEtudiant);
 		this.doGet(request, response);
 
 	}
