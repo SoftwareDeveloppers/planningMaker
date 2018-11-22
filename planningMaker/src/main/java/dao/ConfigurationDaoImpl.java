@@ -57,9 +57,68 @@ public class ConfigurationDaoImpl implements ConfigurationDao {
 			e.printStackTrace();
 
 		}
-
 		return c;
+	}
+	public int findNbrSujetPropose() {
+		Connection conn = DbConnect.connect();
+		String sql = "Select nbrSujetPropose FROM configuration WHERE id = 1";
+		PreparedStatement ps;
+		ResultSet rs = null;
+		int nbr = 0;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				nbr = rs.getInt(1);
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
 
+		}
+		return nbr;
+	}
+	
+	public int findNbrjuree() {
+		Connection conn = DbConnect.connect();
+		String sql = "Select nbrJuree FROM configuration WHERE id = 1";
+		PreparedStatement ps;
+		ResultSet rs = null;
+		int nbr = 0;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				nbr = rs.getInt(1);
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return nbr;
+	}
+	
+	public float findTaux() {
+		Connection conn = DbConnect.connect();
+		String sql = "Select taux FROM configuration WHERE id = 1";
+		PreparedStatement ps;
+		ResultSet rs = null;
+		float nbr = 0;
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				nbr = rs.getFloat(1);
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return nbr;
+		
+		
 	}
 
 }

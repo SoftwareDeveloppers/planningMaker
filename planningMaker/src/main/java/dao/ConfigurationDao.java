@@ -8,5 +8,8 @@ public interface ConfigurationDao {
 	
 	public boolean update(Configuration s);
 	public Configuration find();
+	public int findNbrSujetPropose();
+	public int findNbrjuree();
+	public float findTaux();
 
 }

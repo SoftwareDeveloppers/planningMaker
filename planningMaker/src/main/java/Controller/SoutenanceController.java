@@ -19,6 +19,7 @@ import com.mysql.fabric.xmlrpc.base.Array;
 
 import dao.AffectationDaoImpl;
 import dao.AssisteDaoImpl;
+import dao.ConfigurationDaoImpl;
 import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
 import dao.SalleDaoImpl;
@@ -34,9 +35,13 @@ import model.affectationJoin;
 
 public class SoutenanceController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private int limitenbrDeJuree = 0;
 
 	public SoutenanceController() {
 		super();
+		ConfigurationDaoImpl con = new ConfigurationDaoImpl();
+		limitenbrDeJuree = con.findNbrjuree();
+		
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -65,7 +70,6 @@ public class SoutenanceController extends HttpServlet {
 			String[] dateD = soutenanceJoins.get(0).getDate().toString().split("-");
 			String[] datef = soutenanceJoins.get(soutenanceJoins.size() - 1).getDate().toString().split("-");
 			
-			System.out.println(dateD[1]);
 			int moisDebut = Integer.parseInt(dateD[1]);
 			int moisfin = Integer.parseInt(datef[1]);
 			
@@ -90,6 +94,7 @@ public class SoutenanceController extends HttpServlet {
 			//request.setAttribute("assiste", assistes);
 			request.setAttribute("soutnances", soutenanceJoins);
 			request.setAttribute("remplie", remplie);
+			request.setAttribute("limitenbrDeJuree", limitenbrDeJuree);
 			this.getServletContext().getRequestDispatcher("/liste_plannification_soutenance.jsp").forward(request, response);
 		}
 
@@ -112,10 +117,11 @@ public class SoutenanceController extends HttpServlet {
 
 	void pgrSoutenances(String DateSoutenance) {
 		// récuprer tt les étudiants qui son autorisé a passee une soutenance(i.e :
-		// taux=100 %).
+		// taux=? %). voir la variable table de confuguration
+		ConfigurationDaoImpl con = new ConfigurationDaoImpl();
 		ArrayList<Etudiant> etudiants = new ArrayList<Etudiant>();
 		EtudiantDaoImpl etudiant = new EtudiantDaoImpl();
-		etudiants = (ArrayList<Etudiant>) etudiant.findByTaux(100);
+		etudiants = (ArrayList<Etudiant>) etudiant.findByTaux((int)con.findTaux());
 		// tantque reste un étudiant dans la liste
 		while (etudiants.size() != 0) {
 			// choisir un étudiant aléatoirement
@@ -188,13 +194,12 @@ public class SoutenanceController extends HttpServlet {
 		}
 		// afficher hashtable
 		
-		  Enumeration e = Memo.elements(); while (e.hasMoreElements())
-		 System.out.println(e.nextElement());
+		  //Enumeration e = Memo.elements(); while (e.hasMoreElements())
+		 //System.out.println(e.nextElement());
 		 
 		// déclaration des variables
 		int nombreDeParticipation = 0;
 		int nombreDeJurerDispo = 1;
-		int nombreDeJurers = 5;
 		boolean fin = false;
 		int taille = 0;
 		// récuperer tt les soutenances
@@ -235,8 +240,8 @@ public class SoutenanceController extends HttpServlet {
 			// vaut 1 au début car on deja deja l'encadreur dans la table assiste
 			nombreDeJurerDispo = 1;
 			// variable nombreDeJurers vaut 5 : 5 jurers max pour une soutenance
-			nombreDeJurers = 5;
-			// variable boulean pour indiquer si on'a deja pri 4 jurés
+			//limitenbrDeJuree;
+			// variable boulean pour indiquer si on'a deja pri nbr de jurés confuguré
 			fin = false;
 			// variable taille pour enregistrer la taille de la liste
 			taille = enseignantsMemeSpecialite.size();
@@ -252,14 +257,15 @@ public class SoutenanceController extends HttpServlet {
 				// pour ne pas tombé dans une boucle infinie si on'a pas plus que 4 enseignants
 				// dans la liste.
 				// cas spéciale!
-				if (taille < nombreDeJurers) {
-					nombreDeJurers = taille;
+				if (taille < limitenbrDeJuree) {
+					limitenbrDeJuree = taille;
 				}
+				System.out.println("limitenbrDeJuree = "+limitenbrDeJuree);
 				// parcourir notre qui contien les enseignant de la meme spécialité que
 				// l'encadreur
 				for (int i = 0; i < enseignantsMemeSpecialite.size(); i++) {
 					// testé si on a deja 4 jurés
-					if (nombreDeJurerDispo == nombreDeJurers) {
+					if (nombreDeJurerDispo == limitenbrDeJuree) {
 						// si oui on sort de la boucle for
 						fin = true;
 						break;
@@ -294,8 +300,8 @@ public class SoutenanceController extends HttpServlet {
 		// fin méthode choisirJures()
 		// afficher hashtable
 		
-		  Enumeration r = Memo.elements(); while (r.hasMoreElements())
-		  System.out.println(r.nextElement()+"----");
+		  //Enumeration r = Memo.elements(); while (r.hasMoreElements())
+		  //System.out.println(r.nextElement()+"----");
 	}
 
 			 

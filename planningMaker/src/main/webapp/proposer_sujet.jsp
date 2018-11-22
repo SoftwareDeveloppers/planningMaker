@@ -180,7 +180,7 @@ $(window).on('load',function(){
             }
         });
     };
-        notify('il vous reste <c:out value="${ 5 - nombre_de_sujet }"></c:out> sujets a proposé ', 'inverse');
+        notify('il vous reste <c:out value="${ nombre_de_sujet }"></c:out> sujets a proposé ', 'inverse');
    
 });
 
@@ -244,7 +244,7 @@ $('#btnAjouter').click(function(){
 				 $.growl({
 			            icon: '',
 			            title: 'Erreur ',
-			            message: 'vous aver deja proposer 5 sujets ',
+			            message: 'vous avez atteint la limite des sujets propose pour chaque enseignant ',
 			            url: ''
 			        },{
 			            element: 'body',

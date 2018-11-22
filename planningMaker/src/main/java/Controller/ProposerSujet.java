@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import dao.ConfigurationDaoImpl;
 import dao.SujetDaoImpl;
 import model.Sujet;
 
@@ -22,10 +23,13 @@ public class ProposerSujet extends HttpServlet {
 	
 	Integer id= 0;
 	int nombre_de_sujet =-1;
-       
+	int limite = 0;
+	
    
     public ProposerSujet() {
         super();   
+        ConfigurationDaoImpl con = new ConfigurationDaoImpl();
+    	limite = con.findNbrSujetPropose();
     }
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,6 +43,7 @@ public class ProposerSujet extends HttpServlet {
 
 		request.setAttribute("sujets", sujets);
 		nombre_de_sujet = sujetdao.nombreDeSujet(id);
+		nombre_de_sujet = limite - nombre_de_sujet;
 		request.setAttribute("nombre_de_sujet", nombre_de_sujet);
 		this.getServletContext().getRequestDispatcher("/proposer_sujet.jsp").forward(request, response);
 	}
@@ -65,7 +70,7 @@ public class ProposerSujet extends HttpServlet {
 		SujetDaoImpl sujetdao = new SujetDaoImpl();
 		nombre_de_sujet = sujetdao.nombreDeSujet(id);
 		
-		if( nombre_de_sujet < 5) 
+		if( nombre_de_sujet < limite) 
 		{
 			boolean create = sujetdao2.create(sujet);
 			System.out.println(create);

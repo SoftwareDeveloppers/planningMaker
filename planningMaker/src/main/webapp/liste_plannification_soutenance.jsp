@@ -94,16 +94,16 @@
 																		<c:forEach items="${ soutnances }" var="sout"
 																			varStatus="stat">
 
-																			<c:if test="${(stat.index mod 5) == 0 }">
+																			<c:if test="${(stat.index mod 4) == 0 }">
 																				<tr>
-																					<th rowspan="5" align="center">${sout.getId_salle()}
+																					<th rowspan="${limitenbrDeJuree}" align="center">${sout.getId_salle()}
 																					</th>
-																					<th rowspan="5" align="center">${sout.date}</th>
-																					<th rowspan="5" align="center">${sout.getHeure()}
+																					<th rowspan="${limitenbrDeJuree}" align="center">${sout.date}</th>
+																					<th rowspan="${limitenbrDeJuree}" align="center">${sout.getHeure()}
 																					</th>
-																					<th rowspan="5" align="center">${sout.titreSujets}
+																					<th rowspan="${limitenbrDeJuree}" align="center">${sout.titreSujets}
 																					</th>
-																					<th rowspan="5" align="center">${sout.etudnom}
+																					<th rowspan="${limitenbrDeJuree}" align="center">${sout.etudnom}
 																						${sout.etudePrenom}</th>
 																			</c:if>
 																			<td>${sout.jurenom}${sout.jurePrenom}</td>
