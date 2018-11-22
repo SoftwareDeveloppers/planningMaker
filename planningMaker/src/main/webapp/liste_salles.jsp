@@ -122,7 +122,6 @@
                     <div class="form-group">
                         
                         <c:if test="${salle.getEtat()==1}">
-                        	
                         	<input type="radio" class="form-control" name="etat" value="1" checked>Libre<br>
                         	<input type="radio" class="form-control" name="etat" value="0">Occupe
                         </c:if>
