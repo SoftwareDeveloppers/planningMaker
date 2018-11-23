@@ -24,7 +24,18 @@ public class Login extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		
+		SystemMacAddress sysMac = new SystemMacAddress();
+		String macAdress = sysMac.getSystemMac();
+		System.out.println(macAdress);
+		
+		//Verification mac adress enlever le if des commentaire
+		/*if(macAdress.equals("40-F0-2F-73-0A-35"))
+		{*/
+			this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+		//}
+		//else {System.out.println("Mac invalid");}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
