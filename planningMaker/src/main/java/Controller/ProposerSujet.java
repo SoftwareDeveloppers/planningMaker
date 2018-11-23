@@ -54,12 +54,12 @@ public class ProposerSujet extends HttpServlet {
 		response.setContentType("text/plain");
 		PrintWriter out = response.getWriter();
 		
-		//Récupérer les données du formulaire.
+		//Rï¿½cupï¿½rer les donnï¿½es du formulaire.
 		String select  = request.getParameter("select");
 		String titre = request.getParameter("titre");
 		String desc = request.getParameter("desc");
 		
-		//Récupérer la date. 
+		//Rï¿½cupï¿½rer la date. 
 		LocalDate localDate = LocalDate.now();
 		Date date = Date.valueOf(localDate);
 		 //System.out.println(DateTimeFormatter.ofPattern("yyy/MM/dd").format(localDate));
@@ -68,6 +68,7 @@ public class ProposerSujet extends HttpServlet {
 
 		SujetDaoImpl sujetdao2 = new SujetDaoImpl();
 		SujetDaoImpl sujetdao = new SujetDaoImpl();
+		
 		nombre_de_sujet = sujetdao.nombreDeSujet(id);
 		
 		if( nombre_de_sujet < limite) 

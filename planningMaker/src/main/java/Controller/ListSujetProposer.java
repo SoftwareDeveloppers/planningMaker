@@ -1,6 +1,8 @@
 package Controller;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -37,7 +39,28 @@ public class ListSujetProposer extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		if(request.getParameter("sujetSup") != null) {
+			int id_sujet = Integer.parseInt(request.getParameter("sujetSup"));
+			SujetDaoImpl sujetDao = new SujetDaoImpl();
+			Sujet s = new Sujet();
+			s.setId(id_sujet);
+			sujetDao.delete(s);
+		}else if(request.getParameter("sujetMod") != null) {
+			int id_sujet = Integer.parseInt(request.getParameter("sujetMod"));
+			String titre = request.getParameter("titre");
+			String contenu = request.getParameter("contenu");
+			//Recuperer la date. 
+			LocalDate localDate = LocalDate.now();
+			Date date = Date.valueOf(localDate);
+			Sujet s = new Sujet();
+			s.setId(id_sujet);
+			s.setTitre(titre);
+			s.setContenu(contenu);
+			s.setDateCreation(date);
+			SujetDaoImpl sujetDao = new SujetDaoImpl();
+			sujetDao.update(s);
+		}
+		doGet(request, response);
 		
 		
 	}

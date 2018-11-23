@@ -58,16 +58,15 @@ public class SujetDaoImpl implements SujetDao{
 
 	public boolean update(Sujet sujet) {
 		Connection conn=DbConnect.connect();
-		String sql="UPDATE sujet SET titre = '?', contenu = '?', specialite = '?', creation = '?', Id_Enseignant = '?'"
+		String sql="UPDATE sujet SET titre = ?, contenu = ?,date_creation = ?"
 				+ " WHERE id = ?;";
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			ps.setString(1, sujet.getTitre());
-			ps.setString(2, sujet.getContenu());
-			ps.setString(3, sujet.getSpecialite());
-			ps.setDate(4, sujet.getDateCreation());
-			ps.setInt(5, sujet.getId_enseignant());
+			ps.setString(2,sujet.getContenu());
+			ps.setDate(3, sujet.getDateCreation());
+			ps.setInt(4, sujet.getId());
 			ps.execute();
 			conn.close();
 			
