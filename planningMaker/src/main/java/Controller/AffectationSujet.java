@@ -29,7 +29,8 @@ public class AffectationSujet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	boolean remplie = false;
 	String param = null;
-	
+	private ArrayList<Etudiant> etudiantE = new ArrayList<Etudiant>();
+
 	public AffectationSujet() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -38,9 +39,10 @@ public class AffectationSujet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		if(param == null)
-		{param = request.getParameter("etudiantEncadrer");}
-		if ( param != null) {
+		if (param == null) {
+			param = request.getParameter("etudiantEncadrer");
+		}
+		if (param != null) {
 			HttpSession session1 = request.getSession();
 			int idEns = (Integer) session1.getAttribute("idEnseignant");
 			System.out.println("doget etu encadrer");
@@ -52,28 +54,25 @@ public class AffectationSujet extends HttpServlet {
 			List<Affectation> affectations = new ArrayList<Affectation>();
 			EtudiantDaoImpl etudDao = new EtudiantDaoImpl();
 			List<Etudiant> etud = new ArrayList<Etudiant>();
-			
-			for(int i=0; i<sujets.size();i++)
-			{
+
+			for (int i = 0; i < sujets.size(); i++) {
 				Affectation af = affectation.findBySujet(sujets.get(i).getId());
 				affectations.add(af);
-				if(af != null)
-				{
+				if (af != null) {
 					Etudiant etu = etudDao.findById(af.getId_Etudiant());
 					etud.add(etu);
 				}
-				
+
 			}
 			param = null;
 			request.setAttribute("sujets", sujets);
 			request.setAttribute("etudiants", etud);
 			request.setAttribute("affectations", affectations);
 			this.getServletContext().getRequestDispatcher("/EtudiantEncadrer.jsp").forward(request, response);
-		
-			}
-		
-		
-		if (session.getAttribute("idAgent") == null && session.getAttribute("idEtudiant") == null ) {
+
+		}
+
+		if (session.getAttribute("idAgent") == null && session.getAttribute("idEtudiant") == null) {
 
 			response.sendRedirect("Deconnexion");
 
@@ -89,11 +88,14 @@ public class AffectationSujet extends HttpServlet {
 				remplie = true;
 				request.setAttribute("remplie", remplie);
 				request.setAttribute("affectations", affectations);
-				ArrayList<affectationJoin> e = affectation.jointureAffectaction();
 
-				request.setAttribute("ListAffectation",e );
-				
+				ArrayList<affectationJoin> e = affectation.jointureAffectaction();
+				request.setAttribute("ListAffectation", e);
+				request.setAttribute("etudiantE", etudiantE);
+			
 				this.getServletContext().getRequestDispatcher("/affectation_sujet.jsp").forward(request, response);
+				etudiantE.removeAll(etudiantE);
+
 			}
 		}
 	}
@@ -101,28 +103,26 @@ public class AffectationSujet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		if(request.getParameter("updateTaux")!=null)
-		{
+		if (request.getParameter("updateTaux") != null) {
 			int updateTaux = Integer.parseInt(request.getParameter("updateTaux"));
 			int idEtud = Integer.parseInt(request.getParameter("tauxEtud"));
 			EtudiantDaoImpl etudDao = new EtudiantDaoImpl();
 			etudDao.updateTaux(idEtud, updateTaux);
-			//String att = "132za&ze";
+			// String att = "132za&ze";
 			param = "132za&ze";
 			this.doGet(request, response);
 		}
-		
-		if(request.getParameter("idEtudRem") != null)
-		{
+
+		if (request.getParameter("idEtudRem") != null) {
 			int idEtud = Integer.parseInt(request.getParameter("idEtudRem"));
 			String titreRem = request.getParameter("titreRem");
 			String contenuRem = request.getParameter("textarea");
-			System.out.println("titre rem"+titreRem);
-			System.out.println("id etud"+idEtud);
-			Remarque rem = new Remarque(idEtud,titreRem,contenuRem);
+			System.out.println("titre rem" + titreRem);
+			System.out.println("id etud" + idEtud);
+			Remarque rem = new Remarque(idEtud, titreRem, contenuRem);
 			RemarqueDaoImpl remDao = new RemarqueDaoImpl();
 			remDao.create(rem);
-			
+
 			param = "132za&ze";
 			this.doGet(request, response);
 		}
@@ -131,7 +131,7 @@ public class AffectationSujet extends HttpServlet {
 		ArrayList<Sujet> sujets = new ArrayList<Sujet>();
 		SujetDaoImpl sujet = new SujetDaoImpl();
 		sujets = (ArrayList<Sujet>) sujet.findAll();
-		String spe[]= {"Gl","RSD","SIC"};
+		String spe[] = { "Gl", "RSD", "SIC" };
 
 		for (int z = 0; z < 3; z++) {
 
@@ -179,7 +179,9 @@ public class AffectationSujet extends HttpServlet {
 						ordre++;
 				} while (ordre <= 5 && !trouve);
 				if (!trouve) {
-					System.out.println("pas de chance tout les sujets sont pris");
+					// System.out.println( etudiants.get(i).getNom()+"pas de chance tout les sujets
+					// sont pris");
+					etudiantE.add(etudiant.findById(etudiants.get(i).getId()));
 				}
 			}
 		}
