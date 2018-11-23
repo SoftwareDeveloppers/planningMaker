@@ -20,7 +20,8 @@
 									<i class="icofont icofont-table bg-c-blue"></i>
 									<div class="d-inline">
 										<h4>Liste d'affectation des sujets</h4>
-										<span>trouver dans cette page la liste d'affectation des sujets </span>
+										<span>trouver dans cette page la liste d'affectation
+											des sujets </span>
 									</div>
 								</div>
 							</div>
@@ -46,10 +47,55 @@
 							<div class="col-sm-12">
 								<c:if test="${remplie}">
 									<c:if test="${ !empty(sessionScope.idAgent)}">
-									<form action="SupprmerSoutenancesController" method="get">
-										<button class="btn hor-grd btn-grd-inverse">supprimer les sujets</button>
-									</form>
-							</c:if>
+										<form action="SupprmerSoutenancesController" method="get">
+											<button class="btn hor-grd btn-grd-inverse">supprimer
+												l'affectation des sujets</button>
+										</form>
+									</c:if>
+									<c:if test="${ !empty(etudiantE)}">
+									
+										<div class="card">
+											<div class="card-header">
+												<h5>Attention</h5>
+												<span>Des étudiants n'ont pas réussir a choisir un sujet
+												</span>
+												<div class="card-header-right">
+													<ul class="list-unstyled card-option" style="width: 180px;">
+														<li><i
+															class="icofont icofont-simple-left icofont-simple-right"></i></li>
+														<li><i class="icofont icofont-maximize full-card"></i></li>
+														<li><i class="icofont icofont-minus minimize-card"></i></li>
+														<li><i class="icofont icofont-refresh reload-card"></i></li>
+														<li><i class="icofont icofont-error close-card"></i></li>
+													</ul>
+												</div>
+											</div>
+											<div class="card-block table-border-style">
+												<div class="table-responsive">
+													<table class="table table-styling table-info">
+														<thead>
+															<tr>
+																<th>#</th>
+																<th>Nom Prenom</th>
+																<th>Spécialite</th>
+																<th>Adresse</th>
+															</tr>
+														</thead>
+														<tbody>
+															<c:forEach items="${etudiantE}" var="etu">
+																<tr>
+																	<th scope="row">${etu.getId()}</th>
+																	<td>${etu.getNom()} ${etu.getPrenom()}</td>
+																	<td>${etu.getSpecialite()}</td>
+																	<td>${etu.getEmail()}</td>
+																</tr>
+															</c:forEach>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</c:if>
 									<!-- Zero config.table start -->
 									<div class="card">
 										<div class="card-header">
@@ -96,12 +142,12 @@
 								</c:if>
 
 								<c:if test="${ !remplie &&  sessionScope.idAgent!=null }">
-								<form action="AffectationSujet" method="POST">
+									<form action="AffectationSujet" method="POST">
 										<button class="btn hor-grd btn-grd-inverse">affectation
 											des sujets</button>
 									</form>
 								</c:if>
-								
+
 							</div>
 						</div>
 					</div>
