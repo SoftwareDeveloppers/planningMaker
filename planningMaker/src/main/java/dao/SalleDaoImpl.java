@@ -85,8 +85,8 @@ public class SalleDaoImpl implements SalleDao{
 			if (rs.next()){
 				salle = new Salle(
 						rs.getInt(1),
-						rs.getString(2),
-						rs.getInt(3)
+						rs.getInt(2),
+						rs.getString(3)
 						);
 			}	
 			conn.close();
@@ -114,8 +114,8 @@ public class SalleDaoImpl implements SalleDao{
 			while (rs.next()){
 				salle = new Salle(
 						rs.getInt(1),
-						rs.getString(2),
-						rs.getInt(3)
+						rs.getInt(2),
+						rs.getString(3)
 						);
 				
 				salles.add(salle);
@@ -143,8 +143,8 @@ public class SalleDaoImpl implements SalleDao{
 			if (rs.next()){
 				salle = new Salle(
 						rs.getInt(1),
-						rs.getString(2),
-						rs.getInt(3)
+						rs.getInt(2),
+						rs.getString(3)
 						);
 			}	
 			conn.close();

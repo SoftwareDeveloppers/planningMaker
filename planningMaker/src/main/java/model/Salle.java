@@ -2,18 +2,18 @@ package model;
 
 public class Salle {
 	
+	private int id;
 	private int etat;
 	private String numSalle;
-	private int id;
 	
 	public Salle() {	
 	}
 	
-	public Salle(int id, String numSalle, int etat) {
+	public Salle(int id, int etat, String numSalle) {
 		super();
 		this.id = id;
-		this.numSalle = numSalle;
 		this.etat = etat;
+		this.numSalle = numSalle;
 	}
 
 	public int getEtat() {

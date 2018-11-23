@@ -67,7 +67,7 @@ public class SalleController extends HttpServlet {
 		if(idSalle != null) {
 			SalleDaoImpl salleDaoDelete = new SalleDaoImpl();
 			int idSl = Integer.parseInt(idSalle);
-			Salle sl = new Salle(idSl,"",0);
+			Salle sl = new Salle(idSl,0,"");
 			salleDaoDelete.delete(sl);
 			list = "abc";
 			this.doGet(request, response);
@@ -81,7 +81,7 @@ public class SalleController extends HttpServlet {
 			int etat = Integer.parseInt(etatS);
 			
 			SalleDaoImpl salleDaoUpd = new SalleDaoImpl();
-			Salle salle = new Salle(idSalleMod, numSal,etat);
+			Salle salle = new Salle(idSalleMod,etat, numSal);
 			if (salleDaoUpd.update(salle)) {
 				System.out.println("salle updatedd");
 				list = "abc";
@@ -96,7 +96,7 @@ public class SalleController extends HttpServlet {
 
 			String nom = request.getParameter("numSalle");
 			
-			Salle salle = new Salle(0, numSalle, 1);
+			Salle salle = new Salle(0, 1, numSalle);
 			if (salleDao.create(salle)) {
 				out.print("./SalleController?Liste=salles");
 

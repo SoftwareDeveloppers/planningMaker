@@ -2,10 +2,10 @@
 -- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 22, 2018 at 01:36 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Hôte : 127.0.0.1
+-- Généré le :  ven. 23 nov. 2018 à 00:58
+-- Version du serveur :  10.1.31-MariaDB
+-- Version de PHP :  7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `planning_maker`
+-- Base de données :  `planning_maker`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `affectation`
+-- Structure de la table `affectation`
 --
 
 CREATE TABLE `affectation` (
@@ -34,25 +34,10 @@ CREATE TABLE `affectation` (
   `id_Sujet` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `affectation`
---
-
-INSERT INTO `affectation` (`id`, `id_Etudiant`, `id_Sujet`) VALUES
-(2, 5, 184),
-(9, 7, 186),
-(9, 12, 187),
-(10, 3, 183),
-(18, 11, 192),
-(23, 9, 181),
-(24, 8, 182),
-(29, 6, 188),
-(30, 4, 185);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agentadmin`
+-- Structure de la table `agentadmin`
 --
 
 CREATE TABLE `agentadmin` (
@@ -64,7 +49,7 @@ CREATE TABLE `agentadmin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `agentadmin`
+-- Déchargement des données de la table `agentadmin`
 --
 
 INSERT INTO `agentadmin` (`id`, `nom`, `prenom`, `email`, `mdp`) VALUES
@@ -73,7 +58,7 @@ INSERT INTO `agentadmin` (`id`, `nom`, `prenom`, `email`, `mdp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `assiste`
+-- Structure de la table `assiste`
 --
 
 CREATE TABLE `assiste` (
@@ -81,52 +66,10 @@ CREATE TABLE `assiste` (
   `id_Enseignant` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `assiste`
---
-
-INSERT INTO `assiste` (`id`, `id_Enseignant`) VALUES
-(72, 7),
-(72, 15),
-(72, 25),
-(72, 30),
-(73, 9),
-(73, 19),
-(73, 31),
-(73, 33),
-(74, 4),
-(74, 6),
-(74, 12),
-(74, 24),
-(75, 3),
-(75, 16),
-(75, 18),
-(75, 27),
-(76, 1),
-(76, 13),
-(76, 22),
-(76, 23),
-(77, 7),
-(77, 9),
-(77, 32),
-(77, 34),
-(78, 1),
-(78, 2),
-(78, 14),
-(78, 22),
-(79, 15),
-(79, 25),
-(79, 29),
-(79, 35),
-(80, 8),
-(80, 10),
-(80, 26),
-(80, 28);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `configuration`
+-- Structure de la table `configuration`
 --
 
 CREATE TABLE `configuration` (
@@ -138,7 +81,7 @@ CREATE TABLE `configuration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `configuration`
+-- Déchargement des données de la table `configuration`
 --
 
 INSERT INTO `configuration` (`id`, `nbrChoix`, `nbrSujetPropose`, `nbrJuree`, `taux`) VALUES
@@ -147,7 +90,7 @@ INSERT INTO `configuration` (`id`, `nbrChoix`, `nbrSujetPropose`, `nbrJuree`, `t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `enseignant`
+-- Structure de la table `enseignant`
 --
 
 CREATE TABLE `enseignant` (
@@ -165,7 +108,7 @@ CREATE TABLE `enseignant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `enseignant`
+-- Déchargement des données de la table `enseignant`
 --
 
 INSERT INTO `enseignant` (`id`, `nom`, `prenom`, `dateN`, `adresse`, `email`, `mdp`, `specialite`, `grade`, `telephone`, `sexe`) VALUES
@@ -208,7 +151,7 @@ INSERT INTO `enseignant` (`id`, `nom`, `prenom`, `dateN`, `adresse`, `email`, `m
 -- --------------------------------------------------------
 
 --
--- Table structure for table `etudiant`
+-- Structure de la table `etudiant`
 --
 
 CREATE TABLE `etudiant` (
@@ -227,7 +170,7 @@ CREATE TABLE `etudiant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `etudiant`
+-- Déchargement des données de la table `etudiant`
 --
 
 INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, `specialite`, `promotion`, `moyenne`, `taux`, `id_FicheDeVoeux`, `id_Enseignant`) VALUES
@@ -328,7 +271,7 @@ INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `email`, `mdp`, `dateNaissance`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fichedevoeux`
+-- Structure de la table `fichedevoeux`
 --
 
 CREATE TABLE `fichedevoeux` (
@@ -338,7 +281,7 @@ CREATE TABLE `fichedevoeux` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `fichedevoeux`
+-- Déchargement des données de la table `fichedevoeux`
 --
 
 INSERT INTO `fichedevoeux` (`id`, `id_Sujet`, `ordre`) VALUES
@@ -373,7 +316,7 @@ INSERT INTO `fichedevoeux` (`id`, `id_Sujet`, `ordre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `remarque`
+-- Structure de la table `remarque`
 --
 
 CREATE TABLE `remarque` (
@@ -387,28 +330,30 @@ CREATE TABLE `remarque` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `salle`
+-- Structure de la table `salle`
 --
 
 CREATE TABLE `salle` (
   `id` int(11) NOT NULL,
-  `etat` int(1) NOT NULL
+  `etat` int(1) NOT NULL,
+  `numSalle` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `salle`
+-- Déchargement des données de la table `salle`
 --
 
-INSERT INTO `salle` (`id`, `etat`) VALUES
-(1, 2),
-(2, 1),
-(3, 1),
-(4, 1);
+INSERT INTO `salle` (`id`, `etat`, `numSalle`) VALUES
+(1, 1, 'n101'),
+(2, 1, 'n102'),
+(3, 1, 'n103'),
+(4, 1, 'n104'),
+(5, 1, 'n105');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `soutenance`
+-- Structure de la table `soutenance`
 --
 
 CREATE TABLE `soutenance` (
@@ -419,25 +364,10 @@ CREATE TABLE `soutenance` (
   `id_Etudiant` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `soutenance`
---
-
-INSERT INTO `soutenance` (`id`, `date`, `heure`, `id_Salle`, `id_Etudiant`) VALUES
-(72, '2018-11-23', '10:00:00', 1, 4),
-(73, '2018-11-23', '14:00:00', 1, 12),
-(74, '2018-11-23', '10:00:00', 2, 8),
-(75, '2018-11-23', '14:00:00', 2, 11),
-(76, '2018-11-23', '10:00:00', 3, 9),
-(77, '2018-11-23', '14:00:00', 3, 7),
-(78, '2018-11-23', '10:00:00', 4, 5),
-(79, '2018-11-23', '14:00:00', 4, 6),
-(80, '2018-11-24', '10:00:00', 1, 3);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sujet`
+-- Structure de la table `sujet`
 --
 
 CREATE TABLE `sujet` (
@@ -450,7 +380,7 @@ CREATE TABLE `sujet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `sujet`
+-- Déchargement des données de la table `sujet`
 --
 
 INSERT INTO `sujet` (`id`, `titre`, `contenu`, `specialite`, `date_creation`, `id_Enseignant`) VALUES
@@ -519,11 +449,11 @@ INSERT INTO `sujet` (`id`, `titre`, `contenu`, `specialite`, `date_creation`, `i
 (244, 'gestion des souris', 'blqblqblq', 'GL', '2018-11-12', 12);
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `affectation`
+-- Index pour la table `affectation`
 --
 ALTER TABLE `affectation`
   ADD PRIMARY KEY (`id`,`id_Etudiant`,`id_Sujet`),
@@ -531,32 +461,32 @@ ALTER TABLE `affectation`
   ADD KEY `FK_affectation_id_Sujet` (`id_Sujet`);
 
 --
--- Indexes for table `agentadmin`
+-- Index pour la table `agentadmin`
 --
 ALTER TABLE `agentadmin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `assiste`
+-- Index pour la table `assiste`
 --
 ALTER TABLE `assiste`
   ADD PRIMARY KEY (`id`,`id_Enseignant`),
   ADD KEY `FK_assiste_id_Enseignant` (`id_Enseignant`);
 
 --
--- Indexes for table `configuration`
+-- Index pour la table `configuration`
 --
 ALTER TABLE `configuration`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `enseignant`
+-- Index pour la table `enseignant`
 --
 ALTER TABLE `enseignant`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `etudiant`
+-- Index pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
   ADD PRIMARY KEY (`id`),
@@ -564,26 +494,26 @@ ALTER TABLE `etudiant`
   ADD KEY `FK_Etudiant_id_Enseignant` (`id_Enseignant`);
 
 --
--- Indexes for table `fichedevoeux`
+-- Index pour la table `fichedevoeux`
 --
 ALTER TABLE `fichedevoeux`
   ADD PRIMARY KEY (`id`,`id_Sujet`,`ordre`) USING BTREE,
   ADD KEY `FK_FicheDeVoeux_id_Sujet` (`id_Sujet`);
 
 --
--- Indexes for table `remarque`
+-- Index pour la table `remarque`
 --
 ALTER TABLE `remarque`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `salle`
+-- Index pour la table `salle`
 --
 ALTER TABLE `salle`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `soutenance`
+-- Index pour la table `soutenance`
 --
 ALTER TABLE `soutenance`
   ADD PRIMARY KEY (`id`),
@@ -591,76 +521,76 @@ ALTER TABLE `soutenance`
   ADD KEY `id_Etudiant` (`id_Etudiant`);
 
 --
--- Indexes for table `sujet`
+-- Index pour la table `sujet`
 --
 ALTER TABLE `sujet`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_Sujet_id_Enseignant` (`id_Enseignant`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `agentadmin`
+-- AUTO_INCREMENT pour la table `agentadmin`
 --
 ALTER TABLE `agentadmin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `configuration`
+-- AUTO_INCREMENT pour la table `configuration`
 --
 ALTER TABLE `configuration`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `enseignant`
+-- AUTO_INCREMENT pour la table `enseignant`
 --
 ALTER TABLE `enseignant`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `etudiant`
+-- AUTO_INCREMENT pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
--- AUTO_INCREMENT for table `fichedevoeux`
+-- AUTO_INCREMENT pour la table `fichedevoeux`
 --
 ALTER TABLE `fichedevoeux`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `remarque`
+-- AUTO_INCREMENT pour la table `remarque`
 --
 ALTER TABLE `remarque`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `salle`
+-- AUTO_INCREMENT pour la table `salle`
 --
 ALTER TABLE `salle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `soutenance`
+-- AUTO_INCREMENT pour la table `soutenance`
 --
 ALTER TABLE `soutenance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `sujet`
+-- AUTO_INCREMENT pour la table `sujet`
 --
 ALTER TABLE `sujet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=245;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `affectation`
+-- Contraintes pour la table `affectation`
 --
 ALTER TABLE `affectation`
   ADD CONSTRAINT `affectation_ibfk_1` FOREIGN KEY (`id`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -668,34 +598,33 @@ ALTER TABLE `affectation`
   ADD CONSTRAINT `affectation_ibfk_3` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `assiste`
+-- Contraintes pour la table `assiste`
 --
 ALTER TABLE `assiste`
   ADD CONSTRAINT `assiste_ibfk_2` FOREIGN KEY (`id`) REFERENCES `soutenance` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `assiste_ibfk_3` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `etudiant`
+-- Contraintes pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
   ADD CONSTRAINT `etudiant_ibfk_1` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `etudiant_ibfk_2` FOREIGN KEY (`id_FicheDeVoeux`) REFERENCES `fichedevoeux` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `fichedevoeux`
+-- Contraintes pour la table `fichedevoeux`
 --
 ALTER TABLE `fichedevoeux`
   ADD CONSTRAINT `fichedevoeux_ibfk_1` FOREIGN KEY (`id_Sujet`) REFERENCES `sujet` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `soutenance`
+-- Contraintes pour la table `soutenance`
 --
 ALTER TABLE `soutenance`
-  ADD CONSTRAINT `soutenance_ibfk_3` FOREIGN KEY (`id_Salle`) REFERENCES `salle` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `soutenance_ibfk_4` FOREIGN KEY (`id_Etudiant`) REFERENCES `etudiant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `sujet`
+-- Contraintes pour la table `sujet`
 --
 ALTER TABLE `sujet`
   ADD CONSTRAINT `sujet_ibfk_2` FOREIGN KEY (`id_Enseignant`) REFERENCES `enseignant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
