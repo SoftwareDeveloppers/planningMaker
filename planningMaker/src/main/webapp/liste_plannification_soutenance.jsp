@@ -3,6 +3,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false"%>
+	 <% response.setHeader("Cache-Control","no-cache"); //HTTP 1.1 
+ response.setHeader("Pragma","no-cache"); //HTTP 1.0 
+ response.setDateHeader ("Expires", 0); //prevents caching at the proxy server  
+%>
 <jsp:include page="header.jsp"></jsp:include>
 <div class="pcoded-content">
 	<div class="pcoded-inner-content">
@@ -94,7 +98,7 @@
 																		<c:forEach items="${ soutnances }" var="sout"
 																			varStatus="stat">
 
-																			<c:if test="${(stat.index mod 4) == 0 }">
+																			<c:if test="${(stat.index mod limitenbrDeJuree) == 0 }">
 																				<tr>
 																					<th rowspan="${limitenbrDeJuree}" align="center">${sout.getId_salle()}
 																					</th>

@@ -21,8 +21,10 @@ public class ListeEnseignant extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		EnseignantDaoImpl enseignant = new EnseignantDaoImpl();
 		ArrayList<Enseignant> enseignants = new ArrayList<Enseignant>();
+		
 		enseignants = (ArrayList<Enseignant>) enseignant.findAll();
 		request.setAttribute("enseignants", enseignants);
 		this.getServletContext().getRequestDispatcher("/liste_enseignant.jsp").forward(request, response);

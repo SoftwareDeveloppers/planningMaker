@@ -27,7 +27,10 @@ public class AgentController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if (request.getParameter("Liste") != null) {
+		
+		HttpSession sessionAg = request.getSession();
+
+		if (request.getParameter("Liste") != null && sessionAg.getAttribute("idAgent") != null ) {
 
 			AgentDaoImpl agentDao = new AgentDaoImpl();
 			ArrayList<AgentAdmin> agents = new ArrayList<AgentAdmin>();

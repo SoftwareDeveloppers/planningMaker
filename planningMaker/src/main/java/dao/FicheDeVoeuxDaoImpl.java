@@ -190,6 +190,30 @@ public class FicheDeVoeuxDaoImpl implements FicheDeVoeuxDao {
 		
 	}
 
+	public boolean deleteAll() {
+
+		Connection conn=DbConnect.connect();
+		boolean verif = false ;
+		
+		String sql = "DELETE FROM fichedevoeux WHERE 1";
+		String sql2= "UPDATE etudiant set taux = 0 WHERE 1 "; 
+		PreparedStatement ps;
+		try {
+			
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			verif=ps.execute();
+			ps = (PreparedStatement) conn.prepareStatement(sql2);
+			ps.execute() ;
+			conn.close();
+			
+			
+		} catch (SQLException ex) {
+			ex.printStackTrace();	
+		}
+		
+		return verif ;
+	}
+
 		
 		
 	

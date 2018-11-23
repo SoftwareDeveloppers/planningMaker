@@ -214,12 +214,14 @@ public class AffectationDaoImpl implements AffectationDao{
 		Connection conn = DbConnect.connect();
 		boolean verif = false;
 		String sql = "DELETE FROM affectation";
+		String sql2= "UPDATE etudiant set id_enseignant = null WHERE 1 "; 
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
 			
 			verif = ps.execute();
-			
+			ps = (PreparedStatement) conn.prepareStatement(sql2);
+			ps.execute();
 			conn.close();
 
 		} catch (SQLException ex) {

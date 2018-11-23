@@ -30,7 +30,9 @@ public class EtudiantController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if (request.getParameter("Liste") != null) {
+		HttpSession sessionAg = request.getSession();
+		
+		if (request.getParameter("Liste") != null && sessionAg.getAttribute("idAgent") != null  ) {
 			
 			EtudiantDaoImpl etudiant = new EtudiantDaoImpl();
 			ArrayList<Etudiant> etudiants = new ArrayList<Etudiant>();
@@ -44,7 +46,7 @@ public class EtudiantController extends HttpServlet {
 			HttpSession session = request.getSession();
 			if (session.getAttribute("idEtudiant") == null ) {
 
-				response.sendRedirect("Login");
+				response.sendRedirect("Deconnexion");
 
 			} else {
 				int idEtudiant = (Integer) session.getAttribute("idEtudiant");

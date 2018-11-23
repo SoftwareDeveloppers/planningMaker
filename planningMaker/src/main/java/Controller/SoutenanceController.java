@@ -38,9 +38,10 @@ public class SoutenanceController extends HttpServlet {
 	private int limitenbrDeJuree = 0;
 
 	public SoutenanceController() {
-		super();
+		
 		ConfigurationDaoImpl con = new ConfigurationDaoImpl();
 		limitenbrDeJuree = con.findNbrjuree();
+	
 		
 	}
 
@@ -66,6 +67,7 @@ public class SoutenanceController extends HttpServlet {
 
 			}
 			else {
+			
 				remplie = true ;
 			String[] dateD = soutenanceJoins.get(0).getDate().toString().split("-");
 			String[] datef = soutenanceJoins.get(soutenanceJoins.size() - 1).getDate().toString().split("-");
@@ -104,6 +106,10 @@ public class SoutenanceController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		ConfigurationDaoImpl con = new ConfigurationDaoImpl();
+		limitenbrDeJuree = con.findNbrjuree();
+		
 		// récupérer date début des soutenances saisie par l'agent.
 		String DateSoutenance = request.getParameter("DateSoutenance");
 
@@ -257,6 +263,8 @@ public class SoutenanceController extends HttpServlet {
 				// pour ne pas tombé dans une boucle infinie si on'a pas plus que 4 enseignants
 				// dans la liste.
 				// cas spéciale!
+				System.out.println("limitenbrDeJuree 3= = "+limitenbrDeJuree);
+
 				if (taille < limitenbrDeJuree) {
 					limitenbrDeJuree = taille;
 				}

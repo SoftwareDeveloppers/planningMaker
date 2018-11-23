@@ -31,13 +31,11 @@ public class EnseignantControler extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		if(list == null)
-		{
-			list = request.getParameter("Liste");
-		}
-		
-		if (list != null) {
+	
+		HttpSession sessionAg = request.getSession();
+
+
+		if (request.getParameter("Liste") != null && sessionAg.getAttribute("idAgent") != null ) {
 			
 			EnseignantDaoImpl enseignant = new EnseignantDaoImpl();
 			List<Enseignant> enseignants = new ArrayList<Enseignant>();
