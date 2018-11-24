@@ -36,13 +36,9 @@ import model.affectationJoin;
 public class SoutenanceController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int limitenbrDeJuree = 0;
+	private int limitenbrDeJureeCopie=0;
 
-	public SoutenanceController() {
-		
-		ConfigurationDaoImpl con = new ConfigurationDaoImpl();
-		limitenbrDeJuree = con.findNbrjuree();
-	
-		
+	public SoutenanceController() {		
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -109,6 +105,7 @@ public class SoutenanceController extends HttpServlet {
 		
 		ConfigurationDaoImpl con = new ConfigurationDaoImpl();
 		limitenbrDeJuree = con.findNbrjuree();
+		limitenbrDeJureeCopie = limitenbrDeJuree;
 		
 		// récupérer date début des soutenances saisie par l'agent.
 		String DateSoutenance = request.getParameter("DateSoutenance");
@@ -263,17 +260,19 @@ public class SoutenanceController extends HttpServlet {
 				// pour ne pas tombé dans une boucle infinie si on'a pas plus que 4 enseignants
 				// dans la liste.
 				// cas spéciale!
-				System.out.println("limitenbrDeJuree 3= = "+limitenbrDeJuree);
-
-				if (taille < limitenbrDeJuree) {
-					limitenbrDeJuree = taille;
+				if (taille < limitenbrDeJureeCopie) {
+					limitenbrDeJureeCopie = taille;	
 				}
+				System.out.println("taille = "+taille);
+				System.out.println("limitenbrDeJureeCopie = "+limitenbrDeJureeCopie);
 				System.out.println("limitenbrDeJuree = "+limitenbrDeJuree);
+				
+				//System.out.println("limitenbrDeJuree = "+limitenbrDeJuree);
 				// parcourir notre qui contien les enseignant de la meme spécialité que
 				// l'encadreur
 				for (int i = 0; i < enseignantsMemeSpecialite.size(); i++) {
 					// testé si on a deja 4 jurés
-					if (nombreDeJurerDispo == limitenbrDeJuree) {
+					if (nombreDeJurerDispo == limitenbrDeJureeCopie) {
 						// si oui on sort de la boucle for
 						fin = true;
 						break;
@@ -285,14 +284,20 @@ public class SoutenanceController extends HttpServlet {
 						// incrémenter nombreDeJurersDispo
 						nombreDeJurerDispo++;
 						// modifier nombre de participation dans les soutenances en la rajoute 1
-						Memo.put(enseignantsMemeSpecialite.get(i), nombreDeParticipation + 1);
+						int nbr = nombreDeParticipation+1;
+						Memo.put(enseignantsMemeSpecialite.get(i), nbr);
 						// pour eviter de prendre l'enseignant 2 fois pour la meme soutenance on le
 						// supprime de la liste
 						// cas spéciale
-						enseignantsMemeSpecialite.remove(i);
+						if (fin) {
+							enseignantsMemeSpecialite.remove(i);
+							//décalage de merde lol
+							i--;		
+						}
 					}
 					// fin boucle for
 				}
+				limitenbrDeJureeCopie = limitenbrDeJuree ;
 				// augmenter nombreDeParticipation par un
 				nombreDeParticipation++;
 				// testé si on'a bien 4 jurés
