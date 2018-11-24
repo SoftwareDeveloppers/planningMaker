@@ -280,8 +280,10 @@ public class SoutenanceController extends HttpServlet {
 						fin = true;
 						break;
 					}
+					
 					// testé si on
 					if (Memo.get(enseignantsMemeSpecialite.get(i)) == nombreDeParticipation) {
+						System.out.println("ici");
 						// inserer dans la table assiste l'enseignant
 						createAssiste(soutenances.get(j).getId(), enseignantsMemeSpecialite.get(i));
 						// incrémenter nombreDeJurersDispo
@@ -292,6 +294,7 @@ public class SoutenanceController extends HttpServlet {
 						// pour eviter de prendre l'enseignant 2 fois pour la meme soutenance on le
 						// supprime de la liste
 						// cas spéciale
+
 							enseignantsMemeSpecialite.remove(i);
 							//décalage de merde lol
 							i--;		
