@@ -33,7 +33,7 @@ public class AffectationSujet extends HttpServlet {
 
 	public AffectationSujet() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

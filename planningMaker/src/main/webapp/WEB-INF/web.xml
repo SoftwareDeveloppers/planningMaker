@@ -12,22 +12,10 @@
 		<servlet-class>Controller.AjouterFicheDeVoeux</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>GetSujet</servlet-name>
-		<display-name>GetSujet</display-name>
-		<description></description>
-		<servlet-class>Controller.GetSujet</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>Login</servlet-name>
 		<display-name>Login</display-name>
 		<description></description>
 		<servlet-class>Controller.Login</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>GetSujetC</servlet-name>
-		<display-name>GetSujetC</display-name>
-		<description></description>
-		<servlet-class>Controller.GetSujetC</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>ListeSujet</servlet-name>
@@ -79,12 +67,6 @@
 		<servlet-class>Controller.EnseignantControler</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>SalleController</servlet-name>
-		<display-name>SalleController</display-name>
-		<description></description>
-		<servlet-class>Controller.SalleController</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>AffectationSujet</servlet-name>
 		<display-name>AffectationSujet</display-name>
 		<description></description>
@@ -115,12 +97,7 @@
 		<description></description>
 		<servlet-class>Controller.AccueilCon</servlet-class>
 	</servlet>
-	<servlet>
-		<servlet-name>CountInd</servlet-name>
-		<display-name>CountInd</display-name>
-		<description></description>
-		<servlet-class>Controller.CountInd</servlet-class>
-	</servlet>
+
 	<servlet>
 		<servlet-name>SupprmerSoutenancesController</servlet-name>
 		<display-name>SupprmerSoutenancesController</display-name>
@@ -152,10 +129,6 @@
 	<servlet-mapping>
 		<servlet-name>AjouterFicheDeVoeux</servlet-name>
 		<url-pattern>/AjouterFicheDeVoeux</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>GetSujet</servlet-name>
-		<url-pattern>/GetSujet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
@@ -217,10 +190,6 @@
 	<servlet-mapping>
 		<servlet-name>AccueilCon</servlet-name>
 		<url-pattern>/AccueilCon</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>CountInd</servlet-name>
-		<url-pattern>/CountInd</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>SupprmerSoutenancesController</servlet-name>

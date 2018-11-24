@@ -38,7 +38,8 @@ public class SoutenanceController extends HttpServlet {
 	private int limitenbrDeJuree = 0;
 	private int limitenbrDeJureeCopie=0;
 
-	public SoutenanceController() {		
+	public SoutenanceController() {	
+		
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -51,6 +52,8 @@ public class SoutenanceController extends HttpServlet {
 			response.sendRedirect("Deconnexion");
 
 		} else {
+			ConfigurationDaoImpl con = new ConfigurationDaoImpl();
+			limitenbrDeJuree = con.findNbrjuree();
 			
 			SoutenanceDaoImpl soutimpl = new SoutenanceDaoImpl();
 			ArrayList<SoutenanceJoin> soutenanceJoins = new ArrayList<SoutenanceJoin>();
@@ -289,11 +292,10 @@ public class SoutenanceController extends HttpServlet {
 						// pour eviter de prendre l'enseignant 2 fois pour la meme soutenance on le
 						// supprime de la liste
 						// cas spéciale
-						if (fin) {
 							enseignantsMemeSpecialite.remove(i);
 							//décalage de merde lol
 							i--;		
-						}
+						
 					}
 					// fin boucle for
 				}
