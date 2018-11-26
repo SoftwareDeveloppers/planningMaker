@@ -18,7 +18,6 @@ public class Act {
 	public boolean create(String mac) {
 		Connection conn=DbConnect.connect();
 	String sql = "INSERT INTO act (mcadr) VALUES (?)";
-	System.out.println("creat actttt");
 		PreparedStatement ps;
 		try {
 			ps = (PreparedStatement) conn.prepareStatement(sql);
@@ -96,7 +95,6 @@ public class Act {
 			rs=ps.executeQuery();
 			if (rs.next()){
 				c= rs.getInt(1);
-				System.err.println("couuuntt  "+c);
 			}
 			conn.close();
 			

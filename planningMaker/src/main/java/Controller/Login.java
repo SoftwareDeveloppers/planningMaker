@@ -31,7 +31,6 @@ public class Login extends HttpServlet {
 
 	Act actvtr = new Act();
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ActModel a = actvtr.findByMcadr(mcadr);
