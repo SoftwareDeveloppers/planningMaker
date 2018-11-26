@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Fonction.Act;
+import Fonction.ActModel;
 import dao.AgentDaoImpl;
 import dao.EnseignantDaoImpl;
 import dao.EtudiantDaoImpl;
@@ -16,31 +18,44 @@ import model.AgentAdmin;
 import model.Enseignant;
 import model.Etudiant;
 
+
 /**
  * Servlet implementation class Login
  */
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private boolean active;
+	
+	SystemMacAddress sysMac = new SystemMacAddress();
+	String mcadr = sysMac.getSystemMac();
+
+	Act actvtr = new Act();
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		SystemMacAddress sysMac = new SystemMacAddress();
-		String macAdress = sysMac.getSystemMac();
-		System.out.println(macAdress);
-		
-		//Verification mac adress enlever le if des commentaire
-		/*if(macAdress.equals("40-F0-2F-73-0A-35"))
-		{*/
+		ActModel a = actvtr.findByMcadr(mcadr);
+		if(a == null)
+		{
+			active = false;
+			this.getServletContext().getRequestDispatcher("/Activation.jsp").forward(request, response);
+		}
+		else {
+			active = true;
 			this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
-		//}
-		//else {System.out.println("Mac invalid");}
-		
+		}
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		if(active == false)
+		{
+			actvtr.create(mcadr);
+			this.doGet(request, response);
+		}
+		else {
 		response.setContentType("text/plain");
 		PrintWriter out = response.getWriter();
 		
@@ -104,5 +119,5 @@ public class Login extends HttpServlet {
 		}
 
 	}
-
+	}
 }
