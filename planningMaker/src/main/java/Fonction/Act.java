@@ -74,6 +74,7 @@ public class Act {
 						enc.decrypt(rs.getString("mcadr"))
 						);
 			}
+			else if(count()>0) {return new ActModel(0,"not");}
 			else {return null;}
 			conn.close();
 			
@@ -81,6 +82,28 @@ public class Act {
 			e.printStackTrace();
 		}
 		return actm;
+	}
+	
+	public int count() {
+		Connection conn=DbConnect.connect();
+		String sql = "SELECT COUNT(*) FROM act";
+		PreparedStatement ps;
+		ResultSet rs = null ;
+		int c = 0;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			rs=ps.executeQuery();
+			if (rs.next()){
+				c= rs.getInt(1);
+				System.err.println("couuuntt  "+c);
+			}
+			conn.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return c;
 	}
 
 }

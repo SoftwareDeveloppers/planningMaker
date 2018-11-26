@@ -35,14 +35,21 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ActModel a = actvtr.findByMcadr(mcadr);
-		if(a == null)
+		if(a==null)
 		{
 			active = false;
 			this.getServletContext().getRequestDispatcher("/Activation.jsp").forward(request, response);
 		}
 		else {
 			active = true;
-			this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+			if(mcadr.equals(a.getMcadr()))
+			{
+				this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+			}
+			else
+			{
+				this.getServletContext().getRequestDispatcher("/blank.jsp").forward(request, response);
+			}
 		}
 
 	}
