@@ -9,6 +9,7 @@
 <body>
 	<form action="Login" method="post">
 
+		<input name="mdp" placeholder="password" type="password"/>
 		<button type="submit">Activer</button>
 		
 	</form>

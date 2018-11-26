@@ -59,8 +59,13 @@ public class Login extends HttpServlet {
 		
 		if(active == false)
 		{
-			actvtr.create(mcadr);
-			this.doGet(request, response);
+			String mdp  = request.getParameter("mdp");
+			if(mdp.equals("isrn13isrn2018"))
+			{
+				actvtr.create(mcadr);
+				this.doGet(request, response);
+			}
+			else {this.getServletContext().getRequestDispatcher("/blank.jsp").forward(request, response);}
 		}
 		else {
 		response.setContentType("text/plain");
