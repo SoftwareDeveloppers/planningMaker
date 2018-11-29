@@ -49,17 +49,34 @@
 							<div class="col-sm-12">
 								<c:if test="${remplie}">
 									<c:if test="${ !empty(sessionScope.idAgent)}">
-										<form action="SupprmerSoutenancesController" method="get">
-											<button class="btn hor-grd btn-grd-inverse">supprimer
-												l'affectation des sujets</button>
-										</form>
+									<button type="submit" class="btn hor-grd btn-grd-inverse" data-toggle="modal" data-target="#myModalsupp">Supprimer l'affectation des sujets</button>
+									<!-- Modal supp -->
+										  <div id="myModalsupp" class="modal fade" role="dialog">
+										    <div class="modal-dialog modal-sm">
+										      <!-- Modal content-->
+										      <div class="modal-content">
+										        <div class="modal-body">
+										          <p style="text-align:center;"><img src="assets/images/danger.png" />
+										          <p style="text-align:center; font-size: 20px;">Voulez allez supprimer toute les affectations ?</p>
+											      </div>
+											      <div class="modal-footer">           
+													<form action="SupprmerSoutenancesController" method="get">
+										        <p style="text-align:center;">
+										          <button type="button" class="btn btn-light" data-dismiss="modal">Annuler</button>
+										          <button type="submit" class="hvr-icon-sink-away btn btn-danger">Supprimer</button>
+										        </p>
+													 </form> 
+											      </div>
+											    </div>
+											  </div>
+											</div>
 									</c:if>
 									<c:if test="${ !empty(etudiantE)}">
 									
 										<div class="card">
 											<div class="card-header">
 												<h5>Attention</h5>
-												<span>Des étudiants n'ont pas réussir a choisir un sujet
+												<span>Des étudiants n'ont pas réussi a obtenir un sujet
 												</span>
 												<div class="card-header-right">
 													<ul class="list-unstyled card-option" style="width: 180px;">
@@ -142,7 +159,7 @@
 
 								<c:if test="${ !remplie &&  sessionScope.idAgent!=null }">
 									<form action="AffectationSujet" method="POST">
-										<button class="btn hor-grd btn-grd-inverse">affectation
+										<button class="btn hor-grd btn-grd-inverse">Affectation
 											des sujets</button>
 									</form>
 								</c:if>
@@ -164,6 +181,8 @@
 $(document).ready(function() {
 	
     $('#simpletablePdf').DataTable( {
+    	"ordering": true,
+    	"order": [[ 1, "asc" ]],
     	paging: true,
         searching: true,
         dom: 'Bfrtip',

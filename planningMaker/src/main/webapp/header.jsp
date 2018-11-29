@@ -159,7 +159,7 @@
 								</a></li>
 								</c:if>
 								<li><a href="./Deconnexion"> <i
-										class="ti-layout-sidebar-left"></i> Déconnecté
+										class="ti-layout-sidebar-left"></i> Déconnexion
 								</a></li>
 							</ul></li>
 					</ul>
@@ -179,20 +179,20 @@
 
 							<li class="pcoded-hasmenu"><a href="ProposerSujet"> <span
 									class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>P</b></span>
-									<span class="pcoded-mtext">Proposer Sujet</span> <span
+									<span class="pcoded-mtext">Proposer un sujet</span> <span
 									class="pcoded-mcaret"></span>
 							</a></li>
 							<li class="pcoded-hasmenu"><a
 								href="AffectationSujet?etudiantEncadrer=132za&ze"> <span
 									class="pcoded-micon"><i class="ti-layout-cta-right"></i><b>E</b></span>
-									<span class="pcoded-mtext">Etudiant Encadrer</span> <span
+									<span class="pcoded-mtext">Etudiants Encadrés</span> <span
 									class="pcoded-mcaret"></span>
 							</a></li>
 
 							<li class="pcoded-hasmenu"><a href="SoutenanceController">
 									<span class="pcoded-micon"><i
 										class="ti-layout-cta-right"></i><b>Pl</b></span> <span
-									class="pcoded-mtext">planning des soutenances</span> <span
+									class="pcoded-mtext">Planning des soutenances</span> <span
 									class="pcoded-mcaret"></span>
 							</a></li>
 						</c:if>
@@ -213,7 +213,7 @@
 								<ul class="pcoded-submenu">
 									<li class=""><a href="ListeSujet"> <span
 											class="pcoded-micon"><i class="ti-angle-right"></i></span> <span
-											class="pcoded-mtext" data-i18n="nav.dash.main">liste
+											class="pcoded-mtext" data-i18n="nav.dash.main">Liste
 												des sujets</span> <span class="pcoded-mcaret"></span>
 									</a></li>
 									<li class=""><a href="AffectationSujet"> <span
@@ -225,7 +225,7 @@
 							<li class="pcoded-hasmenu"><a href="SoutenanceController">
 									<span class="pcoded-micon"><i
 										class="ti-layout-cta-right"></i><b>Pl</b></span> <span
-									class="pcoded-mtext">planning des soutenances</span> <span
+									class="pcoded-mtext">Planning des soutenances</span> <span
 									class="pcoded-mcaret"></span>
 							</a></li>
 						</c:if>
@@ -240,21 +240,21 @@
 								<ul class="pcoded-submenu">
 									<li class=""><a href="EtudiantController?Liste=132za&ze">
 											<span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-											<span class="pcoded-mtext" data-i18n="nav.dash.main">liste
+											<span class="pcoded-mtext" data-i18n="nav.dash.main">Liste
 												des étudiants</span> <span class="pcoded-mcaret"></span>
 									</a></li>
 
 									<li class=""><a href="EnseignantControler?Liste=132za&ze">
 											<span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-											<span class="pcoded-mtext" data-i18n="nav.dash.main">liste
+											<span class="pcoded-mtext" data-i18n="nav.dash.main">Liste
 												des enseignants</span> <span class="pcoded-mcaret"></span>
 									</a></li>
 
 									<c:if test="${ sessionScope.idAgent == 1}">
 									<li class=""><a href="AgentController?Liste=132za&ze">
 											<span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-											<span class="pcoded-mtext" data-i18n="nav.dash.main">liste
-												des Agents</span> <span class="pcoded-mcaret"></span>
+											<span class="pcoded-mtext" data-i18n="nav.dash.main">Liste
+												des agents</span> <span class="pcoded-mcaret"></span>
 									</a></li>
 									</c:if>
 									
@@ -272,12 +272,12 @@
 								<ul class="pcoded-submenu">
 									<li class=""><a href="AffectationSujet"> <span
 											class="pcoded-micon"><i class="ti-layout-cta-right"></i></span>
-											<span class="pcoded-mtext" data-i18n="nav.dash.main">affectation
+											<span class="pcoded-mtext" data-i18n="nav.dash.main">Affectation
 												des sujets</span> <span class="pcoded-mcaret"></span>
 									</a></li>
 									<li class=""><a href="SoutenanceController"> <span
 											class="pcoded-micon"><i class="ti-layout-cta-right"></i></span>
-											<span class="pcoded-mtext" data-i18n="nav.dash.main">planning
+											<span class="pcoded-mtext" data-i18n="nav.dash.main">Planification
 												des soutenances</span> <span class="pcoded-mcaret"></span>
 									</a></li>
 								</ul>

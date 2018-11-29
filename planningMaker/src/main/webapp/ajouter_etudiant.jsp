@@ -136,7 +136,6 @@
 		</div>
 		</div>
 		<!-- Main-body end -->
-		<div id="styleSelector"></div>
 	</div>
 
 	<jsp:include page="footer.jsp"></jsp:include>

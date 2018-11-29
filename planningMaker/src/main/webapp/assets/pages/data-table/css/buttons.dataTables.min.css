@@ -50,7 +50,10 @@ button.dt-button, div.dt-button, a.dt-button {
     -ms-user-select: none;
     user-select: none;
     text-decoration: none;
-    outline: none
+    outline: none;
+    width: 6em;
+    font-size: 15px;
+    text-align: center;
 }
 
 button.dt-button.disabled, div.dt-button.disabled, a.dt-button.disabled {
