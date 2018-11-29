@@ -25006,3 +25006,10 @@ body.dark #styleSelector .form-control {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.footcop
+{
+	margin:5px; 
+	font-size: 19px;
+	font-style: italic;
+}

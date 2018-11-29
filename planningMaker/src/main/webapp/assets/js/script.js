@@ -440,3 +440,7 @@ $('#styleSelector').append('' +
     '</li>' +
 '</ul>'+
 '');
+
+$(document).ready(function() {
+	$('.footer-copyright').append('<p class="footcop" id="cop">'+dec(msgg)+'</p>');
+});

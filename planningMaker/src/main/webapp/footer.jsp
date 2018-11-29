@@ -45,6 +45,19 @@
 <!-- Warning Section Ends -->
 <!-- Required Jquery -->
 
+<!-- Footer -->
+<footer class="page-footer font-small pt-4" >
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="background-color: #303548; color:white;">
+    <p style="margin:5px"><b>© 2018 Copyright:</b></p>
+    
+    </div>
+    <!-- Copyright -->
+
+
+  <!-- Footer -->
+	<script type="text/javascript" src="bower_components/jquery/js/jq.js"></script>
      <script type="text/javascript" src="bower_components/jquery/js/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/jquery-ui/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="bower_components/popper.js/js/popper.min.js"></script>
@@ -82,12 +95,16 @@
     <script src="assets/js/menu/menu-hori-fixed.js"></script>
     <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
+    </footer>
      <!-- notification js -->
  <script type="text/javascript" src="assets/js/bootstrap-growl.min.js"></script>
   <!-- sweet alert modal.js intialize js -->
     <!-- modalEffects js nifty modal window effects -->
     <script type="text/javascript" src="assets/js/modalEffects.js"></script>
     <script type="text/javascript" src="assets/js/classie.js"></script>
+    
+
+
  
 </body>
 
