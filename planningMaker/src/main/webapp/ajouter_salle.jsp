@@ -23,9 +23,9 @@
                                                 <div class="page-header-breadcrumb">
                                                    <ul class="breadcrumb-title">
                                                         <li class="breadcrumb-item">
-                                                            <a href="fiche-de-voeux.html">
+                                                            
                                                                 <i class="icofont icofont-home"></i>
-                                                            </a>
+                                                           
                                                         </li>
                                                         <li class="breadcrumb-item"><a href="#!">Ajouter</a>
                                                         </li>
@@ -73,7 +73,7 @@
  						<div class="form-group row">
                              <label class="col-sm-2"></label>
                                <div class="col-sm-10">
-                                   <button type="submit" class="valide btn-primary m-b-0">Validez</button>
+                                   <button type="submit" class="valide btn-primary m-b-0">Valider</button>
                                </div>
                          </div>              
                  </form>

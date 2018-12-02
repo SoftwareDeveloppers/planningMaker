@@ -53,8 +53,8 @@
                                             <div class="page-header-title">
                                                 <i class="icofont icofont-table bg-c-blue"></i>
                                                 <div class="d-inline">
-                                                    <h4>Etudiants Encadrer</h4>
-                                                    <span>les étudiants que vous encadrer </span>
+                                                    <h4>Etudiants Encadrés</h4>
+                                                    <span>Les étudiants que vous encadrés </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -62,12 +62,12 @@
                                             <div class="page-header-breadcrumb">
                                                 <ul class="breadcrumb-title">
                                                     <li class="breadcrumb-item">
-                                                        <a href="index.html">
+                                                        
                                                             <i class="icofont icofont-home"></i>
-                                                        </a>
+                                                        
                                                     </li>
                                                     
-                                                    <li class="breadcrumb-item"><a href="#!">Etudiants Encadrer</a>
+                                                    <li class="breadcrumb-item"><a href="#!">Etudiants Encadrés</a>
                                                     </li>
                                                 </ul>
                                             </div>

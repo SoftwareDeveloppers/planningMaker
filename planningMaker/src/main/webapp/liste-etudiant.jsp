@@ -18,7 +18,7 @@
 									<i class="icofont icofont-table bg-c-blue"></i>
 									<div class="d-inline">
 										<h4>Liste des etudiants</h4>
-										<span>trouver dans cette page la liste des etudiant
+										<span>Trouver dans cette page la liste des etudiants
 											inscrit </span>
 									</div>
 								</div>
@@ -26,12 +26,12 @@
 							<div class="col-lg-4">
 								<div class="page-header-breadcrumb">
 									<ul class="breadcrumb-title">
-										<li class="breadcrumb-item"><a href="index.html"> <i
+										<li class="breadcrumb-item"> <i
 												class="icofont icofont-home"></i>
-										</a></li>
+										</li>
 										<li class="breadcrumb-item"><a href="#!">Consulter</a></li>
 										<li class="breadcrumb-item"><a href="#!">Liste
-												etudaint</a></li>
+												etudiant</a></li>
 									</ul>
 								</div>
 							</div>
@@ -57,11 +57,11 @@
 												<thead>
 													<tr>
 														<th>Nom et prenom</th>
-														<th>specialité</th>
-														<th>promotion</th>
-														<th>moyenne</th>
-														<th>date de naissance</th>
-														<th>taux</th>
+														<th>Specialité</th>
+														<th>Promotion</th>
+														<th>Moyenne</th>
+														<th>Date de naissance</th>
+														<th>Taux</th>
 														<th>Action</th>
 													</tr>
 												</thead>
@@ -98,7 +98,7 @@
 																		<div class="modal-body">
 
 																			<p>
-																			<h6>Vous etes sur de vouloir supprimer ${ etudiant.nom}
+																			<h6>Vous etes sûr de vouloir supprimer ${ etudiant.nom}
 																				${ etudiant.prenom}?</h6>
 																			</p>
 																		</div>

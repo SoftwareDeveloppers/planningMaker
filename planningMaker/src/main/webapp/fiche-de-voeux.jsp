@@ -49,9 +49,9 @@
 										<div class="col-lg-4">
 											<div class="page-header-breadcrumb">
 												<ul class="breadcrumb-title">
-													<li class="breadcrumb-item"><a href="index.html">
+													<li class="breadcrumb-item">
 															<i class="icofont icofont-home"></i>
-													</a></li>
+													</li>
 													<li class="breadcrumb-item"><a href="#!">Consulter</a>
 													</li>
 													<li class="breadcrumb-item"><a href="#!">Liste des sujets
@@ -80,11 +80,11 @@
 															class="table table-striped table-bordered nowrap">
 															<thead>
 																<tr>
-																	<th>choix</th>
-																	<th>titre</th>
-																	<th>specialité</th>
-																	<th>date de création</th>
-																	<th>Encadreur</th>
+																	<th>Choix</th>
+																	<th>Titre</th>
+																	<th>Specialité</th>
+																	<th>Date de création</th>
+																	<th>Enseignant</th>
 
 
 																</tr>
@@ -135,7 +135,7 @@
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"
 							style="float: right;">&times;</button>
-						<h3 style="color: blue">détaille</h3>
+						<h3 style="color: blue">Modifier</h3>
 
 					</div>
 					<div class="modal-body" id="info"></div>
@@ -162,7 +162,7 @@
 											<i class="icofont icofont-file-code bg-c-blue"></i>
 											<div class="d-inline">
 												<h4>Fiche De Voeux numero : ${sessionScope.idEtudiant }</h4>
-												<span>faites un choix <code>${config.nbrChoixSujet }</code> 
+												<span>Faites un choix <code>${config.nbrChoixSujet }</code> 
 												</span>
 											</div>
 										</div>
@@ -174,7 +174,7 @@
 													href="fiche-de-voeux.html"> <i
 														class="icofont icofont-home"></i>
 												</a></li>
-												<li class="breadcrumb-item"><a href="#!">choix</a></li>
+												<li class="breadcrumb-item"><a href="#!">Choix</a></li>
 												<li class="breadcrumb-item"><a href="#!">Fiche de
 														voeux</a></li>
 											</ul>
@@ -224,7 +224,7 @@
 													<div class="form-group row">
 														<label class="col-sm-2"></label>
 														<div class="col-sm-10">
-															<button type="submit" class="red btn btn-primary m-b-0">Validez</button>
+															<button type="submit" class="red btn btn-primary m-b-0">Valider</button>
 														</div>
 													</div>
 												</form>

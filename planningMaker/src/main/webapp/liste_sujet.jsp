@@ -45,7 +45,7 @@
 																<label class="col-sm-2 col-form-label">Specialitée:</label>
 																<div class="col-sm-6">
 																	<select name="specialite" class="form-control" onchange="sujets(value);">
-																	<option value="">Veuillez selectionné votre sepcialité</option>
+																	<option value="">Veuillez sélectionner votre sépcialité</option>
 																	
 																	<c:forEach var="spec" items="${specialite}">
 																		<option value="${spec}">${spec}</option>

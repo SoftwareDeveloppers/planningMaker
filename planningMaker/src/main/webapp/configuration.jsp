@@ -27,7 +27,7 @@
 								<div class="col-sm-12 user-detail">
 									<div class="row">
 										<div class="col-sm-5">
-											<h6 class="f-w-400 m-b-30">Nombre de choix de la fiche
+											<h6 class="f-w-400 m-b-30">Nombre de choix dans la fiche
 												de voeux :</h6>
 										</div>
 										<div class="col-sm-7">
@@ -37,8 +37,8 @@
 									</div>
 									<div class="row">
 										<div class="col-sm-5">
-											<h6 class="f-w-400 m-b-30">nombre de sujet propose par
-												agent :</h6>
+											<h6 class="f-w-400 m-b-30">Nombre de sujet proposé par
+												enseignant :</h6>
 										</div>
 										<div class="col-sm-7">
 											<input type="text" name="nbrSujetProposer" class="form-control" 
@@ -47,7 +47,7 @@
 									</div>
 									<div class="row">
 										<div class="col-sm-5">
-											<h6 class="f-w-400 m-b-30">nombre de jurees :</h6>
+											<h6 class="f-w-400 m-b-30">Nombre de juries :</h6>
 										</div>
 										<div class="col-sm-7">
 											<input type="text" name="nbrJuree" id="nbrJuree" class="form-control"  value="${config.nbrJuree}"></input>
@@ -55,7 +55,7 @@
 									</div>
 									<div class="row">
 										<div class="col-sm-5">
-											<h6 class="f-w-400 m-b-30">specifier le taux minimum
+											<h6 class="f-w-400 m-b-30">Specifier le taux d'avancement minimum
 												autorise:</h6>
 										</div>
 										<div class="col-sm-7">
