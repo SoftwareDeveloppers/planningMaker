@@ -81,7 +81,7 @@
 															</div>
 															
 															<div class="form-group">
-																<label for="specialite">spécialité</label>
+																<label for="specialite">Spécialité</label>
 																<div class="controls">
 																	<select name="specialite" id="specialite"
 																		class="form-control" required="required">
@@ -117,7 +117,7 @@
 											<div class="form-group row">
 												<label class="col-sm-2"></label>
 												<div class="col-sm-10">
-													<button type="submit" class="valider btn btn-primary m-b-0">Validez</button>
+													<button type="submit" class="valider btn btn-primary m-b-0">Valider</button>
 												</div>
 											</div>
 											</form>

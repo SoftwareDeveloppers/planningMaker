@@ -111,7 +111,7 @@
 			<div class="col-sm-7">
 					<div class="card">
 						<div class="card-block">
-						<h5>Remarque de l'encadreur:</h5></br>
+						<h5>Remarques de l'encadreur:</h5></br>
 						<div class="card-block accordion-block">
 										
 											

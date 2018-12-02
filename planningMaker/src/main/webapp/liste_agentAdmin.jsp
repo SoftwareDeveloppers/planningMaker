@@ -19,7 +19,7 @@
 									<i class="icofont icofont-table bg-c-blue"></i>
 									<div class="d-inline">
 										<h4>Liste des Agent Administratif</h4>
-										<span>trouver dans cette page la liste des agent admin
+										<span>Trouver dans cette page la liste des agent admin
 										</span>
 									</div>
 								</div>
@@ -27,11 +27,11 @@
 							<div class="col-lg-4">
 								<div class="page-header-breadcrumb">
 									<ul class="breadcrumb-title">
-										<li class="breadcrumb-item"><a href="index.html"> <i
+										<li class="breadcrumb-item"> <i
 												class="icofont icofont-home"></i>
-										</a></li>
+										</li>
 										<li class="breadcrumb-item"><a href="#!">Consulter</a></li>
-										<li class="breadcrumb-item"><a href="#!">Liste Agnt
+										<li class="breadcrumb-item"><a href="#!">Liste Agent
 												administratif</a></li>
 									</ul>
 								</div>

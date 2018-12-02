@@ -15,7 +15,7 @@
                                                 <div class="page-header-title">
                                                     <i class="icofont icofont-file-code bg-c-blue"></i>
                                                     <div class="d-inline">
-                                                        <h4>Ajouter enseignantt</h4>
+                                                        <h4>Ajouter enseignant</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,7 +120,7 @@
  						<div class="form-group row">
                              <label class="col-sm-2"></label>
                                <div class="col-sm-10">
-                                   <button type="submit" class="valide btn-primary m-b-0">Validez</button>
+                                   <button type="submit" class="valide btn-primary m-b-0">Valider</button>
                                </div>
                          </div>              
                  </form>
