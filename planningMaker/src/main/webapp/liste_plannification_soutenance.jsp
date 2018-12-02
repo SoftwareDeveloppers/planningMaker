@@ -139,14 +139,14 @@
 												
 											</div>
 											</c:when>
-											<c:otherwise>
+											<c:when test="${!remplie}">
 											<div class="card-header" align="center">
 												<h5>Aucune soutenance programmée pour le moment</h5>
 												<span>  mat9adch dir soutenance psk affectation makanch
 												</span>
 												
 											</div>
-											</c:otherwise>
+											</c:when>
 											</c:choose>
 											
 												
