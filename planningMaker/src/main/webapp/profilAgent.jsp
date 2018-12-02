@@ -14,16 +14,15 @@
 <br><br><br><br>
 <div align="center">
 <!-- Client Map Start -->
-				<div class="col-md-12 col-xl-8 ">
-					<div class="card">
+				<div class="col-md-12 col-xl-8 " align="center">
+					<div class="card" align="center">
 				     
-					<form>
-						<div class="card-block user-detail-card">
+					<form align="center">
+						<div class="card-block user-detail-card" align="center">
 						
-							<div class="row">
-								<div class="col-sm-4">
-									<img src="assets/images/avatar-4.jpg " alt=""
-										class="img-fluid p-b-10" />
+							<div class="row" align="center">
+								<div class="col-sm-2">
+									
 
 								</div>
 								<div class="col-sm-8 user-detail">
@@ -35,7 +34,7 @@
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="nom" id="nom" value="${sessionScope.nom}"></input>
+											<input type="text" name="nom" class="form-control" id="nom" value="${sessionScope.nom}"></input>
 										</div>
 									</div>
 									<div class="row">
@@ -45,7 +44,7 @@
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="prenom" id="prenom" value="${sessionScope.prenom}"></input>
+											<input type="text" name="prenom" id="prenom" class="form-control"  value="${sessionScope.prenom}"></input>
 										</div>
 									</div>
 									
@@ -58,7 +57,7 @@
 										</div>
 										<div class="col-sm-7">
 											<h6 class="m-b-30">
-												<input type="text" name="email" id="email" value="${sessionScope.emailAgent}"></input>
+												<input type="text" name="email" id="email" class="form-control"  value="${sessionScope.emailAgent}"></input>
 											</h6>
 										</div>
 									</div>
@@ -66,11 +65,13 @@
 								</div>
 							</div> <br><br>
 							<button type="submit" class="valider btn btn-primary m-b-0">Modifier</button>
+							</br></br>
 						</div>
 						</form>
 					</div>
 					
 				</div>
+				</br></br></br>
 
 				
 <jsp:include page="footer.jsp"></jsp:include>

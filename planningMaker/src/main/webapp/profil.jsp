@@ -21,9 +21,8 @@
 						<div class="card-block user-detail-card">
 						
 							<div class="row">
-								<div class="col-sm-4">
-									<img src="assets/images/avatar-4.jpg " alt=""
-										class="img-fluid p-b-10" />
+								<div class="col-sm-2">
+									
 
 								</div>
 								<div class="col-sm-8 user-detail">
@@ -35,7 +34,7 @@
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="nom" id="nom" value="${sessionScope.nom}"></input>
+											<input type="text" name="nom" id="nom" class="form-control"  value="${sessionScope.nom}"></input>
 										</div>
 									</div>
 									<div class="row">
@@ -45,7 +44,7 @@
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="prenom" id="prenom" value="${sessionScope.prenom}"></input>
+											<input type="text" name="prenom" class="form-control" id="prenom" value="${sessionScope.prenom}"></input>
 										</div>
 									</div>
 									
@@ -56,7 +55,7 @@
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="Date" name="dateN" id="dateN" value="${sessionScope.dateN}"></input>
+											<input type="Date" class="form-control" name="dateN" id="dateN" value="${sessionScope.dateN}"></input>
 										</div>
 									</div>
 										<div class="row">
@@ -67,7 +66,7 @@
 										</div>
 										<div class="col-sm-7">
 											<h6 class="m-b-30">
-												<input type="text" name="adresse" id="adresse" value="${sessionScope.adresse}"></input>
+												<input type="text" name="adresse" class="form-control" id="adresse" value="${sessionScope.adresse}"></input>
 											</h6>
 										</div>
 									</div>
@@ -79,7 +78,7 @@
 										</div>
 										<div class="col-sm-7">
 											<h6 class="m-b-30">
-												<input type="text" name="email" id="email" value="${sessionScope.emailEnseignant}"></input>
+												<input type="text" name="email" class="form-control"  id="email" value="${sessionScope.emailEnseignant}"></input>
 											</h6>
 										</div>
 									</div>
@@ -90,28 +89,29 @@
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="specialite" id="specialite" value="${sessionScope.specEnseignant}"></input>
+											<input type="text" name="specialite"  class="form-control" id="specialite" value="${sessionScope.specEnseignant}"></input>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-5">
 											<h6 class="f-w-400 m-b-30">
-												<i class="icofont icofont-ui-touch-phone"></i>grade :
+												<i class="icofont icofont-web"></i>grade :
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="grade" id="grade" value="${sessionScope.gradeEnseignant}"></input>
+											<input type="text" name="grade" class="form-control" id="grade" value="${sessionScope.gradeEnseignant}"></input>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-5">
 											<h6 class="f-w-400 m-b-30">
-												<i class="icofont icofont-web"></i>telephone :
+												<i class="icofont icofont-ui-touch-phone"></i>telephone :
+												
 											</h6>
 										</div>
 										<div class="col-sm-7">
 											<h6 class="m-b-30">
-												<input type="text" name="telephone" id="telephone" value="${sessionScope.telephone}"></input>
+												<input type="text"  class="form-control" name="telephone" id="telephone" value="${sessionScope.telephone}"></input>
 											</h6>
 										</div>
 									</div>
@@ -122,7 +122,7 @@
 											</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="sexe" id="sexe" value="${sessionScope.sexe}"></input>
+											<input type="text" class="form-control"  name="sexe" id="sexe" value="${sessionScope.sexe}"></input>
 										</div>
 									</div>
 								</div>
