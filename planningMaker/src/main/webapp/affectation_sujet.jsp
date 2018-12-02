@@ -158,10 +158,20 @@
 								</c:if>
 
 								<c:if test="${ !remplie &&  sessionScope.idAgent!=null }">
+								
 									<form action="AffectationSujet" method="POST">
 										<button class="btn hor-grd btn-grd-inverse">Affectation
 											des sujets</button>
 									</form>
+									</br></br>
+									
+									<div class="card-header" align="center">
+												<h5>lol</h5>
+												<span>blablablabla
+												</span>
+												
+											</div>
+											</br> </br></br>
 								</c:if>
 
 							</div>
