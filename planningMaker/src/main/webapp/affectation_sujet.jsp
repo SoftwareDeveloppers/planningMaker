@@ -171,7 +171,7 @@
 												</span>
 												
 											</div>
-											</br> </br></br>
+											<div style="height:3em;"></div>
 								</c:if>
 
 							</div>
