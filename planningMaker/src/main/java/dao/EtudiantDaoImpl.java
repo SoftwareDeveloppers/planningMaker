@@ -438,4 +438,28 @@ public class EtudiantDaoImpl implements EtudiantDao {
 
 		
 	}
+
+	public String findSpecialitebyId(int id_Etudiant) {
+		Connection conn = DbConnect.connect();
+		String sql = "SELECT specialite FROM etudiant WHERE id= ? ";
+		String specialite = null;
+		PreparedStatement ps;
+		ResultSet rs = null;
+		
+		try {
+			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setInt(1, id_Etudiant);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				specialite = rs.getString("specialite");
+
+			}
+			conn.close();
+			return specialite;
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return specialite;
+	}
 }

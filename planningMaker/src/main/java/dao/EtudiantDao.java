@@ -12,6 +12,7 @@ public interface EtudiantDao {
 	public boolean update(Etudiant e);
 	public Etudiant findById(int id);
 	public List<String> findSpecialite();
+	public String findSpecialitebyId(int id_Etudiant) ;
 	public List<Etudiant > findAll();	
 	public Etudiant check(String user, String mdp);
 	public boolean checkEmail(String email);

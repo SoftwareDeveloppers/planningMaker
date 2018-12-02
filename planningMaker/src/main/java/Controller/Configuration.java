@@ -75,7 +75,9 @@ public class Configuration extends HttpServlet {
 			if(config.getNbrJuree() != nbrJuree ) {
 				
 				SoutenanceDao soutenance = new SoutenanceDaoImpl() ; 
+				SalleDaoImpl s  = new SalleDaoImpl();
 				soutenance.delete() ;
+			  	s.libererLesSalles();
 				
 			}
 			
