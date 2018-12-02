@@ -46,6 +46,7 @@ public class SoutenanceController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		boolean remplie;
+		boolean aff = false;
 
 		if (session.getAttribute("idAgent") == null && session.getAttribute("idEtudiant")== null && session.getAttribute("idEnseignant")== null  ) {
 
@@ -60,7 +61,16 @@ public class SoutenanceController extends HttpServlet {
 			soutenanceJoins = soutimpl.jointureSoutnance();
 			
 			if( soutenanceJoins.isEmpty() ) {
+				AffectationDaoImpl f = new AffectationDaoImpl();
+				ArrayList<Affectation> ff = (ArrayList<Affectation>) f.findAll();
+				
+				
+				if (! ff.isEmpty()) {
+					aff = true;
+				
+				}
 				remplie = false;
+				request.setAttribute("aff", aff);	
 				request.setAttribute("remplie", remplie);
 				this.getServletContext().getRequestDispatcher("/liste_plannification_soutenance.jsp").forward(request, response);
 
@@ -266,9 +276,7 @@ public class SoutenanceController extends HttpServlet {
 				if (taille < limitenbrDeJureeCopie) {
 					limitenbrDeJureeCopie = taille;	
 				}
-				System.out.println("taille = "+taille);
-				System.out.println("limitenbrDeJureeCopie = "+limitenbrDeJureeCopie);
-				System.out.println("limitenbrDeJuree = "+limitenbrDeJuree);
+				
 				
 				//System.out.println("limitenbrDeJuree = "+limitenbrDeJuree);
 				// parcourir notre qui contien les enseignant de la meme spécialité que
@@ -283,7 +291,7 @@ public class SoutenanceController extends HttpServlet {
 					
 					// testé si on
 					if (Memo.get(enseignantsMemeSpecialite.get(i)) == nombreDeParticipation) {
-						System.out.println("ici");
+						
 						// inserer dans la table assiste l'enseignant
 						createAssiste(soutenances.get(j).getId(), enseignantsMemeSpecialite.get(i));
 						// incrémenter nombreDeJurersDispo

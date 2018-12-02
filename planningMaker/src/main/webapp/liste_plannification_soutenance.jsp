@@ -119,18 +119,41 @@
 														</div>
 													</div>
 												</c:if>
-												<c:if test="${!remplie && sessionScope.idAgent!=null}">
+												<c:choose>
+												<c:when test="${!remplie && sessionScope.idAgent!=null && aff}">
+												
 
 													<form action="SoutenanceController" method="POST">
 														<div class="form-group">
 															<label for="dateN">Date début soutenances</label> <input
-																type="date" name="DateSoutenance" class="form-control">
+																type="date" name="DateSoutenance" class="form-control" required>
 														</div>
 														<button class="btn hor-grd btn-grd-inverse">Planifier
 															les soutenances</button>
 													</form>
+														<div class="card-header" align="center">
+												<h5>Aucune soutenance programmée pour le moment</h5>
+												<span>
+												attenttion les étudiant li ma3andhomch taux > manarafdohomch
+												</span>
+												
+											</div>
+											</c:when>
+											<c:otherwise>
+											<div class="card-header" align="center">
+												<h5>Aucune soutenance programmée pour le moment</h5>
+												<span>  mat9adch dir soutenance psk affectation makanch
+												</span>
+												
+											</div>
+											</c:otherwise>
+											</c:choose>
+											
+												
+											
+												
+												
 													
-												</c:if>
 											</div>
 											
 										</div>
@@ -143,13 +166,7 @@
 								<!-- Basic Form Inputs card end -->
 								
 									
-									<div class="card-header" align="center">
-												<h5>lol</h5>
-												<span>blablablabla
-												</span>
-												
-											</div>
-											</br> </br></br>
+								
 							</div>
 							<div class="col-sm-1"></div>
 						</div>
