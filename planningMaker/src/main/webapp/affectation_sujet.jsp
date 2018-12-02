@@ -166,8 +166,8 @@
 									</br></br>
 									
 									<div class="card-header" align="center">
-												<h5>lol</h5>
-												<span>blablablabla
+												<h5>Aucune affectation pour le moment </h5>
+												<span>Il est conseillé de faire l'affectation après que tous les étudiants aient remplie leur fiches de voeux
 												</span>
 												
 											</div>
@@ -255,7 +255,7 @@ $(document).ready(function() {
                               text: ['Page ', { text: page.toString() },  ' sur ', { text: pages.toString() }]
                             }
                           ],
-                          margin: [20,1]
+                          margin: [28,0]
                         }
                       });
                   }//customize
