@@ -31,7 +31,7 @@
 												de voeux :</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="nbrChoixSujet" id="nbrChoixSujet"
+											<input type="text" name="nbrChoixSujet" id="nbrChoixSujet" class="form-control" 
 												value="${config.nbrChoixSujet}"></input>
 										</div>
 									</div>
@@ -41,7 +41,7 @@
 												agent :</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="nbrSujetProposer"
+											<input type="text" name="nbrSujetProposer" class="form-control" 
 												id="nbrSujetProposer" value="${config.nbrSujetProposer}"></input>
 										</div>
 									</div>
@@ -50,7 +50,7 @@
 											<h6 class="f-w-400 m-b-30">nombre de jurees :</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="nbrJuree" id="nbrJuree" value="${config.nbrJuree}"></input>
+											<input type="text" name="nbrJuree" id="nbrJuree" class="form-control"  value="${config.nbrJuree}"></input>
 										</div>
 									</div>
 									<div class="row">
@@ -59,21 +59,21 @@
 												autorise:</h6>
 										</div>
 										<div class="col-sm-7">
-											<input type="text" name="taux" id="taux" value="${config.taux}"></input>
+											<input type="text" name="taux" class="form-control"  id="taux" value="${config.taux}"></input>
 										</div>
 									</div>
-
-
-
 								</div>
 							</div>
 						</div>
-						<br> <br>
+						
 						<button type="submit" class="valider btn btn-primary m-b-0">Modifier</button>
+						
 					</form>
+					</br></br>
 				</div>
 
 			</div>
+			
 
 
 			<jsp:include page="footer.jsp"></jsp:include>
