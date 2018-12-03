@@ -22,7 +22,7 @@
 								<div class="page-header-title">
 									<i class="icofont icofont-file-code bg-c-yellow"></i>
 									<div class="d-inline">
-										<h4>Planning des soutenance</h4>
+										<h4>Planning des soutenances</h4>
 
 									</div>
 								</div>
@@ -68,10 +68,29 @@
 
 												<c:if test="${ remplie}">
 													<c:if test="${ !empty(sessionScope.idAgent)}">
-														<form action="SupprmerSoutenancesController" method="POST">
-															<button class="btn hor-grd btn-grd-inverse">supprimer
-																les soutnances</button>
-														</form>
+													
+													<button class="btn hor-grd btn-grd-inverse" data-toggle="modal" data-target="#myModalsupp">Supprimer planning des soutenances</button>
+														<!-- Modal supp -->
+															  <div id="myModalsupp" class="modal fade" role="dialog">
+															    <div class="modal-dialog modal-sm">
+															      <!-- Modal content-->
+															      <div class="modal-content">
+															        <div class="modal-body">
+															          <p style="text-align:center;"><img src="assets/images/danger.png" />
+															          <p style="text-align:center; font-size: 20px;">Voulez allez supprimer le planning des soutenances</p>
+																      </div>
+																      <div class="modal-footer">           
+																		<form action="SupprmerSoutenancesController" method="POST">
+															        <p style="text-align:center;">
+															          <button type="button" class="btn btn-light" data-dismiss="modal">Annuler</button>
+															          <button type="submit" class="hvr-icon-sink-away btn btn-danger">Supprimer</button>
+															        </p>
+																		 </form> 
+																      </div>
+																    </div>
+																  </div>
+																</div>
+																
 													</c:if>
 													<!-- Zero config.table start -->
 													<div class="card">
@@ -86,12 +105,12 @@
 																	class="table table-striped table-bordered nowrap">
 																	<thead>
 																		<tr>
-																			<th>numero de la salle</th>
-																			<th>date debut</th>
-																			<th>heure</th>
-																			<th>titre sujet</th>
-																			<th>nom prenom</th>
-																			<th>les jures</th>
+																			<th>Numero de la salle</th>
+																			<th>Date debut</th>
+																			<th>Heure</th>
+																			<th>Titre sujet</th>
+																			<th>Nom et Prenom</th>
+																			<th>Les juries</th>
 																		</tr>
 																	</thead>
 																	<tbody>
@@ -134,7 +153,7 @@
 														<div class="card-header" align="center">
 												<h5>Aucune soutenance programmée pour le moment</h5>
 												<span>
-												attenttion les étudiant li ma3andhomch taux > manarafdohomch
+												Attenttion les étudiants avec un taux d'avancement inférieur
 												</span>
 												
 											</div>
@@ -142,7 +161,7 @@
 											<c:when test="${!remplie}">
 											<div class="card-header" align="center">
 												<h5>Aucune soutenance programmée pour le moment</h5>
-												<span>  mat9adch dir soutenance psk affectation makanch
+												<span>Planification des soutenances non autorisé, aucune affectation trouvée
 												</span>
 												
 											</div>

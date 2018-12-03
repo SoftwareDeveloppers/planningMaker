@@ -49,7 +49,7 @@
 							<div class="col-sm-12">
 								<c:if test="${remplie}">
 									<c:if test="${ !empty(sessionScope.idAgent)}">
-									<button type="submit" class="btn hor-grd btn-grd-inverse" data-toggle="modal" data-target="#myModalsupp">Supprimer l'affectation des sujets</button>
+									<button class="btn hor-grd btn-grd-inverse" data-toggle="modal" data-target="#myModalsupp">Supprimer l'affectation des sujets</button>
 									<!-- Modal supp -->
 										  <div id="myModalsupp" class="modal fade" role="dialog">
 										    <div class="modal-dialog modal-sm">
