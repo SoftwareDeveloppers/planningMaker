@@ -150,9 +150,11 @@
 									${sessionScope.prenom }</span> <i class="ti-angle-down"></i>
 						</a>
 							<ul class="show-notification profile-notification">
+								<c:if test="${ empty(sessionScope.idEtudiant)}">
 
 								<li><a href="./Profil"> <i class="ti-user"></i> Profile
 								</a></li>
+								</c:if>
 								<c:if test="${ !empty(sessionScope.idAgent)}">
 								<li><a href="./Configuration"> <i
 										class="ti-settings"></i> Configuration
