@@ -153,15 +153,23 @@
 														<div class="card-header" align="center">
 												<h5>Aucune soutenance programmée pour le moment</h5>
 												<span>
-												Attenttion les étudiants avec un taux d'avancement inférieur
+												Attenttion les étudiants avec un taux d'avancement inférieur !
 												</span>
 												
 											</div>
 											</c:when>
-											<c:when test="${!remplie}">
+											<c:when test="${!remplie && sessionScope.idAgent!=null }">
 											<div class="card-header" align="center">
 												<h5>Aucune soutenance programmée pour le moment</h5>
 												<span>Planification des soutenances non autorisé, aucune affectation trouvée
+												</span>
+												
+											</div>
+											</c:when>
+											<c:when test="${sessionScope.idAgent==null }">
+											<div class="card-header" align="center">
+												<h5>Aucune soutenance programmée pour le moment</h5>
+												<span>Planification des soutenances pas encore programmée
 												</span>
 												
 											</div>
